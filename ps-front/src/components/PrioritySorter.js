@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { handleChoices } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
   const [input, setInput] = useState('');
@@ -16,9 +17,9 @@ const PrioritySorter = () => {
   };
 
   const handleChoiceSelection = (choice) => {
-    // Logic to sort priorities based on user choices
-    // For now, let's assume the sorted priorities are hardcoded
-    setSortedPriorities(['Priority 1', 'Priority 2', 'Priority 3']);
+    // Call the controller's handleChoices function to get the sorted priorities
+    const sorted = handleChoices(choices);
+    setSortedPriorities(sorted);
   };
 
   return (
