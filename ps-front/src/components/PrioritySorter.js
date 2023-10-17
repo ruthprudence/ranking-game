@@ -3,6 +3,7 @@ import { handleChoices } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
   const [input, setInput] = useState('');
+  const [priorities, setPriorities] = useState([]);
   const [choices, setChoices] = useState([]);
   const [sortedPriorities, setSortedPriorities] = useState([]);
 
@@ -10,10 +11,14 @@ const PrioritySorter = () => {
     setInput(e.target.value);
   };
 
+  const handleAddPriority = () => {
+    setPriorities([...priorities, input]);
+    setInput('');
+  };
+
   const handleSubmit = () => {
-    // Logic to present choices based on user input
-    // For now, let's assume the choices are hardcoded
-    setChoices(['Choice 1', 'Choice 2', 'Choice 3']);
+    // Present the captured priorities as choices
+    setChoices(priorities);
   };
 
   const handleChoiceSelection = (choice) => {
@@ -25,6 +30,7 @@ const PrioritySorter = () => {
   return (
     <div>
       <input type='text' value={input} onChange={handleInputChange} />
+      <button onClick={handleAddPriority}>Add Priority</button>
       <button onClick={handleSubmit}>Submit</button>
       <div>
         {choices.map((choice, index) => (
