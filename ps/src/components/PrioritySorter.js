@@ -1,47 +1,53 @@
 import React, { useState } from 'react';
-import { handleChoices } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
-  const [input, setInput] = useState('');
-  const [priorities, setPriorities] = useState([]);
+  const [rows, setRows] = useState(['rock', 'paper', 'scissors']);
   const [choices, setChoices] = useState([]);
-  const [sortedPriorities, setSortedPriorities] = useState([]);
+  const [sortedChoices, setSortedChoices] = useState([]);
+  const [tieBreakers, setTieBreakers] = useState([]);
+  const [counter, setCounter] = useState({});
 
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
+  const addRow = () => {
+    if (rows.length < 12) {
+      setRows([...rows, '']);
+    }
   };
 
-  const handleAddPriority = () => {
-    setPriorities([...priorities, input]);
-    setInput('');
+  const removeRow = (index) => {
+    if (rows.length > 3) {
+      const newRows = [...rows];
+      newRows.splice(index, 1);
+      setRows(newRows);
+    }
+  };
+
+  const updateRow = (index, value) => {
+    const newRows = [...rows];
+    newRows[index] = value;
+    setRows(newRows);
   };
 
   const handleSubmit = () => {
-    // Present the captured priorities as choices
-    setChoices(priorities);
+    setChoices(rows);
   };
 
-  const handleChoiceSelection = (choice) => {
-    // Call the controller's handleChoices function to get the sorted priorities
-    const sorted = handleChoices(choices);
-    setSortedPriorities(sorted);
-  };
+  // Additional logic for sorting, tie-breakers, and displaying results
+  // will go here.
 
   return (
     <div>
-      <input type='text' value={input} onChange={handleInputChange} />
-      <button onClick={handleAddPriority}>Add Priority</button>
+      {rows.map((row, index) => (
+        <div key={index}>
+          <input
+            type='text'
+            value={row}
+            onChange={(e) => updateRow(index, e.target.value)}
+          />
+          <button onClick={() => removeRow(index)}>Remove</button>
+        </div>
+      ))}
+      <button onClick={addRow}>Add</button>
       <button onClick={handleSubmit}>Submit</button>
-      <div>
-        {choices.map((choice, index) => (
-          <button key={index} onClick={() => handleChoiceSelection(choice)}>{choice}</button>
-        ))}
-      </div>
-      <div>
-        {sortedPriorities.map((priority, index) => (
-          <p key={index}>{priority}</p>
-        ))}
-      </div>
     </div>
   );
 };
