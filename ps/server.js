@@ -1,33 +1,69 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const port = 3000; //any avaiable port on my system
-
-// Define a route
-app.get('/', (req, res) => {
-    res.send('Hello from Express!');
-});
-
-// Import database connection
-const db = require('./database');
-
-// Middleware to parse JSON bodies
-app.use(bodyParser.json());
-
-// POST endpoint to receive data and insert into MySQL
 app.post('/submit-data', (req, res) => {
-    const data = req.body; // Data sent from the React app
-    // SQL query to insert data into the database
-    const query = 'INSERT INTO Responses SET ?';
-    db.query(query, data, (error, results, fields) => {
-        if (error) {
-            return res.status(500).send(error);
-        }
-        res.send('Data inserted successfully');
-    });
-});
+    const { username, ipAddress, subjects } = req.body;
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    // Start a transaction
+    db.beginTransaction(err => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+
+        // Insert into Sessions table
+        const sessionQuery = 'INSERT INTO Sessions (username, loggedTime, ip_address) VALUES (?, NOW(), ?)';
+        db.query(sessionQuery, [username, ipAddress], (error, sessionResults) => {
+            if (error) {
+                return db.rollback(() => {
+                    res.status(500).send(error);
+                });
+            }
+
+            const sessionId = sessionResults.insertId;
+
+            // Insert into Respondents table
+            const respondentQuery = 'INSERT INTO Respondents (session_id, username, loggedTime, ip_address) VALUES (?, ?, NOW(), ?)';
+            db.query(respondentQuery, [sessionId, username, ipAddress], (error, respondentResults) => {
+                if (error) {
+                    return db.rollback(() => {
+                        res.status(500).send(error);
+                    });
+                }
+
+                const respondentId = respondentResults.insertId;
+
+                // Handle each subject
+                subjects.forEach(subject => {
+                    // Insert into Subjects table
+                    const subjectQuery = 'INSERT INTO Subjects (subject_name, session_id) VALUES (?, ?)';
+                    db.query(subjectQuery, [subject, sessionId], (error, subjectResults) => {
+                        if (error) {
+                            return db.rollback(() => {
+                                res.status(500).send(error);
+                            });
+                        }
+
+                        const subjectId = subjectResults.insertId;
+
+                        // Insert into Responses table
+                        const responseQuery = 'INSERT INTO Responses (respondent_id, subject_id) VALUES (?, ?)';
+                        db.query(responseQuery, [respondentId, subjectId], (error) => {
+                            if (error) {
+                                return db.rollback(() => {
+                                    res.status(500).send(error);
+                                });
+                            }
+                        });
+                    });
+                });
+
+                // Commit the transaction
+                db.commit(err => {
+                    if (err) {
+                        return db.rollback(() => {
+                            res.status(500).send(err);
+                        });
+                    }
+                    res.send('Data inserted successfully');
+                });
+            });
+        });
+    });
 });
