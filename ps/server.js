@@ -1,3 +1,6 @@
+const express = require ('express');
+const app = express();
+
 app.post('/submit-data', (req, res) => {
     const { username, ipAddress, subjects } = req.body;
 
@@ -67,3 +70,9 @@ app.post('/submit-data', (req, res) => {
         });
     });
 });
+
+app.get('/', (req, res) => {
+    res.send('Hello!');
+});
+
+module.exports = app;
