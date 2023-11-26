@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('./server'); 
-const db = require('./database');
+const createDatabaseConnection = require('./database');
 
 // describe('POST /submit-data', () => {
 //   it('responds with a success message for valid data', async () => {
@@ -24,6 +24,9 @@ describe('POST /submit-data', () => {
       .send(testData);
 
     // query the database to check if the session is created
+
+    const db = await createDatabaseConnection();
+    
     const result = await db.query('SELECT * FROM Sessions WHERE username = ? AND ip_address = ?', [testData.username, testData.ipAddress]);
 
     expect(result.length).toBe(1);
