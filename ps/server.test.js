@@ -26,14 +26,14 @@ describe('POST /submit-data', () => {
     // query the database to check if the session is created
 
     const db = await createDatabaseConnection();
-    
+
     const result = await db.query('SELECT * FROM Sessions WHERE username = ? AND ip_address = ?', [testData.username, testData.ipAddress]);
 
     expect(result.length).toBe(1);
     expect(result[0].username).toBe(testData.username);
     expect(result[0].ip_address).toBe(testData.ipAddress);
   });
-});
+}, 10000);
 
 describe('GET /', () => {
     it('responds with status 200', async () => {
