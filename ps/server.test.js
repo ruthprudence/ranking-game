@@ -1,5 +1,6 @@
 const request = require('supertest');
-const app = require('./server'); // Adjust the path as needed
+const app = require('./server'); 
+const db = require('./database');
 
 // describe('POST /submit-data', () => {
 //   it('responds with a success message for valid data', async () => {
@@ -10,6 +11,26 @@ const app = require('./server'); // Adjust the path as needed
 //     expect(response.text).toContain('Data inserted successfully');
 //   });
 // });
+
+describe('POST /submit-data', () => {
+  it('creates a new session in the database', async () => {
+    const testData = {
+      username: 'testUser',
+      ipAddress: '127.0.0.1',
+      subjects: ['apples', 'pears', 'bananas'] 
+    };
+    await request(app)
+      .post('/submit-data')
+      .send(testData);
+
+    // query the database to check if the session is created
+    const result = await db.query('SELECT * FROM Sessions WHERE username = ? AND ip_address = ?', [testData.username, testData.ipAddress]);
+
+    expect(result.length).toBe(1);
+    expect(result[0].username).toBe(testData.username);
+    expect(result[0].ip_address).toBe(testData.ipAddress);
+  });
+});
 
 describe('GET /', () => {
     it('responds with status 200', async () => {
