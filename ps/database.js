@@ -1,8 +1,11 @@
+/**
+ * apps/ps/ps/database.js
+ * 
+ * **/
 require('dotenv').config();
+const mysql2 = require('mysql2/promise');
 
-import { createConnection } from 'mysql2';
-
-const connection = createConnection({
+const connection = mysql2.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -17,4 +20,4 @@ connection.connect(error => {
     console.log('Connected to the MySql server.');
 });
 
-export default connection;
+module.exports = connection;
