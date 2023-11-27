@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const createDatabaseConnection = require('./database');
+const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 
 app.use(express.json());
 
 app.post('/submit-data', async (req, res) => {
     try {
-        const db = await createDatabaseConnection();
+        const db = await createDatabaseConnection;
         const { username, ipAddress, subjects } = req.body;
 
         // Start a transaction
@@ -45,65 +45,3 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
-
-
-
- //         res.status(500).send(error);
-        //     } else {
-        //         res.send('Session created successfully');
-        //     }
-        //         });
-        //     });
-        // }
-
-//             const sessionId = sessionResults.insertId;
-
-//             // Insert into Respondents table
-//             const respondentQuery = 'INSERT INTO Respondents (session_id, username, loggedTime, ip_address) VALUES (?, ?, NOW(), ?)';
-//             db.query(respondentQuery, [sessionId, username, ipAddress], (error, respondentResults) => {
-//                 if (error) {
-//                     return db.rollback(() => {
-//                         res.status(500).send(error);
-//                     });
-//                 }
-
-//                 const respondentId = respondentResults.insertId;
-
-//                 // Handle each subject
-//                 subjects.forEach(subject => {
-//                     // Insert into Subjects table
-//                     const subjectQuery = 'INSERT INTO Subjects (subject_name, session_id) VALUES (?, ?)';
-//                     db.query(subjectQuery, [subject, sessionId], (error, subjectResults) => {
-//                         if (error) {
-//                             return db.rollback(() => {
-//                                 res.status(500).send(error);
-//                             });
-//                         }
-
-//                         const subjectId = subjectResults.insertId;
-
-//                         // Insert into Responses table
-//                         const responseQuery = 'INSERT INTO Responses (respondent_id, subject_id) VALUES (?, ?)';
-//                         db.query(responseQuery, [respondentId, subjectId], (error) => {
-//                             if (error) {
-//                                 return db.rollback(() => {
-//                                     res.status(500).send(error);
-//                                 });
-//                             }
-//                         });
-//                     });
-//                 });
-
-//                 // Commit the transaction
-//                 db.commit(err => {
-//                     if (err) {
-//                         return db.rollback(() => {
-//                             res.status(500).send(err);
-//                         });
-//                     }
-//                     res.send('Data inserted successfully');
-//                 });
-//             });
-//         });
-//     });
-// });

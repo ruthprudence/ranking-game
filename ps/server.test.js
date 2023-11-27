@@ -1,7 +1,6 @@
 const request = require('supertest');
 const app = require('./server'); 
-const createDatabaseConnection = require('./database');
-const closeDatabaseConnection = require('/database');
+const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 let db;
 
 beforeAll(async ()=> {
