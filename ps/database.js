@@ -20,19 +20,17 @@ async function createDatabaseConnection() {
         console.error('Error connecting to the database', error);
         throw error;
     }
+}
 
-
+async function closeDatabaseConnection(connection) {
+    try {
+        await connection.end();
+        console.log('Database connection closed.');
+    } catch (error) {
+        console.error('Error closing the database connection', error);
+        throw error;
     }
-
-
-
-
-// connection.connect(error => {
-//     if (error) {
-//         console.error('Error connectiong to the database:', error);
-//         return;
-//     }
-//     console.log('Connected to the MySql server.');
-// });
+}
 
 module.exports = createDatabaseConnection;
+module.exports = closeDatabaseConnection;

@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('./server'); 
 const createDatabaseConnection = require('./database');
+const closeDatabaseConnection = require('/database');
 let db;
 
 beforeAll(async ()=> {
@@ -8,14 +9,7 @@ beforeAll(async ()=> {
 });
 
 afterAll(async () => {
-  await db.end(function(err) {
-    if (err) {
-      console.error('Error closing the database connection:', err);
-    } else {
-      console.log('Database connection closed.');
-    }
-    document();
-  });
+  await closeDatabaseConnection;
 });
 
 describe('POST /submit-data', () => {
