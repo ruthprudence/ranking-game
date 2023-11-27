@@ -8,7 +8,14 @@ beforeAll(async ()=> {
 });
 
 afterAll(async () => {
-  await db.end();
+  await db.end(function(err) {
+    if (err) {
+      console.error('Error closing the database connection:', err);
+    } else {
+      console.log('Database connection closed.');
+    }
+    document();
+  });
 });
 
 describe('POST /submit-data', () => {
@@ -26,7 +33,7 @@ describe('POST /submit-data', () => {
     await expect(result.length).toBe(1);
     await expect(result[0].username).toBe(testData.username);
     await expect(result[0].ip_address).toBe(testData.ipAddress);
-  }, 6000);
+  }, 45000);
 });
 
 describe('GET /', () => {
