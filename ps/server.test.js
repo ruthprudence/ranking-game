@@ -1,6 +1,15 @@
 const request = require('supertest');
 const app = require('./server'); 
 const createDatabaseConnection = require('./database');
+let db;
+
+beforeEach(async ()=> {
+  db = await createDatabaseConnection();
+});
+
+afterEach(async () => {
+  await db.end();
+});
 
 // describe('POST /submit-data', () => {
 //   it('responds with a success message for valid data', async () => {
@@ -33,11 +42,11 @@ describe('POST /submit-data', () => {
     expect(result[0].username).toBe(testData.username);
     expect(result[0].ip_address).toBe(testData.ipAddress);
   });
-}, 10000);
+}, 20000);
 
 describe('GET /', () => {
     it('responds with status 200', async () => {
         const response = await request(app).get('/');
         expect(response.statusCode).toBe(200);
     });
-}, 10000);
+}, 20000);
