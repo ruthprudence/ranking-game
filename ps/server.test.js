@@ -33,7 +33,7 @@ describe('POST /submit-data', () => {
     await expect(result.length).toBe(1);
     await expect(result[0].username).toBe(testData.username);
     await expect(result[0].ip_address).toBe(testData.ipAddress);
-  }, 45000);
+  }, 15000);
 });
 
 describe('GET /', () => {
