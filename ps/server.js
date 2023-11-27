@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 
-app.use(express.static('public'));
+app.use(express.static('build'));
 
 const PORT = process.env.PORT || 3000;
 
@@ -46,7 +46,7 @@ app.post('/submit-data', async (req, res) => {
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-    
+
 });
 
 module.exports = app;
