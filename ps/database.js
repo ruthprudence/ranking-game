@@ -32,5 +32,7 @@ async function closeDatabaseConnection(connection) {
     }
 }
 
-module.exports = createDatabaseConnection;
-module.exports = closeDatabaseConnection;
+module.exports = {
+    createDatabaseConnection,
+    closeDatabaseConnection
+};
