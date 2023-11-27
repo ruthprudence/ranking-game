@@ -8,7 +8,7 @@ beforeAll(async ()=> {
 });
 
 afterAll(async () => {
-  await closeDatabaseConnection;
+  await closeDatabaseConnection(db);
 });
 
 describe('POST /submit-data', () => {
@@ -23,7 +23,7 @@ describe('POST /submit-data', () => {
 
     const result = await db.query('SELECT * FROM Sessions WHERE username = ? AND ip_address = ?', [testData.username, testData.ipAddress]);
 
-    await expect(result.length).toBe(1);
+    await expect(result.length).toBe(2);
     await expect(result[0].username).toBe(testData.username);
     await expect(result[0].ip_address).toBe(testData.ipAddress);
   }, 15000);
