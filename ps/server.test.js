@@ -3,18 +3,33 @@ const app = require('./server');
 const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 let db;
 
-beforeAll(async ()=> {
-  db = await createDatabaseConnection();
-});
+// beforeAll(async ()=> {
+//   db = await createDatabaseConnection();
+// });
 
-afterAll(async () => {
-  await closeDatabaseConnection(db);
-  await closeDatabaseConnection;
+// afterAll(async () => {
+//   await closeDatabaseConnection(db);
+//   await closeDatabaseConnection;
+// });
+
+beforeEach(async () => {
+  db = await createDatabaseConnection();
 });
 
 afterEach(async () => {
   await db.query('DELETE FROM Sessions WHERE username = "testUser"');
+  await closeDatabaseConnection(db);
+  await closeDatabaseConnection;
 })
+
+
+
+describe('GET /', () => {
+    it('responds with status 200', async () => {
+        const response = await request(app).get('/');
+        expect(response.statusCode).toBe(200);
+    }, 10000);
+});
 
 describe('POST /submit-data', () => {
   it('creates a new session in the database', async () => {
@@ -32,11 +47,4 @@ describe('POST /submit-data', () => {
     await expect(result[0].username).toBe(testData.username);
     await expect(result[0].ip_address).toBe(testData.ipAddress);
   }, 15000);
-});
-
-describe('GET /', () => {
-    it('responds with status 200', async () => {
-        const response = await request(app).get('/');
-        expect(response.statusCode).toBe(200);
-    }, 10000);
 });
