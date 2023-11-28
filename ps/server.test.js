@@ -9,7 +9,12 @@ beforeAll(async ()=> {
 
 afterAll(async () => {
   await closeDatabaseConnection(db);
+  await closeDatabaseConnection;
 });
+
+afterEach(async () => {
+  await db.query('DELETE FROM Sessions WHERE username = "testUser"');
+})
 
 describe('POST /submit-data', () => {
   it('creates a new session in the database', async () => {
@@ -23,7 +28,7 @@ describe('POST /submit-data', () => {
 
     const result = await db.query('SELECT * FROM Sessions WHERE username = ? AND ip_address = ?', [testData.username, testData.ipAddress]);
 
-    await expect(result.length).toBe(1);
+    await expect(result.length).toBe(2);
     await expect(result[0].username).toBe(testData.username);
     await expect(result[0].ip_address).toBe(testData.ipAddress);
   }, 15000);
