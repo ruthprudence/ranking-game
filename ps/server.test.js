@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import MyComponent from './MyComponent';
+import App from './src/App';
 
 const request = require('supertest');
 const app = require('./server'); 
@@ -24,10 +24,10 @@ afterEach(async () => {
   await closeDatabaseConnection(db);
 });
 
-test('renders learn react link', () => {
-  render(<MyComponent />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders the PrioritySorter component', () => {
+  render(<App />);
+  const prioritySorterElement = screen.getByText(/rock/i);
+  expect(priortySorterElement).toBeInTheDocument();
 });
 
 describe('GET /', () => {
