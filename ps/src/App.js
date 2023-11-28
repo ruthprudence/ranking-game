@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import PrioritySorter from './components/PrioritySorter'; // adjust the path as needed
 
