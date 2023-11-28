@@ -5,11 +5,11 @@ const {createDatabaseConnection, closeDatabaseConnection} = require('./database'
 
 app.use(express.static('build'));
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
 
 app.use(express.json());
 

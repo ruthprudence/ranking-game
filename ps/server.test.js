@@ -1,7 +1,19 @@
+import {render, screen} from '@testing-library/react';
+import MyComponent from './MyComponent';
+
 const request = require('supertest');
 const app = require('./server'); 
 const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 let db;
+let server;
+
+beforeAll(() => {
+  server = app.listen(4000);
+});
+
+afterAll(() => {
+  server.close();
+});
 
 beforeEach(async () => {
   db = await createDatabaseConnection();
@@ -10,7 +22,13 @@ beforeEach(async () => {
 afterEach(async () => {
   await db.query('DELETE FROM Sessions WHERE username = "testUser"');
   await closeDatabaseConnection(db);
-})
+});
+
+test('renders learn react link', () => {
+  render(<MyComponent />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 describe('GET /', () => {
 
