@@ -11,7 +11,7 @@ let currentPort = 4000;
 
 beforeAll(() => {
   currentPort++;
-  server = app.listen(currentPort);
+  server = app.listen(0);
 });
 
 afterAll(() => {
@@ -19,14 +19,12 @@ afterAll(() => {
 });
 
 beforeEach(async () => {
-  server = app.listen(currentPort);
   db = await createDatabaseConnection();
 });
 
 afterEach(async () => {
   await db.query('DELETE FROM Sessions WHERE username = "testUser"');
   await closeDatabaseConnection(db);
-  server.close();
 });
 
 test('renders the PrioritySorter component', () => {
