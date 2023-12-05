@@ -1,3 +1,4 @@
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 import App from './src/App';
 
@@ -6,9 +7,11 @@ const app = require('./server');
 const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
 let db;
 let server;
+let currentPort = 4000;
 
 beforeAll(() => {
-  server = app.listen(4000);
+  currentPort++;
+  server = app.listen(currentPort);
 });
 
 afterAll(() => {
@@ -16,12 +19,14 @@ afterAll(() => {
 });
 
 beforeEach(async () => {
+  server = app.listen(currentPort);
   db = await createDatabaseConnection();
 });
 
 afterEach(async () => {
   await db.query('DELETE FROM Sessions WHERE username = "testUser"');
   await closeDatabaseConnection(db);
+  server.close();
 });
 
 test('renders the PrioritySorter component', () => {
