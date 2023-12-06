@@ -14,7 +14,7 @@ describe('Frontend UI Tests', () => {
 
   test('has a green background color', async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:3000'); // Replace with your app's URL
+    await page.goto('http://localhost:4000'); // Replace with your app's URL
     const backgroundColor = await page.evaluate(() => {
       return window.getComputedStyle(document.body).backgroundColor;
     });
