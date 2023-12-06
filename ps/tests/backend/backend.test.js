@@ -1,6 +1,7 @@
 const request = require('supertest');
-const app = require('../server');
-const { createDatabaseConnection, closeDatabaseConnection } = require('../database');
+const app = require('../../server');
+const { createDatabaseConnection, closeDatabaseConnection } = require('../../database');
+
 let db;
 let server;
 
