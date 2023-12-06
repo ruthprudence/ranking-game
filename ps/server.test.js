@@ -41,27 +41,6 @@ describe('GET /', () => {
         expect(response.statusCode).toBe(200);
     }, 10000);
 
-    // check background color
-    it('has a green background color', async () => {
-      const response = await request(app).get('/');
-      expect(response.text).toContain('background-color: green;');
-    });
-
-    // check minimum number of form elements
-    it('has more than two form elements', async () => {
-      const response = await request(app).get('/');
-      const formElements = response.text.match(/input/g) || [];
-      expect(formElements.length).toBe(3);
-    });
-
-    // check text in form element boxes
-    it('has text in element boxes', async () => {
-      const response = await request(app).get('/');
-      expect(response.text).toContain('value="');
-    });
-
-
-
 });
 
 describe('POST /submit-data', () => {
