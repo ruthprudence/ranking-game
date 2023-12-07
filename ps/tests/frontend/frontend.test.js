@@ -1,7 +1,13 @@
 /**
  * @jest-environment jsdom
  */
+import { render, screen } from '@testing-library/react';
+import MyComponent from '../MyComponent';
+import { server } from './mocks/server';
 
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
@@ -14,4 +20,11 @@ test('renders the PrioritySorter component', () => {
   const inputElement = screen.getByDisplayValue(/rock/i);
 expect(inputElement).toBeInTheDocument();
 
+});
+
+test('', () => {});
+
+test('loads and displays data', async () => {
+  render(<MyComponent />);
+  expect(await screen.findByText('mocked value')).toBeInTheDocument();
 });
