@@ -1,10 +1,17 @@
+
+
+
+
+
 /**
  * @jest-environment jsdom
  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../../src/App';
-import { server } from './mocks/server';
+// /Users/ruth/Dropbox/Developer/apps/ps/ps/tests/frontend/frontend.test.js
+// /Users/ruth/Dropbox/Developer/apps/ps/ps/src/mocks/server.js
+import { server } from '../../src/mocks/server';
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
