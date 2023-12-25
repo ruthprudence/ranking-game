@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const MAXCHOICES = 13;
+
 const PrioritySorter = () => {
   const [rows, setRows] = useState(['rock', 'paper', 'scissors']);
   const [choices, setChoices] = useState([]);
@@ -8,7 +10,7 @@ const PrioritySorter = () => {
   const [counter, setCounter] = useState({});
 
   const addRow = () => {
-    if (rows.length < 43) {
+    if (rows.length < MAXCHOICES) {
       setRows([...rows, '']);
     }
   };
@@ -46,7 +48,7 @@ const PrioritySorter = () => {
           <button onClick={() => removeRow(index)}>Remove</button>
         </div>
       ))}
-      <button onClick={addRow}>Add</button>
+      {rows.length < MAXCHOICES -1  && <button onClick={addRow}>Add</button>} {/* Conditional rendering */}
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );
