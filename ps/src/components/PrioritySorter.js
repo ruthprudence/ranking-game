@@ -8,7 +8,7 @@ const PrioritySorter = () => {
   const [counter, setCounter] = useState({});
 
   const addRow = () => {
-    if (rows.length < 12) {
+    if (rows.length < 43) {
       setRows([...rows, '']);
     }
   };
