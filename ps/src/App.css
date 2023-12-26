@@ -12,12 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.html {
-  background-color: green;
+body {
+  background-color: whitesmoke;
 }
 
 .App-header {
-  background-color: green;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
