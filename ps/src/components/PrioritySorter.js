@@ -20,11 +20,9 @@ const PrioritySorter = () => {
   };
 
   const removeRow = (index) => {
-    if (rows.length > 3) {
-      const newRows = [...rows];
-      newRows.splice(index, 1);
-      setRows(newRows);
-    }
+    const newRows = [...rows];
+    newRows.splice(index, 1);
+    setRows(newRows);
   };
 
   const updateRow = (index, value) => {
@@ -40,14 +38,15 @@ const PrioritySorter = () => {
   };
 
   const handleChoiceSelection = (selectedChoice) => {
-    setScores({ ...scores, [selectedChoice]: scores[selectedChoice] + 1 });
+    const updatedScores = { ...scores, [selectedChoice]: (scores[selectedChoice] || 0) + 1 };
+    setScores(updatedScores);
 
     if (currentPair[1] < rows.length - 1) {
       setCurrentPair([currentPair[0], currentPair[1] + 1]);
     } else if (currentPair[0] < rows.length - 2) {
       setCurrentPair([currentPair[0] + 1, currentPair[0] + 2]);
     } else {
-      setSortedChoices(Object.entries(scores).sort((a, b) => b[1] - a[1]).map(entry => entry[0]));
+      setSortedChoices(Object.entries(updatedScores).sort((a, b) => b[1] - a[1]).map(entry => entry[0]));
       setIsSubmitted(false);
       setIsComparisonComplete(true);
     }
@@ -64,7 +63,12 @@ const PrioritySorter = () => {
           onRemove={removeRow}
         />
       ))}
-      {!isSubmitted && !isComparisonComplete && rows.length < MAXCHOICES - 1 && <button onClick={addRow}>Add</button>}
+      {!isSubmitted && !isComparisonComplete && rows.length < MAXCHOICES - 1 && (
+        <button onClick={addRow}>Add</button>
+      )}
+      {!isSubmitted && !isComparisonComplete && rows.length >= MAXCHOICES && (
+        <p>You have reached the maximum number of items.</p>
+      )}
       {!isSubmitted && !isComparisonComplete && <button onClick={handleSubmit}>Submit</button>}
 
       {isSubmitted && currentPair[0] < rows.length - 1 && (
