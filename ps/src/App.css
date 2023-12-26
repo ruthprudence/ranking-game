@@ -13,11 +13,10 @@
   }
 }
 body {
-  background-color: green;
+  background-color: whitesmoke;
 }
 
 .App-header {
-  background-color: green;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
