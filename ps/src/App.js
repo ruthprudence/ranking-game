@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import PrioritySorter from './components/PrioritySorter.js.BAK'; // adjust the path as needed
+import PrioritySorter from './components/PrioritySorter.js'; // adjust the path as needed
 
 
 function App() {
