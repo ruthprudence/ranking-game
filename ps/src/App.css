@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -12,8 +16,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 body {
   background-color: whitesmoke;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
 .App-header {
@@ -37,4 +43,47 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ComparisonUI Component Styles */
+.comparison-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 5px;
+  /* Additional styling */
+}
+
+/* InputRow Component Styles */
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input-row input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.input-row button {
+  padding: 5px 10px;
+}
+
+/* ResultsTable Component Styles */
+.results-table {
+  overflow-x: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  /* Styles for small screens */
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Styles for medium screens */
+}
+
+@media (min-width: 1025px) {
+  /* Styles for large screens */
 }
