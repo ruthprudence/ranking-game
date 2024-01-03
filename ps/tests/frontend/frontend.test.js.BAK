@@ -1,11 +1,6 @@
-
-
-
-
-
-/**
- * @jest-environment jsdom
- */
+// /**
+//  * @jest-environment jsdom
+//  */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../../src/App';
@@ -20,6 +15,6 @@ afterAll(() => server.close());
 test('renders the PrioritySorter component', () => {
   render(<App />);
   // Replace the following line with actual assertions relevant to your component
-  expect(screen.getByText(/some text in your component/i)).toBeInTheDocument();
+  expect(screen.getByText("Welcome to the Priority Sorter")).toBeInTheDocument();
 });
 
