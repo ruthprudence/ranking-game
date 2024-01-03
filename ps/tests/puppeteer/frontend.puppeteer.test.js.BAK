@@ -1,6 +1,6 @@
-/**
- * @jest-environment jsdom
- */
+// /**
+//  * @jest-environment jsdom
+//  */
 
 const puppeteer = require('puppeteer');
 
@@ -25,4 +25,5 @@ describe('Frontend UI Tests', () => {
     });
     expect(backgroundColor).toBe('rgb(0, 128, 0)'); // This is the RGB value for green
   });
+  
 });
