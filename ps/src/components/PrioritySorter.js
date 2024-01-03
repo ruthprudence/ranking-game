@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import InputRow from './InputRow';
-import ComparisonUI from './ComparisonUI';
-import ResultsTable from './ResultsTable';
 import TopicInput from './TopicInput';
+import SortingInput from './SortingInput';
+import SortingProcess from './SortingProcess';
 
 const MAXCHOICES = 13;
 
@@ -62,40 +61,32 @@ const PrioritySorter = () => {
 
   return (
     <div>
-
-{showInput ? (
+      {showInput ? (
         <TopicInput onSubmitTopic={handleTopicSubmission} />
       ) : (
         <>
           <h2>Topic: {topic}</h2>
-
-      {!isSubmitted && !isComparisonComplete && rows.map((row, index) => (
-        <InputRow
-          key={index}
-          index={index}
-          value={row}
-          onUpdate={updateRow}
-          onRemove={removeRow}
-        />
-      ))}
-      {!isSubmitted && !isComparisonComplete && rows.length < MAXCHOICES - 1 && (
-        <button onClick={addRow}>Add</button>
-      )}
-      {!isSubmitted && !isComparisonComplete && rows.length >= MAXCHOICES && (
-        <p>You have reached the maximum number of items.</p>
-      )}
-      {!isSubmitted && !isComparisonComplete && <button onClick={handleSubmit}>Submit</button>}
-
-      {isSubmitted && currentPair[0] < rows.length - 1 && (
-        <ComparisonUI
-          pair={currentPair}
-          onChoiceSelection={handleChoiceSelection}
-          choices={rows}
-        />
-      )}
-
-      {isComparisonComplete && <ResultsTable sortedChoices={sortedChoices} scores={scores} />}
-      </>
+          {!isSubmitted && !isComparisonComplete ? (
+            <SortingInput
+              rows={rows}
+              addRow={addRow}
+              updateRow={updateRow}
+              removeRow={removeRow}
+              handleSubmit={handleSubmit}
+              MAXCHOICES={MAXCHOICES}
+            />
+          ) : (
+            <SortingProcess
+              isSubmitted={isSubmitted}
+              currentPair={currentPair}
+              handleChoiceSelection={handleChoiceSelection}
+              choices={rows}
+              isComparisonComplete={isComparisonComplete}
+              sortedChoices={sortedChoices}
+              scores={scores}
+            />
+          )}
+        </>
       )}
     </div>
   );
