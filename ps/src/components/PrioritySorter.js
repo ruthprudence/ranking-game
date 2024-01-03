@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputRow from './InputRow';
 import ComparisonUI from './ComparisonUI';
 import ResultsTable from './ResultsTable';
+import TopicInput from './TopicInput';
 
 const MAXCHOICES = 13;
 
@@ -12,6 +13,8 @@ const PrioritySorter = () => {
   const [sortedChoices, setSortedChoices] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isComparisonComplete, setIsComparisonComplete] = useState(false);
+  const [showInput, setShowInput] = useState(true);
+  const [topic, setTopic] = useState(''); 
 
   const addRow = () => {
     if (rows.length < MAXCHOICES) {
@@ -52,8 +55,20 @@ const PrioritySorter = () => {
     }
   };
 
+  const handleTopicSubmission = (submittedTopic) => {
+    setTopic(submittedTopic);
+    setShowInput(false);
+  };
+
   return (
     <div>
+
+{showInput ? (
+        <TopicInput onSubmitTopic={handleTopicSubmission} />
+      ) : (
+        <>
+          <h2>Topic: {topic}</h2>
+
       {!isSubmitted && !isComparisonComplete && rows.map((row, index) => (
         <InputRow
           key={index}
@@ -80,6 +95,8 @@ const PrioritySorter = () => {
       )}
 
       {isComparisonComplete && <ResultsTable sortedChoices={sortedChoices} scores={scores} />}
+      </>
+      )}
     </div>
   );
 };
