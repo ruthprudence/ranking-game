@@ -1,25 +1,42 @@
 # Priority Sorter
-## Ranking Solution
-### by Ruth Prudence
 
-### Summary
-React excels at creating dynamic user interfaces, which is perfect for the [**Priority Sorter**](https://github.com/ruthprudence/priority-sorter).
+## Overview
 
-I went with React Native for Mobile since it uses React's principles and allows me to use the same codebase for both iOS and Android.
+Priority Sorter is an innovative web application designed to streamline the process of decision-making and prioritization. Developed by Ruth Prudence, this app leverages the dynamic capabilities of React and React Native to offer a user-friendly interface for both web and mobile platforms.
 
-1. React's state management handles dynamic input fields, where users can add items.
+### Key Features
 
-1. After submission pairwise item combinations are generated. 
+- **Dynamic Input Fields**: Utilize React's state management to handle user-generated input fields, allowing for the addition of various items to be prioritized.
+- **Pairwise Comparison**: Implements an intuitive pairwise comparison method, where users are presented with two items at a time to select their preference.
+- **Real-Time State Updates**: Ensures a seamless user experience by updating the state with each selection, contributing to the overall score of each item.
+- **Comprehensive Scoring System**: After evaluating all pairs, the app calculates final scores and ranks the items accordingly.
+- **Results Presentation**: Displays the results in an easy-to-understand report card format, showing the ranking of each item.
 
-1. Two items at a time are presented to the user; When a user selects an item, this choice is recorded, and the next pair is then presented.
+### Technologies Used
 
-1. The state is updated each time a selection is made.
+- **React**: For building a dynamic and responsive user interface.
+- **React Native**: To extend the application's reach to iOS and Android platforms using the same codebase.
+- **Express.js**: For handling server-side logic and API requests.
+- **MySQL**: As the database solution for storing user inputs and session data.
+- **Jest & Puppeteer**: Employed for robust front-end and back-end testing, ensuring reliability and performance.
 
-1. Each selection contributes to the score of an item. 
+### Getting Started
 
-1. After all pairs are evaluated, the final scores are calculated and the items are ranked accordingly.
+To get started with the Priority Sorter app:
 
-1. Finally, results are displayed in a report card format showing the ranking of each item.
+1. Clone the repository: `git clone https://github.com/ruthprudence/priority-sorter.git`
+2. Navigate to the project directory: `cd priority-sorter`
+3. Install dependencies: `npm install`
+4. Start the application: `npm start`
+
+### Contribution
+
+Contributions to the Priority Sorter project are welcome. Please feel free to fork the repository, make improvements, and submit pull requests.
+
+---
+
+Developed by Ruth Prudence | [GitHub](https://github.com/ruthprudence/priority-sorter)
+
 
 
 
