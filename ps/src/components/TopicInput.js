@@ -9,11 +9,11 @@ const TopicInput = ({ onSubmitTopic }) => {
 
   return (
     <div>
-  <h1>Priorities Sorter</h1>
+  <h1>Ranking Game</h1>
   <div>
     <input
       type="text"
-      placeholder="e.g. Chores"
+      placeholder="e.g. fruits"
       value={topic}
       onChange={(e) => setTopic(e.target.value)}
     />
