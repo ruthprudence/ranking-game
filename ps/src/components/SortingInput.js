@@ -11,6 +11,7 @@ const SortingInput = ({ rows, addRow, updateRow, removeRow, handleSubmit, MAXCHO
           value={row}
           onUpdate={updateRow}
           onRemove={removeRow}
+          placeholder={index === 0 ? 'apples' : index === 1 ? 'berries' : index === 2 ? 'cherries' : 'Enter your item'}
         />
       ))}
       {rows.length < MAXCHOICES && (
