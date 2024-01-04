@@ -3,10 +3,11 @@ import TopicInput from './TopicInput';
 import SortingInput from './SortingInput';
 import SortingProcess from './SortingProcess';
 
-const MAXCHOICES = 13;
+const MINCHOICES = 3;
+const MAXCHOICES = 12;
 
 const PrioritySorter = () => {
-  const [rows, setRows] = useState(['rock', 'paper', 'scissors']);
+  const [rows, setRows] = useState(['', '', '']);
   const [currentPair, setCurrentPair] = useState(null);
   const [scores, setScores] = useState({});
   const [sortedChoices, setSortedChoices] = useState([]);
@@ -65,7 +66,7 @@ const PrioritySorter = () => {
         <TopicInput onSubmitTopic={handleTopicSubmission} />
       ) : (
         <>
-          <h2>Topic: {topic}</h2>
+          <h2>Rank: {topic}!</h2>
           {!isSubmitted && !isComparisonComplete ? (
             <SortingInput
               rows={rows}
