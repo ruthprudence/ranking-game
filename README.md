@@ -24,7 +24,7 @@ Ranking Game is an innovative web application designed to streamline the process
 
 To get started with the Ranking Game app:
 
-1. Clone the repository: `git clone https://github.com/ruthprudence/priority-sorter.git`
+1. Clone the repository: `git clone https://github.com/ruthprudence/ranking-game.git`
 2. Navigate to the project directory: `cd priority-sorter`
 3. Install dependencies: `npm install`
 4. Start the application: `npm start`
