@@ -12,7 +12,7 @@ const TopicInput = ({ onSubmitTopic }) => {
       <h1>Welcome to the Priority Sorter</h1>
       <input
         type="text"
-        placeholder="Enter the topic of comparison"
+        placeholder="e.g. 'Fruits,' 'Academy Award Winners,' 'NFC West Teams'"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
       />
