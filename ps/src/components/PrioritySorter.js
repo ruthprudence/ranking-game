@@ -3,6 +3,7 @@ import TopicInput from './TopicInput';
 import SortingInput from './SortingInput';
 import SortingProcess from './SortingProcess';
 
+const MINCHOICES = 3;
 const MAXCHOICES = 12;
 
 const PrioritySorter = () => {
