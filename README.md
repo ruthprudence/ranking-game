@@ -1,8 +1,8 @@
-# Priority Sorter
+# Ranking Game
 
 ## Overview
 
-Priority Sorter is an innovative web application designed to streamline the process of decision-making and prioritization. Developed by Ruth Prudence, this app leverages the dynamic capabilities of React and React Native to offer a user-friendly interface for both web and mobile platforms.
+Ranking Game is an innovative web application designed to streamline the process of decision-making and prioritization. Developed by Ruth Prudence, this app leverages the dynamic capabilities of React and React Native to offer a user-friendly interface for both web and mobile platforms.
 
 ### Key Features
 
@@ -22,7 +22,7 @@ Priority Sorter is an innovative web application designed to streamline the proc
 
 ### Getting Started
 
-To get started with the Priority Sorter app:
+To get started with the Ranking Game app:
 
 1. Clone the repository: `git clone https://github.com/ruthprudence/priority-sorter.git`
 2. Navigate to the project directory: `cd priority-sorter`
@@ -31,7 +31,7 @@ To get started with the Priority Sorter app:
 
 ### Contribution
 
-Contributions to the Priority Sorter project are welcome. Please feel free to fork the repository, make improvements, and submit pull requests.
+Contributions to the Ranking Game project are welcome. Please feel free to fork the repository, make improvements, and submit pull requests.
 
 ---
 
