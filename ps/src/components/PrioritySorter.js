@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopicInput from './TopicInput';
 import SortingInput from './SortingInput';
-import SortingProcess from './SortingProcess';
+import SortingProcess from './SortingProcess'; // Assumes this component is designed to handle left and right choice display
 
-const MINCHOICES = 3;
 const MAXCHOICES = 12;
 
 const PrioritySorter = () => {
   const [rows, setRows] = useState(['', '', '']);
   const [currentPair, setCurrentPair] = useState(null);
+  const [pairIndex, setPairIndex] = useState(0);
+  const [pairs, setPairs] = useState([]);
   const [scores, setScores] = useState({});
   const [sortedChoices, setSortedChoices] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isComparisonComplete, setIsComparisonComplete] = useState(false);
   const [showInput, setShowInput] = useState(true);
-  const [topic, setTopic] = useState(''); 
+  const [topic, setTopic] = useState('');
+
+  // Calculate all pairs when rows are updated
+  useEffect(() => {
+    const newPairs = [];
+    for (let i = 0; i < rows.length - 1; i++) {
+      for (let j = i + 1; j < rows.length; j++) {
+        newPairs.push([i, j]);
+      }
+    }
+    setPairs(newPairs);
+  }, [rows]);
 
   const addRow = () => {
     if (rows.length < MAXCHOICES) {
@@ -36,7 +48,7 @@ const PrioritySorter = () => {
 
   const handleSubmit = () => {
     setIsSubmitted(true);
-    setCurrentPair([0, 1]);
+    setCurrentPair(pairs[0]);
     setScores(rows.reduce((acc, choice) => ({ ...acc, [choice]: 0 }), {}));
   };
 
@@ -44,22 +56,11 @@ const PrioritySorter = () => {
     const updatedScores = { ...scores, [selectedChoice]: (scores[selectedChoice] || 0) + 1 };
     setScores(updatedScores);
 
-     // Calculate the next pair
-  let [row, col] = currentPair;
-  
-  if (col < rows.length - 1) {
-    // Move to the next column in the same row
-    col += 1;
-  } else {
-    // Move to the next row and reset column to the row index
-    row += 1;
-    col = row;
-  }
-
-  // Check if the comparison is complete
-  if (row < rows.length - 1) {
-    setCurrentPair([row, col]);
-  } else {
+    const nextIndex = pairIndex + 1;
+    if (nextIndex < pairs.length) {
+      setCurrentPair(pairs[nextIndex]);
+      setPairIndex(nextIndex);
+    } else {
       setSortedChoices(Object.entries(updatedScores).sort((a, b) => b[1] - a[1]).map(entry => entry[0]));
       setIsSubmitted(false);
       setIsComparisonComplete(true);
