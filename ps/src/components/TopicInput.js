@@ -9,15 +9,20 @@ const TopicInput = ({ onSubmitTopic }) => {
 
   return (
     <div>
-      <h1>Welcome to the Priority Sorter</h1>
-      <input
-        type="text"
-        placeholder="e.g. 'Fruits,' 'Academy Award Winners,' 'NFC West Teams'"
-        value={topic}
-        onChange={(e) => setTopic(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Submit Topic</button>
-    </div>
+  <h1>Priorities Sorter</h1>
+  <div>
+    <input
+      type="text"
+      placeholder="e.g. Chores"
+      value={topic}
+      onChange={(e) => setTopic(e.target.value)}
+    />
+  </div>
+  <div>
+    <button onClick={handleSubmit}>Submit Topic</button>
+  </div>
+</div>
+
   );
 };
 
