@@ -17,6 +17,10 @@
   }
 }
 
+.theme_Box {
+  width: 70%;
+}
+
 body {
   background-color: whitesmoke;
   font-size: clamp(0.8rem, 2vw, 1.2rem);

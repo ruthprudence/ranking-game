@@ -15,6 +15,7 @@ const TopicInput = ({ onSubmitTopic }) => {
       type="text"
       placeholder="e.g. fruits"
       value={topic}
+      className="theme_Box"
       onChange={(e) => setTopic(e.target.value)}
     />
   </div>
