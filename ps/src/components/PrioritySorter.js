@@ -44,11 +44,22 @@ const PrioritySorter = () => {
     const updatedScores = { ...scores, [selectedChoice]: (scores[selectedChoice] || 0) + 1 };
     setScores(updatedScores);
 
-    if (currentPair[1] < rows.length - 1) {
-      setCurrentPair([currentPair[0], currentPair[1] + 1]);
-    } else if (currentPair[0] < rows.length - 2) {
-      setCurrentPair([currentPair[0] + 1, currentPair[0] + 2]);
-    } else {
+     // Calculate the next pair
+  let [row, col] = currentPair;
+  
+  if (col < rows.length - 1) {
+    // Move to the next column in the same row
+    col += 1;
+  } else {
+    // Move to the next row and reset column to the row index
+    row += 1;
+    col = row;
+  }
+
+  // Check if the comparison is complete
+  if (row < rows.length - 1) {
+    setCurrentPair([row, col]);
+  } else {
       setSortedChoices(Object.entries(updatedScores).sort((a, b) => b[1] - a[1]).map(entry => entry[0]));
       setIsSubmitted(false);
       setIsComparisonComplete(true);
