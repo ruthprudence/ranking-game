@@ -1,6 +1,11 @@
 export const sortPriorities = (choices) => {
-    // For demonstration, let's sort the choices alphabetically
-    return choices.sort();
-  };
-  
-  
+  return choices.sort();
+};
+
+export const calculateScores = (choices) => {
+  const scores = {};
+  choices.forEach(choice => {
+      scores[choice] = (scores[choice] || 0) + 1;
+  });
+  return scores;
+};
