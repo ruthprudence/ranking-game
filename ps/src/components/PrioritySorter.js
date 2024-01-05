@@ -2,19 +2,24 @@ import React, { useState } from 'react';
 import TopicInput from './TopicInput';
 import SortingInput from './SortingInput';
 import ChoiceManager from './ChoiceManager';
-import useRowManager from '../hooks/useRowManager'; 
+import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
-import { MAXCHOICES } from '../utils/constants'; 
+import { MAXCHOICES } from '../utils/constants';
 
 const PrioritySorter = () => {
   const { rows, addRow, removeRow, updateRow } = useRowManager(['', '', '']);
   const [showInput, setShowInput] = useState(true);
   const [topic, setTopic] = useState('');
   const { pairs } = usePairGenerator(rows);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleTopicSubmission = (submittedTopic) => {
     setTopic(submittedTopic);
     setShowInput(false);
+  };
+
+  const handleSubmit = () => {
+    setIsSubmitted(true); // Indicate that the user has submitted their choices
   };
 
   return (
@@ -24,14 +29,18 @@ const PrioritySorter = () => {
       ) : (
         <>
           <h2>Rank: {topic}!</h2>
-          <SortingInput
-            rows={rows}
-            addRow={addRow}
-            updateRow={updateRow}
-            removeRow={removeRow}
-            MAXCHOICES={MAXCHOICES}
-          />
-          <ChoiceManager pairs={pairs} rows={rows} />
+          {!isSubmitted ? (
+            <SortingInput
+              rows={rows}
+              addRow={addRow}
+              updateRow={updateRow}
+              removeRow={removeRow}
+              handleSubmit={handleSubmit}
+              MAXCHOICES={MAXCHOICES}
+            />
+          ) : (
+            <ChoiceManager pairs={pairs} rows={rows} />
+          )}
         </>
       )}
     </div>
