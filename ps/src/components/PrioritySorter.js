@@ -5,6 +5,7 @@ import ChoiceManager from './ChoiceManager';
 import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
 import { MAXCHOICES } from '../utils/constants';
+import { handleChoiceSelection } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
   const { rows, addRow, removeRow, updateRow } = useRowManager(['', '', '']);
@@ -22,7 +23,8 @@ const PrioritySorter = () => {
     // Check for blank entries
     const hasBlankEntries = rows.some(row => row.trim() === '');
     if (hasBlankEntries) {
-      alert("Please fill in all entries before submitting."); // Or handle the error differently
+      alert("Please fill in all entries before submitting.");
+      const results = handleChoiceSelection(rows);
       return;
     }
 
