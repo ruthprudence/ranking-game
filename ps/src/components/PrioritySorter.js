@@ -21,6 +21,7 @@ const PrioritySorter = () => {
 
   const handleSubmit = () => {
     // Check for blank entries
+    const results = handleChoiceSelection(rows);
     const hasBlankEntries = rows.some(row => row.trim() === '');
     if (hasBlankEntries) {
       alert("Please fill in all entries before submitting.");
