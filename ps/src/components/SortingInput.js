@@ -1,5 +1,5 @@
 import React from 'react';
-import InputRow from './InputRow';
+import InputRow from './ui/InputRow';
 
 const SortingInput = ({ rows, addRow, updateRow, removeRow, handleSubmit, MAXCHOICES }) => {
   return (
