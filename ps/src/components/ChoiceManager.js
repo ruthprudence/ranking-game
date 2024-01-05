@@ -25,6 +25,17 @@ const ChoiceManager = ({ pairs, rows }) => {
 
   const currentPair = pairs[currentPairIndex];
   if (!currentPair) return null; // In case pairs are empty
+
+  return (
+    <div>
+      <div onClick={() => handleChoiceSelection(rows[currentPair[0]])}>
+        {rows[currentPair[0]]} {/* Choice on the Left */}
+      </div>
+      <div onClick={() => handleChoiceSelection(rows[currentPair[1]])}>
+        {rows[currentPair[1]]} {/* Choice on the Right */}
+      </div>
+    </div>
+  );
 };
 
 export default ChoiceManager;
