@@ -4,6 +4,11 @@ const TopicInput = ({ onSubmitTopic }) => {
   const [topic, setTopic] = useState('');
 
   const handleSubmit = () => {
+    if (!topic.trim()) {
+      // Provide feedback to the user
+      alert("Please enter a topic before submitting.");
+      return;
+    }
     onSubmitTopic(topic);
   };
 
@@ -16,6 +21,7 @@ const TopicInput = ({ onSubmitTopic }) => {
       placeholder="e.g. fruits"
       value={topic}
       className="theme_Box"
+      required
       onChange={(e) => setTopic(e.target.value)}
     />
   </div>

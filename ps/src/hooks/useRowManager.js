@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MAXCHOICES } from '../utils/constants'; 
+import { MINCHOICES } from '../utils/constants'; 
 
 const useRowManager = (initialRows) => {
   const [rows, setRows] = useState(initialRows);
@@ -11,9 +12,13 @@ const useRowManager = (initialRows) => {
   };
 
   const removeRow = (index) => {
-    const newRows = [...rows];
-    newRows.splice(index, 1);
-    setRows(newRows);
+    if (rows.length > MINCHOICES) {
+      const newRows = [...rows];
+      newRows.splice(index, 1);
+      setRows(newRows);
+    } else {
+      alert(`Cannot remove. You must have at least ${MINCHOICES} items.`);
+    }
   };
 
   const updateRow = (index, value) => {
