@@ -19,7 +19,14 @@ const PrioritySorter = () => {
   };
 
   const handleSubmit = () => {
-    setIsSubmitted(true); // Indicate that the user has submitted their choices
+    // Check for blank entries
+    const hasBlankEntries = rows.some(row => row.trim() === '');
+    if (hasBlankEntries) {
+      alert("Please fill in all entries before submitting."); // Or handle the error differently
+      return;
+    }
+
+    setIsSubmitted(true); // Proceed only if all entries are filled
   };
 
   return (
