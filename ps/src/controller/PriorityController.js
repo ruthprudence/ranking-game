@@ -1,9 +1,9 @@
-import { sortPriorities } from '../model/PriorityModel';
+// PriorityController.js
+import { calculateScores, sortPriorities } from '../model/PriorityModel';
 
-export const handleChoices = (choices) => {
-  // Call the model's sortPriorities function to get the sorted priorities
+export const handleChoiceSelection = (choices) => {
+  // Call the Model functions and process data
+  const scores = calculateScores(choices);
   const sortedPriorities = sortPriorities(choices);
-
-  // Return the sorted priorities to be displayed in the view
-  return sortedPriorities;
+  return { scores, sortedPriorities };
 };
