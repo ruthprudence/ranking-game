@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TopicInput from './TopicInput';
+import TopicInput from './ui/TopicInput';
 import SortingInput from './SortingInput';
 import ChoiceManager from './ChoiceManager';
 import useRowManager from '../hooks/useRowManager';
