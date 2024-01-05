@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react';
+import generateComparisonPairs from '../utils/generateComparisonPairs';
 
 const usePairGenerator = (rows) => {
   const [pairs, setPairs] = useState([]);
 
   useEffect(() => {
-    const newPairs = [];
-    for (let i = 0; i < rows.length - 1; i++) {
-      for (let j = i + 1; j < rows.length; j++) {
-        newPairs.push([i, j]);
-      }
-    }
-    setPairs(newPairs);
+    setPairs(generateComparisonPairs(rows.length));
   }, [rows]);
 
   return { pairs };

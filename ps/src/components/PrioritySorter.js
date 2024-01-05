@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import TopicInput from './TopicInput';
 import SortingInput from './SortingInput';
 import ChoiceManager from './ChoiceManager';
-import useRowManager from '../hooks/useRowManager'; // Custom hook for row management
-import usePairGenerator from '../hooks/usePairGenerator'; // Custom hook for pair generation
+import useRowManager from '../hooks/useRowManager'; 
+import usePairGenerator from '../hooks/usePairGenerator';
 import { MAXCHOICES } from '../utils/constants'; 
 
 const PrioritySorter = () => {
