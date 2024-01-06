@@ -1,10 +1,11 @@
 module.exports = {
-    testEnvironment: "node",
-    transform: {
-        "^.+\\.[t|j]sx?$": "babel-jest"
-    },
+    testEnvironment: "jsdom",
     moduleNameMapper: {
-        "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-        "\\.(svg)$": "<rootDir>/__mocks__/svgMock.js",
+        "\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js"
+
     },
-};
+  };
+  
+
+
+  
