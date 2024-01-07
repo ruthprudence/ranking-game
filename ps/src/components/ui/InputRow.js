@@ -6,6 +6,8 @@ const InputRow = ({ index, value, onUpdate, onRemove, placeholder }) => (
     <input
       type='text'
       value={value}
+      name='choice'
+      id={index+1}
       onChange={(e) => onUpdate(index, e.target.value)}
       placeholder={placeholder}
     />

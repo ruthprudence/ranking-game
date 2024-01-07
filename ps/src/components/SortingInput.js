@@ -5,21 +5,21 @@ const SortingInput = ({ rows, addRow, updateRow, removeRow, handleSubmit, MAXCHO
   return (
     <>
       {rows.map((row, index) => (
-        <InputRow
-          key={index}
-          index={index}
-          value={row}
-          onUpdate={updateRow}
-          onRemove={removeRow}
-          placeholder={index === 0 ? 'apples' : index === 1 ? 'berries' : index === 2 ? 'cherries' : 'Enter your item'}
-        />
+        <div key={index}>
+          <InputRow
+            index={index}
+            value={row}
+            onUpdate={updateRow}
+            onRemove={removeRow}
+            class='choice'
+            placeholder={index === 0 ? 'apples' : index === 1 ? 'bananas' : index === 2 ? 'cranberries' : 'Enter your item'}
+          />
+          {/* Add an identifiable element
+          <span className="input-identifier">Input {index + 1}</span> */}
+        </div>
       ))}
-      {rows.length < MAXCHOICES && (
-        <button onClick={addRow}>Add</button>
-      )}
-      {rows.length >= MAXCHOICES && (
-        <p>You have reached the maximum number of items.</p>
-      )}
+      {rows.length < MAXCHOICES && <button name="addRow" onClick={addRow}>Add</button>}
+      {rows.length >= MAXCHOICES && <p>You have reached the maximum number of items.</p>}
       <button onClick={handleSubmit}>Submit</button>
     </>
   );

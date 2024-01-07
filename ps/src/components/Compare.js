@@ -7,10 +7,10 @@ const ComparisonManager = ({ currentPair, rows, onChoiceSelect }) => {
 
   return (
     <div>
-      <button onClick={() => onChoiceSelect(rows[currentPair[0]])}>
+      <button className="left" onClick={() => onChoiceSelect(rows[currentPair[0]])}>
         {rows[currentPair[0]]}
       </button>
-      <button onClick={() => onChoiceSelect(rows[currentPair[1]])}>
+      <button className="right" onClick={() => onChoiceSelect(rows[currentPair[1]])}>
         {rows[currentPair[1]]}
       </button>
     </div>

@@ -1,12 +1,15 @@
 const generateComparisonPairs = (numItems) => {
-    const pairs = [];
-    for (let row = 0; row < numItems - 1; row++) {
-      for (let col = row + 1; col < numItems; col++) {
-        pairs.push([col, row]);
+  const pairs = [];
+  for (let start = 1; start < numItems; start++) {
+      for (let i = start; i < numItems; i++) {
+          const left = i;
+          const right = i - start;
+          pairs.push([left, right]);
       }
-    }
-    return pairs;
-  };
-  
-  export default generateComparisonPairs;
+  }
+  return pairs;
+};
+
+export default generateComparisonPairs;
+
   
