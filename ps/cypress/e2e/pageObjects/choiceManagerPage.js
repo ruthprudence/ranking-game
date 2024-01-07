@@ -1,5 +1,5 @@
-// In cypress/pageObjects/ChoiceManagerPage.js
-class ChoiceManagerPage {
+// In cypress/pageObjects/ChoiceManagerPageObject.js
+class ChoiceManagerPageObject {
     visit() {
       cy.visit('http://localhost:3000/path-to-choice-manager');
     }
@@ -12,5 +12,5 @@ class ChoiceManagerPage {
     // Add more methods as needed...
   }
   
-  export default ChoiceManagerPage;
+  export default ChoiceManagerPageObject;
   
