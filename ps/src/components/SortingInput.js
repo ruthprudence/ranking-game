@@ -14,8 +14,6 @@ const SortingInput = ({ rows, addRow, updateRow, removeRow, handleSubmit, MAXCHO
             class='choice'
             placeholder={index === 0 ? 'apples' : index === 1 ? 'bananas' : index === 2 ? 'cranberries' : 'Enter your item'}
           />
-          {/* Add an identifiable element
-          <span className="input-identifier">Input {index + 1}</span> */}
         </div>
       ))}
       {rows.length < MAXCHOICES && <button name="addRow" onClick={addRow}>Add</button>}
