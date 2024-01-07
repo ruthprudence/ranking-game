@@ -17,16 +17,14 @@ describe('Initial UI Elements', () => {
   });
 });
 
-describe('Form Submission', () => {
-  beforeEach(() => {
+describe('backend', () => {
+  it('Localhost 3000 working', () => {
     cy.visit('http://localhost:3000');
-  });
+  })
+});
 
   describe('Form Submission', () => {
-    beforeEach(() => {
-      cy.visit('http://localhost:3000');
-    });
-  
+    
     it('Enters a topic, tries to submit without adding items, and checks for an alert', () => {
       cy.get('input[type="text"]').first().type('Test Topic');
       cy.get('button').contains('Submit Topic').click();
@@ -36,4 +34,3 @@ describe('Form Submission', () => {
       cy.get('button').contains('Submit').click();
     });
   });
-});
