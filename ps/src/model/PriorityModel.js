@@ -2,10 +2,11 @@ export const sortPriorities = (choices) => {
   return choices.sort();
 };
 
-export const calculateScores = (choices) => {
-  const scores = {};
+export const calculateScores = (choices, initialScores) => {
   choices.forEach(choice => {
-      scores[choice] = (scores[choice] || 0) + 1;
+    if (initialScores.hasOwnProperty(choice.trim())) {
+      initialScores[choice.trim()] += 1;
+    }
   });
-  return scores;
+  return initialScores;
 };

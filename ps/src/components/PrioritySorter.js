@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TopicInput from './ui/TopicInput';
 import SortingInput from './SortingInput';
-import {ChoiceManager} from './Compare';
+import { ChoiceManager } from './Compare';
 import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
 import { MAXCHOICES } from '../utils/constants';
@@ -20,17 +20,20 @@ const PrioritySorter = () => {
   };
 
   const handleSubmit = () => {
-    // Check for blank entries
-    const results = handleChoiceSelection(rows);
     const hasBlankEntries = rows.some(row => row.trim() === '');
     if (hasBlankEntries) {
       alert("Please fill in all entries before submitting.");
-      const results = handleChoiceSelection(rows);
       return;
     }
-
-    setIsSubmitted(true); // Proceed only if all entries are filled
-  };
+  
+    const initialScores = rows.reduce((acc, choice) => {
+      acc[choice.trim()] = 0;
+      return acc;
+    }, {});
+  
+    handleChoiceSelection(rows, initialScores);
+    setIsSubmitted(true);
+  }; // Removed extra brace here
 
   return (
     <div>
