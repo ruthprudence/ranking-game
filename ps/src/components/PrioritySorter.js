@@ -33,7 +33,8 @@ const PrioritySorter = () => {
   
     handleChoiceSelection(rows, initialScores);
     setIsSubmitted(true);
-  }; // Removed extra brace here
+  };
+
 
   return (
     <div>

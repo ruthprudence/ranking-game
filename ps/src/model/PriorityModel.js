@@ -3,10 +3,15 @@ export const sortPriorities = (choices) => {
 };
 
 export const calculateScores = (choices, initialScores) => {
+  // Clone initialScores to avoid mutating the original object
+  const scores = {...initialScores};
+
+  // Iterate over each choice and update its score
   choices.forEach(choice => {
-    if (initialScores.hasOwnProperty(choice.trim())) {
-      initialScores[choice.trim()] += 1;
+    if (scores.hasOwnProperty(choice)) {
+      scores[choice] += 1; // Increment the score for this choice
     }
   });
-  return initialScores;
+
+  return scores;
 };
