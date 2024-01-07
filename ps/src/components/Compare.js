@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import RankingsDisplay from './RankingsDisplay';
+// import RankingsDisplay from './RankingsDisplay';
+import DisplayRankings from './DisplayRanking';
 
 // Combined ComparisonManager component
 const ComparisonManager = ({ currentPair, rows, onChoiceSelect }) => {
@@ -37,7 +38,7 @@ const ChoiceManager = ({ pairs, rows }) => {
   };
 
   if (isComparisonComplete) {
-    return <RankingsDisplay scores={scores} />;
+    return <DisplayRankings scores={scores} />;
   }
 
   const currentPair = pairs[currentPairIndex];
@@ -51,5 +52,4 @@ const ChoiceManager = ({ pairs, rows }) => {
   );
 };
 
-// You might need to adjust the export depending on how you use these components
 export { ChoiceManager, ComparisonManager };
