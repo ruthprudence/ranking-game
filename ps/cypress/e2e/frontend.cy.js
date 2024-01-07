@@ -23,14 +23,15 @@ describe('backend', () => {
   })
 });
 
-  describe('Form Submission', () => {
-    
-    it('Enters a topic, tries to submit without adding items, and checks for an alert', () => {
-      cy.get('input[type="text"]').first().type('Test Topic');
-      cy.get('button').contains('Submit Topic').click();
-      cy.on('window:alert', (str) => {
-        expect(str).to.equal(`Please fill in all entries before submitting.`);
-      });
-      cy.get('button').contains('Submit').click();
+describe('Form Submission', () => {
+  it('Enters a topic, tries to submit without adding items, and checks for an alert', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('input[type="text"]').should('exist').first().type('Test Topic');
+    cy.get('button').contains('Submit Topic').click();
+    cy.on('window:alert', (str) => {
+      expect(str).to.equal(`Please fill in all entries before submitting.`);
     });
+    cy.get('button').contains('Submit').click();
   });
+});
+
