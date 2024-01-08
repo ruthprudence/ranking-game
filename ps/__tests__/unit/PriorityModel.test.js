@@ -1,4 +1,6 @@
-import { calculateScores } from '../../src/controller/PriorityController.js';
+import { calculateScores } from '../../src/model/PriorityModel.js';
+
+import '@testing-library/jest-dom';
 
 describe('PriorityModel', () => {
     it('should correctly calculate scores, including for items with no votes', () => {
