@@ -1,4 +1,3 @@
-// import RankingsDisplay from './RankingsDisplay';
 import React, { useState } from 'react';
 import DisplayRankings from './DisplayRankings';
 
@@ -48,5 +47,3 @@ const ChoiceManager = ({ pairs, rows }) => {
   );
 };
 export { ChoiceManager, ComparisonManager };
-
-

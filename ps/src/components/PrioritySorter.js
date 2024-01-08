@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TopicInput from './ui/TopicInput';
 import SortingInput from './SortingInput';
-import { ChoiceManager } from './Compare';
+import { ChoiceManager } from './ComparisonManager';
 import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
 import { MAXCHOICES } from '../utils/constants';
