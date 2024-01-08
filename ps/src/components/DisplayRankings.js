@@ -1,6 +1,7 @@
 import React from 'react';
 
 const DisplayRankings = ({ scores }) => {
+  // Sort items by score, include all items
   const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
 
   return (
