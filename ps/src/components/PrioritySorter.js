@@ -31,9 +31,13 @@ const PrioritySorter = () => {
       return acc;
     }, {});
   
-    handleChoiceSelection(rows, initialScores);
+    const votedItems = getVotedItems(); // This function needs to return an array of voted items.
+  
+    handleChoiceSelection(rows, initialScores, votedItems);
     setIsSubmitted(true);
   };
+  
+  
 
 
   return (
