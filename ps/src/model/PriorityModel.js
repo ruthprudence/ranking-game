@@ -14,3 +14,9 @@ export const calculateScores = (choices, initialScores) => {
   return scores;
 };
 
+export const initializeScores = (rows) => {
+  return rows.reduce((acc, choice) => {
+    acc[choice.trim()] = 0;
+    return acc;
+  }, {});
+};

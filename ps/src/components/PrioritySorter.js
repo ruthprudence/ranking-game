@@ -5,7 +5,7 @@ import { ChoiceManager } from './ComparisonManager';
 import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
 import { MAXCHOICES } from '../utils/constants';
-import { handleChoiceSelection } from '../controller/PriorityController';
+import { handleTopicSubmission, handleSubmit, handleChoiceSelection } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
   const { rows, addRow, removeRow, updateRow } = useRowManager(['', '', '']);
@@ -14,36 +14,20 @@ const PrioritySorter = () => {
   const { pairs } = usePairGenerator(rows);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleTopicSubmission = (submittedTopic) => {
-    setTopic(submittedTopic);
-    setShowInput(false);
+  // Updated to use controller function
+  const handleTopicSubmissionWrapper = (submittedTopic) => {
+    handleTopicSubmission(submittedTopic, setShowInput, setTopic);
   };
 
-  const handleSubmit = () => {
-    const hasBlankEntries = rows.some(row => row.trim() === '');
-    if (hasBlankEntries) {
-      alert("Please fill in all entries before submitting.");
-      return;
-    }
-  
-    const initialScores = rows.reduce((acc, choice) => {
-      acc[choice.trim()] = 0;
-      return acc;
-    }, {});
-    
-  
-    handleChoiceSelection(rows, initialScores);
-    setIsSubmitted(true);
+  // Updated to use controller function
+  const handleSubmitWrapper = () => {
+    handleSubmit(rows, setIsSubmitted, handleChoiceSelection);
   };
   
-  
-  
-
-
   return (
     <div>
       {showInput ? (
-        <TopicInput onSubmitTopic={handleTopicSubmission} />
+        <TopicInput onSubmitTopic={handleTopicSubmissionWrapper} />
       ) : (
         <>
           <h2>Rank: {topic}!</h2>
@@ -53,7 +37,7 @@ const PrioritySorter = () => {
               addRow={addRow}
               updateRow={updateRow}
               removeRow={removeRow}
-              handleSubmit={handleSubmit}
+              handleSubmit={handleSubmitWrapper}
               MAXCHOICES={MAXCHOICES}
             />
           ) : (
