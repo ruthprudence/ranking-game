@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import App from './src/App';
+import App from '../../src/App';
 
 const request = require('supertest');
-const app = require('./server'); 
-const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
+const app = require('../../server'); 
+const {createDatabaseConnection, closeDatabaseConnection} = require('../../database');
 let db;
 let server;
 let currentPort = 4000;
