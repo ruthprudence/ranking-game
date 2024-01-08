@@ -30,12 +30,12 @@ const PrioritySorter = () => {
       acc[choice.trim()] = 0;
       return acc;
     }, {});
+    
   
-    const votedItems = getVotedItems(); // This function needs to return an array of voted items.
-  
-    handleChoiceSelection(rows, initialScores, votedItems);
+    handleChoiceSelection(rows, initialScores);
     setIsSubmitted(true);
   };
+  
   
   
 
