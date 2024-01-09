@@ -1,4 +1,3 @@
-// import RankingsDisplay from './RankingsDisplay';
 import React, { useState } from 'react';
 import DisplayRankings from './DisplayRankings';
 

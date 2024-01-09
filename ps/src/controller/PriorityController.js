@@ -1,5 +1,5 @@
 import { calculateScores, sortPriorities, initializeScores} from '../model/PriorityModel';
-
+import { alert } from 'react-native'; // Add this import statement
 export const handleChoiceSelection = (choices, initialScores) => {
   console.log(`choices is ${choices} and initialScores is ${JSON.stringify(initialScores)}`);
   const scores = calculateScores(choices, initialScores);
@@ -15,7 +15,7 @@ export const handleTopicSubmission = (submittedTopic, setShowInput, setTopic) =>
 
 export const handleSubmit = (rows, setIsSubmitted, handleChoiceSelection) => {
   if (rows.some(row => row.trim() === '')) {
-    alert("Please fill in all entries before submitting.");
+    alert("Please fill in all entries before submitting."); // Use the alert function
     return;
   }
   const initialScores = initializeScores(rows);

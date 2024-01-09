@@ -42,8 +42,6 @@ export const getTieAdjustedRankings = (scores) => {
   });
 };
 
-// In PriorityModel.js
-
 export const getSortedChoices = (scores) => {
   return Object.entries(scores).sort((a, b) => b[1] - a[1]);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // Add the import statement for useState
 import SortingModel from '../model/SortingModel';
 import SortingInputView from '../view/SortingView';
 import { MAXCHOICES } from '../utils/constants';
@@ -11,8 +11,8 @@ const SortingInputController = ({ onSubmit }) => {
     setModel(new SortingModel([...model.rows], MAXCHOICES));
   };
 
-  const updateRow = (index, updatedRow) => {
-    model.updateRow(index, updatedRow);
+  const updateRow = (index, updatedValue) => {
+    model.updateRow(index, updatedValue);
     setModel(new SortingModel([...model.rows], MAXCHOICES));
   };
 
