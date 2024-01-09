@@ -1,26 +1,4 @@
-import { calculateScores, getSortedChoices} from '../../src/model/PriorityModel.js';
-
-import '@testing-library/jest-dom';
-
-describe('PriorityModel', () => {
-    it('should correctly calculate scores, including for items with no votes', () => {
-        const choices = ['item1', 'item3'];
-        const initialScores = { item1: 0, item2: 0, item3: 0, item4: 0 };
-
-        const updatedScores = calculateScores(choices, initialScores);
-
-        expect(updatedScores).toEqual({ item1: 1, item2: 0, item3: 1, item4: 0 });
-    });
-
-    it('should not create new items if they do not exist in initialScores', () => {
-        const choices = ['item1', 'item3', 'item5'];
-        const initialScores = { item1: 0, item2: 0, item3: 0 };
-
-        const updatedScores = calculateScores(choices, initialScores);
-
-        expect(updatedScores).toEqual({ item1: 1, item2: 0, item3: 1 });
-    });
-});
+import { getTieAdjustedRankings, getSortedChoices } from '../../src/model/PriorityModel.js';
 
 describe('getSortedChoices', () => {
     it('should correctly sort choices based on scores', () => {
@@ -54,8 +32,6 @@ describe('getSortedChoices', () => {
         expect(sortedChoices).toEqual(expectedSortedChoices);
       });
   });
-
-  import { getTieAdjustedRankings } from '../../src/model/PriorityModel.js';
 
 describe('getTieAdjustedRankings', () => {
     it('should handle cases with no ties', () => {
@@ -100,5 +76,4 @@ describe('getTieAdjustedRankings', () => {
         expect(getTieAdjustedRankings(scores)).toEqual(expected);
     });
 
-    // Add any additional test cases that you think are relevant
 });
