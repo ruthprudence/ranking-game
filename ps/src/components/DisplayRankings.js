@@ -1,11 +1,11 @@
 import React from 'react';
+import { getTieAdjustedRankings } from '../model/PriorityModel';
 
 const DisplayRankings = ({ scores }) => {
-  // Sort items by score, include all items
-  const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const adjustedRankings = getTieAdjustedRankings(scores);
 
   return (
-    <div>      
+    <div>
       <table>
         <thead>
           <tr>
@@ -15,13 +15,16 @@ const DisplayRankings = ({ scores }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedChoices.map(([choice, score], index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{choice}</td>
-              <td>{score}</td>
-            </tr>
-          ))}
+          {adjustedRankings.map(([choice, score, rank], index, array) => {
+            const isLastInTie = (index === array.length - 1) || (array[index + 1][1] !== score);
+            return (
+              <tr key={choice}>
+                <td>{isLastInTie ? rank : "--"}</td>
+                <td>{choice}</td>
+                <td>{score}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

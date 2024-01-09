@@ -18,8 +18,7 @@ export const handleSubmit = (rows, setIsSubmitted, handleChoiceSelection) => {
     alert("Please fill in all entries before submitting.");
     return;
   }
-
-  // const initialScores = initializeScores(rows);
-  // handleChoiceSelection(rows, initialScores);
-  // setIsSubmitted(true);
+  const initialScores = initializeScores(rows);
+  handleChoiceSelection(rows, initialScores);
+  setIsSubmitted(true);
 };
