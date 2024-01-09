@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SortingController from '../controller/SortingController'; // Corrected import statement
+import SortingController from '../controller/SortingController'; 
 
 const PrioritySorter = () => {
   const [showInput, setShowInput] = useState(true);
@@ -16,7 +16,7 @@ const PrioritySorter = () => {
     setIsSubmitted(true);
     model.handleChoiceSelection(rows);
   };
-
+  
   const viewProps = {
     showInput,
     topic,
