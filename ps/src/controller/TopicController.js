@@ -1,7 +1,7 @@
 // src/controller/TopicController.js
 
-export const handleTopicSubmission = (topic, otherFunctions) => {
-    // Handle the topic submission logic here
-    // Call other functions as necessary
-    // For example, setting the state of a parent component, etc.
+export const handleTopicSubmission = (topic, setShowInput, setTopic) => {
+    // Assuming setShowInput and setTopic are setState functions from PrioritySorter
+    setTopic(topic); // Set the submitted topic
+    setShowInput(false); // Hide the topic input view
 };
