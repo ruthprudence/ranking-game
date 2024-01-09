@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import TopicInput from './ui/TopicInput';
-import SortingInput from './SortingInput';
+import TopicInput from '../components/ui/TopicInput';
+// import SortingInput from './SortingInput';
+import SortingInputController from '../controller/SortingController';
 import { ChoiceManager } from './ComparisonManager';
 import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
@@ -32,7 +33,7 @@ const PrioritySorter = () => {
         <>
           <h2>Rank: {topic}!</h2>
           {!isSubmitted ? (
-            <SortingInput
+            <SortingInputController
               rows={rows}
               addRow={addRow}
               updateRow={updateRow}
