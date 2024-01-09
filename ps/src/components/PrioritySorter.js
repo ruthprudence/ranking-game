@@ -1,41 +1,31 @@
 import React, { useState } from 'react';
-import TopicInput from '../components/ui/TopicInput';
-import SortingInputController from '../controller/SortingController';
-import { ChoiceManager } from './ComparisonManager';
-import usePairGenerator from '../hooks/usePairGenerator';
-import { handleTopicSubmission, handleChoiceSelection } from '../controller/PriorityController';
+import SortingController from '../controller/SortingController'; // Corrected import statement
 
 const PrioritySorter = () => {
   const [showInput, setShowInput] = useState(true);
   const [topic, setTopic] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Updated to use controller function
+  const model = new SortingController();
+
   const handleTopicSubmissionWrapper = (submittedTopic) => {
-    handleTopicSubmission(submittedTopic, setShowInput, setTopic);
+    model.handleTopicSubmission(submittedTopic, setShowInput, setTopic);
   };
 
   const handleSubmitWrapper = (rows) => {
     setIsSubmitted(true);
-    handleChoiceSelection(rows);
+    model.handleChoiceSelection(rows);
   };
 
-  return (
-    <div>
-      {showInput ? (
-        <TopicInput onSubmitTopic={handleTopicSubmissionWrapper} />
-      ) : (
-        <>
-          <h2>Rank: {topic}!</h2>
-          {!isSubmitted ? (
-            <SortingInputController onSubmit={handleSubmitWrapper} />
-          ) : (
-            <ChoiceManager />
-          )}
-        </>
-      )}
-    </div>
-  );
+  const viewProps = {
+    showInput,
+    topic,
+    isSubmitted,
+    handleTopicSubmissionWrapper,
+    handleSubmitWrapper,
+  };
+
+  return <SortingController {...viewProps} />;
 };
 
 export default PrioritySorter;
