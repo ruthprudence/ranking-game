@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import TopicInput from '../components/ui/TopicInput';
-// import SortingInput from './SortingInput';
 import SortingInputController from '../controller/SortingController';
 import { ChoiceManager } from './ComparisonManager';
-import useRowManager from '../hooks/useRowManager';
 import usePairGenerator from '../hooks/usePairGenerator';
-import { MAXCHOICES } from '../utils/constants';
-import { handleTopicSubmission, handleSubmit, handleChoiceSelection } from '../controller/PriorityController';
+import { handleTopicSubmission, handleChoiceSelection } from '../controller/PriorityController';
 
 const PrioritySorter = () => {
-  const { rows, addRow, removeRow, updateRow } = useRowManager(['', '', '']);
   const [showInput, setShowInput] = useState(true);
   const [topic, setTopic] = useState('');
-  const { pairs } = usePairGenerator(rows);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Updated to use controller function
@@ -20,11 +15,11 @@ const PrioritySorter = () => {
     handleTopicSubmission(submittedTopic, setShowInput, setTopic);
   };
 
-  // Updated to use controller function
-  const handleSubmitWrapper = () => {
-    handleSubmit(rows, setIsSubmitted, handleChoiceSelection);
+  const handleSubmitWrapper = (rows) => {
+    setIsSubmitted(true);
+    handleChoiceSelection(rows);
   };
-  
+
   return (
     <div>
       {showInput ? (
@@ -33,16 +28,9 @@ const PrioritySorter = () => {
         <>
           <h2>Rank: {topic}!</h2>
           {!isSubmitted ? (
-            <SortingInputController
-              rows={rows}
-              addRow={addRow}
-              updateRow={updateRow}
-              removeRow={removeRow}
-              handleSubmit={handleSubmitWrapper}
-              MAXCHOICES={MAXCHOICES}
-            />
+            <SortingInputController onSubmit={handleSubmitWrapper} />
           ) : (
-            <ChoiceManager pairs={pairs} rows={rows} />
+            <ChoiceManager />
           )}
         </>
       )}

@@ -1,14 +1,13 @@
-// SortingController.js
 import React, { useState } from 'react';
 import SortingModel from '../model/SortingModel';
 import SortingInputView from '../view/SortingView';
+import { MAXCHOICES } from '../utils/constants';
 
-const SortingInputController = () => {
-  const MAXCHOICES = 10; // Example maximum number of choices
-  const [model, setModel] = useState(new SortingModel([], MAXCHOICES));
+const SortingInputController = ({ onSubmit }) => {
+  const [model, setModel] = useState(new SortingModel(['', '', ''], MAXCHOICES));
 
   const addRow = () => {
-    model.addRow('New Item'); // Replace with logic for new row
+    model.addRow('New Item');
     setModel(new SortingModel([...model.rows], MAXCHOICES));
   };
 
@@ -23,8 +22,7 @@ const SortingInputController = () => {
   };
 
   const handleSubmit = () => {
-    // Handle submit logic
-    console.log('Submitted Rows:', model.rows);
+    onSubmit(model.rows);
   };
 
   return (
