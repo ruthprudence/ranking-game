@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import TopicController from './controllers/TopicController';
-import SortingInputController from './controllers/SortingController';
+import InputController from './controllers/InputController';
 import DisplayController from './controllers/DisplayController';
-import { initializeScores, calculateScores, getTieAdjustedRankings } from './controllers/PriorityController';
+import { initializeScores, calculateScores, getTieAdjustedRankings } from './models/PriorityModel';
 
 const RankingGame = () => {
   const [showInput, setShowInput] = useState(true);
@@ -28,12 +27,12 @@ const RankingGame = () => {
   return (
     <div>
       {showInput ? (
-        <TopicController onSubmitTopic={handleTopicSubmissionWrapper} />
+        <InputController onSubmitTopic={handleTopicSubmissionWrapper} />
       ) : (
         <>
           <h2>Rank: {topic}!</h2>
           {!isSubmitted ? (
-            <SortingInputController rows={rows} onSubmit={handleSubmitWrapper} />
+            <InputController rows={rows} onSubmit={handleSubmitWrapper} />
           ) : (
             scores && <DisplayController rankings={getTieAdjustedRankings(scores)} />
           )}
