@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TopicController from './controllers/TopicController';
 import SortingInputController from './controllers/SortingController';
 import DisplayController from './controllers/DisplayController';
-import { initializeScores, calculateScores, getTieAdjustedRankings } from './models/PriorityModel';
+import { initializeScores, calculateScores, getTieAdjustedRankings } from './controllers/PriorityController';
 
 const RankingGame = () => {
   const [showInput, setShowInput] = useState(true);
