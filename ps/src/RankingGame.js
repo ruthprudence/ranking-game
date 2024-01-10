@@ -27,7 +27,6 @@ const RankingGame = () => {
 
   return (
     <div>
-      {console.log('Rendering')}
       {showInput ? (
         <TopicController onSubmitTopic={handleTopicSubmissionWrapper} />
       ) : (

@@ -5,9 +5,11 @@ import TopicView from '../views/TopicView';
 
 const TopicController = ({ onSubmitTopic }) => {
   const [model] = useState(new TopicModel());
+  const [topic, setTopic] = useState('');
 
   const handleTopicChange = (newTopic) => {
-    model.setTopic(newTopic);
+    setTopic(newTopic); // Update local state
+    model.setTopic(newTopic); // Update model
   };
 
   const handleSubmit = () => {
