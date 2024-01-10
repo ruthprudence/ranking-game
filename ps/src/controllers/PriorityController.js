@@ -1,5 +1,34 @@
-import { calculateScores, sortPriorities, initializeScores} from '../model/PriorityModel';
-import { alert } from 'react-native'; // Add this import statement
+import { alert } from 'react-native';
+
+export const sortPriorities = (choices) => {
+  return choices.sort();
+};
+
+export const calculateScores = (choices, initialScores) => {
+  const scores = { ...initialScores };
+
+  choices.forEach(choice => {
+    if (scores.hasOwnProperty(choice)) {
+      scores[choice] += 1;
+    }
+  });
+
+  return scores;
+};
+
+export const initializeScores = (rows) => {
+  const scores = {};
+  rows.forEach(choice => {
+    scores[choice.trim()] = 0;
+  });
+  return scores;
+};
+
+export const getSortedChoices = (scores) => {
+  return Object.entries(scores).sort((a, b) => b[1] - a[1]);
+};
+
+
 export const handleChoiceSelection = (choices, initialScores) => {
   console.log(`choices is ${choices} and initialScores is ${JSON.stringify(initialScores)}`);
   const scores = calculateScores(choices, initialScores);
