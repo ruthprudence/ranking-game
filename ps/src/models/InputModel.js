@@ -11,4 +11,4 @@ class InputModel {
       return this.value;
     }
   }
-  
+export default InputModel;
