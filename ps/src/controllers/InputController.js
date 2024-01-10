@@ -1,55 +1,85 @@
-// InputView.js
-import React from 'react';
-import InputController from '../controllers/InputController';
+// InputController.js
+import React, { useState } from 'react';
+import { InputModel, TopicModel, SortingModel } from '../models/InputModel';
+import { InputView, TopicView, SortingInputView } from '../views/InputView';
+import { MAXCHOICES } from '../utils/constants';
 
-const InputView = ({ index, value, onValueChange, onRemove, placeholder }) => (
-  <div>
-    <span>{index + 1}. </span>
-    <input
-      type='text'
-      value={value}
-      onChange={(e) => onValueChange(index, e.target.value)}
+const InputController = ({ index, initialValue, onRemove, placeholder }) => {
+  const [model] = useState(new InputModel(initialValue));
+
+  const handleUpdate = (index, newValue) => {
+    model.updateValue(newValue);
+  };
+
+  return (
+    <InputView
+      index={index}
+      value={model.getValue()}
+      onValueChange={handleUpdate}
+      onRemove={onRemove}
       placeholder={placeholder}
     />
-    <button onClick={() => onRemove(index)}>Remove</button>
-  </div>
-);
+  );
+};
 
-const TopicView = ({ topic, onTopicChange, onSubmitTopic }) => (
-  <div>
-    <h1>Ranking Game</h1>
-    <div>
-      <input
-        type="text"
-        placeholder="e.g. fruits"
-        value={topic}
-        onChange={(e) => onTopicChange(e.target.value)}
-      />
-    </div>
-    <div>
-      <button onClick={onSubmitTopic}>Submit Topic</button>
-    </div>
-  </div>
-);
+const TopicController = ({ onSubmitTopic }) => {
+  const [model] = useState(new TopicModel());
+  const [topic, setTopic] = useState('');
 
-const SortingInputView = ({ rows, onAddRow, onUpdateRow, onRemoveRow, onSubmit, maxChoices }) => (
-  <>
-    {rows.map((row, index) => (
-      <div key={index}>
-        <InputController
-          index={index}
-          value={row}
-          onUpdate={value => onUpdateRow(index, value)}
-          onRemove={() => onRemoveRow(index)}
-          className='choice'
-          placeholder={index === 0 ? 'e.g. apples' : index === 1 ? 'e.g. bananas' : index === 2 ? 'e.g. cranberries' : 'Enter your item'}
-        />
-      </div>
-    ))}
-    {rows.length < maxChoices && <button onClick={onAddRow}>Add</button>}
-    {rows.length >= maxChoices && <p>You have reached the maximum number of items.</p>}
-    <button onClick={onSubmit}>Submit</button>
-  </>
-);
+  const handleTopicChange = (newTopic) => {
+    setTopic(newTopic);
+    model.setTopic(newTopic);
+  };
 
-export { InputView, TopicView, SortingInputView };
+  const handleSubmit = () => {
+    if (!model.isTopicValid()) {
+      alert("Please enter a topic before submitting.");
+      return;
+    }
+    onSubmitTopic(model.getTopic());
+  };
+
+  return (
+    <TopicView 
+      topic={model.getTopic()} 
+      onTopicChange={handleTopicChange} 
+      onSubmitTopic={handleSubmit} 
+    />
+  );
+};
+
+const SortingInputController = ({ onSubmit }) => {
+  const [model, setModel] = useState(new SortingModel(['', '', ''], MAXCHOICES));
+
+  const addRow = () => {
+    model.addRow('New Item');
+    setModel(new SortingModel([...model.rows], MAXCHOICES));
+  };
+
+  const updateRow = (index, updatedValue) => {
+    model.updateRow(index, updatedValue);
+    setModel(new SortingModel([...model.rows], MAXCHOICES));
+  };
+
+  const removeRow = index => {
+    model.removeRow(index);
+    setModel(new SortingModel([...model.rows], MAXCHOICES));
+  };
+
+  const handleSubmit = () => {
+    onSubmit(model.rows);
+  };
+
+  return (
+    <SortingInputView
+      rows={model.rows}
+      onAddRow={addRow}
+      onUpdateRow={updateRow}
+      onRemoveRow={removeRow}
+      onSubmit={handleSubmit}
+      maxChoices={MAXCHOICES}
+    />
+  );
+};
+
+export { InputController, TopicController, SortingInputController };
