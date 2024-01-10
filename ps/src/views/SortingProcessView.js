@@ -1,8 +1,9 @@
+// SortingProcessView.js
 import React from 'react';
 import ComparisonUI from './ComparisonUI';
 import ResultsTable from './ResultsTable';
 
-const SortingProcess = ({ isSubmitted, currentPair, handleChoiceSelection, choices, isComparisonComplete, sortedChoices, scores }) => {
+const SortingProcessView = ({ isSubmitted, currentPair, handleChoiceSelection, choices, isComparisonComplete, sortedChoices, scores }) => {
   return (
     <>
       {isSubmitted && currentPair[0] < choices.length - 1 && (
@@ -17,4 +18,4 @@ const SortingProcess = ({ isSubmitted, currentPair, handleChoiceSelection, choic
   );
 };
 
-export default SortingProcess;
+export default SortingProcessView;

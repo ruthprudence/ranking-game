@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import TopicController from '../controller/TopicController';
-import SortingInputController from '../controller/SortingController';
-import DisplayRankings from '../components/DisplayRankings';
-import { initializeScores, calculateScores, getTieAdjustedRankings } from '../model/PriorityModel';
+import TopicController from './controllers/TopicController';
+import SortingInputController from './controllers/SortingController';
+import DisplayController from './controllers/DisplayController';
+import { initializeScores, calculateScores, getTieAdjustedRankings } from './models/PriorityModel';
 
-const PrioritySorter = () => {
+const RankingGame = () => {
   const [showInput, setShowInput] = useState(true);
   const [topic, setTopic] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,7 +36,7 @@ const PrioritySorter = () => {
           {!isSubmitted ? (
             <SortingInputController rows={rows} onSubmit={handleSubmitWrapper} />
           ) : (
-            scores && <DisplayRankings rankings={getTieAdjustedRankings(scores)} />
+            scores && <DisplayController rankings={getTieAdjustedRankings(scores)} />
           )}
         </>
       )}
@@ -44,4 +44,4 @@ const PrioritySorter = () => {
   );
 };
 
-export default PrioritySorter;
+export default RankingGame;

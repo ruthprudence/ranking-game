@@ -1,8 +1,9 @@
+// DisplayView.js
 import React from 'react';
-import { getTieAdjustedRankings } from '../model/PriorityModel';
+import DisplayController from './DisplayController';
 
-const DisplayRankings = ({ scores }) => {
-  const adjustedRankings = getTieAdjustedRankings(scores);
+const DisplayView = ({ scores }) => {
+  const adjustedRankings = DisplayController.getRankings(scores);
 
   return (
     <div>
@@ -31,4 +32,4 @@ const DisplayRankings = ({ scores }) => {
   );
 };
 
-export default DisplayRankings;
+export default DisplayView;

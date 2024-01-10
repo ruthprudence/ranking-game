@@ -1,7 +1,7 @@
 // TopicController.js
 import React, { useState } from 'react';
-import TopicModel from '../model/TopicModel';
-import TopicView from '../view/TopicView';
+import TopicModel from '../models/TopicModel';
+import TopicView from '../views/TopicView';
 
 const TopicController = ({ onSubmitTopic }) => {
   const [model] = useState(new TopicModel());

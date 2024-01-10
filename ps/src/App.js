@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import PrioritySorter from './components/PrioritySorter.js'; 
+import RankingGame from './RankingGame.js'; 
 
 function App() {
   return (
     <div className="App">
-      <PrioritySorter />
+      <RankingGame />
     </div>
   );
 }
