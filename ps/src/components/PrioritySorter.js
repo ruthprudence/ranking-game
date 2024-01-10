@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import TopicInput from '../components/ui/TopicInput';
 import TopicController from '../controller/TopicController';
 import SortingInputController from '../controller/SortingController';
 import DisplayRankings from '../components/DisplayRankings';
