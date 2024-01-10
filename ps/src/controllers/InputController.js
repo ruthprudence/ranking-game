@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import InputModel from '../model/InputModel';
-import InputView from '../view/InputView';
+import InputModel from '../models/InputModel';
+import InputView from '../views/InputView';
 
 const InputController = ({ index, initialValue, onRemove, placeholder }) => {
   const [model] = useState(new InputModel(initialValue));

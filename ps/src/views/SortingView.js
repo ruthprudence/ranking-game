@@ -1,6 +1,6 @@
 // SortingView.js
 import React from 'react';
-import InputController from '../controller/InputController';
+import InputController from '../controllers/InputController';
 
 const SortingInputView = ({ rows, onAddRow, onUpdateRow, onRemoveRow, onSubmit, maxChoices }) => (
   <>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Add the import statement for useState
-import SortingModel from '../model/SortingModel';
-import SortingInputView from '../view/SortingView';
+import SortingModel from '../models/SortingModel';
+import SortingInputView from '../views/SortingView';
 import { MAXCHOICES } from '../utils/constants';
 
 const SortingInputController = ({ onSubmit }) => {
