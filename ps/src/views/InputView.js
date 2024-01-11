@@ -1,6 +1,6 @@
 // InputView.js
 import React from 'react';
-import InputController from '../controllers/InputController';
+import {InputController} from '../controllers/InputController';
 
 const InputView = ({ index, value, onValueChange, onRemove, placeholder }) => (
   <div>
