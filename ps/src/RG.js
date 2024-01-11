@@ -1,45 +1,22 @@
-import React, { useState } from 'react';
-import { InputController } from './controllers/InputController';import DisplayController from './controllers/DisplayController';
-import {sortPriorities, calculateScores, initializeScores, getSortedChoices, handleChoiceSelection, handleTopicSubmission, handleSubmit, getTieAdjustedRankings, getAdjustedRankingsData} from './models/PriorityModel';
+import React from 'react';
+import useBasePage from './hooks/useBasePage';
+// Import other necessary components
 
+const RG = () => {
+  const { currentPage, goToInputPage, topic, setTopic, items, setItems } = useBasePage('SPLASH_PAGE');
 
-const RankingGame = () => {
-  const [showInput, setShowInput] = useState(true);
-  const [topic, setTopic] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [rows, setRows] = useState(['', '', '']);
-  const [scores, setScores] = useState({}); 
-
-  console.log('State:', { showInput, topic, isSubmitted, rows, scores });
-
-  const handleTopicSubmissionWrapper = (submittedTopic) => {
-    setTopic(submittedTopic);
-    setShowInput(false);
-    setScores(initializeScores(rows)); 
-  };
-
-  const handleSubmitWrapper = (submittedRows) => {
-    setIsSubmitted(true);
-    const newScores = calculateScores(submittedRows, scores);
-    setScores(newScores); 
-  };
-
-  return (
-    <div>
-      {showInput ? (
-        <InputController onSubmitTopic={handleTopicSubmissionWrapper} />
-      ) : (
-        <>
-          <h2>Rank: {topic}!</h2>
-          {!isSubmitted ? (
-            <InputController rows={rows} onSubmit={handleSubmitWrapper} />
-          ) : (
-            scores && <DisplayController rankings={getTieAdjustedRankings(scores)} />
-          )}
-        </>
-      )}
-    </div>
-  );
+  switch(currentPage) {
+    case 'SPLASH_PAGE':
+      return <SplashPage onSubmit={goToInputPage} />;
+    case 'INPUT_PAGE':
+      return <InputPage topic={topic} items={items} onSubmit={goToMatchupPage} />;
+    case 'MATCHUP_PAGE':
+      return <MatchupPage items={items} onSubmit={goToResultsPage} />;
+    case 'RESULTS_PAGE':
+      return <ResultsPage items={items} />;
+    default:
+      return <div>Error: Unknown page</div>;
+  }
 };
 
-export default RankingGame;
+export default RG;
