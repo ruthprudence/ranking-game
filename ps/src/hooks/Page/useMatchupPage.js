@@ -1,11 +1,10 @@
 // useMatchupPage.js
 import { useState, useCallback } from 'react';
 
-const useMatchupPage = (items, goToResultsPage) => {
+const useMatchupPage = (items, pairs, goToResultsPage) => {
     const [scores, setScores] = useState({});
     const [currentPairIndex, setCurrentPairIndex] = useState(0);
 
-    // Assuming pairs are generated and available
     const currentPair = pairs[currentPairIndex];
 
     const handleChoiceSelection = useCallback((selectedChoice) => {
@@ -17,7 +16,6 @@ const useMatchupPage = (items, goToResultsPage) => {
         if (currentPairIndex < pairs.length - 1) {
             setCurrentPairIndex(currentPairIndex + 1);
         } else {
-            // Logic to handle the completion of matchups
             goToResultsPage(scores);
         }
     }, [currentPairIndex, pairs, scores, goToResultsPage]);
