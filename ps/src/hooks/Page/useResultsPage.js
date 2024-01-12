@@ -1,7 +1,19 @@
 // useResultsPage.js
+import { useState, useEffect } from 'react';
+import { getAdjustedRankingsData } from '../models/PriorityModel';
+
 export const useResultsPage = (items) => {
-    // Logic for calculating and displaying results
-  
-    return { /* Exported values and functions for results */ };
-  };
-  
+    const [rankings, setRankings] = useState([]);
+
+    useEffect(() => {
+        const scores = items.reduce((acc, item) => {
+            acc[item.name] = item.votes;
+            return acc;
+        }, {});
+
+        const adjustedRankings = getAdjustedRankingsData(scores);
+        setRankings(adjustedRankings);
+    }, [items]);
+
+    return { rankings };
+};
