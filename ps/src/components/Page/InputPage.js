@@ -1,6 +1,6 @@
 // InputPage.js
 import React from 'react';
-import useInputPage from '../hooks/Page/useInputPage';
+import useInputPage from '../../hooks/Page/useInputPage';
 
 const InputPage = ({ setItems, goToMatchupPage }) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);

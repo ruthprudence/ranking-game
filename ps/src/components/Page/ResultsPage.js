@@ -1,6 +1,6 @@
 // ResultsPage.js
 import React from 'react';
-import useResultsPage from '../hooks/Page/useResultsPage';
+import useResultsPage from '../../hooks/Page/useResultsPage';
 
 const ResultsPage = ({ items }) => {
     const { rankings } = useResultsPage(items);
