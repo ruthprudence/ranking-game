@@ -1,14 +1,16 @@
 // useInputView.js
-import { useState } from 'react';
+import { useCallback } from 'react';
 
-const useInputView = (initialValue, onRemove, placeholder) => {
-  const [value, setValue] = useState(initialValue);
+const useInputView = (onUpdateRow, onRemoveRow) => {
+  const handleValueChange = useCallback((index, value) => {
+    onUpdateRow(index, value);
+  }, [onUpdateRow]);
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+  const handleRemove = useCallback((index) => {
+    onRemoveRow(index);
+  }, [onRemoveRow]);
 
-  return { value, handleChange, onRemove, placeholder };
+  return { handleValueChange, handleRemove };
 };
 
 export default useInputView;

@@ -1,6 +1,6 @@
 // useRows.js
 import { useState } from 'react';
-import { MAXCHOICES, MINCHOICES } from '../../utils/constants'; 
+import { MAXCHOICES, MINCHOICES } from '../utils/constants'; 
 
 const useRows = (initialRows) => {
   const [rows, setRows] = useState(initialRows || []);
