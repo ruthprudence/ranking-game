@@ -1,12 +1,12 @@
-// useComparison.js
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 
-const useComparison = (pairs) => {
+const useGameLogic = (pairs, rows, initialState) => {
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const [scores, setScores] = useState({});
   const [isComparisonComplete, setIsComparisonComplete] = useState(false);
+  const [model] = useState(initialState);
 
-  const handleChoiceSelection = (selectedChoice) => {
+  const handleChoiceSelection = useCallback((selectedChoice) => {
     setScores(prevScores => ({
       ...prevScores,
       [selectedChoice]: (prevScores[selectedChoice] || 0) + 1
@@ -17,11 +17,11 @@ const useComparison = (pairs) => {
     } else {
       setIsComparisonComplete(true);
     }
-  };
+  }, [currentPairIndex, pairs.length]);
 
-  const currentPair = pairs[currentPairIndex];
+  const currentPair = useMemo(() => pairs[currentPairIndex], [pairs, currentPairIndex]);
 
-  return { currentPair, scores, isComparisonComplete, handleChoiceSelection };
+  return { model, currentPair, scores, isComparisonComplete, handleChoiceSelection };
 };
 
-export default useComparison;
+export default useGameLogic;
