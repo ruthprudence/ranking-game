@@ -1,5 +1,5 @@
 // useSplashPage.js
-export const useSplashPage = (setTopic, goToInputPage) => {
+const useSplashPage = (setTopic, goToInputPage) => {
     const handleSubmit = (inputTopic) => {
       if (!inputTopic.trim()) {
         alert('Please enter a valid topic.');
@@ -10,5 +10,6 @@ export const useSplashPage = (setTopic, goToInputPage) => {
     };
   
     return { handleSubmit };
-  };
-  
+};
+
+export default useSplashPage;
