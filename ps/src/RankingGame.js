@@ -1,11 +1,12 @@
 import React from 'react';
-import useBasePage from './hooks/useBasePage';
+import useBasePage from './hooks/Page/useBasePage';
+
 
 // Import the page components
-import SplashPage from './pages/SplashPage';
-import InputPage from './pages/InputPage';
-import MatchupPage from './pages/MatchupPage';
-import ResultsPage from './pages/ResultsPage';
+import SplashPage from './hooks/Page/useSplashPage';
+import InputPage from './hooks/Page//useInputPage';
+import MatchupPage from './hooks/Page/useMatchupPage';
+import ResultsPage from './hooks/Page/useResultsPage';
 
 const RG = () => {
     const {
@@ -33,4 +34,4 @@ const RG = () => {
     }
 };
 
-export default RankingGame;
+export default RG;
