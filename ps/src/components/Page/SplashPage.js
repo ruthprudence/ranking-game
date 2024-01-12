@@ -1,6 +1,6 @@
 // SplashPage.js
 import React, { useState } from 'react';
-import useSplashPage from '../hooks/Page/useSplashPage';
+import useSplashPage from '../../hooks/Page/useSplashPage';
 
 const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');
