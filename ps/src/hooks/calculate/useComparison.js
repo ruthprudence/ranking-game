@@ -1,7 +1,7 @@
-// CompareModel.js
+// useComparison.js
 import { useState } from 'react';
 
-export const useChoiceManagerModel = (pairs) => {
+const useComparison = (pairs) => {
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const [scores, setScores] = useState({});
   const [isComparisonComplete, setIsComparisonComplete] = useState(false);
@@ -23,3 +23,5 @@ export const useChoiceManagerModel = (pairs) => {
 
   return { currentPair, scores, isComparisonComplete, handleChoiceSelection };
 };
+
+export default useComparison;
