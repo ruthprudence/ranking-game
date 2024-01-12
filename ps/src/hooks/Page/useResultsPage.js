@@ -1,8 +1,7 @@
 // useResultsPage.js
-import { useState, useEffect } from 'react';
-import { getAdjustedRankingsData } from '../models/PriorityModel';
+import { useState, useEffect, useMemo } from 'react';
 
-export const useResultsPage = (items) => {
+const useResultsPage = (items) => {
     const [rankings, setRankings] = useState([]);
 
     useEffect(() => {
@@ -11,9 +10,23 @@ export const useResultsPage = (items) => {
             return acc;
         }, {});
 
-        const adjustedRankings = getAdjustedRankingsData(scores);
+        const adjustedRankings = useMemo(() => {
+            const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            let lastScore = null;
+            let rank = 0;
+            return sortedChoices.map(([choice, score], index) => {
+                if (score !== lastScore) {
+                    rank = index + 1;
+                    lastScore = score;
+                }
+                return [choice, score, rank];
+            });
+        }, [scores]);
+
         setRankings(adjustedRankings);
     }, [items]);
 
     return { rankings };
 };
+
+export default useResultsPage;
