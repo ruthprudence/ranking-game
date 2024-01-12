@@ -6,7 +6,7 @@ import RG from './RG.js';
 function App() {
   return (
     <div className="App">
-      <RG />
+      <RankingGame />
     </div>
   );
 }
