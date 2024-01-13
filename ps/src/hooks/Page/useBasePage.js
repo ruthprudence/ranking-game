@@ -15,8 +15,6 @@ const useBasePage = () => {
 
     const goToMatchupPage = useCallback(updatedItems => {
         setItems(updatedItems);
-        // Logic to generate pairs for comparison
-        // setPairs(generatedPairs);
         setCurrentPage('MATCHUP_PAGE');
     }, []);
 
@@ -24,8 +22,6 @@ const useBasePage = () => {
         setScores(updatedScores);
         setCurrentPage('RESULTS_PAGE');
     }, []);
-
-    // Additional functions or state updates as required by your application
 
     return {
         currentPage,
@@ -43,7 +39,6 @@ const useBasePage = () => {
         goToInputPage,
         goToMatchupPage,
         goToResultsPage
-        // Any other state or functions required
     };
 };
 
