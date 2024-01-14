@@ -1,4 +1,3 @@
-// useMatchupPage.js
 import { useState, useCallback } from 'react';
 
 const useMatchupPage = (items, pairs, goToResultsPage) => {
@@ -7,6 +6,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
 
     const currentPair = pairs[currentPairIndex];
 
+    // Ensure that the useCallback hook is used at the top level
     const handleChoiceSelection = useCallback((selectedChoice) => {
         setScores(prevScores => ({
             ...prevScores,
@@ -24,8 +24,18 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         handleChoiceSelection(chosenItem);
     };
 
-    const handleLeftChoiceSelect = () => handleVote(items[currentPair[0]]);
-    const handleRightChoiceSelect = () => handleVote(items[currentPair[1]]);
+    // Add checks to ensure currentPair is defined and is an array
+    const handleLeftChoiceSelect = () => {
+        if (Array.isArray(currentPair) && currentPair.length > 0) {
+            handleVote(items[currentPair[0]]);
+        }
+    };
+
+    const handleRightChoiceSelect = () => {
+        if (Array.isArray(currentPair) && currentPair.length > 1) {
+            handleVote(items[currentPair[1]]);
+        }
+    };
 
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect, scores };
 };
