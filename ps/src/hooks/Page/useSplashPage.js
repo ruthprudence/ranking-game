@@ -6,7 +6,7 @@ const useSplashPage = (setTopic, goToInputPage) => {
         return;
       }
       setTopic(inputTopic);
-      goToInputPage();
+      goToInputPage(inputTopic);
     };
   
     return { handleSubmit };
