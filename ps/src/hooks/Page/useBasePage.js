@@ -1,5 +1,7 @@
 // useBasePage.js
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import usePairGenerator from '../utils/usePairGenerator';
+
 
 const useBasePage = () => {
     const [currentPage, setCurrentPage] = useState('SPLASH_PAGE');
@@ -7,6 +9,11 @@ const useBasePage = () => {
     const [items, setItems] = useState([]);
     const [choices, setChoices] = useState([]);
     const [pairs, setPairs] = useState([]);
+    const { pairs: generatedPairs } = usePairGenerator(items.length);
+
+    useEffect(() => {
+        setPairs(generatedPairs);
+    }, [generatedPairs]);
     const [scores, setScores] = useState({});
 
     const goToInputPage = useCallback((inputTopic) => {
