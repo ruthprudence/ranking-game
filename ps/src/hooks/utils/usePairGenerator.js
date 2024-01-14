@@ -1,23 +1,27 @@
 import { useState, useEffect } from 'react';
 
 const usePairGenerator = (numItems) => {
-  const [pairs, setPairs] = useState([]);
+    const [pairs, setPairs] = useState([]);
 
-  useEffect(() => {
-    const generatePairs = () => {
-      const pairs = [];
-      for (let i = 0; i < numItems; i++) {
-        for (let j = i + 1; j < numItems; j++) {
-          pairs.push([i, j]);
-        }
-      }
-      return pairs;
-    };
+    useEffect(() => {
+        const generatePairs = () => {
+            if (numItems < 2) {
+                return [];
+            }
 
-    setPairs(generatePairs());
-  }, [numItems]);
+            const pairs = [];
+            for (let i = 0; i < numItems; i++) {
+                for (let j = i + 1; j < numItems; j++) {
+                    pairs.push([i, j]);
+                }
+            }
+            return pairs;
+        };
 
-  return { pairs };
+        setPairs(generatePairs());
+    }, [numItems]);
+
+    return { pairs };
 };
 
 export default usePairGenerator;
