@@ -1,8 +1,9 @@
 // useInputPage.js
 import { useState, useCallback } from 'react';
+import { MAXCHOICES, MINCHOICES } from '../utils/constants'; // Import the constants
 
 const useInputPage = (setItems, goToMatchupPage) => {
-    const [rows, setRows] = useState([]);
+    const [rows, setRows] = useState(['', '', '']);
 
     const handleItemChange = useCallback((index, newItem) => {
         const updatedRows = [...rows];
@@ -21,8 +22,8 @@ const useInputPage = (setItems, goToMatchupPage) => {
 
     const handleSubmit = useCallback(() => {
         // Validate items and transition to matchup page
-        if (rows.some(row => row.trim() === '')) {
-            alert('Please fill in all entries before submitting.');
+        if (rows.length < MINCHOICES || rows.length > MAXCHOICES) {
+            alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);
             return;
         }
         setItems(rows);

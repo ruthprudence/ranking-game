@@ -2,19 +2,19 @@
 import React from 'react';
 import useInputPage from '../../hooks/Page/useInputPage';
 
-const InputPage = ({ setItems, goToMatchupPage }) => {
+const InputPage = ({ setItems, goToMatchupPage, topic }) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);
 
     return (
         <div>
-            <h1>Input Page</h1>
+            <h2>Topic: {topic}</h2> {/* Display the topic */}
             {rows.map((row, index) => (
                 <div key={index}>
                     <input
                         type="text"
                         value={row}
                         onChange={(e) => handleItemChange(index, e.target.value)}
-                        placeholder="Enter an item"
+                        placeholder={index === 0 ? 'First Item' : 'Enter an item'} // Modified placeholder
                     />
                     {index > 2 && (
                         <button onClick={() => handleRemoveItem(index)}>Remove</button>
