@@ -9,7 +9,8 @@ const useBasePage = () => {
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState({});
 
-    const goToInputPage = useCallback(() => {
+    const goToInputPage = useCallback((inputTopic) => {
+        setTopic(inputTopic); // Update the topic state
         setCurrentPage('INPUT_PAGE');
     }, []);
 

@@ -4,11 +4,15 @@ import useSplashPage from '../../hooks/Page/useSplashPage';
 
 const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');
-    const { handleSubmit } = useSplashPage(setTopic, goToInputPage);
+    const { handleSubmit } = (inputTopic) => {
+        // ... validation logic ...
+        goToInputPage(inputTopic); 
+        // useSplashPage(setTopic, goToInputPage);
+    };
 
     return (
         <div>
-            <h1>tRG - the Ranking Game</h1>
+            <h1>tRG/the Ranking Game</h1>
             <h2>Enter a Topic:</h2>
             <input
                 type="text"
