@@ -14,7 +14,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                         type="text"
                         value={row}
                         onChange={(e) => handleItemChange(index, e.target.value)}
-                        placeholder={index === 0 ? 'First Item' : 'Enter an item'} // Modified placeholder
+                        placeholder={index === 0 ? 'e.g. Apricots' : index === 1 ? 'e.g. Blueberries' : index === 2 ? 'e.g. Persimmons' : 'Enter an item'}
                     />
                     {index > 2 && (
                         <button onClick={() => handleRemoveItem(index)}>Remove</button>

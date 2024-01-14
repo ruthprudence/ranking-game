@@ -12,6 +12,10 @@ const useInputPage = (setItems, goToMatchupPage) => {
     }, [rows]);
 
     const handleAddItem = useCallback(() => {
+        if (rows.length >= MAXCHOICES) {
+            alert(`You cannot add more than ${MAXCHOICES} items.`);
+            return;
+        }
         setRows([...rows, '']);
     }, [rows]);
 

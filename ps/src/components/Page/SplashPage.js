@@ -8,12 +8,13 @@ const SplashPage = ({ goToInputPage }) => {
 
     return (
         <div>
-            <h1>Welcome to the Ranking Game</h1>
+            <h1>tRG - the Ranking Game</h1>
+            <h2>Enter a Topic:</h2>
             <input
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
-                placeholder="Enter a topic"
+                placeholder="e.g. Fruits"
             />
             <button onClick={() => handleSubmit(topic)}>Submit Topic</button>
         </div>
