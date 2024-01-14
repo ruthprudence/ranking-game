@@ -85,6 +85,16 @@ body {
   overflow-x: auto;
 }
 
+.remove-button-cell {
+  width: 100px; /* Adjust as needed for your design */
+}
+
+/* You may also want to ensure that the table cells do not change width */
+td {
+  text-align: left;
+  vertical-align: middle;
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 600px) {
   /* Styles for small screens */

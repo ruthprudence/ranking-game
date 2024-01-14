@@ -1,4 +1,3 @@
-// InputPage.js
 import React from 'react';
 import useInputPage from '../../hooks/Page/useInputPage';
 
@@ -12,7 +11,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                 <tbody>
                     {rows.map((row, index) => (
                         <tr key={index}>
-                            <td>{index + 1}</td> {/* Display the row number */}
+                            <td>{index + 1}</td>
                             <td>
                                 <input
                                     type="text"
@@ -21,10 +20,12 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                                     placeholder={index === 0 ? 'e.g. Apricots' : index === 1 ? 'e.g. Blueberries' : index === 2 ? 'e.g. Persimmons' : 'Enter an item'}
                                 />
                             </td>
-                            {index > 2 && (
-                                <td>
+                            {index > 2 ? (
+                                <td className="remove-button-cell">
                                     <button onClick={() => handleRemoveItem(index)}>Remove</button>
                                 </td>
+                            ) : (
+                                <td className="remove-button-cell"></td> // Add an empty cell for alignment
                             )}
                         </tr>
                     ))}

@@ -1,6 +1,7 @@
 // useInputPage.js
 import { useState, useCallback } from 'react';
-import { MAXCHOICES, MINCHOICES } from '../utils/constants'; // Import the constants
+import { MAXCHOICES, MINCHOICES } from '../utils/constants'; 
+
 
 const useInputPage = (setItems, goToMatchupPage) => {
     const [rows, setRows] = useState(['', '', '']);
