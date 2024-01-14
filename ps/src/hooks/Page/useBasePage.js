@@ -8,10 +8,8 @@ const useBasePage = () => {
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState({});
 
-    // Use the custom hook to generate pairs
     const { pairs: generatedPairs } = usePairGenerator(items.length);
 
-    // Update pairs state whenever items change
     useEffect(() => {
         setPairs(generatedPairs);
     }, [generatedPairs]);
@@ -23,8 +21,10 @@ const useBasePage = () => {
 
     const goToMatchupPage = useCallback(updatedItems => {
         setItems(updatedItems);
-        setCurrentPage('MATCHUP_PAGE');
-    }, []);
+        if (pairs.length > 0) {
+            setCurrentPage('MATCHUP_PAGE');
+        }
+    }, [pairs]);
 
     const goToResultsPage = useCallback(updatedScores => {
         setScores(updatedScores);
@@ -38,7 +38,6 @@ const useBasePage = () => {
         setTopic,
         items,
         setItems,
-        choices: [], // If choices are used in your application, handle them appropriately
         pairs,
         setPairs,
         scores,
