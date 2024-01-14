@@ -16,7 +16,8 @@ const RankingGame = () => {
         topic,
         setTopic,
         items,
-        setItems
+        setItems,
+        pairs,
     } = useBasePage();
 
     switch (currentPage) {
@@ -27,6 +28,8 @@ const RankingGame = () => {
             return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={topic} />;
         case 'MATCHUP_PAGE':
             console.log('Items in RankingGame:', items); // Add this line to inspect items
+            console.log('Items in RankingGame:', items);
+            console.log('Pairs in RankingGame:', pairs); // Log pairs for debugging
             return <MatchupPage items={items} goToResultsPage={goToResultsPage} />;
         case 'RESULTS_PAGE':
             return <ResultsPage items={items} />;

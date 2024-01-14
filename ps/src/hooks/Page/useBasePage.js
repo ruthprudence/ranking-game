@@ -1,23 +1,23 @@
-// useBasePage.js
 import { useState, useEffect, useCallback } from 'react';
 import usePairGenerator from '../utils/usePairGenerator';
-
 
 const useBasePage = () => {
     const [currentPage, setCurrentPage] = useState('SPLASH_PAGE');
     const [topic, setTopic] = useState('');
     const [items, setItems] = useState([]);
-    const [choices, setChoices] = useState([]);
     const [pairs, setPairs] = useState([]);
+    const [scores, setScores] = useState({});
+
+    // Use the custom hook to generate pairs
     const { pairs: generatedPairs } = usePairGenerator(items.length);
 
+    // Update pairs state whenever items change
     useEffect(() => {
         setPairs(generatedPairs);
     }, [generatedPairs]);
-    const [scores, setScores] = useState({});
 
     const goToInputPage = useCallback((inputTopic) => {
-        setTopic(inputTopic); // Update the topic state
+        setTopic(inputTopic);
         setCurrentPage('INPUT_PAGE');
     }, []);
 
@@ -38,8 +38,7 @@ const useBasePage = () => {
         setTopic,
         items,
         setItems,
-        choices,
-        setChoices,
+        choices: [], // If choices are used in your application, handle them appropriately
         pairs,
         setPairs,
         scores,
