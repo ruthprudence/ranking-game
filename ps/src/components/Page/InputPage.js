@@ -33,6 +33,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
             </table>
             <button onClick={handleAddItem}>Add Item</button>
             <button onClick={handleSubmit}>Submit</button>
+            <h3>Click "Submit" to Rank</h3>
         </div>
     );
 };
