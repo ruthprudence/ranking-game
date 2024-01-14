@@ -7,20 +7,29 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
 
     return (
         <div>
-            <h2>Topic: {topic}</h2> {/* Display the topic */}
-            {rows.map((row, index) => (
-                <div key={index}>
-                    <input
-                        type="text"
-                        value={row}
-                        onChange={(e) => handleItemChange(index, e.target.value)}
-                        placeholder={index === 0 ? 'e.g. Apricots' : index === 1 ? 'e.g. Blueberries' : index === 2 ? 'e.g. Persimmons' : 'Enter an item'}
-                    />
-                    {index > 2 && (
-                        <button onClick={() => handleRemoveItem(index)}>Remove</button>
-                    )}
-                </div>
-            ))}
+            <h2>Topic: {topic}</h2>
+            <table>
+                <tbody>
+                    {rows.map((row, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td> {/* Display the row number */}
+                            <td>
+                                <input
+                                    type="text"
+                                    value={row}
+                                    onChange={(e) => handleItemChange(index, e.target.value)}
+                                    placeholder={index === 0 ? 'e.g. Apricots' : index === 1 ? 'e.g. Blueberries' : index === 2 ? 'e.g. Persimmons' : 'Enter an item'}
+                                />
+                            </td>
+                            {index > 2 && (
+                                <td>
+                                    <button onClick={() => handleRemoveItem(index)}>Remove</button>
+                                </td>
+                            )}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             <button onClick={handleAddItem}>Add Item</button>
             <button onClick={handleSubmit}>Submit</button>
         </div>
