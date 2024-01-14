@@ -1,29 +1,41 @@
-import React from 'react';
-import useMatchupPage from '../../hooks/Page/useMatchupPage';
+import { useState, useCallback } from 'react';
 
-const MatchupPage = ({ items, pairs, goToResultsPage }) => {
-    console.log('Items:', items);
-    console.log('Pairs:', pairs);
+const useMatchupPage = (items, pairs, goToResultsPage) => {
+    const [scores, setScores] = useState({});
+    const [currentPairIndex, setCurrentPairIndex] = useState(0);
 
-    const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage(items, pairs, goToResultsPage);
+    const currentPair = pairs && pairs[currentPairIndex];
 
-    if (!pairs || pairs.length === 0) {
-        return <div>No pairs available for matchups</div>;
-    }
+    const handleChoiceSelection = useCallback((selectedChoice) => {
+        setScores(prevScores => ({
+            ...prevScores,
+            [selectedChoice]: (prevScores[selectedChoice] || 0) + 1
+        }));
 
-    return (
-        <div>
-            <h1>Matchup Page</h1>
-            <div>
-                {currentPair && (
-                    <>
-                        <button onClick={handleLeftChoiceSelect}>{items[currentPair[0]]}</button>
-                        <button onClick={handleRightChoiceSelect}>{items[currentPair[1]]}</button>
-                    </>
-                )}
-            </div>
-        </div>
-    );
+        if (currentPairIndex < pairs.length - 1) {
+            setCurrentPairIndex(currentPairIndex + 1);
+        } else {
+            goToResultsPage(scores);
+        }
+    }, [currentPairIndex, pairs, scores, goToResultsPage]);
+
+    const handleVote = (chosenItem) => {
+        handleChoiceSelection(chosenItem);
+    };
+
+    const handleLeftChoiceSelect = () => {
+        if (currentPair && currentPair.length > 0) {
+            handleVote(items[currentPair[0]]);
+        }
+    };
+
+    const handleRightChoiceSelect = () => {
+        if (currentPair && currentPair.length > 1) {
+            handleVote(items[currentPair[1]]);
+        }
+    };
+
+    return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect, scores };
 };
 
-export default MatchupPage;
+export default useMatchupPage;
