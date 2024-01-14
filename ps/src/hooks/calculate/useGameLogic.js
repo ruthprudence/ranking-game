@@ -1,27 +1,29 @@
 import { useState, useCallback, useMemo } from 'react';
 
-const useGameLogic = (pairs, rows, initialState) => {
+const useGameLogic = (pairs, items, setItems) => {
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
-  const [scores, setScores] = useState({});
   const [isComparisonComplete, setIsComparisonComplete] = useState(false);
-  const [model] = useState(initialState);
 
   const handleChoiceSelection = useCallback((selectedChoice) => {
-    setScores(prevScores => ({
-      ...prevScores,
-      [selectedChoice]: (prevScores[selectedChoice] || 0) + 1
-    }));
+    const updatedItems = items.map(item => {
+      if (item.name === selectedChoice) {
+        return { ...item, votes: item.votes + 1 };
+      }
+      return item;
+    });
+
+    setItems(updatedItems);
 
     if (currentPairIndex < pairs.length - 1) {
       setCurrentPairIndex(currentPairIndex + 1);
     } else {
       setIsComparisonComplete(true);
     }
-  }, [currentPairIndex, pairs.length]);
+  }, [currentPairIndex, pairs.length, items, setItems]);
 
   const currentPair = useMemo(() => pairs[currentPairIndex], [pairs, currentPairIndex]);
 
-  return { model, currentPair, scores, isComparisonComplete, handleChoiceSelection };
+  return { currentPair, isComparisonComplete, handleChoiceSelection };
 };
 
 export default useGameLogic;
