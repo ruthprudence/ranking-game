@@ -4,11 +4,7 @@ import useSplashPage from '../../hooks/Page/useSplashPage';
 
 const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');
-    const { handleSubmit } = (inputTopic) => {
-        // ... validation logic ...
-        goToInputPage(inputTopic); 
-        // useSplashPage(setTopic, goToInputPage);
-    };
+    const { handleSubmit } = useSplashPage(setTopic, goToInputPage); // use the useSplashPage hook correctly
 
     return (
         <div>
