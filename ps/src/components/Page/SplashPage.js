@@ -8,8 +8,8 @@ const SplashPage = ({ goToInputPage }) => {
 
     return (
         <div>
-            <h1>tRG</h1>
-            <h2>Enter a Topic:</h2>
+            {/* <h1>tRG</h1> */}
+            <h2>Enter a Topic to Rank:</h2>
             <input
                 type="text"
                 value={topic}
