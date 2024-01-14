@@ -23,8 +23,10 @@ const RankingGame = () => {
         case 'SPLASH_PAGE':
             return <SplashPage goToInputPage={goToInputPage} setTopic={setTopic} />;
         case 'INPUT_PAGE':
+            console.log('Items in RankingGame:', items); // Add this line to inspect items
             return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={topic} />;
         case 'MATCHUP_PAGE':
+            console.log('Items in RankingGame:', items); // Add this line to inspect items
             return <MatchupPage items={items} goToResultsPage={goToResultsPage} />;
         case 'RESULTS_PAGE':
             return <ResultsPage items={items} />;

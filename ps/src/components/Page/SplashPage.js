@@ -8,8 +8,8 @@ const SplashPage = ({ goToInputPage }) => {
 
     return (
         <div>
-            {/* <h1>tRG</h1> */}
-            <h2>Enter a Topic to Rank:</h2>
+            <h1>the Ranking Game</h1>
+            
             <input
                 type="text"
                 value={topic}
@@ -17,7 +17,7 @@ const SplashPage = ({ goToInputPage }) => {
                 placeholder="e.g. Fruits"
             />
             <button onClick={() => handleSubmit(topic)}>Submit Topic</button>
-            <h1>the Ranking Game</h1>
+            <h3>Enter a Topic to Rank</h3>
         </div>
     );
 };
