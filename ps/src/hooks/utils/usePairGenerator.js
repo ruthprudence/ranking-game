@@ -6,11 +6,9 @@ const usePairGenerator = (numItems) => {
   useEffect(() => {
     const generatePairs = () => {
       const pairs = [];
-      for (let start = 1; start < numItems; start++) {
-        for (let i = start; i < numItems; i++) {
-          const left = i;
-          const right = i - start;
-          pairs.push([left, right]);
+      for (let i = 0; i < numItems; i++) {
+        for (let j = i + 1; j < numItems; j++) {
+          pairs.push([i, j]);
         }
       }
       return pairs;
