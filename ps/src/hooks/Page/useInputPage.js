@@ -26,6 +26,10 @@ const useInputPage = (setItems, goToMatchupPage) => {
     }, [rows]);
 
     const handleSubmit = useCallback(() => {
+        if (rows.some(row => !row.trim())) {
+            alert('All items must be filled in.');
+            return;
+        }
         // Validate items and transition to matchup page
         if (rows.length < MINCHOICES || rows.length > MAXCHOICES) {
             alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);

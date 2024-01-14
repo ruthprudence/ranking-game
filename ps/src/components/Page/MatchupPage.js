@@ -3,6 +3,8 @@ import React from 'react';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 
 const MatchupPage = ({ items, pairs, goToResultsPage }) => {
+    console.log('Items:', items);
+    console.log('Pairs:', pairs);
     const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage(items, pairs, goToResultsPage);
 
     return (
