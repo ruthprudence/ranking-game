@@ -1,3 +1,4 @@
+// useResultsPage.js
 import { useState, useEffect } from 'react';
 
 const useResultsPage = (items) => {
@@ -12,12 +13,13 @@ const useResultsPage = (items) => {
         const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
         let lastScore = null;
         let rank = 0;
-        const adjustedRankings = sortedChoices.map(([choice, score], index) => {
+        const adjustedRankings = sortedChoices.map(([id, score], index) => {
             if (score !== lastScore) {
                 rank = index + 1;
                 lastScore = score;
             }
-            return [choice, score, rank];
+            const itemName = items.find(item => item.id.toString() === id).name;
+            return [itemName, score, rank];
         });
 
         setRankings(adjustedRankings);

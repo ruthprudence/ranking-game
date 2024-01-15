@@ -1,24 +1,25 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 const useMatchupPage = (items, pairs, goToResultsPage) => {
     const [scores, setScores] = useState({});
     const [currentPairIndex, setCurrentPairIndex] = useState(0);
+    const [shouldGoToResults, setShouldGoToResults] = useState(false);
 
     const currentPair = pairs && pairs[currentPairIndex];
 
-    const handleChoiceSelection = useCallback((selectedChoice) => {
+    const handleChoiceSelection = useCallback((selectedChoiceId) => {
         setScores(prevScores => ({
             ...prevScores,
-            [selectedChoice]: (prevScores[selectedChoice] || 0) + 1
+            [selectedChoiceId]: (prevScores[selectedChoiceId] || 0) + 1
         }));
-    
+
         if (currentPairIndex < pairs.length - 1) {
             setCurrentPairIndex(currentPairIndex + 1);
         } else {
-            goToResultsPage(scores);
+            setShouldGoToResults(true); // Set flag to true when it's time to navigate
         }
-    }, [currentPairIndex, pairs, scores, goToResultsPage]);
-    
+    }, [currentPairIndex, pairs]);
+
     const handleVote = (chosenItem) => {
         const itemId = chosenItem.id;
         handleChoiceSelection(itemId);
@@ -36,8 +37,18 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         }
     };
 
-    console.log(`scores is ${JSON.stringify(scores)}`);
-    return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect, scores };
+    // Navigate to results page when all pairs are processed
+    useEffect(() => {
+        if (shouldGoToResults) {
+            const updatedItems = items.map(item => ({
+                ...item,
+                votes: scores[item.id] || 0
+            }));
+            goToResultsPage(updatedItems);
+        }
+    }, [shouldGoToResults, items, scores, goToResultsPage]);
+
+    return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect };
 };
 
 export default useMatchupPage;
