@@ -25,7 +25,7 @@ const RankingGame = () => {
             console.log('Items in RankingGame:', items);
             return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={topic} />;
         case 'MATCHUP_PAGE':
-            console.log('Items in RankingGame:', items);
+            // console.log('Items in RankingGame:', items);
             console.log('Pairs in RankingGame:', pairs);
             return <MatchupPage items={items} pairs={pairs} goToResultsPage={goToResultsPage} />;
         case 'RESULTS_PAGE':

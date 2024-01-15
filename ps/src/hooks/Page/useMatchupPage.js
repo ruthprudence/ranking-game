@@ -11,30 +11,33 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
             ...prevScores,
             [selectedChoice]: (prevScores[selectedChoice] || 0) + 1
         }));
-
+    
         if (currentPairIndex < pairs.length - 1) {
             setCurrentPairIndex(currentPairIndex + 1);
         } else {
             goToResultsPage(scores);
         }
     }, [currentPairIndex, pairs, scores, goToResultsPage]);
+    
 
     const handleVote = (chosenItem) => {
-        handleChoiceSelection(chosenItem);
+        // Extract the name of the chosen item
+        const itemName = chosenItem.name;
+        handleChoiceSelection(itemName);
     };
-
+    
     const handleLeftChoiceSelect = () => {
         if (currentPair && currentPair.length > 0) {
             handleVote(items[currentPair[0]]);
         }
     };
-
+    
     const handleRightChoiceSelect = () => {
         if (currentPair && currentPair.length > 1) {
             handleVote(items[currentPair[1]]);
         }
     };
-
+    console.log(`scores is ${JSON.stringify(scores)}`);
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect, scores };
 };
 

@@ -35,8 +35,9 @@ const useInputPage = (setItems, goToMatchupPage) => {
             alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);
             return;
         }
-        setItems(rows);
-        goToMatchupPage(rows);
+        const itemsWithVotes = rows.map(name => ({ name, votes: 0 }));
+        setItems(itemsWithVotes);
+        goToMatchupPage(itemsWithVotes);
     }, [rows, setItems, goToMatchupPage]);
 
     return { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit };
