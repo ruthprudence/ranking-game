@@ -17,8 +17,8 @@ const MatchupPage = ({ items, pairs, goToResultsPage }) => {
             <div>
                 {currentPair && (
                     <>
-                        <button onClick={handleLeftChoiceSelect}>{items[currentPair[0]]}</button>
-                        <button onClick={handleRightChoiceSelect}>{items[currentPair[1]]}</button>
+                        <button onClick={handleLeftChoiceSelect}>{items[currentPair[0]].name}</button>
+                        <button onClick={handleRightChoiceSelect}>{items[currentPair[1]].name}</button>
                     </>
                 )}
             </div>
