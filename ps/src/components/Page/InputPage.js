@@ -17,7 +17,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                                     type="text"
                                     value={row}
                                     onChange={(e) => handleItemChange(index, e.target.value)}
-                                    placeholder={index === 0 ? 'e.g. Apricots' : index === 1 ? 'e.g. Blueberries' : index === 2 ? 'e.g. Persimmons' : 'Enter an item'}
+                                    placeholder={index === 0 ? 'e.g. apricots' : index === 1 ? 'e.g. blueberries' : index === 2 ? 'e.g. persimmons' : 'Enter an item'}
                                 />
                             </td>
                             {index > 2 ? (
