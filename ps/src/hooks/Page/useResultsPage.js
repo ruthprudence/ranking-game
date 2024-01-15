@@ -5,7 +5,7 @@ const useResultsPage = (items) => {
 
     useEffect(() => {
         const scores = items.reduce((acc, item) => {
-            acc[item.name] = item.votes;
+            acc[item.id] = item.votes;
             return acc;
         }, {});
 
