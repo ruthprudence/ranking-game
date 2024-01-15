@@ -19,7 +19,6 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         }
     }, [currentPairIndex, pairs, scores, goToResultsPage]);
     
-
     const handleVote = (chosenItem) => {
         // Extract the name of the chosen item
         const itemName = chosenItem.name;
@@ -37,6 +36,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
             handleVote(items[currentPair[1]]);
         }
     };
+
     console.log(`scores is ${JSON.stringify(scores)}`);
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect, scores };
 };

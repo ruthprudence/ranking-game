@@ -2,7 +2,6 @@
 import { useState, useCallback } from 'react';
 import { MAXCHOICES, MINCHOICES } from '../utils/constants'; 
 
-
 const useInputPage = (setItems, goToMatchupPage) => {
     const [rows, setRows] = useState(['', '', '']);
 
@@ -44,3 +43,5 @@ const useInputPage = (setItems, goToMatchupPage) => {
 };
 
 export default useInputPage;
+
+
