@@ -1,4 +1,3 @@
-// useInputPage.js
 import { useState, useCallback } from 'react';
 import { MAXCHOICES, MINCHOICES } from '../utils/constants'; 
 
@@ -29,7 +28,6 @@ const useInputPage = (setItems, goToMatchupPage) => {
             alert('All items must be filled in.');
             return;
         }
-        // Validate items and transition to matchup page
         if (rows.length < MINCHOICES || rows.length > MAXCHOICES) {
             alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);
             return;
@@ -43,5 +41,3 @@ const useInputPage = (setItems, goToMatchupPage) => {
 };
 
 export default useInputPage;
-
-
