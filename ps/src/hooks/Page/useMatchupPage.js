@@ -20,9 +20,8 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
     }, [currentPairIndex, pairs, scores, goToResultsPage]);
     
     const handleVote = (chosenItem) => {
-        // Extract the name of the chosen item
-        const itemName = chosenItem.name;
-        handleChoiceSelection(itemName);
+        const itemId = chosenItem.id;
+        handleChoiceSelection(itemId);
     };
     
     const handleLeftChoiceSelect = () => {
