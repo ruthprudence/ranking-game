@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 
 const MatchupPage = ({ items, pairs, goToResultsPage }) => {
@@ -17,8 +18,8 @@ const MatchupPage = ({ items, pairs, goToResultsPage }) => {
             <div>
                 {currentPair && (
                     <>
-                        <button onClick={handleLeftChoiceSelect}>{items[currentPair[0]].name}</button>
-                        <button onClick={handleRightChoiceSelect}>{items[currentPair[1]].name}</button>
+                        <Button onClick={handleLeftChoiceSelect}>{items[currentPair[0]].name}</Button>
+                        <Button onClick={handleRightChoiceSelect}>{items[currentPair[1]].name}</Button>
                     </>
                 )}
             </div>

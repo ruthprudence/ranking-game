@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../UI/Button';
+import InputField from '../UI/InputField';
 import useInputPage from '../../hooks/Page/useInputPage';
 
 const InputPage = ({ setItems, goToMatchupPage, topic }) => {
@@ -13,12 +15,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
-                                <input
-                                    type="text"
-                                    value={row}
-                                    onChange={(e) => handleItemChange(index, e.target.value)}
-                                    placeholder={index === 0 ? 'e.g. apricots' : index === 1 ? 'e.g. blueberries' : index === 2 ? 'e.g. persimmons' : 'Enter an item'}
-                                />
+                                <InputField value={row} onChange={(e) => handleItemChange(index, e.target.value)}   placeholder={index === 0 ? 'e.g. apricots' : index === 1 ? 'e.g. blueberries' : index === 2 ? 'e.g. persimmons' : 'Enter an item'}/>
                             </td>
                             {index > 2 ? (
                                 <td className="remove-button-cell">
@@ -31,9 +28,9 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                     ))}
                 </tbody>
             </table>
-            <button onClick={handleAddItem}>Add Item</button>
-            <button onClick={handleSubmit}>Submit</button>
-            <h3>Click "Submit" to begin</h3>
+            <Button onClick={handleAddItem}>Add Item</Button>
+            <Button onClick={() => handleSubmit(rows)}>Submit</Button>
+            <p><i>Click "Submit" to begin</i></p>
         </div>
     );
 };
