@@ -7,6 +7,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
 
     const currentPair = pairs && pairs[currentPairIndex];
 
+
     const handleChoiceSelection = useCallback((selectedChoiceId) => {
         setScores(prevScores => ({
             ...prevScores,
@@ -47,7 +48,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
             goToResultsPage(updatedItems);
         }
     }, [shouldGoToResults, items, scores, goToResultsPage]);
-
+    console.log('Current Pair:', currentPair);
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect };
 };
 

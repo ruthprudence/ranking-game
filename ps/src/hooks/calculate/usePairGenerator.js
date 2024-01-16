@@ -15,6 +15,7 @@ const usePairGenerator = (numItems = 0) => {
                     pairs.push([i, j]);
                 }
             }
+            console.log('Pairs:', pairs);
             return pairs;
         };
 
