@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import usePairGenerator from '../utils/usePairGenerator';
+import { generatePairs } from '../utils/generatePairs'; 
 
 const useBasePage = () => {
     const [currentPage, setCurrentPage] = useState('SPLASH_PAGE');
@@ -8,11 +9,16 @@ const useBasePage = () => {
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState({});
 
-    const { pairs: generatedPairs } = usePairGenerator(items.length);
+    const [loading, setLoading] = useState(true);
+
+    const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
     useEffect(() => {
-        setPairs(generatedPairs);
-    }, [generatedPairs]);
+        if (items && items.length > 0) {
+            setPairs(generatePairs(generatedPairs));
+            setLoading(false);
+        }
+    }, [items, generatedPairs]);
 
     const goToInputPage = useCallback((inputTopic) => {
         setTopic(inputTopic);
@@ -21,10 +27,8 @@ const useBasePage = () => {
 
     const goToMatchupPage = useCallback(updatedItems => {
         setItems(updatedItems);
-        if (pairs.length > 0) {
             setCurrentPage('MATCHUP_PAGE');
-        }
-    }, [pairs]);
+    }, []);
 
     const goToResultsPage = useCallback(updatedScores => {
         setScores(updatedScores);
@@ -44,7 +48,8 @@ const useBasePage = () => {
         setScores,
         goToInputPage,
         goToMatchupPage,
-        goToResultsPage
+        goToResultsPage,
+        loading
     };
 };
 

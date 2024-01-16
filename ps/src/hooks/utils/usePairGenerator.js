@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const usePairGenerator = (numItems) => {
+const usePairGenerator = (numItems = 0) => {
     const [pairs, setPairs] = useState([]);
 
     useEffect(() => {
         const generatePairs = () => {
-            if (numItems < 2) {
+            if (!numItems || numItems < 2) {
                 return [];
             }
 
