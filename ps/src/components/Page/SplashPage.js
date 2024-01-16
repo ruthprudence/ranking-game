@@ -1,23 +1,19 @@
 // SplashPage.js
 import React, { useState } from 'react';
+import Button from '../UI/Button';
+import InputField from '../UI/InputField';
 import useSplashPage from '../../hooks/Page/useSplashPage';
 
 const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');
-    const { handleSubmit } = useSplashPage(setTopic, goToInputPage); // use the useSplashPage hook correctly
+    const { handleSubmit } = useSplashPage(setTopic, goToInputPage); 
 
     return (
         <div>
             <h1>the Ranking Game</h1>
-            
-            <input
-                type="text"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                placeholder="e.g. Fruits"
-            />
-            <button onClick={() => handleSubmit(topic)}>Submit Topic</button>
-            <h3>Enter a Topic to Rank</h3>
+            <InputField value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g. Fruits" />
+            <Button onClick={() => handleSubmit(topic)}>Submit Topic</Button>
+            <p><i>Enter something to Rank</i></p>
         </div>
     );
 };
