@@ -3,14 +3,8 @@ import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 
 const MatchupPage = ({ items, pairs, goToResultsPage }) => {
-    console.log('Items:', items.map(item => `${item.name}: ${item.votes}`));
-    console.log('Pairs:', pairs);
-
+    // Call the hook at the top level
     const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage(items, pairs, goToResultsPage);
-
-    if (!pairs || pairs.length === 0) {
-        return <div>No pairs available for matchups</div>;
-    }
 
     return (
         <div>
