@@ -3,8 +3,8 @@ import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 
 const MatchupPage = ({ items, pairs, goToResultsPage }) => {
-    console.log(`items: ${items}`);
-    console.log(`pairs: ${pairs}`);
+    console.log('MatchupPage - Props:', { items, pairs });
+
     // Call the hook at the top level
     const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage(items, pairs, goToResultsPage);
 
