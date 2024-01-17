@@ -6,6 +6,8 @@ import useInputPage from '../../hooks/Page/useInputPage';
 const InputPage = ({ setItems, goToMatchupPage, topic }) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);
 
+    console.log('InputPage - Rows:', rows);
+
     return (
         <div>
             <h2>Topic: {topic}</h2>
@@ -15,7 +17,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>
-                                <InputField value={row} onChange={(e) => handleItemChange(index, e.target.value)}   placeholder={index === 0 ? 'e.g. apricots' : index === 1 ? 'e.g. blueberries' : index === 2 ? 'e.g. persimmons' : 'Enter an item'}/>
+                                <InputField value={row} onChange={(e) => handleItemChange(index, e.target.value)} placeholder={index === 0 ? 'e.g. apricots' : index === 1 ? 'e.g. blueberries' : index === 2 ? 'e.g. persimmons' : 'Enter an item'}/>
                             </td>
                             {index > 2 ? (
                                 <td className="remove-button-cell">
