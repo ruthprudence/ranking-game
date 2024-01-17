@@ -8,11 +8,11 @@ const useBasePage = () => {
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState({});
     const [loading, setLoading] = useState(true);
+    const [itemsUpdated, setItemsUpdated] = useState(false); // New state variable
 
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
     useEffect(() => {
-        console.log('useEffect - items or generatedPairs changed:', { items, generatedPairs });
         if (items && items.length > 0) {
             setPairs(generatedPairs);
             setLoading(false);
@@ -22,21 +22,19 @@ const useBasePage = () => {
     const goToInputPage = useCallback((inputTopic) => {
         setTopic(inputTopic);
         setCurrentPage('INPUT_PAGE');
-        console.log('goToInputPage:', { inputTopic, newPage: 'INPUT_PAGE' });
     }, []);
 
     const goToMatchupPage = useCallback(updatedItems => {
-        if (updatedItems) { // Protective check added
+        if (updatedItems) {
             setItems(updatedItems);
+            setItemsUpdated(true); // Update state variable when items are updated
         }
         setCurrentPage('MATCHUP_PAGE');
-        console.log('goToMatchupPage:', { updatedItems, newPage: 'MATCHUP_PAGE' });
     }, []);
 
     const goToResultsPage = useCallback(updatedScores => {
         setScores(updatedScores);
         setCurrentPage('RESULTS_PAGE');
-        console.log('goToResultsPage:', { updatedScores, newPage: 'RESULTS_PAGE' });
     }, []);
 
     // Log at every render
@@ -46,7 +44,8 @@ const useBasePage = () => {
         items,
         pairs,
         scores,
-        loading
+        loading,
+        itemsUpdated // Include the new state variable in the log
     });
 
     return {
@@ -63,7 +62,8 @@ const useBasePage = () => {
         goToInputPage,
         goToMatchupPage,
         goToResultsPage,
-        loading
+        loading,
+        itemsUpdated // Expose the new state variable
     };
 };
 
