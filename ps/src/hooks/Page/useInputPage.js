@@ -61,21 +61,14 @@ const useInputPage = (setItems, goToMatchupPage) => {
         const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
         setItems(itemsWithVotes);
         setIsSubmitted(true);
-        console.log(`itemsWithVotes: ${itemsWithVotes}`);
-        console.log(`rows: ${rows}`);
-        // console.log(`newItem: ${newItem}`);
-        // console.log(`updatedRows: ${updatedRows}`);
-        // console.log(`index: ${index}`);
+        console.log('handleSubmit - itemsWithVotes:', itemsWithVotes);
     }, [rows, setItems]);
 
     useEffect(() => {
         if (isSubmitted) {
             goToMatchupPage();
             setIsSubmitted(false);
-            console.log(`rows: ${rows}`);
-            // console.log(`newItem: ${newItem}`);
-            // console.log(`updatedRows: ${updatedRows}`);
-            // console.log(`index: ${index}`);
+            console.log('useEffect - isSubmitted:', { isSubmitted, goToMatchupPageCalled: true });
         }
     }, [isSubmitted, goToMatchupPage]);
 

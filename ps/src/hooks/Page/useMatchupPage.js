@@ -48,11 +48,11 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
                 votes: scores[item.id] || 0
             }));
             goToResultsPage(updatedItems);
+            console.log('useEffect - shouldGoToResults:', { shouldGoToResults, updatedItems });
         }
-        console.log(`shouldGoToResults: ${shouldGoToResults}`);
     }, [shouldGoToResults, items, scores, goToResultsPage]);
-    console.log(`items: ${items}, scores: ${scores}`);
-    console.log('Current Pair:', currentPair);
+
+    console.log('useMatchupPage - Current State:', { items, scores, currentPair });
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect };
 };
 

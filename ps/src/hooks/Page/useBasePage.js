@@ -11,7 +11,6 @@ const useBasePage = () => {
 
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
-    // Log when items or generatedPairs change
     useEffect(() => {
         console.log('useEffect - items or generatedPairs changed:', { items, generatedPairs });
         if (items && items.length > 0) {
@@ -27,7 +26,9 @@ const useBasePage = () => {
     }, []);
 
     const goToMatchupPage = useCallback(updatedItems => {
-        setItems(updatedItems);
+        if (updatedItems) { // Protective check added
+            setItems(updatedItems);
+        }
         setCurrentPage('MATCHUP_PAGE');
         console.log('goToMatchupPage:', { updatedItems, newPage: 'MATCHUP_PAGE' });
     }, []);
