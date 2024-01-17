@@ -7,12 +7,13 @@ const useBasePage = () => {
     const [items, setItems] = useState([]);
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState({});
-
     const [loading, setLoading] = useState(true);
 
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
+    // Log when items or generatedPairs change
     useEffect(() => {
+        console.log('useEffect - items or generatedPairs changed:', { items, generatedPairs });
         if (items && items.length > 0) {
             setPairs(generatedPairs);
             setLoading(false);
@@ -22,17 +23,30 @@ const useBasePage = () => {
     const goToInputPage = useCallback((inputTopic) => {
         setTopic(inputTopic);
         setCurrentPage('INPUT_PAGE');
+        console.log('goToInputPage:', { inputTopic, newPage: 'INPUT_PAGE' });
     }, []);
 
     const goToMatchupPage = useCallback(updatedItems => {
         setItems(updatedItems);
-            setCurrentPage('MATCHUP_PAGE');
+        setCurrentPage('MATCHUP_PAGE');
+        console.log('goToMatchupPage:', { updatedItems, newPage: 'MATCHUP_PAGE' });
     }, []);
 
     const goToResultsPage = useCallback(updatedScores => {
         setScores(updatedScores);
         setCurrentPage('RESULTS_PAGE');
+        console.log('goToResultsPage:', { updatedScores, newPage: 'RESULTS_PAGE' });
     }, []);
+
+    // Log at every render
+    console.log('Rendering useBasePage:', {
+        currentPage,
+        topic,
+        items,
+        pairs,
+        scores,
+        loading
+    });
 
     return {
         currentPage,
@@ -50,8 +64,6 @@ const useBasePage = () => {
         goToResultsPage,
         loading
     };
-    console.log('Items in useBasePage:', items);
 };
-
 
 export default useBasePage;

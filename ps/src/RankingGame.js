@@ -18,41 +18,25 @@ const RankingGame = () => {
         pairs,
     } = useBasePage();
 
-    console.log(`currentPage: ${currentPage}`);
-    console.log(`topic: ${topic}`);
-    console.log(`items: ${items}`);
-    console.log(`pairs: ${pairs}`);
+    // Detailed console log to inspect the state at each render
+    console.log('Rendering RankingGame:', { currentPage, topic, items, pairs });
 
     switch (currentPage) {
         case 'SPLASH_PAGE':
-            console.log(`currentPage: ${currentPage}`);
-            console.log(`topic: ${topic}`);
-            console.log(`items: ${items}`);
-            console.log(`pairs: ${pairs}`);
             return <SplashPage goToInputPage={goToInputPage} setTopic={setTopic} />;
         case 'INPUT_PAGE':
-            console.log(`currentPage: ${currentPage}`);
-            console.log(`topic: ${topic}`);
-            console.log(`items: ${items}`);
-            console.log(`pairs: ${pairs}`);
             return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={topic} />;
         case 'MATCHUP_PAGE':
-            console.log(`currentPage: ${currentPage}`);
-            console.log(`topic: ${topic}`);
-            console.log(`items: ${items}`);
-            console.log(`pairs: ${pairs}`);
+            // Log to check the items and pairs state when entering the Matchup page
+            console.log('Entering Matchup Page with:', { items, pairs });
             return <MatchupPage items={items} pairs={pairs} goToResultsPage={goToResultsPage} />;
         case 'RESULTS_PAGE':
-            console.log(`currentPage: ${currentPage}`);
-            console.log(`topic: ${topic}`);
-            console.log(`items: ${items}`);
-            console.log(`pairs: ${pairs}`);
+            // Log to check the items state when entering the Results page
+            console.log('Entering Results Page with items:', items);
             return <ResultsPage items={items} />;
         default:
-            console.log(`currentPage: ${currentPage}`);
-            console.log(`topic: ${topic}`);
-            console.log(`items: ${items}`);
-            console.log(`pairs: ${pairs}`);        
+            // Log for an unknown page, which indicates a routing error
+            console.log('Error: Unknown currentPage', currentPage);
             return <div>Error: Unknown page</div>;
     }
 };

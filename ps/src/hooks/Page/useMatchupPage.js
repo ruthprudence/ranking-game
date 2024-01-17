@@ -19,6 +19,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         } else {
             setShouldGoToResults(true); // Set flag to true when it's time to navigate
         }
+        console.log(`currentPairIndex: ${currentPairIndex}, pairs.length: ${pairs.length}`);
     }, [currentPairIndex, pairs]);
 
     const handleVote = (chosenItem) => {
@@ -48,6 +49,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
             }));
             goToResultsPage(updatedItems);
         }
+        console.log(`shouldGoToResults: ${shouldGoToResults}`);
     }, [shouldGoToResults, items, scores, goToResultsPage]);
     console.log(`items: ${items}, scores: ${scores}`);
     console.log('Current Pair:', currentPair);
