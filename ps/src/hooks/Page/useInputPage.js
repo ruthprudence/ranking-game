@@ -5,6 +5,7 @@ const useInputPage = (setItems, goToMatchupPage) => {
     const [rows, setRows] = useState(['', '', '']);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    // Log rows and isSubmitted states
     console.log(`rows: ${rows}`);
     console.log(`isSubmitted: ${isSubmitted}`);
 
@@ -12,6 +13,8 @@ const useInputPage = (setItems, goToMatchupPage) => {
         const updatedRows = [...rows];
         updatedRows[index] = newItem;
         setRows(updatedRows);
+
+        // Log the changes in rows, newItem, updatedRows, and index
         console.log(`rows: ${rows}`);
         console.log(`newItem: ${newItem}`);
         console.log(`updatedRows: ${updatedRows}`);
@@ -23,44 +26,28 @@ const useInputPage = (setItems, goToMatchupPage) => {
             alert(`You cannot add more than ${MAXCHOICES} items.`);
             return;
         }
-        console.log(`rows: ${rows}`);
-        // console.log(`newItem: ${newItem}`);
-        // console.log(`updatedRows: ${updatedRows}`);
-        // console.log(`index: ${index}`);
         setRows([...rows, '']);
     }, [rows]);
 
     const handleRemoveItem = useCallback((index) => {
         const updatedRows = rows.filter((_, i) => i !== index);
         setRows(updatedRows);
-        console.log(`rows: ${rows}`);
-        // console.log(`newItem: ${newItem}`);
-        console.log(`updatedRows: ${updatedRows}`);
-        console.log(`index: ${index}`);
     }, [rows]);
-
-    
 
     const handleSubmit = useCallback(() => {
         if (rows.some(row => !row.trim())) {
             alert('All items must be filled in.');
-            console.log(`rows: ${rows}`);
-            // console.log(`newItem: ${newItem}`);
-            // console.log(`updatedRows: ${updatedRows}`);
-            // console.log(`index: ${index}`);
             return;
         }
         if (rows.length < MINCHOICES || rows.length > MAXCHOICES) {
             alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);
-            console.log(`rows: ${rows}`);
-            // console.log(`newItem: ${newItem}`);
-            // console.log(`updatedRows: ${updatedRows}`);
-            // console.log(`index: ${index}`);
             return;
         }
         const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
         setItems(itemsWithVotes);
         setIsSubmitted(true);
+
+        // Detailed logging of itemsWithVotes
         console.log('handleSubmit - itemsWithVotes:', itemsWithVotes);
     }, [rows, setItems]);
 
@@ -68,14 +55,11 @@ const useInputPage = (setItems, goToMatchupPage) => {
         if (isSubmitted) {
             goToMatchupPage();
             setIsSubmitted(false);
+
+            // Detailed logging for useEffect
             console.log('useEffect - isSubmitted:', { isSubmitted, goToMatchupPageCalled: true });
         }
     }, [isSubmitted, goToMatchupPage]);
-
-    console.log(`rows: ${rows}`);
-    // console.log(`newItem: ${newItem}`);
-    // console.log(`updatedRows: ${updatedRows}`);
-    // console.log(`index: ${index}`);
 
     return { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit };
 };
