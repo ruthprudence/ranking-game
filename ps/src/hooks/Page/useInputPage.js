@@ -5,10 +5,13 @@ const useInputPage = (setItems, goToMatchupPage) => {
     const [rows, setRows] = useState(['', '', '']);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    console.log(`rows: ${rows}`);
+
     const handleItemChange = useCallback((index, newItem) => {
         const updatedRows = [...rows];
         updatedRows[index] = newItem;
         setRows(updatedRows);
+        console.log(`rows: ${rows}`);
     }, [rows]);
 
     const handleAddItem = useCallback(() => {
@@ -16,12 +19,14 @@ const useInputPage = (setItems, goToMatchupPage) => {
             alert(`You cannot add more than ${MAXCHOICES} items.`);
             return;
         }
+        console.log(`rows: ${rows}`);
         setRows([...rows, '']);
     }, [rows]);
 
     const handleRemoveItem = useCallback((index) => {
         const updatedRows = rows.filter((_, i) => i !== index);
         setRows(updatedRows);
+        console.log(`rows: ${rows}`);
     }, [rows]);
 
     
@@ -38,6 +43,7 @@ const useInputPage = (setItems, goToMatchupPage) => {
         const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
         setItems(itemsWithVotes);
         setIsSubmitted(true);
+        console.log(`itemsWithVotes: ${itemsWithVotes}`);
     }, [rows, setItems]);
 
     useEffect(() => {

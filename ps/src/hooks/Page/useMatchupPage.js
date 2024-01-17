@@ -23,6 +23,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
 
     const handleVote = (chosenItem) => {
         const itemId = chosenItem.id;
+        console.log(`itemId: ${itemId}`);
         handleChoiceSelection(itemId);
     };
     
