@@ -47,6 +47,8 @@ const useInputPage = (setItems, goToMatchupPage) => {
         }
     }, [isSubmitted, goToMatchupPage]);
 
+    console.log(`rows: ${rows}`);
+
     return { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit };
 };
 

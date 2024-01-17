@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import usePairGenerator from '../calculate/usePairGenerator';
-import { generatePairs } from '../calculate/generatePairs'; 
 
 const useBasePage = () => {
     const [currentPage, setCurrentPage] = useState('SPLASH_PAGE');
@@ -11,7 +10,7 @@ const useBasePage = () => {
 
     const [loading, setLoading] = useState(true);
 
-    const { pairs: generatedPairs } = generatePairs(items ? items.length : 0);
+    const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
     useEffect(() => {
         if (items && items.length > 0) {
