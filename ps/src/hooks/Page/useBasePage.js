@@ -13,7 +13,7 @@ const useBasePage = () => {
     const [pairs, setPairs] = useState([]);
     const [scores, setScores] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [itemsUpdated, setItemsUpdated] = useState(false); // New state variable
+    const [itemsUpdated, setItemsUpdated] = useState(false); 
 
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
@@ -27,10 +27,10 @@ const useBasePage = () => {
     }, [items, generatedPairs]);
 
     const goToInputPage = useGoToInputPage(setTopic, setCurrentPage);
-    const goToMatchupPage = useGoToMatchupPage(setItems, setItemsUpdated, setCurrentPage);
-    const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
-    // const useUpdateItemsWithVotes = useUpdateItemsWithVotes(setItems, setItemsUpdated);
 
+    const goToMatchupPage = useGoToMatchupPage(setItems, setItemsUpdated, setCurrentPage);
+    
+    const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
     
 
     // Log at every render
