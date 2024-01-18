@@ -2,11 +2,9 @@
 import { useCallback } from 'react';
 
 const useGoToResultsPage = (setItems, setScores, setCurrentPage) => {
-
-    return useCallback(() => {
-        console.log('setItems', setItems);
-        const updatedItems = setItems;
-        setScores(updatedItems);
+    return useCallback((updatedItems) => {
+        setItems(updatedItems); // Correctly update the items state
+        setScores(updatedItems); // Assuming setScores expects the same data structure as setItems
         setCurrentPage('RESULTS_PAGE');
     }, [setItems, setScores, setCurrentPage]);
 };

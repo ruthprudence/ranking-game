@@ -1,26 +1,13 @@
-// useResultsPage.js
 import { useState, useEffect } from 'react';
+import { calculateScores } from '../calculate/scoreCalculator';
+import { calculateRankings } from '../calculate/rankingCalculator';
 
 const useResultsPage = (items) => {
     const [rankings, setRankings] = useState([]);
 
     useEffect(() => {
-        const scores = items.reduce((acc, item) => {
-            acc[item.id] = item.votes;
-            return acc;
-        }, {});
-
-        const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-        let lastScore = null;
-        let rank = 0;
-        const adjustedRankings = sortedChoices.map(([id, score], index) => {
-            if (score !== lastScore) {
-                rank = index + 1;
-                lastScore = score;
-            }
-            const itemName = items.find(item => item.id.toString() === id).name;
-            return [itemName, score, rank];
-        });
+        const scores = calculateScores(items);
+        const adjustedRankings = calculateRankings(items, scores);
 
         setRankings(adjustedRankings);
     }, [items]);
