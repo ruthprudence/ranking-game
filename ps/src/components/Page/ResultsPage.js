@@ -3,8 +3,9 @@ import React from 'react';
 import useResultsPage from '../../hooks/Page/useResultsPage';
 
 const ResultsPage = ({ items }) => {
+    console.log('items ', items);
     const { rankings } = useResultsPage(items);
-
+    console.log('rankings ', rankings);
     return (
         <div>
             <h1>Results Page</h1>
