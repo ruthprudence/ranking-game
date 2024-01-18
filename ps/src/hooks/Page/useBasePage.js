@@ -15,6 +15,8 @@ const useBasePage = () => {
     const [loading, setLoading] = useState(true);
     const [itemsUpdated, setItemsUpdated] = useState(false); 
 
+
+
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
 
@@ -29,7 +31,9 @@ const useBasePage = () => {
     const goToInputPage = useGoToInputPage(setTopic, setCurrentPage);
 
     const goToMatchupPage = useGoToMatchupPage(setItems, setItemsUpdated, setCurrentPage);
-    
+
+    const updateItemsWithVotes = useUpdateItemsWithVotes(setItems, setItemsUpdated);
+
     const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
     
 
