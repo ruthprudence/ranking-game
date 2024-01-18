@@ -1,15 +1,14 @@
 // useGoToResultsPage.js
 import { useCallback } from 'react';
-import useUpdateItemsWithVotes from './useUpdateItemsWithVotes';
 
 const useGoToResultsPage = (setItems, setScores, setCurrentPage) => {
-    const updateItemsWithVotes = useUpdateItemsWithVotes();
 
     return useCallback(() => {
-        const updatedItems = updateItemsWithVotes(setItems);
+        console.log('setItems', setItems);
+        const updatedItems = setItems;
         setScores(updatedItems);
         setCurrentPage('RESULTS_PAGE');
-    }, [setItems, setScores, setCurrentPage, updateItemsWithVotes]);
+    }, [setItems, setScores, setCurrentPage]);
 };
 
 export default useGoToResultsPage;
