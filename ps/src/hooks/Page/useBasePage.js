@@ -29,7 +29,7 @@ const useBasePage = () => {
     const goToInputPage = useGoToInputPage(setTopic, setCurrentPage);
     const goToMatchupPage = useGoToMatchupPage(setItems, setItemsUpdated, setCurrentPage);
     const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
-    const updateItemsWithVotesFunction = useUpdateItemsWithVotes(setItems, setItemsUpdated);
+    // const useUpdateItemsWithVotes = useUpdateItemsWithVotes(setItems, setItemsUpdated);
 
     
 
