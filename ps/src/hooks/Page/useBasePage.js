@@ -1,5 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import usePairGenerator from '../calculate/usePairGenerator';
+import useGoToInputPage from './functions/useGoToInputPage';
+import useGoToMatchupPage from './functions/useGoToMatchupPage';
+import useGoToResultsPage from './functions/useGoToResultsPage';
+import useUpdateItemsWithVotes from './functions/useUpdateItemsWithVotes.js';
+
 
 const useBasePage = () => {
     const [currentPage, setCurrentPage] = useState('SPLASH_PAGE');
@@ -12,6 +17,8 @@ const useBasePage = () => {
 
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
 
+
+
     useEffect(() => {
         if (items && items.length > 0) {
             setPairs(generatedPairs);
@@ -19,39 +26,12 @@ const useBasePage = () => {
         }
     }, [items, generatedPairs]);
 
-    const goToInputPage = useCallback((inputTopic) => {
-        setTopic(inputTopic);
-        setCurrentPage('INPUT_PAGE');
-    }, []);
+    const goToInputPage = useGoToInputPage(setTopic, setCurrentPage);
+    const goToMatchupPage = useGoToMatchupPage(setItems, setItemsUpdated, setCurrentPage);
+    const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
+    const updateItemsWithVotesFunction = useUpdateItemsWithVotes(setItems, setItemsUpdated);
 
-    const goToMatchupPage = useCallback(updatedItems => {
-        if (updatedItems) {
-            setItems(updatedItems);
-            setItemsUpdated(true); // Update state variable when items are updated
-        }
-        setCurrentPage('MATCHUP_PAGE');
-    }, []);
-
-    const updateItemsWithVotes = useCallback(() => {
-        const updatedItems = items.map(item => {
-            const scoreItem = scores.find(score => score.id === item.id);
-            return scoreItem ? { ...item, votes: scoreItem.votes } : item;
-        });
-        setItems(updatedItems);
-    }, [items, scores]);
-
-    const goToResultsPage = useCallback(updatedScores => {
-        setScores(updatedScores);
-        updateItemsWithVotes(); // Update items with the latest votes
-        setCurrentPage('RESULTS_PAGE');
-    }, [updateItemsWithVotes]);
-
-    useEffect(() => {
-        // Listen for changes in the scores state and update items
-        if (scores.length > 0) {
-            updateItemsWithVotes();
-        }
-    }, [scores, updateItemsWithVotes]);
+    
 
     // Log at every render
     console.log('Rendering useBasePage:', {
