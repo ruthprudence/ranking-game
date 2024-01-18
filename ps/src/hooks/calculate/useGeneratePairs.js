@@ -1,7 +1,7 @@
 // import console from 'console';
 // useGeneratePairs.js
 const generatePairs = (numItems = 0) => {
-        console.log('numItems:', numItems);
+        // console.log('numItems:', numItems);
         if (!numItems || numItems < 2) {
             return [];
         }
@@ -12,7 +12,7 @@ const generatePairs = (numItems = 0) => {
                 pairs.push([i, j]);
             }
         }
-        console.log('Pairs:', pairs);
+        // console.log('Pairs:', pairs);
         return pairs;
 
 };
