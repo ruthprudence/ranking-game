@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
+import {useSelector} from 'react-redux';
 
-const MatchupPage = ({ items, pairs, goToResultsPage, topic }) => {
-    console.log('MatchupPage - Props:', { items, pairs });
+const MatchupPage = () => {
+    const items = useSelector((state) => state.game.items);
+    const pairs = useSelector((state) => state.game.pairs);
+    const topic = useSelector((state) => state.game.topic);
 
-    // Call the hook at the top level
-    const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage(items, pairs, goToResultsPage);
+    const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage();
 
     return (
         <div>

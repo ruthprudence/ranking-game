@@ -1,9 +1,12 @@
 // ResultsPage.js
 import React from 'react';
 import useResultsPage from '../../hooks/Page/useResultsPage';
+import {useSelector} from 'react-redux';
 
-const ResultsPage = ({ items }) => {
-    console.log('items ', items);
+const ResultsPage = () => {
+    // console.log('items ', items);
+    const items = useSelector((state) => state.game.items);
+
     const { rankings } = useResultsPage(items);
     console.log('rankings ', rankings);
     return (

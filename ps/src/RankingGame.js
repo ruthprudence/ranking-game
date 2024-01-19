@@ -30,7 +30,7 @@ const RankingGame = () => {
     // } = useBasePage();
 
     // Detailed console log to inspect the state at each render
-    console.log('Rendering RankingGame:', { currentPage, topic, items, pairs });
+    // console.log('Rendering RankingGame:', { currentPage, topic, items, pairs });
 
     switch (currentPage) {
         case 'SPLASH_PAGE':
