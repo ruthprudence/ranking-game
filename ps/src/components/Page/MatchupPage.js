@@ -10,7 +10,7 @@ const MatchupPage = ({ items, pairs, goToResultsPage }) => {
 
     return (
         <div>
-            <h1>Matchup Page</h1>
+            <h2>Choose the Winner!</h2>
             <div>
                 {currentPair && (
                     <>

@@ -8,7 +8,7 @@ const ResultsPage = ({ items }) => {
     console.log('rankings ', rankings);
     return (
         <div>
-            <h1>Results Page</h1>
+            <h2>Results</h2>
             <table>
                 <thead>
                     <tr>
