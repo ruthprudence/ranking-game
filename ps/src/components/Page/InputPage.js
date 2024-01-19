@@ -7,6 +7,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);
 
     console.log('InputPage - Rows:', rows);
+    console.log('topic', topic);
 
     return (
         <div>

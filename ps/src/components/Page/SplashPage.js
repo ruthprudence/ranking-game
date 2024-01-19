@@ -9,6 +9,8 @@ const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');
     const handleTopicSubmitFunc = useHandleTopicSubmit(setTopic, goToInputPage); 
 
+    console.log('SplashPage - topic:', topic);
+
     return (
         <div>
             <h1>the Ranking Game</h1>
