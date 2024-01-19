@@ -1,15 +1,11 @@
 // useSplashPage.js
+import { useCallback } from 'react';
+import useHandleTopicSubmit from './functions/input/useHandleTopicSubmit';
 const useSplashPage = (setTopic, goToInputPage) => {
-    const handleSubmit = (inputTopic) => {
-      if (!inputTopic.trim()) {
-        alert('Please enter a valid topic.');
-        return;
-      }
-      setTopic(inputTopic);
-      goToInputPage(inputTopic);
-    };
+
+  const handleTopicSubmitFunc = useHandleTopicSubmit(setTopic, goToInputPage);
   
-    return { handleSubmit };
+    return { handleTopicSubmitFunc };
 };
 
 export default useSplashPage;
