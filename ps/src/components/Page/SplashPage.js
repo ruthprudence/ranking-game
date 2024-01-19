@@ -2,20 +2,27 @@
 import React, { useState } from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
-import useSplashPage from '../../hooks/Page/useSplashPage';
-import useHandleTopicSubmit from '../../hooks/Page/functions/input/useHandleTopicSubmit';
+import { useDispatch } from 'react-redux';
+import {setTopic, setCurrentPage} from '../../features/game/gameSlice'
+
+
+// import useSplashPage from '../../hooks/Page/useSplashPage';
+// import useHandleTopicSubmit from '../../hooks/Page/functions/input/useHandleTopicSubmit';
 
 const SplashPage = ({ goToInputPage }) => {
-    const [topic, setTopic] = useState('');
-    const handleTopicSubmitFunc = useHandleTopicSubmit(setTopic, goToInputPage); 
+    const [localTopic, setLocalTopic] = useState('');
+    const dispatch = useDispatch();
 
-    console.log('SplashPage - topic:', topic);
+    const handleTopicSubmit = () => {
+        dispatch(setTopic(localTopic));
+        dispatch(setCurrentPage('INPUT_PAGE'));
+    };
 
     return (
         <div>
             <h1>the Ranking Game</h1>
-            <InputField value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g. Fruits" />
-            <Button onClick={() => handleTopicSubmitFunc(topic)}>Submit Topic</Button>
+            <InputField value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder="e.g. Fruits" />
+            <Button onClick={handleTopicSubmit}>Submit Topic</Button>
             <p><i>Enter something to Rank</i></p>
         </div>
     );

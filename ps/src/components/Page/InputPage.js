@@ -2,12 +2,11 @@ import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import useInputPage from '../../hooks/Page/useInputPage';
+import { useSelector, useDispatch } from 'react-redux';
 
-const InputPage = ({ setItems, goToMatchupPage, topic }) => {
+const InputPage = ({ setItems, goToMatchupPage}) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);
-
-    console.log('InputPage - Rows:', rows);
-    console.log('topic', topic);
+    const topic = useSelector((state) => state.game.topic);
 
     return (
         <div>
