@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import useSplashPage from '../../hooks/Page/useSplashPage';
-import useHandleTopicSubmit from '../../hooks/Page/functions/useHandleTopicSubmit';
+import useHandleTopicSubmit from '../../hooks/Page/functions/input/useHandleTopicSubmit';
 
 const SplashPage = ({ goToInputPage }) => {
     const [topic, setTopic] = useState('');

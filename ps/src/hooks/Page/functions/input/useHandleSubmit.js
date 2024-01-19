@@ -1,6 +1,6 @@
 // functions/useHandleSubmit.js
 import { useCallback } from 'react';
-import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
+import { MAXCHOICES, MINCHOICES } from '../../../utils/constants';
 
 const useHandleSubmit = (rows, setItems, setIsSubmitted) => {
     return useCallback(() => {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import usePairGenerator from '../calculate/usePairGenerator';
-import useGoToInputPage from './functions/useGoToInputPage';
-import useGoToMatchupPage from './functions/useGoToMatchupPage';
-import useGoToResultsPage from './functions/useGoToResultsPage';
-import useUpdateItemsWithVotes from './functions/useUpdateItemsWithVotes.js';
+import useGoToInputPage from './functions/nav/useGoToInputPage.js';
+import useGoToMatchupPage from './functions/nav/useGoToMatchupPage.js';
+import useGoToResultsPage from './functions/nav/useGoToResultsPage.js';
+import useUpdateItemsWithVotes from './functions/input/useUpdateItemsWithVotes.js';
 
 
 const useBasePage = () => {

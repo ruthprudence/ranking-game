@@ -1,6 +1,6 @@
 // functions/handleAddItem.js
 import { useCallback } from 'react';
-import { MAXCHOICES } from '../../utils/constants';
+import { MAXCHOICES } from '../../../utils/constants';
 
 const useHandleAddItem = (rows, setRows) => {
     return useCallback(() => {
