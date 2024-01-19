@@ -25,7 +25,7 @@ const RankingGame = () => {
         case 'SPLASH_PAGE':
             return <SplashPage goToInputPage={goToInputPage} setTopic={setTopic} />;
         case 'INPUT_PAGE':
-            return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={topic} />;
+            return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={'TestTopic'} />;
         case 'MATCHUP_PAGE':
             // Log to check the items and pairs state when entering the Matchup page
             console.log('Entering Matchup Page with:', { items, pairs });
