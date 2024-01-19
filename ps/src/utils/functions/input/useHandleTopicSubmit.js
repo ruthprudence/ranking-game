@@ -7,7 +7,7 @@ const useHandleTopicSubmit = (setTopic, setCurrentPage) => {
 
     return useCallback(topic => {
         setTopic(topic); // Set the topic first
-        goToInputPage(topic); // Then navigate to the input page
+        goToInputPage(topic); // Pass the topic to navigate to the input page
     }, [setTopic, goToInputPage]);
 };
 
