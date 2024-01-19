@@ -1,39 +1,46 @@
 import React from 'react';
-import useBasePage from './hooks/Page/useBasePage';
+import {useSelector, useDispatch} from 'react-redux';
+import { setCurrentPage, setTopic } from './features/game/gameSlice';
+
+// import useBasePage from './hooks/Page/useBasePage';
 import SplashPage from './components/Page/SplashPage';
 import InputPage from './components/Page/InputPage';
 import MatchupPage from './components/Page/MatchupPage';
 import ResultsPage from './components/Page/ResultsPage';
 
 const RankingGame = () => {
-    const {
-        currentPage,
-        goToInputPage,
-        goToMatchupPage,
-        goToResultsPage,
-        topic,
-        setTopic,
-        items,
-        setItems,
-        pairs,
-    } = useBasePage();
+    const dispatch = useDispatch();
+    const currentPage = useSelector((state) => state.game.currentPage);
+    const topic = useSelector((state) => state.game.topic);
+
+    const goToInputPage = () => {
+        dispatch(setCurrentPage('INPUT_PAGE'));
+    }
+
+    // const {
+    //     currentPage,
+    //     goToInputPage,
+    //     goToMatchupPage,
+    //     goToResultsPage,
+    //     topic,
+    //     setTopic,
+    //     items,
+    //     setItems,
+    //     pairs,
+    // } = useBasePage();
 
     // Detailed console log to inspect the state at each render
     console.log('Rendering RankingGame:', { currentPage, topic, items, pairs });
 
     switch (currentPage) {
         case 'SPLASH_PAGE':
-            return <SplashPage goToInputPage={goToInputPage} setTopic={setTopic} />;
+            return <SplashPage goToInputPage={goToInputPage}/>;
         case 'INPUT_PAGE':
-            return <InputPage setItems={setItems} goToMatchupPage={goToMatchupPage} topic={'TestTopic'} />;
+            return <InputPage/>;
         case 'MATCHUP_PAGE':
-            // Log to check the items and pairs state when entering the Matchup page
-            console.log('Entering Matchup Page with:', { items, pairs });
-            return <MatchupPage items={items} pairs={pairs} goToResultsPage={goToResultsPage} topic={topic} />;
+            return <MatchupPage/>;
         case 'RESULTS_PAGE':
-            // Log to check the items state when entering the Results page
-            console.log('Entering Results Page with items:', items);
-            return <ResultsPage items={items} topic={topic} />;
+            return <ResultsPage/>;
         default:
             // Log for an unknown page, which indicates a routing error
             console.log('Error: Unknown currentPage', currentPage);
