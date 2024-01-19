@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 
-const MatchupPage = ({ items, pairs, goToResultsPage }) => {
+const MatchupPage = ({ items, pairs, goToResultsPage, topic }) => {
     console.log('MatchupPage - Props:', { items, pairs });
 
     // Call the hook at the top level
@@ -10,7 +10,7 @@ const MatchupPage = ({ items, pairs, goToResultsPage }) => {
 
     return (
         <div>
-            <h3>Compare!</h3>
+            <h3>{topic}</h3>
             <div>
                 {currentPair && (
                     <>

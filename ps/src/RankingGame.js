@@ -29,11 +29,11 @@ const RankingGame = () => {
         case 'MATCHUP_PAGE':
             // Log to check the items and pairs state when entering the Matchup page
             console.log('Entering Matchup Page with:', { items, pairs });
-            return <MatchupPage items={items} pairs={pairs} goToResultsPage={goToResultsPage} />;
+            return <MatchupPage items={items} pairs={pairs} goToResultsPage={goToResultsPage} topic={topic} />;
         case 'RESULTS_PAGE':
             // Log to check the items state when entering the Results page
             console.log('Entering Results Page with items:', items);
-            return <ResultsPage items={items} />;
+            return <ResultsPage items={items} topic={topic} />;
         default:
             // Log for an unknown page, which indicates a routing error
             console.log('Error: Unknown currentPage', currentPage);
