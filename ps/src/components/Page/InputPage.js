@@ -11,7 +11,7 @@ const InputPage = ({ setItems, goToMatchupPage, topic }) => {
 
     return (
         <div>
-            <h2>Topic: {topic}</h2>
+            <h2>{topic}</h2>
             <table>
                 <tbody>
                     {rows.map((row, index) => (
