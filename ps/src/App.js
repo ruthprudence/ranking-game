@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
+import './styles/components/buttons.css';
 import RankingGame from './RankingGame.js';
 
 
