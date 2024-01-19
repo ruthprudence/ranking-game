@@ -4,7 +4,7 @@
 
 Welcome to the Ranking Game, a web-based application designed to facilitate decision-making and prioritization in a fun and interactive way. 
 
-The goal is to combine the robustness of modern web technologies with a user-centered design philosophy, and a humble demo is hosted [on my website] (https://ruthprudence.com/rg/)
+The goal is to combine the robustness of modern web technologies with a user-centered design philosophy, and a humble demo is hosted on my website [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
 ## Project Overview
 
