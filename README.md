@@ -25,6 +25,14 @@ The Ranking Game is a React and React Native application offering an engaging ex
 - **MySQL**: Reliable database management for data integrity.
 - **Jest & Puppeteer**: Ensuring application reliability and performance through extensive testing.
 
+### Contribution
+
+Contributions to the Ranking Game project are welcome. Please feel free to fork the repository, make improvements, and submit pull requests.
+
+---
+
+Developed by Ruth Prudence | [GitHub](https://github.com/ruthprudence/ranking-game)
+
 ## Installation and Usage
 
 ```bash
@@ -33,10 +41,3 @@ cd priority-sorter
 npm install
 npm start
 
-### Contribution
-
-Contributions to the Ranking Game project are welcome. Please feel free to fork the repository, make improvements, and submit pull requests.
-
----
-
-Developed by Ruth Prudence | [GitHub](https://github.com/ruthprudence/ranking-game)
