@@ -1,4 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
+import useHandleChoiceSelection from './functions/useHandleChoiceSelection';
+import useHandleVote from './functions/useHandleVote';
+import useHandleLeftChoiceSelect from './functions/useHandleLeftChoiceSelect';
+import useHandleRightChoiceSelect from './functions/useHandleRightSelect';
 
 const useMatchupPage = (items, pairs, goToResultsPage) => {
     const [scores, setScores] = useState({});
@@ -7,38 +11,13 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
 
     const currentPair = pairs && pairs[currentPairIndex];
 
+    const handleChoiceSelectionFunc = useHandleChoiceSelection(currentPairIndex, pairs, setScores, setCurrentPairIndex, setShouldGoToResults);
 
-    const handleChoiceSelection = useCallback((selectedChoiceId) => {
-        setScores(prevScores => ({
-            ...prevScores,
-            [selectedChoiceId]: (prevScores[selectedChoiceId] || 0) + 1
-        }));
-
-        if (currentPairIndex < pairs.length - 1) {
-            setCurrentPairIndex(currentPairIndex + 1);
-        } else {
-            setShouldGoToResults(true); // Set flag to true when it's time to navigate
-        }
-        console.log(`currentPairIndex: ${currentPairIndex}, pairs.length: ${pairs.length}`);
-    }, [currentPairIndex, pairs]);
-
-    const handleVote = (chosenItem) => {
-        const itemId = chosenItem.id;
-        console.log(`itemId: ${itemId}`);
-        handleChoiceSelection(itemId);
-    };
+    const handleVote = useHandleVote(handleChoiceSelectionFunc);
     
-    const handleLeftChoiceSelect = () => {
-        if (currentPair && currentPair.length > 0) {
-            handleVote(items[currentPair[0]]);
-        }
-    };
-    
-    const handleRightChoiceSelect = () => {
-        if (currentPair && currentPair.length > 1) {
-            handleVote(items[currentPair[1]]);
-        }
-    };
+    const handleLeftChoiceSelect = useHandleLeftChoiceSelect(currentPair, items, handleVote);
+
+    const handleRightChoiceSelect = useHandleRightChoiceSelect(currentPair, items, handleVote);
 
     // Navigate to results page when all pairs are processed
     useEffect(() => {
@@ -52,7 +31,7 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         }
     }, [shouldGoToResults, items, scores, goToResultsPage]);
 
-    return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect };
+    return { currentPair, handleLeftChoiceSelect: useHandleLeftChoiceSelect, handleRightChoiceSelect: handleRightChoiceSelect};
 };
 
 export default useMatchupPage;
