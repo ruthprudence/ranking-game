@@ -4,13 +4,19 @@ import { createSlice } from '@reduxjs/toolkit';
 export const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    // Initial state goes here
+    currentPage: 'SPLASH_PAGE',
+    topic: ''
   },
   reducers: {
-    // Reducers go here
+    setCurrentPage: (state, action) => {
+        state.currentPage = action.payload;
+    },
+    setTopic: (state, action) => {
+        state.topic = action.payload;
+    }
   },
 });
 
 // Export actions and reducer
-export const { /* export actions here */ } = gameSlice.actions;
+export const { setCurrentPage, setTopic } = gameSlice.actions;
 export default gameSlice.reducer;
