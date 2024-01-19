@@ -15,11 +15,7 @@ const useBasePage = () => {
     const [loading, setLoading] = useState(true);
     const [itemsUpdated, setItemsUpdated] = useState(false); 
 
-
-
     const { pairs: generatedPairs } = usePairGenerator(items ? items.length : 0);
-
-
 
     useEffect(() => {
         if (items && items.length > 0) {
@@ -36,18 +32,6 @@ const useBasePage = () => {
 
     const goToResultsPage = useGoToResultsPage(setItems, setScores, setCurrentPage);
     
-
-    // Log at every render
-    console.log('Rendering useBasePage:', {
-        currentPage,
-        topic,
-        items,
-        pairs,
-        scores,
-        loading,
-        itemsUpdated // Include the new state variable in the log
-    });
-
     return {
         currentPage,
         setCurrentPage,
@@ -63,7 +47,7 @@ const useBasePage = () => {
         goToMatchupPage,
         goToResultsPage,
         loading,
-        itemsUpdated // Expose the new state variable
+        itemsUpdated 
     };
 };
 

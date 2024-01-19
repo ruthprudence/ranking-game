@@ -52,7 +52,6 @@ const useMatchupPage = (items, pairs, goToResultsPage) => {
         }
     }, [shouldGoToResults, items, scores, goToResultsPage]);
 
-    console.log('useMatchupPage - Current State:', { items, scores, currentPair });
     return { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect };
 };
 
