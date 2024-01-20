@@ -95,4 +95,7 @@ export const {
   initializeScores,
 } = matchupSlice.actions;
 
+// Selectors
+export const selectRankings = (state) => state.items.rankings;
+
 export default matchupSlice.reducer;
