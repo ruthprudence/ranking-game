@@ -5,15 +5,15 @@ import InputField from '../UI/InputField';
 import { useDispatch } from 'react-redux';
 import {setTopic, setCurrentPage} from '../../features/game/gameSlice'
 
-
-// import useSplashPage from '../../hooks/Page/useSplashPage';
-// import useHandleTopicSubmit from '../../hooks/Page/functions/input/useHandleTopicSubmit';
-
 const SplashPage = ({ goToInputPage }) => {
     const [localTopic, setLocalTopic] = useState('');
     const dispatch = useDispatch();
 
     const handleTopicSubmit = () => {
+        if (!localTopic.trim()) {
+            alert('Please enter a topic.');
+            return;
+        }
         dispatch(setTopic(localTopic));
         dispatch(setCurrentPage('INPUT_PAGE'));
     };

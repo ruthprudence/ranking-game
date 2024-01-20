@@ -33,7 +33,20 @@ const InputPage = () => {
                 <tbody>
                     {rows.map((row, index) => (
                         <tr key={index}>
-                            {/* ... existing row rendering ... */}
+                            <td>{index + 1}</td>
+                            <td>
+                                <InputField 
+                                    value={row} 
+                                    onChange={(e) => handleItemChange(index, e.target.value)} 
+                                    placeholder={index < 3 ? `e.g. ${['apricots', 'blueberries', 'persimmons'][index]}` : 'Enter an item'}
+                                />
+                            </td>
+                            {index >= 3 && (
+                                <td className="remove-button-cell">
+                                    <Button onClick={() => handleRemoveRow(index)}>Remove</Button>
+                                </td>
+                            )}
+                            {index < 3 && <td className="remove-button-cell"></td>}
                         </tr>
                     ))}
                 </tbody>

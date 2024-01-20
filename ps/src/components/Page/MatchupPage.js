@@ -3,13 +3,20 @@ import Button from '../UI/Button';
 import useMatchupPage from '../../hooks/Page/useMatchupPage';
 import {useSelector} from 'react-redux';
 
+
+
 const MatchupPage = () => {
+    const dispatch = useDispatch();
     const items = useSelector((state) => state.game.items);
-    const pairs = useSelector((state) => state.game.pairs);
-    const topic = useSelector((state) => state.game.topic);
+    const currentPair = useSelector((state) => state.game.currentPair);
 
-    const { currentPair, handleLeftChoiceSelect, handleRightChoiceSelect } = useMatchupPage();
+    const handleLeftChoiceSelect = () => {
+        dispatch(selectLeftChoice());
+    };
 
+    const handleRightChoiceSelect = () => {
+        dispatch(selectRightChoice());
+    };
     return (
         <div>
             <h3>{topic}</h3>
