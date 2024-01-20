@@ -1,14 +1,17 @@
-// ResultsPage.js
-import React from 'react';
-import useResultsPage from '../../trash/hooks/Page/useResultsPage';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { calculateScores, calculateRankings, selectRankings } from '../../features/items/itemsSlice';
 
 const ResultsPage = () => {
-    // console.log('items ', items);
+    const dispatch = useDispatch();
     const items = useSelector((state) => state.game.items);
+    const rankings = useSelector(selectRankings);
 
-    const { rankings } = useResultsPage(items);
-    console.log('rankings ', rankings);
+    useEffect(() => {
+        dispatch(calculateScores());
+        dispatch(calculateRankings());
+    }, [dispatch, items]);
+
     return (
         <div>
             <h2>Results</h2>
@@ -21,11 +24,11 @@ const ResultsPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {rankings.map(([name, votes, rank], index) => (
+                    {rankings.map(({ name, score, rank }, index) => (
                         <tr key={index}>
                             <td>{rank}</td>
                             <td>{name}</td>
-                            <td>{votes}</td>
+                            <td>{score}</td>
                         </tr>
                     ))}
                 </tbody>
