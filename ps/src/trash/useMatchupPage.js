@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
-import useHandleChoiceSelection from './functions/input/useHandleChoiceSelection';
-import useHandleVote from './functions/input/useHandleVote';
-import useHandleLeftChoiceSelect from './functions/input/useHandleLeftChoiceSelect';
-import useHandleRightChoiceSelect from './functions/input/useHandleRightChoiceSelect';
+import useHandleChoiceSelection from './hooks/Page/functions/input/useHandleChoiceSelection';
+import useHandleVote from './hooks/Page/functions/input/useHandleVote';
+import useHandleLeftChoiceSelect from './hooks/Page/functions/input/useHandleLeftChoiceSelect';
+import useHandleRightChoiceSelect from './hooks/Page/functions/input/useHandleRightChoiceSelect';
 
 const useMatchupPage = (items, pairs, goToResultsPage) => {
     const [scores, setScores] = useState({});

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { MAXCHOICES, MINCHOICES } from '../utils/constants';
+import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
 
 const useRowManagement = (initialRows = []) => {
   const [rows, setRows] = useState(initialRows);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../UI/Button';
+import Button from '../../components/UI/Button';
 import useMatchupPage from './useMatchupPage';
 
 const MatchupPage = ({ items, pairs, goToResultsPage, topic }) => {
