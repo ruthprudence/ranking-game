@@ -92,7 +92,7 @@ export const {
   selectChoice,
   calculateScores,
   calculateRankings,
-  // Other exports...
+  initializeScores,
 } = matchupSlice.actions;
 
 export default matchupSlice.reducer;
