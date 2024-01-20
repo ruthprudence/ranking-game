@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
-import { MAXCHOICES, MINCHOICES } from '../utils/constants'; 
-import useHandleItemChange from './functions/input/useHandleItemChange';
-import useHandleAddItem from './functions/input/useHandleAddItem';
-import useHandleRemoveItem from './functions/input/useHandleRemoveItem';
+import { MAXCHOICES, MINCHOICES } from './hooks/utils/constants'; 
+import useHandleItemChange from './hooks/Page/functions/input/useHandleItemChange';
+import useHandleAddItem from './hooks/Page/functions/input/useHandleAddItem';
+import useHandleRemoveItem from './hooks/Page/functions/input/useHandleRemoveItem';
 import useHandleSubmit from './functions/input/useHandleSubmit';
 
 const useInputPage = (setItems, goToMatchupPage) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../../UI/Button';
-import InputField from '../../UI/InputField';
-import useInputPage from './hooks/useInputPage';
+import Button from '../../components/UI/Button';
+import InputField from '../../components/UI/InputField';
+import useInputPage from '../../../trash/hooks/useInputPage';
 
 const InputPage = ({ setItems, goToMatchupPage, topic }) => {
     const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);

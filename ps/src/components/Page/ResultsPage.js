@@ -1,6 +1,6 @@
 // ResultsPage.js
 import React from 'react';
-import useResultsPage from '../../hooks/Page/useResultsPage';
+import useResultsPage from '../../trash/hooks/Page/useResultsPage';
 import {useSelector} from 'react-redux';
 
 const ResultsPage = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../UI/Button';
-import useMatchupPage from '../../hooks/Page/useMatchupPage';
+import useMatchupPage from '../../trash/useMatchupPage';
 import {useSelector} from 'react-redux';
 
 
