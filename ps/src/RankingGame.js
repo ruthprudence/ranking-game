@@ -11,6 +11,7 @@ import ResultsPage from './components/Page/ResultsPage';
 const RankingGame = () => {
     const dispatch = useDispatch();
     const currentPage = useSelector((state) => state.game.currentPage);
+    console.log("RankingGame - Current Page:", currentPage);
     const topic = useSelector((state) => state.game.topic);
 
     const goToInputPage = () => {
