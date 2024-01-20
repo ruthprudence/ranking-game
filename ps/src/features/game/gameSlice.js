@@ -79,8 +79,8 @@ export const gameSlice = createSlice({
         const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
         state.items = itemsWithVotes;
   
-        // Dispatch generatePairs after setting items
-        // store.dispatch(generatePairs());
+        state.currentPage = 'MATCHUP_PAGE'; // Update the currentPage
+        console.log('submitInputPage - currentPage updated to:', state.currentPage);
     },
   }
 });
