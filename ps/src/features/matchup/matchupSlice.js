@@ -14,7 +14,6 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
-    // Existing reducers...
 
     generatePairs: (state) => {
         if (state.items.length < 2) {
@@ -28,6 +27,7 @@ export const matchupSlice = createSlice({
             pairs.push([row, col]);
           }
         }
+        console.log('generatePairs - pairs:', pairs);
         state.pairs = pairs;
       },
 
