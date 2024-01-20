@@ -5,7 +5,8 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState: {
     currentPage: 'SPLASH_PAGE',
-    topic: ''
+    topic: '',
+    items: []
   },
   reducers: {
     setCurrentPage: (state, action) => {
@@ -13,10 +14,23 @@ export const gameSlice = createSlice({
     },
     setTopic: (state, action) => {
         state.topic = action.payload;
-    }
-  },
+    },
+    addItem: (state) => {
+        state.items.push('');
+    },
+    updateItem: (state, action) => {
+        const { index, value } = action.payload;
+        state.items[index] = value;
+    },
+    removeItem: (state, action) => {
+        state.items.splice(action.payload, 1);
+    },
+    setItems: (state, action) => {
+        state.items = action.payload;
+    }, // Add a comma here
+}
 });
 
 // Export actions and reducer
-export const { setCurrentPage, setTopic } = gameSlice.actions;
+export const { setCurrentPage, setTopic, addItem, updateItem, removeItem, setItems } = gameSlice.actions;
 export default gameSlice.reducer;
