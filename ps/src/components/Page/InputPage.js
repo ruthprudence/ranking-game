@@ -1,12 +1,33 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
-import useInputPage from '../../hooks/Page/useInputPage';
+// import useInputPage from '../../hooks/Page/useInputPage';
 import { useSelector, useDispatch } from 'react-redux';
+import {setItems, setCurrentPage, addItem, updateItem, removeItem} from '../../features/game/gameSlice';
 
-const InputPage = ({ setItems, goToMatchupPage}) => {
-    const { rows, handleItemChange, handleAddItem, handleRemoveItem, handleSubmit } = useInputPage(setItems, goToMatchupPage);
+const InputPage = () => {
     const topic = useSelector((state) => state.game.topic);
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.game.items);
+
+    const handleAddItem = () => {
+        dispatch(addItem());
+    };
+
+    const handleItemChange = (index, value) => {
+        dispatch(updateItem({ index, value }));
+    };
+
+    const handleRemoveItem = (index) => {
+        dispatch(removeItem(index));
+    };
+
+    const handleSubmit = (rows) => {
+        // Logic to handle submission
+        dispatch(setItems(convertRowsToItems(rows))); // Example conversion function
+        dispatch(setCurrentPage('MATCHUP_PAGE'));
+    };
+
 
     return (
         <div>
