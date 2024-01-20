@@ -18,22 +18,22 @@ export const matchupSlice = createSlice({
 
     // Generate pairs based on the number of items
     generatePairs: (state) => {
-        console.log('Generating pairs, items:', state.items);
+        console.log('generatePairs - items before generating pairs:', state.items);
         if (state.items.length < 2) {
-          state.pairs = [];
-          console.log('Not enough items to generate pairs, pairs:', state.pairs);
+            state.pairs = [];
+            console.log('generatePairs - Not enough items to generate pairs:', state.pairs);
         } else {
-          const pairs = [];
-          for (let start = 1; start < state.items.length; start++) {
-            for (let row = start, col = 0; row < state.items.length; row++, col++) {
-              pairs.push([row, col]);
-              console.log('Pair added:', [row, col]);
+            const pairs = [];
+            for (let start = 1; start < state.items.length; start++) {
+                for (let row = start, col = 0; row < state.items.length; row++, col++) {
+                    pairs.push([row, col]);
+                    console.log('generatePairs - Pair added:', [row, col]);
+                }
             }
-          }
-          state.pairs = pairs;
-          console.log('Generated pairs:', pairs);
+            state.pairs = pairs;
+            console.log('generatePairs - Generated pairs:', pairs);
         }
-      },
+    },
 
     // Handle choice selection
     selectChoice: (state, action) => {
