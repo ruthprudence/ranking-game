@@ -11,21 +11,11 @@ export const itemsSlice = createSlice({
   reducers: {
     // ...existing reducers
 
-    // Action to calculate scores
-    calculateScores: (state) => {
-      state.scores = calculateScores(state.items);
-    },
 
-    // Action to calculate rankings
-    calculateRankings: (state) => {
-      state.rankings = calculateRankings(state.items, state.scores);
-    },
   }
 });
 
-export const { calculateScores, calculateRankings } = itemsSlice.actions;
 
-// Selectors
-export const selectRankings = (state) => state.items.rankings;
+
 
 export default itemsSlice.reducer;

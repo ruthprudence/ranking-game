@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { calculateScores, calculateRankings, selectRankings } from '../../features/items/itemsSlice';
+import { calculateScores, calculateRankings, selectRankings } from '../../features/matchup/matchupSlice';
 
 const ResultsPage = () => {
     const dispatch = useDispatch();
