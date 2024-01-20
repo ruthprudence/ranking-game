@@ -10,7 +10,7 @@ const MatchupPage = () => {
   const pairs = useSelector((state) => state.matchup.pairs);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
 
-
+  const topic = useSelector((state) => state.game.topic);
 
   // Dispatch generatePairs when items change
   useEffect(() => {
@@ -26,15 +26,18 @@ const MatchupPage = () => {
 
   const handleLeftChoiceSelect = () => {
     dispatch(selectChoice(items[currentPair[0]].name));
+    setCurrentPairIndex(currentPairIndex + 1);
   };
-
+  
   const handleRightChoiceSelect = () => {
     dispatch(selectChoice(items[currentPair[1]].name));
+    setCurrentPairIndex(currentPairIndex + 1);
   };
+  
 
   return (
     <div>
-      <h3>{/* topic from Redux store or props */}</h3>
+      <h3>{topic}</h3>
       <div>
         <Button onClick={handleLeftChoiceSelect}>{items[currentPair[0]].name}</Button>
         <Button onClick={handleRightChoiceSelect}>{items[currentPair[1]].name}</Button>
