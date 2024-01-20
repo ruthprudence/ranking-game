@@ -1,25 +1,28 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../UI/Button';
-import useMatchupPage from '../../trash/useMatchupPage';
-import {useSelector} from 'react-redux';
-
-
+import { selectChoice } from '../../features/matchup/matchupSlice';
 
 const MatchupPage = () => {
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.game.items);
-    const currentPair = useSelector((state) => state.game.currentPair);
+    const items = useSelector((state) => state.matchup.items);
+    const currentPair = useSelector((state) => state.matchup.currentPair);
 
     const handleLeftChoiceSelect = () => {
-        dispatch(selectLeftChoice());
+        if (currentPair) {
+            dispatch(selectChoice(items[currentPair[0]].name));
+        }
     };
 
     const handleRightChoiceSelect = () => {
-        dispatch(selectRightChoice());
+        if (currentPair) {
+            dispatch(selectChoice(items[currentPair[1]].name));
+        }
     };
+
     return (
         <div>
-            <h3>{topic}</h3>
+            <h3>{/* topic from Redux store or props */}</h3>
             <div>
                 {currentPair && (
                     <>

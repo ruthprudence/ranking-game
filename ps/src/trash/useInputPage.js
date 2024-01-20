@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { MAXCHOICES, MINCHOICES } from './hooks/utils/constants'; 
+import { MAXCHOICES, MINCHOICES } from './constants'; 
 import useHandleItemChange from './hooks/Page/functions/input/useHandleItemChange';
 import useHandleAddItem from './hooks/Page/functions/input/useHandleAddItem';
 import useHandleRemoveItem from './hooks/Page/functions/input/useHandleRemoveItem';
