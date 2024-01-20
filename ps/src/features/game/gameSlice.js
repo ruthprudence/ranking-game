@@ -1,5 +1,7 @@
 // src/features/game/gameSlice.js
 import { createSlice } from '@reduxjs/toolkit';
+// import { store } from '../../store'; // Import store
+import { generatePairs } from '../matchup/matchupSlice'; 
 import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
 
 export const gameSlice = createSlice({
@@ -62,6 +64,7 @@ export const gameSlice = createSlice({
         const rows = action.payload;
         console.log('submitInputPage - rows:', rows);
 
+        // validation checks
         if (rows.some(row => !row.trim())) {
           console.log('submitInputPage - validation error: empty row');
           alert('All items must be filled in.');
@@ -75,11 +78,10 @@ export const gameSlice = createSlice({
 
         const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
         state.items = itemsWithVotes;
-        state.currentPage = 'MATCHUP_PAGE';
-
-        console.log('submitInputPage - itemsWithVotes:', itemsWithVotes);
-        console.log('submitInputPage - currentPage:', state.currentPage);
-      },
+  
+        // Dispatch generatePairs after setting items
+        // store.dispatch(generatePairs());
+    },
   }
 });
 

@@ -1,7 +1,7 @@
 // SplashPage.js
 import React, { useState } from 'react';
-import Button from '../../components/UI/Button';
-import InputField from '../../components/UI/InputField';
+import Button from '../components/UI/Button';
+import InputField from '../components/UI/InputField';
 import useSplashPage from './useSplashPage';
 import useHandleTopicSubmit from '../../hooks/Page/functions/input/useHandleTopicSubmit';
 

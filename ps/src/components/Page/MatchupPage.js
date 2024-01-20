@@ -1,16 +1,20 @@
 // MatchupPage.js
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../UI/Button';
-import { selectChoice } from '../../features/matchup/matchupSlice';
+import { generatePairs, selectChoice } from '../../features/matchup/matchupSlice';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.matchup.items);
+  const items = useSelector((state) => state.game.items);
   const currentPair = useSelector((state) => state.matchup.currentPair);
 
-  console.log('MatchupPage: items', items);
-  console.log('MatchupPage: currentPair', currentPair);
+  // Dispatch generatePairs when items change
+  useEffect(() => {
+    if (items && items.length > 0) {
+      dispatch(generatePairs());
+    }
+  }, [items, dispatch]);
 
   if (!currentPair || currentPair.length === 0) {
     console.log('MatchupPage: No current pair available');
