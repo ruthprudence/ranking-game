@@ -13,8 +13,8 @@ describe('matchupSlice reducer', () => {
       // Expected pairs
       const expectedPairs = [
         [1, 0],
-        [2, 0],
         [2, 1],
+        [2, 0],
       ];
   
       // Create initial state
@@ -25,7 +25,7 @@ describe('matchupSlice reducer', () => {
       };
   
       // Dispatch the action
-      const action = generatePairs();
+      const action = generatePairs(items);
       const newState = reducer(initialState, action);
   
       // Check if pairs are generated correctly
