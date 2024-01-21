@@ -4,11 +4,10 @@ import { calculateScores, calculateRankings, selectRankings } from '../../featur
 
 const ResultsPage = () => {
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.matchup.items); // Use items from matchupSlice
+    const items = useSelector((state) => state.game.items);
     const rankings = useSelector(selectRankings);
 
     useEffect(() => {
-        // Calculate scores and rankings based on the items from the matchups
         if (items && items.length > 0) {
             dispatch(calculateScores());
             dispatch(calculateRankings());
