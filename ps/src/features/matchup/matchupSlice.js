@@ -76,7 +76,7 @@ export const matchupSlice = createSlice({
             state.scores = initialScores;
         },
     }
-}); // Add closing parenthesis here
+}); 
 
 export const {
     generatePairs,
