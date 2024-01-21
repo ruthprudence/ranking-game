@@ -85,6 +85,7 @@ export const gameSlice = createSlice({
   
         state.currentPage = 'MATCHUP_PAGE'; // Update the currentPage
         console.log('submitInputPage - currentPage updated to:', state.currentPage);
+        // store.dispatch(generatePairs(state.items));
     },
   }
 });
