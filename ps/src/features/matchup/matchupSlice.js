@@ -15,10 +15,16 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
+    completeMatchup: (state) => {
+        if (state.currentPairIndex >= state.pairs.length) {
+          state.isComparisonComplete = true;
+        }
+      },
     generatePairs: (state, action) => {
         console.log("generatePairs called with items:", action.payload);
-        const items = action.payload;  // Receive items as action payload
-        if (!items || items.length < 2) {
+        const items = Array.isArray(action.payload) ? action.payload : []; // Ensure items is always an array
+
+        if (items.length < 2) {
           console.warn('generatePairs - Not enough items to generate pairs.');
           state.pairs = [];
           return;
@@ -85,6 +91,7 @@ export const {
     calculateScores,
     calculateRankings,
     initializeScores,
+    completeMatchup,
 } = matchupSlice.actions;
 
 export const selectRankings = (state) => state.matchup.rankings;
