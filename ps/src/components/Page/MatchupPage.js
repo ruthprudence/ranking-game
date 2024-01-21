@@ -14,10 +14,13 @@ const MatchupPage = () => {
   const topic = useSelector((state) => state.game.topic);
 
   useEffect(() => {
-    if (pairs.length === 0 && items.length > 0) {
+    console.log("MatchupPage useEffect - Items:", items);
+    if (items.length > 0 && pairs.length === 0) {
+      console.log("Dispatching generatePairs with items:", items);
       dispatch(generatePairs(items));
     }
-  }, [dispatch, items, pairs.length]);
+  }, [dispatch, items]); // Added pairs.length in the dependency array
+  
 
   const handleChoiceSelect = (choiceIndex) => {
     dispatch(selectChoice(items[choiceIndex].name));

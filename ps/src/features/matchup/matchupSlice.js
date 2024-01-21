@@ -16,6 +16,7 @@ export const matchupSlice = createSlice({
   },
   reducers: {
     generatePairs: (state, action) => {
+        console.log("generatePairs called with items:", action.payload);
         const items = action.payload;  // Receive items as action payload
         if (!items || items.length < 2) {
           console.warn('generatePairs - Not enough items to generate pairs.');
