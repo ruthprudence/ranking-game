@@ -5,7 +5,7 @@ import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
 export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-      currentPage: '',
+      currentPage: 'INPUT_PAGE',
       topic: '',
       rows: ['', '', ''],
       items: [],

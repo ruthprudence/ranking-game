@@ -1,5 +1,5 @@
 // Import the necessary actions and reducer
-import reducer, { submitInputPage } from '../../../../../src/features/game/gameSlice';
+import reducer, { submitInputPage } from '../../../../../src/features/ui/uiSlice';
 
 describe('gameSlice reducer', () => {
     it('should transform rows into items correctly with submitInputPage action', () => {
