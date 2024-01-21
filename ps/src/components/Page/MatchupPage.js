@@ -16,7 +16,7 @@ const MatchupPage = () => {
   // Dispatch generatePairs when items change
   useEffect(() => {
     if (pairs.length === 0 && items.length > 0) {
-      dispatch(generatePairs());
+      dispatch(generatePairs(items));
     }
   }, [dispatch, items, pairs.length]);
 
