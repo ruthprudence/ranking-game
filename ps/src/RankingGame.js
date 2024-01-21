@@ -1,8 +1,7 @@
-import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { setCurrentPage, setTopic } from './features/game/gameSlice';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { generatePairs } from './features/matchup/matchupSlice';
 
-// import useBasePage from './hooks/Page/useBasePage';
 import SplashPage from './components/Page/SplashPage';
 import InputPage from './components/Page/InputPage';
 import MatchupPage from './components/Page/MatchupPage';
@@ -11,40 +10,26 @@ import ResultsPage from './components/Page/ResultsPage';
 const RankingGame = () => {
     const dispatch = useDispatch();
     const currentPage = useSelector((state) => state.game.currentPage);
-    console.log("RankingGame - Current Page:", currentPage);
-    const topic = useSelector((state) => state.game.topic);
+    const items = useSelector((state) => state.game.items);
 
-    const goToInputPage = () => {
-        dispatch(setCurrentPage('INPUT_PAGE'));
-    }
-
-    // const {
-    //     currentPage,
-    //     goToInputPage,
-    //     goToMatchupPage,
-    //     goToResultsPage,
-    //     topic,
-    //     setTopic,
-    //     items,
-    //     setItems,
-    //     pairs,
-    // } = useBasePage();
-
-    // Detailed console log to inspect the state at each render
-    // console.log('Rendering RankingGame:', { currentPage, topic, items, pairs });
+    useEffect(() => {
+        if (currentPage === 'MATCHUP_PAGE' && items.length > 0) {
+            console.log("Dispatching generatePairs with items:", items);
+            dispatch(generatePairs()); 
+        }
+    }, [currentPage, dispatch, items.length]);
 
     switch (currentPage) {
         case 'SPLASH_PAGE':
-            return <SplashPage goToInputPage={goToInputPage}/>;
+            return <SplashPage />;
         case 'INPUT_PAGE':
-            return <InputPage/>;
+            return <InputPage />;
         case 'MATCHUP_PAGE':
-            return <MatchupPage/>;
+            return <MatchupPage />;
         case 'RESULTS_PAGE':
-            return <ResultsPage/>;
+            return <ResultsPage />;
         default:
-            // Log for an unknown page, which indicates a routing error
-            console.log('Error: Unknown currentPage', currentPage);
+            console.error('Error: Unknown currentPage', currentPage);
             return <div>Error: Unknown page</div>;
     }
 };

@@ -54,7 +54,7 @@ export const gameSlice = createSlice({
     updateRow: (state, action) => {
         const { index, updatedValue } = action.payload;
         state.rows[index] = updatedValue;
-        console.log(`updateRow - rows[${index}]:`, updatedValue);
+        // console.log(`updateRow - rows[${index}]:`, updatedValue);
     },
     setValue: (state, action) => {
         state.value = action.payload;
@@ -76,7 +76,11 @@ export const gameSlice = createSlice({
           return;
         }
 
-        const itemsWithVotes = rows.map((name, index) => ({ id: index, name, votes: 0 }));
+        const itemsWithVotes = state.rows.map((row, index) => ({
+            id: index,
+            name: row,
+            votes: 0
+        }));
         state.items = itemsWithVotes;
   
         state.currentPage = 'MATCHUP_PAGE'; // Update the currentPage
@@ -85,5 +89,5 @@ export const gameSlice = createSlice({
   }
 });
 
-export const { setCurrentPage, setTopic, addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, submitInputPage } = gameSlice.actions;
+export const {setTopic, addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, submitInputPage, setCurrentPage } = gameSlice.actions;
 export default gameSlice.reducer;

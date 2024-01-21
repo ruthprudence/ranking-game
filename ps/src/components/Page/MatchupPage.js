@@ -7,7 +7,7 @@ import { selectCurrentPair } from '../../selectors/matchupSelectors';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.game.items);
+  const items = useSelector((state) => state.game.items); // Correctly accessing items from gameSlice
   const pairs = useSelector((state) => state.matchup.pairs);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
