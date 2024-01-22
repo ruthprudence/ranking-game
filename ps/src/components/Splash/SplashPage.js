@@ -1,8 +1,9 @@
 // SplashPage.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { submitTopic, setTopic, setCurrentPage } from '../../features/ui/uiSlice'; 
+import { setTopic, setCurrentPage } from '../../features/ui/uiSlice'; 
 import { SplashView } from './SplashView';
+import {submitTopic} from '../../features/actions';
 
 const SplashPage = () => {
     const [localTopic, setLocalTopic] = useState('');
