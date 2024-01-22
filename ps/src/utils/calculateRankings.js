@@ -1,6 +1,5 @@
 export const calculateRankings = (state) => {
     if (!state.scores) {
-        // Handle undefined scores
         return [];
     }
     const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
