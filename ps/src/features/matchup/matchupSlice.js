@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { pairingLogic } from '../../utils/pairingLogic';
 import {calculateScores} from '../../utils/calculateScores';
 import { calculateRankings } from '../../utils/calculateRankings';
+import { initializeScores } from '../../utils/initializeScores';
 
 
 export const matchupSlice = createSlice({
