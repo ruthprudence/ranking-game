@@ -1,35 +1,37 @@
 // uiSlice.js
 import { createSlice } from '@reduxjs/toolkit';
+import { createItemsWithVotes } from '../../utils/gameHelpers';
+import { validateRows } from '../../utils/validateRows';
 
 export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        currentPage: 'SPLASH_PAGE',
         topic: '',
         rows: ['', '', ''],
-        items: [],
         value: '',
-      },
+    },
     reducers: {
         setTopic: (state, action) => {
             state.topic = action.payload;
         },
-        setCurrentPage: (state, action) => {
-            state.currentPage = action.payload;
-        },
         submitTopic: (state, action) => {
             const topic = action.payload;
             if (!topic.trim()) {
-                // Handle error. You might want to handle this differently than an alert.
+              alert('Please enter a topic.');
                 return;
             }
             state.topic = topic;
-            state.currentPage = 'INPUT_PAGE';
         },
-        // other reducers
+        submitInputPage: (state, action) => {
+            const rows = action.payload;
+            if(!validateRows(rows)) {
+              return;
+            }
+            state.items = createItemsWithVotes(state.rows);
+        },
     },
-    // other configurations
+
 });
 
-export const { setTopic, setCurrentPage, submitTopic } = uiSlice.actions;
+export const { setTopic, submitTopic, submitInputPage } = uiSlice.actions;
 export default uiSlice.reducer;
