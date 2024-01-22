@@ -10,7 +10,6 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.game.items);
   const pairs = useSelector((state) => state.matchup.pairs);
-  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.game.topic);
@@ -21,22 +20,15 @@ const MatchupPage = () => {
     }
   }, [dispatch, items, pairs.length]);
 
-  useEffect(() => {
-    if (isComparisonComplete) {
-      dispatch(setCurrentPage('RESULTS_PAGE'));
-    }
-  }, [dispatch, isComparisonComplete]);
-
   const handleChoiceSelect = (choiceIndex) => {
     dispatch(selectChoice(items[choiceIndex].name));
-    setCurrentPairIndex(currentPairIndex + 1);
-  };
-
-  useEffect(() => {
-    if (currentPairIndex >= pairs.length) {
+    const nextPairIndex = currentPairIndex + 1;
+    if (nextPairIndex >= pairs.length) {
       dispatch(completeMatchup());
+    } else {
+      setCurrentPairIndex(nextPairIndex);
     }
-  }, [dispatch, currentPairIndex, pairs.length]);
+  };
 
   if (!currentPair) {
     return <p>No matchups available at this moment.</p>;
