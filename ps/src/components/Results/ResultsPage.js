@@ -10,9 +10,12 @@ const ResultsPage = () => {
     const rankings = useSelector(selectRankings);
 
     useEffect(() => {
-          dispatch(calculateScores());
-          dispatch(calculateRankings());
-      }, [dispatch]);
+        console.log('Items state at ResultsPage:', items);
+        if (items && items.length > 0) {
+            dispatch(calculateScores());
+            dispatch(calculateRankings());
+        }
+    }, [dispatch, items]);
       
       console.log('Rankings:', rankings);
       

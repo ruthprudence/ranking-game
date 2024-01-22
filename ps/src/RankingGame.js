@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import SplashPage from './components/Page/SplashPage';
-import InputPage from './components/Page/InputPage';
-import MatchupPage from './components/Page/MatchupPage';
-import ResultsPage from './components/Page/ResultsPage';
+import SplashPage from './components/Splash/SplashPage';
+import InputPage from './components/Input/InputPage';
+import MatchupPage from './components/Matchup/MatchupPage';
+import ResultsPage from './components/Results/ResultsPage';
 
 const RankingGame = () => {
     const dispatch = useDispatch();
