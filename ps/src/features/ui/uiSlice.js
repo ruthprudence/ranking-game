@@ -29,8 +29,8 @@ export const uiSlice = createSlice({
             if(!validateRows(rows)) {
               return;
             }
-            state.scores = initializeScores(state);
             state.items = createItemsWithVotes(state.rows);
+            state.scores = initializeScores(state);
         },
     },
 
