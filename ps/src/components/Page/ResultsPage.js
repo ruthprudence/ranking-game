@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { calculateScores, calculateRankings, selectRankings } from '../../features/matchup/matchupSlice';
+import {selectRankings } from '../../features/matchup/matchupSlice';
+import { calculateScores } from '../../utils/calculateScores';
+import { calculateRankings } from '../../utils/calculateRankings';
 
 const ResultsPage = () => {
     const dispatch = useDispatch();
@@ -8,10 +10,8 @@ const ResultsPage = () => {
     const rankings = useSelector(selectRankings);
 
     useEffect(() => {
-        // if (items && items.length > 0) {
           dispatch(calculateScores());
           dispatch(calculateRankings());
-        // }
       }, [dispatch]);
       
       console.log('Rankings:', rankings);

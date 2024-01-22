@@ -19,13 +19,13 @@ const MatchupPage = () => {
     if (items.length > 0 && pairs.length === 0) {
       dispatch(generatePairs(items));
     }
-  }, [dispatch, items]);
-
+  }, [items, pairs.length]); // Removed dispatch from dependency array
+  
   useEffect(() => {
-    if (currentPairIndex >= pairs.length) {
+    if (currentPairIndex >= pairs.length && pairs.length > 0) {
       dispatch(completeMatchup());
     }
-  }, [dispatch, currentPairIndex, pairs.length]);
+  }, [currentPairIndex, pairs.length]); // Removed dispatch from dependency array
 
   useEffect(() => {
     if (isComparisonComplete) {

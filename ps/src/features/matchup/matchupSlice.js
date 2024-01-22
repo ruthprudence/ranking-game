@@ -1,6 +1,9 @@
 // src/features/matchup/matchupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { pairingLogic } from '../../utils/pairingLogic';
+import {calculateScores} from '../../utils/calculateScores';
+import { calculateRankings } from '../../utils/calculateRankings';
+
 
 export const matchupSlice = createSlice({
   name: 'matchup',
@@ -15,105 +18,41 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
-    
-    completeMatchup: (state) => {
-        if (state.currentPairIndex >= state.pairs.length) {
-          state.isComparisonComplete = true;
-      
-          // // Calculate Scores
-          // const scores = state.items.reduce((acc, item) => {
-          //   acc[item.id] = item.votes;
-          //   return acc;
-          // }, {});
-          // state.scores = scores;
-      
-        //   // Calculate Rankings
-        //   const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
-        //   let lastScore = null;
-        //   let rank = 0;
-        //   const rankings = sortedChoices.map(([id, score], index) => {
-        //     if (score !== lastScore) {
-        //       rank = index + 1;
-        //       lastScore = score;
-        //     }
-        //     const itemName = state.items.find(item => item.id.toString() === id).name;
-        //     return { itemName, score, rank };
-        //   });
-        //   state.rankings = rankings;
-        }
-      },
     generatePairs: (state, action) => {
-        console.log("generatePairs called with items:", action.payload);
-        const items = Array.isArray(action.payload) ? action.payload : []; // Ensure items is always an array
+      const items = Array.isArray(action.payload) ? action.payload : [];
+      if (items.length < 2) {
+        state.pairs = [];
+        return;
+      }
+      state.pairs = pairingLogic(items);
+    },
 
-        if (items.length < 2) {
-          console.warn('generatePairs - Not enough items to generate pairs.');
-          state.pairs = [];
-          return;
+    selectChoice: (state, action) => {
+      const updatedItems = state.items.map(item => {
+        if (item.name === action.payload) {
+          return { ...item, votes: item.votes + 1 };
         }
-        const pairs = pairingLogic(items);
-        console.log('generatePairs - pairs generated:', pairs);
-        state.pairs = pairs;
-        },
+        return item;
+      });
+      state.items = updatedItems;
+    },
 
-        selectChoice: (state, action) => {
-            const selectedChoice = action.payload;
-            const updatedItems = state.items.map(item => {
-                if (item.name === selectedChoice) {
-                    return { ...item, votes: item.votes + 1 };
-                }
-                return item;
-            });
+    completeMatchup: (state) => {
+      if (state.currentPairIndex >= state.pairs.length) {
+        state.isComparisonComplete = true;
 
-            state.items = updatedItems;
-
-            if (state.currentPairIndex < state.pairs.length - 1) {
-                state.currentPairIndex += 1;
-            } else {
-                state.isComparisonComplete = true;
-            }
-        },
-
-        calculateScores: (state) => {
-            const scores = state.items.reduce((acc, item) => {
-                acc[item.id] = item.votes;
-                return acc;
-            }, {});
-            state.scores = scores;
-        },
-
-        calculateRankings: (state) => {
-            const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
-            let lastScore = null;
-            let rank = 0;
-            const rankings = sortedChoices.map(([id, score], index) => {
-                if (score !== lastScore) {
-                    rank = index + 1;
-                    lastScore = score;
-                }
-                const itemName = state.items.find(item => item.id.toString() === id).name;
-                return { itemName, score, rank };
-            });
-            state.rankings = rankings;
-        },
-
-        initializeScores: (state) => {
-            const initialScores = {};
-            state.rows.forEach(choice => {
-                initialScores[choice.trim()] = 0;
-            });
-            state.scores = initialScores;
-        },
-    }
-}); 
+        // Use the extracted functions
+        state.scores = calculateScores(state.items);
+        state.rankings = calculateRankings(state.scores, state.items);
+      }
+    },
+  },
+});
 
 export const {
-    generatePairs,
-    selectChoice,
-    calculateScores,
-    calculateRankings,
-    initializeScores,
-    completeMatchup,
+  generatePairs,
+  selectChoice,
+  completeMatchup,
 } = matchupSlice.actions;
 
 export const selectRankings = (state) => state.matchup.rankings;
