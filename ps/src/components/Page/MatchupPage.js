@@ -10,7 +10,7 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.game.items);
   const pairs = useSelector((state) => state.matchup.pairs);
-  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
+  // const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.game.topic);
@@ -24,14 +24,9 @@ const MatchupPage = () => {
   useEffect(() => {
     if (currentPairIndex >= pairs.length && pairs.length > 0) {
       dispatch(completeMatchup());
-    }
-  }, [currentPairIndex, pairs.length]); // Removed dispatch from dependency array
-
-  useEffect(() => {
-    if (isComparisonComplete) {
       dispatch(setCurrentPage('RESULTS_PAGE'));
     }
-  }, [dispatch, isComparisonComplete]);
+  }, [currentPairIndex, pairs.length]);
 
   const handleChoiceSelect = (choiceIndex) => {
     dispatch(selectChoice(items[choiceIndex].name));
