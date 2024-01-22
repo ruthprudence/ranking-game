@@ -7,6 +7,16 @@ const ResultsPage = () => {
     const items = useSelector((state) => state.game.items);
     const rankings = useSelector(selectRankings);
 
+    useEffect(() => {
+        // if (items && items.length > 0) {
+          dispatch(calculateScores());
+          dispatch(calculateRankings());
+        // }
+      }, [dispatch]);
+      
+      console.log('Rankings:', rankings);
+      
+
     return (
         <div>
             <h2>Results</h2>

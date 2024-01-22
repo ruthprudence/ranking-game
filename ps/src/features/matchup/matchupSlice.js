@@ -20,26 +20,26 @@ export const matchupSlice = createSlice({
         if (state.currentPairIndex >= state.pairs.length) {
           state.isComparisonComplete = true;
       
-          // Calculate Scores
-          const scores = state.items.reduce((acc, item) => {
-            acc[item.id] = item.votes;
-            return acc;
-          }, {});
-          state.scores = scores;
+          // // Calculate Scores
+          // const scores = state.items.reduce((acc, item) => {
+          //   acc[item.id] = item.votes;
+          //   return acc;
+          // }, {});
+          // state.scores = scores;
       
-          // Calculate Rankings
-          const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
-          let lastScore = null;
-          let rank = 0;
-          const rankings = sortedChoices.map(([id, score], index) => {
-            if (score !== lastScore) {
-              rank = index + 1;
-              lastScore = score;
-            }
-            const itemName = state.items.find(item => item.id.toString() === id).name;
-            return { itemName, score, rank };
-          });
-          state.rankings = rankings;
+        //   // Calculate Rankings
+        //   const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
+        //   let lastScore = null;
+        //   let rank = 0;
+        //   const rankings = sortedChoices.map(([id, score], index) => {
+        //     if (score !== lastScore) {
+        //       rank = index + 1;
+        //       lastScore = score;
+        //     }
+        //     const itemName = state.items.find(item => item.id.toString() === id).name;
+        //     return { itemName, score, rank };
+        //   });
+        //   state.rankings = rankings;
         }
       },
     generatePairs: (state, action) => {

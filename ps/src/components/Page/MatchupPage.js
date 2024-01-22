@@ -10,6 +10,7 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.game.items);
   const pairs = useSelector((state) => state.matchup.pairs);
+  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.game.topic);
@@ -18,16 +19,23 @@ const MatchupPage = () => {
     if (items.length > 0 && pairs.length === 0) {
       dispatch(generatePairs(items));
     }
-  }, [dispatch, items, pairs.length]);
+  }, [dispatch, items]);
+
+  useEffect(() => {
+    if (currentPairIndex >= pairs.length) {
+      dispatch(completeMatchup());
+    }
+  }, [dispatch, currentPairIndex, pairs.length]);
+
+  useEffect(() => {
+    if (isComparisonComplete) {
+      dispatch(setCurrentPage('RESULTS_PAGE'));
+    }
+  }, [dispatch, isComparisonComplete]);
 
   const handleChoiceSelect = (choiceIndex) => {
     dispatch(selectChoice(items[choiceIndex].name));
-    const nextPairIndex = currentPairIndex + 1;
-    if (nextPairIndex >= pairs.length) {
-      dispatch(completeMatchup());
-    } else {
-      setCurrentPairIndex(nextPairIndex);
-    }
+    setCurrentPairIndex(currentPairIndex + 1);
   };
 
   if (!currentPair) {
