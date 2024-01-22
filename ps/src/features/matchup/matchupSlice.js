@@ -15,6 +15,7 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
+    
     completeMatchup: (state) => {
         if (state.currentPairIndex >= state.pairs.length) {
           state.isComparisonComplete = true;

@@ -1,3 +1,4 @@
+// MatchupPage.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../UI/Button';
@@ -9,35 +10,35 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.game.items);
   const pairs = useSelector((state) => state.matchup.pairs);
-  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
+  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete);
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.game.topic);
 
   useEffect(() => {
-    console.log("MatchupPage useEffect - Items:", items);
     if (items.length > 0 && pairs.length === 0) {
-      console.log("Dispatching generatePairs with items:", items);
       dispatch(generatePairs(items));
     }
   }, [dispatch, items, pairs.length]);
 
+  useEffect(() => {
+    if (isComparisonComplete) {
+      dispatch(setCurrentPage('RESULTS_PAGE'));
+    }
+  }, [dispatch, isComparisonComplete]);
+
   const handleChoiceSelect = (choiceIndex) => {
     dispatch(selectChoice(items[choiceIndex].name));
-    const nextPairIndex = currentPairIndex + 1;
-    if (nextPairIndex >= pairs.length) {
-      dispatch(completeMatchup());
-    } else {
-      setCurrentPairIndex(nextPairIndex);
-    }
+    setCurrentPairIndex(currentPairIndex + 1);
   };
 
-  if (isComparisonComplete) {
-    dispatch(setCurrentPage('RESULTS_PAGE'));
-    return <p>Redirecting to results...</p>;
-  }
+  useEffect(() => {
+    if (currentPairIndex >= pairs.length) {
+      dispatch(completeMatchup());
+    }
+  }, [dispatch, currentPairIndex, pairs.length]);
 
-  if (!currentPair || currentPair.length === 0) {
+  if (!currentPair) {
     return <p>No matchups available at this moment.</p>;
   }
 
