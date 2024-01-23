@@ -3,10 +3,11 @@ import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 
-export const InputView = ({ topic,handleAddRow,handleRemoveRow, handleSubmit,handleItemChange, rows }) => {
+export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit }) => {
     return (
         <div>
             <h2>{topic}</h2>
+            {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <table>
                 <tbody>
                     {rows.map((row, index) => (

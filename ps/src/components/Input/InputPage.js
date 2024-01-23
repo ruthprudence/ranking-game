@@ -1,17 +1,14 @@
 // InputPage.js
 import React from 'react';
-import Button from '../UI/Button';
-import InputField from '../UI/InputField';
 import { useSelector, useDispatch } from 'react-redux';
 import { addRow, removeRow, updateRow} from '../../features/ui/uiSlice';
-import { submitInputPage } from '../../features/actions';
-import { initializeScores } from '../../utils/initializeScores';    
 import { InputView } from './InputView';
+import { submitInputPage } from '../../features/actions';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
     const rows = useSelector((state) => state.ui.rows);
-    
+    const isSubmissionFailed = useSelector((state) => state.ui.isSubmissionFailed);
     const dispatch = useDispatch();
 
     const handleAddRow = () => {
@@ -32,13 +29,14 @@ const InputPage = () => {
 
     return (
         <InputView 
-            topic={topic}
-            rows={rows}
-            handleAddRow={addRow} 
-            handleRemoveRow={removeRow}
-            handleItemChange={updateRow}
-            handleSubmit={handleSubmit}            
-        />
+        topic={topic}
+        rows={rows}
+        isSubmissionFailed={isSubmissionFailed}
+        handleAddRow={handleAddRow} 
+        handleRemoveRow={handleRemoveRow}
+        handleItemChange={handleItemChange}
+        handleSubmit={handleSubmit}            
+    />
     );
 };
 
