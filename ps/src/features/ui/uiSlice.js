@@ -48,9 +48,6 @@ export const uiSlice = createSlice({
         setValue: (state, action) => {
             state.value = action.payload;
         },
-        setTopic: (state, action) => {
-            state.topic = action.payload;
-        },
         submitTopic: (state, action) => {
             const topic = action.payload;
             if (!topic.trim()) {
