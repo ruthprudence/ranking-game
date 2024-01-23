@@ -10,6 +10,7 @@ import { initializeScores } from '../../utils/initializeScores';
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
     const rows = useSelector((state) => state.ui.rows);
+    
     const dispatch = useDispatch();
 
     const handleAddRow = () => {
