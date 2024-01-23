@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import SplashPage from './components/Splash/SplashPage';
 import InputPage from './components/Input/InputPage';
-import MatchupPage from './components/Matchup/MatchupPage.js.BAK';
-import ResultsPage from './components/Results/ResultsPage.js.BAK';
+import MatchupPage from './components/Matchup/MatchupPage';
+import ResultsPage from './components/Results/ResultsPage';
 
 const RankingGame = () => {
     const currentPage = useSelector((state) => state.game.currentPage);
