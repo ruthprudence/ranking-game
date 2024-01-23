@@ -5,6 +5,7 @@ import InputField from '../UI/InputField';
 import { useSelector, useDispatch } from 'react-redux';
 import { addRow, removeRow, updateRow} from '../../features/game/gameSlice';
 import { submitInputPage } from '../../features/actions';
+import { initializeScores } from '../../utils/initializeScores';    
 
 const InputPage = () => {
     const topic = useSelector((state) => state.game.topic);
