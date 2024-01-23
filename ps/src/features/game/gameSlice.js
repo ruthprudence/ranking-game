@@ -5,7 +5,8 @@ import { generatePairs } from '../matchup/matchupSlice';
 import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
 import { createItemsWithVotes } from '../../utils/gameHelpers';
 import { validateRows } from '../../utils/validateRows';
-import { submitTopic, submitInputPage } from '../actions';
+import { submitInputPage } from '../actions';
+import { submitTopic } from '../ui/uiSlice';
 
 export const gameSlice = createSlice({
   name: 'game',
