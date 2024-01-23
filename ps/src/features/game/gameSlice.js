@@ -18,16 +18,16 @@ export const gameSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(submitTopic, (state, action, { getState }) => {
-        const { ui: { isSubmissionSuccessful } } = getState();
-        if (isSubmissionSuccessful) {
-          state.currentPage = 'INPUT_PAGE';
-        }
-      })
-      .addCase(submitInputPage, (state) => {
-        state.currentPage = 'MATCHUP_PAGE';
-      });
-  },
+        .addCase(submitTopic, (state, action) => {
+            if (state.isSubmissionSuccessful) {
+                state.currentPage = 'INPUT_PAGE';
+            }
+        })
+        .addCase(submitInputPage, (state) => {
+            state.currentPage = 'MATCHUP_PAGE';
+        });
+},
+
 });
 
 export const { setCurrentPage } = gameSlice.actions;

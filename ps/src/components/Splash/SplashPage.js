@@ -17,6 +17,7 @@ const SplashPage = () => {
             dispatch(setCurrentPage('INPUT_PAGE'));
         }
     };
+    
 
     return (
         <SplashView 
