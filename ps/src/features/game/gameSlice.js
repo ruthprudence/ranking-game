@@ -9,7 +9,7 @@ export const gameSlice = createSlice({
     currentPage: 'SPLASH_PAGE',
     items: [],
     rows: ['', '', ''],
-    isSUbmissionSuccessful: false,
+    isSubmissionSuccessful: false,
   },
   reducers: {
     setCurrentPage: (state, action) => {
@@ -18,8 +18,11 @@ export const gameSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(submitTopic, (state) => {
-        state.currentPage = 'INPUT_PAGE';
+      .addCase(submitTopic, (state, action, { getState }) => {
+        const { ui: { isSubmissionSuccessful } } = getState();
+        if (isSubmissionSuccessful) {
+          state.currentPage = 'INPUT_PAGE';
+        }
       })
       .addCase(submitInputPage, (state) => {
         state.currentPage = 'MATCHUP_PAGE';

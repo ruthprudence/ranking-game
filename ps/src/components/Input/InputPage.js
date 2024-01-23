@@ -8,8 +8,8 @@ import { submitInputPage } from '../../features/actions';
 import { initializeScores } from '../../utils/initializeScores';    
 
 const InputPage = () => {
-    const topic = useSelector((state) => state.game.topic);
-    const rows = useSelector((state) => state.game.rows);
+    const topic = useSelector((state) => state.ui.topic);
+    const rows = useSelector((state) => state.ui.rows);
     const dispatch = useDispatch();
 
     const handleAddRow = () => {
