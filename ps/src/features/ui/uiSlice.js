@@ -2,7 +2,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../../utils/gameHelpers';
 import { validateRows } from '../../utils/validateRows';
-import { submitInputPage } from '../actions';
 import { initializeScores } from '../../utils/initializeScores';
 import { createAction } from '@reduxjs/toolkit';
 import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
@@ -13,6 +12,7 @@ export const uiSlice = createSlice({
         topic: '',
         rows: ['', '', ''],
         value: '',
+        isSubmissionFailed: false, 
     },
     reducers: {
         setTopic: (state, action) => {
@@ -61,16 +61,18 @@ export const uiSlice = createSlice({
         
         submitInputPage: (state, action) => {
             const rows = action.payload;
-            if(!validateRows(rows)) {
-              return;
+            if (!validateRows(rows)) {
+                state.isSubmissionFailed = true;
+                return;
             }
             state.items = createItemsWithVotes(state.rows);
             state.scores = initializeScores(state);
+            state.isSubmissionFailed = false;
         },
+        
     },
-
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue } = uiSlice.actions;
 export const submitTopic = createAction('ui/submitTopic');
 export default uiSlice.reducer;
