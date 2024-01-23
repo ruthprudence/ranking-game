@@ -2,8 +2,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../../utils/gameHelpers';
 import { validateRows } from '../../utils/validateRows';
-import { submitTopic, submitInputPage } from '../actions';
+import { submitInputPage } from '../actions';
 import { initializeScores } from '../../utils/initializeScores';
+import { createAction } from '@reduxjs/toolkit';
 
 export const uiSlice = createSlice({
     name: 'ui',
@@ -19,11 +20,14 @@ export const uiSlice = createSlice({
         submitTopic: (state, action) => {
             const topic = action.payload;
             if (!topic.trim()) {
-              alert('Please enter a topic.');
+                alert('Please enter a topic.');
+                state.isSubmissionSuccessful = false;
                 return;
             }
             state.topic = topic;
+            state.isSubmissionSuccessful = true;
         },
+        
         submitInputPage: (state, action) => {
             const rows = action.payload;
             if(!validateRows(rows)) {
@@ -37,4 +41,5 @@ export const uiSlice = createSlice({
 });
 
 export const { setTopic } = uiSlice.actions;
+export const submitTopic = createAction('ui/submitTopic');
 export default uiSlice.reducer;
