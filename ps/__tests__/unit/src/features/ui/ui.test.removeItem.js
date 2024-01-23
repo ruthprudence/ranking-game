@@ -1,5 +1,5 @@
 // Import the necessary actions and reducer
-import reducer, { removeItem } from '../../../../../src/features/game/gameSlice';
+import reducer, { removeItem } from '../../../../../src/features/ui/uiSlice';
 
   describe('gameSlice reducer', () => {
     it('should handle removeItem correctly', () => {

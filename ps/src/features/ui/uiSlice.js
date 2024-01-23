@@ -73,6 +73,6 @@ export const uiSlice = createSlice({
     },
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage } = uiSlice.actions;
 export const submitTopic = createAction('ui/submitTopic');
 export default uiSlice.reducer;

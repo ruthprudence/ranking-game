@@ -1,5 +1,5 @@
 // Import the necessary actions and reducer
-import reducer, { setTopic } from '../../../../../src/features/game/gameSlice';
+import reducer, { setTopic } from '../../../../../src/features/ui/uiSlice';
 
 describe('gameSlice reducer', () => {
     it('should handle setTopic correctly', () => {
