@@ -12,6 +12,7 @@ export const gameSlice = createSlice({
   initialState: {
     currentPage: 'SPLASH_PAGE',
     items: [],
+    rows: ['', '', ''],
   },
   reducers: {
     setCurrentPage: (state, action) => {
