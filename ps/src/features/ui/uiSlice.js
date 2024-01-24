@@ -15,11 +15,32 @@ export const uiSlice = createSlice({
         isSubmissionFailed: false, 
     },
     reducers: {
-        setTopic: (state, action) => {
-            state.topic = action.payload;
+        /** Splash Page
+         * 1. Set the topic
+         */
+        submitTopic: (state, action) => {
+            const topic = action.payload;
+            if (!topic.trim()) {
+                alert('Please enter a topic.');
+                state.isSubmissionSuccessful = false;
+                return;
+            }
+            state.topic = topic;
+            state.isSubmissionSuccessful = true;
         },
+        /** Input Page
+         * 1. Add a row
+         * 2. Remove a row
+         * 3. Update a row
+         * 4. Submit the input page
+         * 5. Set the items
+         * 6. Set the value
+         */
         addItem: (state) => {
             state.items.push('');
+        },
+        setTopic: (state, action) => {
+            state.topic = action.payload;
         },
         updateItem: (state, action) => {
             const { index, value } = action.payload;
@@ -48,16 +69,7 @@ export const uiSlice = createSlice({
         setValue: (state, action) => {
             state.value = action.payload;
         },
-        submitTopic: (state, action) => {
-            const topic = action.payload;
-            if (!topic.trim()) {
-                alert('Please enter a topic.');
-                state.isSubmissionSuccessful = false;
-                return;
-            }
-            state.topic = topic;
-            state.isSubmissionSuccessful = true;
-        },
+
         
         submitInputPage: (state, action) => {
             const rows = action.payload;
