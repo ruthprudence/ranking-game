@@ -1,6 +1,6 @@
 // uiSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { createItemsWithVotes } from '../../utils/gameHelpers';
+import { createItemsWithVotes } from '../../utils/createItemsWithVotes';
 import { validateRows } from '../../utils/validateRows';
 import { initializeScores } from '../../utils/initializeScores';
 import { createAction } from '@reduxjs/toolkit';
