@@ -1,3 +1,11 @@
+/** RankingGame
+ * 
+ *  This is the main component for the app.
+ *  It controls the page rendering based on the currentPage state in the Redux store.
+ * 
+ *  It is also the parent component for all the other components.
+ * 
+*/
 import React from 'react';
 import { useSelector } from 'react-redux';
 

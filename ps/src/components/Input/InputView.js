@@ -2,6 +2,7 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
+import { PLACEHOLDER_Input, PROMPT_Input } from '../../utils/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit }) => {
     return (
@@ -17,7 +18,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                                 <InputField 
                                     value={row} 
                                     onChange={(e) => handleItemChange(index, e.target.value)} 
-                                    placeholder={index < 3 ? `e.g. ${['apricots', 'cranberries', 'persimmons'][index]}` : 'Enter an item'}
+                                    placeholder={index < 3 ? `e.g. ${PLACEHOLDER_Input[index]}` : PROMPT_Input}
                                 />
                             </td>
                             {index >= 3 && (

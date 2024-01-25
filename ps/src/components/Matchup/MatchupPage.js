@@ -6,6 +6,7 @@ import { generatePairs, selectChoice, completeMatchup } from '../../features/mat
 import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { MatchupView } from './MatchupView';
+import {ERROR_Matchup} from '../../utils/constants';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const MatchupPage = () => {
   };
 
   if (!currentPair) {
-    return <p>No matchups available at this moment.</p>;
+    return <p>{ERROR_Matchup}</p>;
   }
 
   return (
