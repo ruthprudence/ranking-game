@@ -12,18 +12,22 @@ const InputPage = () => {
     const dispatch = useDispatch();
 
     const handleAddRow = () => {
+        console.log('InputPage.js handleAddRow');
         dispatch(addRow());
     };
 
     const handleItemChange = (index, value) => {
+        console.log('InputPage.js handleItemChange index: ', index, ' value: ', value);
         dispatch(updateRow({ index, updatedValue: value }));
     };
 
     const handleRemoveRow = (index) => {
+        console.log('InputPage.js handleRemoveRow index: ', index);
         dispatch(removeRow(index));
     };
 
     const handleSubmit = () => {
+        console.log('InputPage.js handleSubmit rows: ', rows);
         dispatch(submitInputPage(rows));
     };
 

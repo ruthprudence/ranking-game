@@ -58,19 +58,20 @@ export const uiSlice = createSlice({
             }
         },
         removeRow: (state, action) => {
-            if (state.rows.length > MINCHOICES) {
+            if (state.rows.length > MINCHOICES && action.payload >= 0 && action.payload < state.rows.length) {
               state.rows.splice(action.payload, 1);
             }
         },
         updateRow: (state, action) => {
             const { index, updatedValue } = action.payload;
-            state.rows[index] = updatedValue;
+            if (index >= 0 && index < state.rows.length) {
+                state.rows[index] = updatedValue;
+            }
         },
+        
         setValue: (state, action) => {
             state.value = action.payload;
         },
-
-        
         submitInputPage: (state, action) => {
             const rows = action.payload;
             if (!validateRows(rows)) {
