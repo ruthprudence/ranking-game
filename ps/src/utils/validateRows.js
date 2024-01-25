@@ -1,3 +1,9 @@
+/**
+ * validateRows
+ * 
+ * 
+ */
+
 import { MAXCHOICES, MINCHOICES } from './constants';
 
 export const validateRows = (rows) => {

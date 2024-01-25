@@ -5,6 +5,7 @@ import Button from '../UI/Button';
 import { generatePairs, selectChoice, completeMatchup } from '../../features/matchup/matchupSlice';
 import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
+import { MatchupView } from './MatchupView';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
@@ -38,14 +39,12 @@ const MatchupPage = () => {
   }
 
   return (
-    <div>
-      <h3>{topic}</h3>
-      <div>
-        <Button onClick={() => handleChoiceSelect(currentPair[0])}>{items[currentPair[0]].name}</Button>
-        <Button onClick={() => handleChoiceSelect(currentPair[1])}>{items[currentPair[1]].name}</Button>
-      </div>
-      <p><i>Who Wins?</i></p>
-    </div>
+      <MatchupView 
+        topic={topic}
+        handleChoiceSelect={handleChoiceSelect}
+        currentPair={currentPair}
+        items={items}
+    />
   );
 };
 

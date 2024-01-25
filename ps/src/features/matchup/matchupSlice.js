@@ -19,6 +19,17 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
+    selectChoice: (state, action) => {
+      const choiceName = action.payload;
+      const updatedItems = state.items.map(item => {
+        if (item.name === choiceName) {
+          return { ...item, votes: item.votes + 1 };
+        }
+        return item;
+      });
+      state.items = updatedItems;
+      state.currentPairIndex += 1; // Increment the currentPairIndex
+    },
     generatePairs: (state, action) => {
       const items = Array.isArray(action.payload) ? action.payload : [];
       if (items.length < 2) {
@@ -27,17 +38,6 @@ export const matchupSlice = createSlice({
       }
       state.pairs = pairingLogic(items);
     },
-
-    selectChoice: (state, action) => {
-      const updatedItems = state.items.map(item => {
-        if (item.name === action.payload) {
-          return { ...item, votes: item.votes + 1 };
-        }
-        return item;
-      });
-      state.items = updatedItems;
-    },
-
     completeMatchup: (state) => {
       if (state.currentPairIndex >= state.pairs.length) {
         state.isComparisonComplete = true;
@@ -51,9 +51,9 @@ export const matchupSlice = createSlice({
 });
 
 export const {
-  generatePairs,
   selectChoice,
   completeMatchup,
+  generatePairs
 } = matchupSlice.actions;
 
 export const selectRankings = (state) => state.matchup.rankings;

@@ -17,7 +17,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                                 <InputField 
                                     value={row} 
                                     onChange={(e) => handleItemChange(index, e.target.value)} 
-                                    placeholder={index < 3 ? `e.g. ${['apricots', 'blueberries', 'persimmons'][index]}` : 'Enter an item'}
+                                    placeholder={index < 3 ? `e.g. ${['apricots', 'cranberries', 'persimmons'][index]}` : 'Enter an item'}
                                 />
                             </td>
                             {index >= 3 && (
