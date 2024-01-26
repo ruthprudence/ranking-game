@@ -54,8 +54,9 @@ export const matchupSlice = createSlice({
         state.isComparisonComplete = true;
 
         // Use the extracted functions
-        state.scores = calculateScores(state.items);
-        state.rankings = calculateRankings(state.scores, state.items);
+        state.scores = calculateScores(state);
+        // state.rankings = calculateRankings(state);
+        state.rankings = calculateRankings(state); // Ensure this is correctly called
       }
     },
   },

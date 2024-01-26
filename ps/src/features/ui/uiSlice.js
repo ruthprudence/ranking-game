@@ -1,5 +1,5 @@
 // uiSlice.js
-import { createSlice, createAction } from '@reduxjs/toolkit';
+import { createSlice, createAction} from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../../utils/matchup/createItemsWithVotes';
 import { validateRows } from '../../utils/ui/validateRows';
 import { initializeScores } from '../../utils/matchup/initializeScores';
@@ -8,17 +8,27 @@ import { MAXCHOICES, MINCHOICES } from '../../utils/ui/constants';
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
 export const uiSlice = createSlice({
-    name: 'ui',
-    initialState: {
-        topic: '',
-        rows: ['', '', ''],
-        value: '',
-        isSubmissionFailed: false, 
-    },
-    reducers: {
-        /** Splash Page
-         * 1. Set the topic
-         */
+  name: 'ui',
+  initialState: {
+    topic: '',
+    rows: ['', '', ''],
+    value: '',
+    isSubmissionFailed: false,
+    items: [],
+    scores: {}
+  },
+  reducers: {
+    // ... other reducers
+    submitInputPage: (state, action) => {
+        if (!validateRows(state.rows)) {
+          state.isSubmissionFailed = true;
+        } else {
+          state.isSubmissionFailed = false;
+          state.items = createItemsWithVotes(state.rows);
+          state.scores = initializeScores(state.items); // Ensure items are correctly passed
+        }
+      },
+      
         submitTopic: (state, action) => {
             const topic = action.payload;
             if (!topic.trim()) {
@@ -72,22 +82,10 @@ export const uiSlice = createSlice({
         
         setValue: (state, action) => {
             state.value = action.payload;
-        },
-        submitInputPage: (state, action) => {
-            const rows = action.payload;
-            if (!validateRows(rows)) {
-                state.isSubmissionFailed = true;
-                console.log(    '1 uiSlice.js submitInputPage rows: ', rows, ' state.isSubmissionFailed: ', state.isSubmissionFailed);
-                return;
-            }
-            console.log(    '2 uiSlice.js submitInputPage rows: ', rows, ' state.isSubmissionFailed: ', state.isSubmissionFailed);
-            state.items = createItemsWithVotes(state.rows);
-            state.scores = initializeScores(state);
-            state.isSubmissionFailed = false;
-        },
-        
+        },      
     },
 });
 
 export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic } = uiSlice.actions;
-export default uiSlice.reducer;
+  
+  export default uiSlice.reducer;

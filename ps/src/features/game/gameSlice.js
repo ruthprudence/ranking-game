@@ -25,7 +25,7 @@ export const gameSlice = createSlice({
         })
         .addCase(transitionToMatchup, (state) => {
           state.currentPage = 'MATCHUP_PAGE';
-      });
+        });
   },
 });
 
