@@ -1,6 +1,6 @@
 // Import the necessary actions and reducer
 import reducer, { removeRow } from '../../../../../src/features/ui/uiSlice';
-import { MINCHOICES } from '../../../../../src/utils/constants';
+import { MINCHOICES } from '../../../../../src/utils/ui/constants';
 
   describe('removeRow action', () => {
     it('should handle removeRow by removing the specified row if above min limit', () => {
