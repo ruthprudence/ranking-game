@@ -20,9 +20,12 @@ export const uiSlice = createSlice({
   reducers: {
     // ... other reducers
     submitInputPage: (state, action) => {
+        console.log("Submitting rows:", action.payload); // Log the rows being submitted
         if (!validateRows(state.rows)) {
+          console.log("Validation failed for rows:", state.rows);
           state.isSubmissionFailed = true;
         } else {
+          console.log("Validation passed, processing submission.");
           state.isSubmissionFailed = false;
           state.items = createItemsWithVotes(state.rows);
           state.scores = initializeScores(state); // Ensure items are correctly passed

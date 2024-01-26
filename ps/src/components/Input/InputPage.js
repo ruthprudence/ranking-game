@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addRow, removeRow, updateRow, submitInputPage} from '../../features/ui/uiSlice';
 import { InputView } from './InputView';
+import { useEffect } from 'react';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
@@ -25,17 +26,25 @@ const InputPage = () => {
         dispatch(removeRow(index));
     };
 
+    useEffect(() => {
+        if (!isSubmissionFailed) {
+            console.log('Submission successful, transitioning to Matchup Page.');
+            // Logic to proceed to the next page
+            // Example: dispatch(setCurrentPage('MATCHUP_PAGE'));
+        }
+    }, [isSubmissionFailed, dispatch]);
+
     const handleSubmit = () => {
         console.log('InputPage.js handleSubmit rows: ', rows);
         dispatch(submitInputPage(rows));
-
-       
+      
         if (isSubmissionFailed) {
-            // Handle error here (e.g., show a message to the user)
-            console.error('Submission failed, staying on InputPage.');
-            return;
+          console.error('Submission failed, staying on InputPage.');
+        } else {
+          console.log('Submission succeeded, proceeding.');
         }
-    };
+      };
+      
 
     return (
         <InputView 
