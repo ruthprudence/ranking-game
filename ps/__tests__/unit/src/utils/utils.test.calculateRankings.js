@@ -9,10 +9,9 @@ describe('calculateRankings utility function', () => {
                 { id: '2', name: 'Item2' },
                 { id: '3', name: 'Item3' }
             ],
-            rankings: []
         };
-        calculateRankings(state);
-        expect(state.rankings).toEqual([
+        const rankings = calculateRankings(state); // Using the returned value
+        expect(rankings).toEqual([
             { itemName: 'Item1', score: 5, rank: 1 },
             { itemName: 'Item2', score: 3, rank: 2 },
             { itemName: 'Item3', score: 3, rank: 2 }
@@ -23,10 +22,9 @@ describe('calculateRankings utility function', () => {
         const state = {
             scores: {},
             items: [],
-            rankings: []
         };
-        calculateRankings(state);
-        expect(state.rankings).toEqual([]);
+        const rankings = calculateRankings(state); // Using the returned value
+        expect(rankings).toEqual([]);
     });
 
     it('should correctly assign ranks for ties', () => {
@@ -37,10 +35,9 @@ describe('calculateRankings utility function', () => {
                 { id: '2', name: 'Item2' },
                 { id: '3', name: 'Item3' }
             ],
-            rankings: []
         };
-        calculateRankings(state);
-        expect(state.rankings).toEqual([
+        const rankings = calculateRankings(state); // Using the returned value
+        expect(rankings).toEqual([
             { itemName: 'Item1', score: 2, rank: 1 },
             { itemName: 'Item2', score: 2, rank: 1 },
             { itemName: 'Item3', score: 1, rank: 3 }
