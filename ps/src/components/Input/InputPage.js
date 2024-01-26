@@ -1,9 +1,8 @@
 // InputPage.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRow, removeRow, updateRow} from '../../features/ui/uiSlice';
+import { addRow, removeRow, updateRow, submitInputPage} from '../../features/ui/uiSlice';
 import { InputView } from './InputView';
-import { submitInputPage } from '../../features/actions';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
