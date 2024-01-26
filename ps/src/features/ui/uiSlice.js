@@ -1,10 +1,11 @@
 // uiSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../../utils/matchup/createItemsWithVotes';
 import { validateRows } from '../../utils/ui/validateRows';
 import { initializeScores } from '../../utils/matchup/initializeScores';
-import { createAction } from '@reduxjs/toolkit';
 import { MAXCHOICES, MINCHOICES } from '../../utils/ui/constants';
+
+export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
 export const uiSlice = createSlice({
     name: 'ui',
@@ -88,6 +89,5 @@ export const uiSlice = createSlice({
     },
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage } = uiSlice.actions;
-export const submitTopic = createAction('ui/submitTopic');
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic } = uiSlice.actions;
 export default uiSlice.reducer;

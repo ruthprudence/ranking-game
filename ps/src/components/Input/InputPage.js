@@ -28,6 +28,13 @@ const InputPage = () => {
     const handleSubmit = () => {
         console.log('InputPage.js handleSubmit rows: ', rows);
         dispatch(submitInputPage(rows));
+
+       
+        if (isSubmissionFailed) {
+            // Handle error here (e.g., show a message to the user)
+            console.error('Submission failed, staying on InputPage.');
+            return;
+        }
     };
 
     return (

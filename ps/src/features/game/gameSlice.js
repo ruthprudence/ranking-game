@@ -1,7 +1,7 @@
 // src/features/game/gameSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { submitInputPage } from '../actions';
-import { submitTopic } from '../ui/uiSlice';
+import { submitTopic, transitionToMatchup } from '../ui/uiSlice';
 
 export const gameSlice = createSlice({
   name: 'game',
@@ -23,12 +23,10 @@ export const gameSlice = createSlice({
                 state.currentPage = 'INPUT_PAGE';
             }
         })
-        .addCase(submitInputPage, (state) => {
-            state.currentPage = 'MATCHUP_PAGE';
-        });
-},
-
-
+        .addCase(transitionToMatchup, (state) => {
+          state.currentPage = 'MATCHUP_PAGE';
+      });
+  },
 });
 
 export const { setCurrentPage } = gameSlice.actions;
