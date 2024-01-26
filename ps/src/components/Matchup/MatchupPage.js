@@ -11,7 +11,7 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.game.items);
   const pairs = useSelector((state) => state.matchup.pairs);
-  // const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
+  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete); // Add this line
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.game.topic);
@@ -20,7 +20,7 @@ const MatchupPage = () => {
     if (items.length > 0 && pairs.length === 0) {
       dispatch(generatePairs(items));
     }
-  }, [items, pairs.length]); // Removed dispatch from dependency array
+  }, [items, pairs.length]); 
   
   useEffect(() => {
     if (currentPairIndex >= pairs.length && pairs.length > 0) {

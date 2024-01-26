@@ -76,8 +76,10 @@ export const uiSlice = createSlice({
             const rows = action.payload;
             if (!validateRows(rows)) {
                 state.isSubmissionFailed = true;
+                console.log(    '1 uiSlice.js submitInputPage rows: ', rows, ' state.isSubmissionFailed: ', state.isSubmissionFailed);
                 return;
             }
+            console.log(    '2 uiSlice.js submitInputPage rows: ', rows, ' state.isSubmissionFailed: ', state.isSubmissionFailed);
             state.items = createItemsWithVotes(state.rows);
             state.scores = initializeScores(state);
             state.isSubmissionFailed = false;
