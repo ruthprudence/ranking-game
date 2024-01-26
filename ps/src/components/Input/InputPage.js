@@ -1,15 +1,21 @@
 // InputPage.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRow, removeRow, updateRow, submitInputPage} from '../../features/ui/uiSlice';
+import { addRow, removeRow, updateRow, submitInputPage } from '../../features/ui/uiSlice';
+import { setCurrentPage } from '../../features/game/gameSlice';
 import { InputView } from './InputView';
-import { useEffect } from 'react';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
     const rows = useSelector((state) => state.ui.rows);
     const isSubmissionFailed = useSelector((state) => state.ui.isSubmissionFailed);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!isSubmissionFailed) {
+            dispatch(setCurrentPage('MATCHUP_PAGE'));
+        }
+    }, [dispatch, isSubmissionFailed]);
 
     const handleAddRow = () => {
         console.log('InputPage.js handleAddRow');
@@ -25,14 +31,6 @@ const InputPage = () => {
         console.log('InputPage.js handleRemoveRow index: ', index);
         dispatch(removeRow(index));
     };
-
-    useEffect(() => {
-        if (!isSubmissionFailed) {
-            console.log('Submission successful, transitioning to Matchup Page.');
-            // Logic to proceed to the next page
-            // Example: dispatch(setCurrentPage('MATCHUP_PAGE'));
-        }
-    }, [isSubmissionFailed, dispatch]);
 
     const handleSubmit = () => {
         console.log('InputPage.js handleSubmit rows: ', rows);
