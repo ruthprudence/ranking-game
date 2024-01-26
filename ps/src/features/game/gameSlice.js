@@ -15,19 +15,26 @@ export const gameSlice = createSlice({
     setCurrentPage: (state, action) => {
         state.currentPage = action.payload;
     },
+    advancePage: (state) => {
+      // Logic to determine the next page
+      switch (state.currentPage) {
+          case 'SPLASH_PAGE':
+              state.currentPage = 'INPUT_PAGE';
+              break;
+          case 'INPUT_PAGE':
+              state.currentPage = 'MATCHUP_PAGE';
+              break;
+          case 'MATCHUP_PAGE':
+              state.currentPage = 'RESULTS_PAGE';
+              break;
+          case 'RESULTS_PAGE':  // Add a case for the results page
+              state.currentPage = 'SPLASH_PAGE';
+              break;
+      }
   },
-  extraReducers: (builder) => {
-    builder
-        .addCase(submitTopic, (state, action) => {
-            if (state.isSubmissionSuccessful) {
-                state.currentPage = 'INPUT_PAGE';
-            }
-        })
-        .addCase(transitionToMatchup, (state) => {
-          state.currentPage = 'MATCHUP_PAGE';
-        });
   },
+
 });
 
-export const { setCurrentPage } = gameSlice.actions;
+export const { setCurrentPage, advancePage } = gameSlice.actions;
 export default gameSlice.reducer;
