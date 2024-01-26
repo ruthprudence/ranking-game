@@ -25,7 +25,7 @@ export const uiSlice = createSlice({
         } else {
           state.isSubmissionFailed = false;
           state.items = createItemsWithVotes(state.rows);
-          state.scores = initializeScores(state.items); // Ensure items are correctly passed
+          state.scores = initializeScores(state); // Ensure items are correctly passed
         }
       },
       
