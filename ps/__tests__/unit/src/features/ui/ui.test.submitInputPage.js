@@ -1,17 +1,17 @@
 // Jest unit test for submitInputPage action
-jest.mock('../../../../../src/utils/validateRows', () => ({
+jest.mock('../../../../../src/utils/ui/validateRows', () => ({
     validateRows: jest.fn()
   }));
 
-  jest.mock('../../../../../src/utils/initializeScores', () => ({
+  jest.mock('../../../../../src/utils/matchup/initializeScores', () => ({
     initializeScores: jest.fn()
   }));
   
 
 // Import the necessary actions and reducer
 import reducer, { submitInputPage } from '../../../../../src/features/ui/uiSlice';
-import { validateRows } from '../../../../../src/utils/validateRows';
-import { initializeScores } from '../../../../../src/utils/initializeScores';
+import { validateRows } from '../../../../../src/utils/ui/validateRows';
+import { initializeScores } from '../../../../../src/utils/matchup/initializeScores';
 
 
 

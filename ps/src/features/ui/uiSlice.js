@@ -1,10 +1,10 @@
 // uiSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { createItemsWithVotes } from '../../utils/createItemsWithVotes';
-import { validateRows } from '../../utils/validateRows';
-import { initializeScores } from '../../utils/initializeScores';
+import { createItemsWithVotes } from '../../utils/matchup/createItemsWithVotes';
+import { validateRows } from '../../utils/ui/validateRows';
+import { initializeScores } from '../../utils/matchup/initializeScores';
 import { createAction } from '@reduxjs/toolkit';
-import { MAXCHOICES, MINCHOICES } from '../../utils/constants';
+import { MAXCHOICES, MINCHOICES } from '../../utils/ui/constants';
 
 export const uiSlice = createSlice({
     name: 'ui',

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {selectRankings } from '../../features/matchup/matchupSlice';
-import { calculateScores } from '../../utils/calculateScores';
-import { calculateRankings } from '../../utils/calculateRankings';
+import { calculateScores } from '../../utils/matchup/calculateScores';
+import { calculateRankings } from '../../utils/matchup/calculateRankings';
 import {ResultsView } from './ResultsView';
 
 const ResultsPage = () => {

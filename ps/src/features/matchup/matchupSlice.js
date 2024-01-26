@@ -1,9 +1,9 @@
 // src/features/matchup/matchupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { pairingLogic } from '../../utils/pairingLogic';
-import {calculateScores} from '../../utils/calculateScores';
-import { calculateRankings } from '../../utils/calculateRankings';
-import { initializeScores } from '../../utils/initializeScores';
+import { pairingLogic } from '../../utils/matchup/pairingLogic';
+import {calculateScores} from '../../utils/matchup/calculateScores';
+import { calculateRankings } from '../../utils/matchup/calculateRankings';
+import { initializeScores } from '../../utils/matchup/initializeScores';
 
 
 export const matchupSlice = createSlice({
@@ -19,6 +19,17 @@ export const matchupSlice = createSlice({
     pairs: [],
   },
   reducers: {
+    handleChoice: (state, action) => {
+      const choiceName = action.payload;
+      state.items = state.items.map(item => {
+        if (item.name === choiceName) {
+          return { ...item, votes: (item.votes || 0) + 1 };
+        }
+        return item;
+      });
+      state.currentPairIndex += 1;
+    },
+
     selectChoice: (state, action) => {
       const choiceName = action.payload;
       const updatedItems = state.items.map(item => {
@@ -53,7 +64,8 @@ export const matchupSlice = createSlice({
 export const {
   selectChoice,
   completeMatchup,
-  generatePairs
+  generatePairs,
+  handleChoice
 } = matchupSlice.actions;
 
 export const selectRankings = (state) => state.matchup.rankings;

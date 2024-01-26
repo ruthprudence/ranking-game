@@ -1,12 +1,11 @@
 // MatchupPage.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../UI/Button';
-import { generatePairs, selectChoice, completeMatchup } from '../../features/matchup/matchupSlice';
+import { generatePairs, selectChoice, completeMatchup, handleChoice } from '../../features/matchup/matchupSlice';
 import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { MatchupView } from './MatchupView';
-import {ERROR_Matchup} from '../../utils/constants';
+import {ERROR_Matchup} from '../../utils/ui/constants';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
@@ -31,8 +30,7 @@ const MatchupPage = () => {
   }, [currentPairIndex, pairs.length]);
 
   const handleChoiceSelect = (choiceIndex) => {
-    dispatch(selectChoice(items[choiceIndex].name));
-    setCurrentPairIndex(currentPairIndex + 1);
+    dispatch(handleChoice(items[choiceIndex].name));
   };
 
   if (!currentPair) {
