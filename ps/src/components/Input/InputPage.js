@@ -33,15 +33,14 @@ const InputPage = () => {
     };
 
     const handleSubmit = () => {
-        console.log('InputPage.js handleSubmit rows: ', rows);
         dispatch(submitInputPage(rows));
-      
-        if (isSubmissionFailed) {
-          console.error('Submission failed, staying on InputPage.');
+
+        if (!isSubmissionFailed) {
+            dispatch(setCurrentPage('MATCHUP_PAGE'));
         } else {
-          console.log('Submission succeeded, proceeding.');
+            console.error('Submission failed, staying on InputPage.');
         }
-      };
+    };
       
 
     return (
