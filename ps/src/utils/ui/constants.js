@@ -1,5 +1,13 @@
+// constants.js
 export const MAXCHOICES = 12;
 export const MINCHOICES = 3;
+
+export const PAGES = {
+    SPLASH: 'SPLASH_PAGE',
+    INPUT: 'INPUT_PAGE',
+    MATCHUP: 'MATCHUP_PAGE',
+    RESULTS: 'RESULTS_PAGE',
+};
 
 export const PLACEHOLDER_SPLASH = 'e.g., "fruits"';
 export const PLACEHOLDER_PROMPT = 'Rank Something!';
