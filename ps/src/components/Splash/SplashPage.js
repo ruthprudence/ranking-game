@@ -12,15 +12,9 @@ const SplashPage = () => {
 
     const handleTopicSubmit = () => {
         dispatch(submitTopic(localTopic));
+        dispatch(setCurrentPage('INPUT_PAGE'));
     };
-
-    useEffect(() => {
-        if (isSubmissionSuccessful) {
-            dispatch(setCurrentPage('INPUT_PAGE'));
-        }
-    }, [isSubmissionSuccessful, dispatch]);
-    
-
+  
     return (
         <SplashView 
             localTopic={localTopic} 
