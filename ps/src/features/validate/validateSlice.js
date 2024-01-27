@@ -1,28 +1,42 @@
 // validateSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { validateRows } from '../../utils/ui/validateRows';
 import { MAXCHOICES, MINCHOICES } from '../../utils/ui/constants';
 
-export const validateSlice = createSlice({
+// Async thunk for topic validation
+export const validateTopicAsync = createAsyncThunk(
+    'validate/validateTopic',
+    async (topic, { rejectWithValue }) => {
+        try {
+            const isValid = topic.trim() !== '';
+            if (isValid) {
+                return { topic };
+            } else {
+                return rejectWithValue('Topic is required.');
+            }
+        } catch (error) {
+            return rejectWithValue(error.toString());
+        }
+    }
+);
+
+const validateSlice = createSlice({
     name: 'validate',
     initialState: {
         topicError: '',
         rowsError: '',
     },
     reducers: {
-        validateTopic: (state, action) => {
-            const topic = action.payload;
-            state.topicError = topic.trim() ? '' : 'Topic is required.';
-        },
-        validateInputRows: (state, action) => {
-            const rows = action.payload;
-            state.rowsError = validateRows(rows, MAXCHOICES, MINCHOICES)
-                ? ''
-                : `Rows must be between ${MINCHOICES} and ${MAXCHOICES}.`;
-        },
-        // ... other validation reducers
+        // Reducers for other actions
+    },
+    extraReducers: (builder) => {
+        builder.addCase(validateTopicAsync.fulfilled, (state, action) => {
+            state.topicError = '';
+        });
+        builder.addCase(validateTopicAsync.rejected, (state, action) => {
+            state.topicError = action.payload;
+        });
     },
 });
 
-export const { validateTopic, validateInputRows } = validateSlice.actions;
 export default validateSlice.reducer;
