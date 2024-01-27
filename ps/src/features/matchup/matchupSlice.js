@@ -1,9 +1,9 @@
 // src/features/matchup/matchupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { pairingLogic } from '../../utils/matchup/pairingLogic';
-import {calculateScores} from '../../utils/matchup/calculateScores';
-import { calculateRankings } from '../../utils/matchup/calculateRankings';
-import { initializeScores } from '../../utils/matchup/initializeScores';
+import { pairingLogic } from './pairingLogic';
+import {calculateScores} from './calculateScores';
+import { calculateRankings } from './calculateRankings';
+import { initializeScores } from './initializeScores';
 
 
 export const matchupSlice = createSlice({

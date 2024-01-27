@@ -2,7 +2,7 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
-import { PLACEHOLDER_Input, PROMPT_Input } from '../../utils/ui/constants';
+import { PLACEHOLDER_Input, PROMPT_Input } from '../../features/ui/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit }) => {
     return (
