@@ -1,4 +1,4 @@
-import { createItemsWithVotes } from '../../../../src/features/matchup/createItemsWithVotes';
+import { createItemsWithVotes } from '../../../../../src/features/matchup/createItemsWithVotes';
 
 describe('createItemsWithVotes utility function', () => {
     it('should create items with initial votes set to 0', () => {
