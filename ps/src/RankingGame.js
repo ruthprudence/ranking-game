@@ -9,7 +9,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { advancePage } from './features/game/gameSlice';
-import MatchupCompletionHandler from './utils/matchup/MatchupCompletionHandler';
+import MatchupCompletionHandler from './features/matchup/MatchupCompletionHandler';
 
 import SplashPage from './components/Splash/SplashPage';
 import InputPage from './components/Input/InputPage';

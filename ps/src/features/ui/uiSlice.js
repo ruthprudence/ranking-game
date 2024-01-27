@@ -1,9 +1,9 @@
 // uiSlice.js
 import { createSlice, createAction} from '@reduxjs/toolkit';
-import { createItemsWithVotes } from '../../utils/matchup/createItemsWithVotes';
-import { validateRows } from '../../utils/ui/validateRows';
-import { initializeScores } from '../../utils/matchup/initializeScores';
-import { MAXCHOICES, MINCHOICES } from '../../utils/ui/constants';
+import { createItemsWithVotes } from '../matchup/createItemsWithVotes';
+import { validateRows } from '../validate/validateRows';
+import { initializeScores } from '../matchup/initializeScores';
+import { MAXCHOICES, MINCHOICES } from './constants';
 
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
@@ -20,12 +20,12 @@ export const uiSlice = createSlice({
   reducers: {
     // ... other reducers
     submitInputPage: (state, action) => {
-        console.log("Submitting rows:", action.payload); // Log the rows being submitted
+        // console.log("Submitting rows:", action.payload); // Log the rows being submitted
         if (!validateRows(state.rows)) {
-          console.log("Validation failed for rows:", state.rows);
+        //   console.log("Validation failed for rows:", state.rows);
           state.isSubmissionFailed = true;
         } else {
-          console.log("Validation passed, processing submission.");
+        //   console.log("Validation passed, processing submission.");
           state.isSubmissionFailed = false;
           state.items = createItemsWithVotes(state.rows);
           state.scores = initializeScores(state); // Ensure items are correctly passed

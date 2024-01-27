@@ -1,4 +1,4 @@
-import { calculateRankings } from '../../../../src/utils/matchup/calculateRankings';
+import { calculateRankings } from '../../../../src/features/matchup/calculateRankings';
 
 describe('calculateRankings utility function', () => {
     it('should correctly calculate rankings from scores', () => {

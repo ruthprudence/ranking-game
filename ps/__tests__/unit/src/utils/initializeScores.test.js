@@ -1,4 +1,4 @@
-import { initializeScores } from '../../../../src/utils/matchup/initializeScores';
+import { initializeScores } from '../../../../src/features/matchup/initializeScores';
 
 describe('initializeScores utility function', () => {
     it('should initialize scores for each row in the state', () => {

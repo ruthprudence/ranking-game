@@ -1,5 +1,5 @@
 import { submitTopic } from '../../../../../src/features/actions'; 
-import { validateTopic } from '../../../../../src/utils/validate/validateTopic'; 
+import { validateTopic } from '../../../../../src/features/validate/validateTopic'; 
 
 jest.mock('../../../../../src/features/actions', () => ({
   submitTopic: jest.fn().mockImplementation(topic => ({ type: 'ui/submitTopic', payload: topic }))

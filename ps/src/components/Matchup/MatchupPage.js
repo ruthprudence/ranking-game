@@ -5,7 +5,7 @@ import { generatePairs, selectChoice, completeMatchup, handleChoice } from '../.
 import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { MatchupView } from './MatchupView';
-import {ERROR_Matchup} from '../../utils/ui/constants';
+import {ERROR_Matchup} from '../../features/ui/constants';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();

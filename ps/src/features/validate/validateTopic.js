@@ -1,7 +1,7 @@
 // Async thunk for topic validation
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { submitTopic } from '../../features/actions';
+import { submitTopic } from '../actions';
 export const validateTopic = createAsyncThunk(
     'validate/validateTopic',
     async (topic, { dispatch }) => {
