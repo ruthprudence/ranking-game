@@ -8,12 +8,10 @@ import { MAXCHOICES, MINCHOICES } from '../ui/constants';
 
 export const validateRows = (rows) => {
     if (rows.some(row => !row.trim())) {
-        alert('All items must be filled in.');
-        return false;
+        return { isValid: false, message: 'All items must be filled in.' };
     }
     if (rows.length < MINCHOICES || rows.length > MAXCHOICES) {
-        alert(`Please enter between ${MINCHOICES} and ${MAXCHOICES} items.`);
-        return false;
+        return { isValid: false, message: `Please enter between ${MINCHOICES} and ${MAXCHOICES} items.` };
     }
-    return true;
+    return { isValid: true, message: '' };
 };

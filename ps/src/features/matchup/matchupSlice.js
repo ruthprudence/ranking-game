@@ -52,11 +52,8 @@ export const matchupSlice = createSlice({
     completeMatchup: (state) => {
       if (state.currentPairIndex >= state.pairs.length) {
         state.isComparisonComplete = true;
-
-        // Use the extracted functions
         state.scores = calculateScores(state);
-        // state.rankings = calculateRankings(state);
-        state.rankings = calculateRankings(state); // Ensure this is correctly called
+        state.rankings = calculateRankings(state); 
       }
     },
   },

@@ -1,4 +1,4 @@
-import { pairingLogic } from '../../../../src/features/matchup/pairingLogic';
+import { pairingLogic } from '../../../../../src/features/matchup/pairingLogic';
 
 describe('pairingLogic utility function', () => {
     it('should generate correct pairs for given items', () => {

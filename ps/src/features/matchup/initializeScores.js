@@ -3,5 +3,5 @@ export const initializeScores = (state) => {
     state.rows.forEach(choice => {
         initialScores[choice.trim()] = 0;
     });
-    return state.scores = initialScores;
+    return initialScores; 
 };

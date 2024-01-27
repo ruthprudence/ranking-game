@@ -14,8 +14,6 @@ export const calculateScores = (state) => {
         // Check if the item has 'id' and 'votes' properties
         if (item && typeof item.id !== 'undefined' && typeof item.votes !== 'undefined') {
             acc[item.id] = item.votes; // Accumulate the scores
-        } else {
-            console.warn('calculateScores: One or more items are missing id or votes properties.');
         }
         return acc;
     }, {});
