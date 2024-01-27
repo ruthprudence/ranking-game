@@ -11,12 +11,6 @@ const InputPage = () => {
     const isSubmissionFailed = useSelector((state) => state.ui.isSubmissionFailed);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (!isSubmissionFailed) {
-            dispatch(setCurrentPage('MATCHUP_PAGE'));
-        }
-    }, [dispatch, isSubmissionFailed]);
-
     const handleAddRow = () => {
         console.log('InputPage.js handleAddRow');
         dispatch(addRow());

@@ -85,10 +85,23 @@ export const uiSlice = createSlice({
         
         setValue: (state, action) => {
             state.value = action.payload;
-        },      
+        },   
+        submitTopicAndAdvance: (state, action) => {
+          const topic = action.payload;
+          if (!topic.trim()) {
+              alert('Please enter a topic.');
+              state.isSubmissionFailed = true;
+          } else {
+              state.topic = topic;
+              state.isSubmissionFailed = false;
+              // Trigger transition to the next page
+              // Replace 'NEXT_PAGE' with the actual next page's identifier
+              state.currentPage = 'NEXT_PAGE';
+          }
+      },
     },
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance } = uiSlice.actions;
   
   export default uiSlice.reducer;
