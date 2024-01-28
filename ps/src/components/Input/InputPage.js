@@ -49,7 +49,7 @@ const InputPage = () => {
             handleRemoveRow={handleRemoveRow}
             handleItemChange={handleItemChange}
             handleSubmit={handleSubmit}
-            isSubmitEnabled={isSubmitEnabled} // Enable or disable submit button
+            isSubmitEnabled={isSubmitEnabled}
         />
     );
 };

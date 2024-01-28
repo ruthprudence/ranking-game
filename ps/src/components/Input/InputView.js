@@ -2,7 +2,7 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
-import { PLACEHOLDERS, PROMPTS } from '../../features/constants';
+import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
     return (
@@ -33,7 +33,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             </table>
             <Button onClick={handleAddRow}>Add Item</Button>
             <Button onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
-            <p><i>Click "Submit" to begin</i></p>
+            <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
         </div>
     );
 };
