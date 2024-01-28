@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pairingLogic } from './pairingLogic';
-import { calculateScores } from './calculateScores';
-import { calculateRankings } from './calculateRankings';
+import { calculateScores } from '../results/calculateScores';
+import { calculateRankings } from '../results/calculateRankings';
 import { selectItems as selectUiItems } from '../ui/uiSlice';
 
 export const matchupSlice = createSlice({
@@ -16,14 +16,7 @@ export const matchupSlice = createSlice({
   reducers: {
     startMatchup: (state, action) => {
       const items = action.payload;
-      if (!items || items.length < 2) {
-        console.error('Insufficient items for matchup');
-        state.pairs = [];
-        return;
-      }
       state.pairs = pairingLogic(items);
-      state.currentPairIndex = 0;
-      state.isComparisonComplete = false;
     },
 
     nextPair: (state) => {
@@ -55,12 +48,7 @@ export const {
   completeMatchup 
 } = matchupSlice.actions;
 
-export const startMatchupAsync = () => (dispatch, getState) => {
-  const items = selectUiItems(getState());
-  if (items && items.length > 1) {
-    dispatch(startMatchup(items));
-  }
-};
+
 export const selectRankings = (state) => state.matchup.rankings;
 
 export default matchupSlice.reducer;

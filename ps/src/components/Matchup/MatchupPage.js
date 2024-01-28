@@ -11,10 +11,11 @@ const MatchupPage = () => {
   const dispatch = useDispatch();
   const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete);
   const currentPair = useSelector(selectCurrentPair);
-  const topic = useSelector((state) => state.game.topic);
+  const topic = useSelector((state) => state.ui.topic);
+  const items = useSelector((state) => state.ui.items);
 
   useEffect(() => {
-    dispatch(startMatchup());
+    dispatch(startMatchup(items));
   }, [dispatch]);
   
   useEffect(() => {
@@ -37,6 +38,7 @@ const MatchupPage = () => {
       topic={topic}
       handleChoiceSelect={handleChoiceSelect}
       currentPair={currentPair}
+      items={items}
     />
   );
 };
