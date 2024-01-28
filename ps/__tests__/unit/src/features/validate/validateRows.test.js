@@ -1,5 +1,5 @@
 import { validateRows } from '../../../../../src/features/validate/validateRows';
-import { MAXCHOICES, MINCHOICES } from '../../../../../src/features/ui/constants';
+import { MAXCHOICES, MINCHOICES } from '../../../../../src/features/constants';
 
 describe('validateRows utility function', () => {
   // Mock window.alert

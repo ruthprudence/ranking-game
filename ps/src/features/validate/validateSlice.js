@@ -1,7 +1,7 @@
 // validateSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { validateRows } from './validateRows';
-import { MAXCHOICES, MINCHOICES } from '../ui/constants';
+import { MAXCHOICES, MINCHOICES } from '../constants';
 
 // Async thunk for topic validation
 export const validateTopicAsync = createAsyncThunk(
