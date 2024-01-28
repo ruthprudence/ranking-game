@@ -11,12 +11,13 @@ export const PAGES = {
 
 export const PROMPTS = {
     SPLASH: 'Rank Something!',
-}
+    INPUT: 'Click "Submit" to begin',
+};
 
 export const ERRORS = {
     SPLASH: '',
     MATCHUP: 'Something went wrong. Please try again.',
-    INPUT: '',
+    INPUT: `Choose between ${MINCHOICES} and ${MAXCHOICES} items.`,
     RESULTS: '',
     PAGE: 'Invalid page transition',
 };
