@@ -1,52 +1,56 @@
-// InputPage.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addRow, removeRow, updateRow, submitInputPage } from '../../features/ui/uiSlice';
+import { validateRowsState } from '../../features/validate/validateSlice'; // Import the action
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { InputView } from './InputView';
+import { PAGES } from '../../features/constants';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
     const rows = useSelector((state) => state.ui.rows);
-    const isSubmissionFailed = useSelector((state) => state.ui.isSubmissionFailed);
     const dispatch = useDispatch();
+    const rowsValidationResult = useSelector((state) => state.validate.rowsValidationResult);
+
+    useEffect(() => {
+        // Run validation on rows change
+        dispatch(validateRowsState(rows));
+    }, [rows, dispatch]);
+
+    // Determine if the submit button should be enabled
+    const isSubmitEnabled = rowsValidationResult?.isValid && rows.length > 0;
 
     const handleAddRow = () => {
-        console.log('InputPage.js handleAddRow');
         dispatch(addRow());
     };
 
     const handleItemChange = (index, value) => {
-        console.log('InputPage.js handleItemChange index: ', index, ' value: ', value);
         dispatch(updateRow({ index, updatedValue: value }));
     };
 
     const handleRemoveRow = (index) => {
-        console.log('InputPage.js handleRemoveRow index: ', index);
         dispatch(removeRow(index));
     };
 
     const handleSubmit = () => {
-        dispatch(submitInputPage(rows));
-
-        if (!isSubmissionFailed) {
-            dispatch(setCurrentPage('MATCHUP_PAGE'));
+        if (isSubmitEnabled) {
+            dispatch(submitInputPage());
+            dispatch(setCurrentPage(PAGES.MATCHUP)); // Move to the next page if submission is successful
         } else {
-            console.error('Submission failed, staying on InputPage.');
+            console.error('Submission failed: Rows are not valid.');
         }
     };
-      
 
     return (
         <InputView 
-        topic={topic}
-        rows={rows}
-        isSubmissionFailed={isSubmissionFailed}
-        handleAddRow={handleAddRow} 
-        handleRemoveRow={handleRemoveRow}
-        handleItemChange={handleItemChange}
-        handleSubmit={handleSubmit}            
-    />
+            topic={topic}
+            rows={rows}
+            handleAddRow={handleAddRow} 
+            handleRemoveRow={handleRemoveRow}
+            handleItemChange={handleItemChange}
+            handleSubmit={handleSubmit}
+            isSubmitEnabled={isSubmitEnabled} // Enable or disable submit button
+        />
     );
 };
 
