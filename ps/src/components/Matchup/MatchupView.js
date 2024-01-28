@@ -5,6 +5,7 @@ import Button from '../UI/Button';
 export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items }) => {
   return (
     <div>
+      {/* <p>Topic</p> */}
       <h3>{topic}</h3>
       <div>
         {currentPair && currentPair.length === 2 && (
