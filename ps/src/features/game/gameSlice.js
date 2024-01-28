@@ -9,10 +9,7 @@ export const gameSlice = createSlice({
     currentPage: PAGES.SPLASH,
     items: [],
     rows: ['', '', ''],
-    isSubmissionSuccessful: false,
-    validationError: '',
-    isTopicValid: false,
-    areInputsValid: false,
+
   },
   reducers: {
     setCurrentPage: (state, action) => {

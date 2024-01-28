@@ -1,16 +1,16 @@
 // src/features/matchup/matchupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
 import { pairingLogic } from './pairingLogic';
 import {calculateScores} from './calculateScores';
 import { calculateRankings } from './calculateRankings';
 import { initializeScores } from './initializeScores';
+import { selectItems, selectChoice as selectUiChoice } from '../ui/uiSlice';
 
 
 export const matchupSlice = createSlice({
   name: 'matchup',
   initialState: {
-    rows: ['', '', ''],
-    items: [],
     value: '',
     currentPairIndex: 0,
     isComparisonComplete: false,
@@ -20,12 +20,9 @@ export const matchupSlice = createSlice({
   },
   reducers: {
     startMatchup: (state, action) => {
-      // Assuming items are set in the state beforehand
-      if (state.items.length > 1) {
-        state.pairs = pairingLogic(state.items);
-        state.currentPairIndex = 0;
-        state.isComparisonComplete = false;
-      }
+      state.pairs = pairingLogic(action.payload);
+      state.currentPairIndex = 0;
+      state.isComparisonComplete = false;
     },
 
     nextPair: (state) => {
@@ -49,16 +46,9 @@ export const matchupSlice = createSlice({
     },
 
     selectChoice: (state, action) => {
-      const choiceName = action.payload;
-      const updatedItems = state.items.map(item => {
-        if (item.name === choiceName) {
-          return { ...item, votes: item.votes + 1 };
-        }
-        return item;
-      });
-      state.items = updatedItems;
       state.currentPairIndex += 1; // Increment the currentPairIndex
     },
+  
     generatePairs: (state, action) => {
       const items = Array.isArray(action.payload) ? action.payload : [];
       if (items.length < 2) {
@@ -87,5 +77,17 @@ export const {
 } = matchupSlice.actions;
 
 export const selectRankings = (state) => state.matchup.rankings;
+
+export const startMatchupAsync = () => (dispatch, getState) => {
+  const items = selectItems(getState());
+  if (items.length > 1) {
+    dispatch(startMatchup(items));
+  }
+};
+
+export const selectChoiceAsync = (choice) => (dispatch) => {
+  dispatch(selectUiChoice(choice));
+  dispatch(selectChoice());
+};
 
 export default matchupSlice.reducer;
