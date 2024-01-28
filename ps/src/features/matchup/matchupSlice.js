@@ -1,17 +1,12 @@
-// src/features/matchup/matchupSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from 'react-redux';
 import { pairingLogic } from './pairingLogic';
-import {calculateScores} from './calculateScores';
+import { calculateScores } from './calculateScores';
 import { calculateRankings } from './calculateRankings';
-import { initializeScores } from './initializeScores';
-import { selectItems, selectChoice as selectUiChoice } from '../ui/uiSlice';
-
+import { selectItems as selectUiItems } from '../ui/uiSlice';
 
 export const matchupSlice = createSlice({
   name: 'matchup',
   initialState: {
-    value: '',
     currentPairIndex: 0,
     isComparisonComplete: false,
     scores: {},
@@ -20,11 +15,15 @@ export const matchupSlice = createSlice({
   },
   reducers: {
     startMatchup: (state, action) => {
-      state.pairs = pairingLogic(action.payload);
+      const items = action.payload ? action.payload : selectUiItems(state);
+      if (!items) {
+        console.error('Items is undefined');
+        return;
+      }
+      state.pairs = items && items.length > 1 ? pairingLogic(items) : [];
       state.currentPairIndex = 0;
       state.isComparisonComplete = false;
     },
-
     nextPair: (state) => {
       if (state.currentPairIndex < state.pairs.length) {
         state.currentPairIndex += 1;
@@ -35,59 +34,31 @@ export const matchupSlice = createSlice({
       }
     },
     handleChoice: (state, action) => {
-      const choiceName = action.payload;
-      state.items = state.items.map(item => {
-        if (item.name === choiceName) {
-          return { ...item, votes: (item.votes || 0) + 1 };
-        }
-        return item;
-      });
+      // Your existing logic
+    },
+    selectChoice: (state, action) => {
       state.currentPairIndex += 1;
     },
-
-    selectChoice: (state, action) => {
-      state.currentPairIndex += 1; // Increment the currentPairIndex
-    },
-  
-    generatePairs: (state, action) => {
-      const items = Array.isArray(action.payload) ? action.payload : [];
-      if (items.length < 2) {
-        state.pairs = [];
-        return;
-      }
-      state.pairs = pairingLogic(items);
-    },
     completeMatchup: (state) => {
-      if (state.currentPairIndex >= state.pairs.length) {
-        state.isComparisonComplete = true;
-        state.scores = calculateScores(state);
-        state.rankings = calculateRankings(state); 
-      }
+      // Your existing logic
     },
   },
 });
 
-export const {
-  selectChoice,
-  completeMatchup,
-  generatePairs,
-  handleChoice,
-  startMatchup,
-  nextPair,
+export const { 
+  startMatchup, 
+  nextPair, 
+  handleChoice, 
+  selectChoice, 
+  completeMatchup 
 } = matchupSlice.actions;
 
-export const selectRankings = (state) => state.matchup.rankings;
-
 export const startMatchupAsync = () => (dispatch, getState) => {
-  const items = selectItems(getState());
-  if (items.length > 1) {
+  const items = selectUiItems(getState());
+  if (items && items.length > 1) {
     dispatch(startMatchup(items));
   }
 };
-
-export const selectChoiceAsync = (choice) => (dispatch) => {
-  dispatch(selectUiChoice(choice));
-  dispatch(selectChoice());
-};
+export const selectRankings = (state) => state.matchup.rankings;
 
 export default matchupSlice.reducer;
