@@ -1,4 +1,3 @@
-// src/components/Splash/SplashPage.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SplashView } from './SplashView';
@@ -9,16 +8,20 @@ const SplashPage = () => {
   const [localTopic, setLocalTopic] = useState('');
   const dispatch = useDispatch();
   const topicValidationResult = useSelector((state) => state.validate.topicValidationResult);
-  const isTopicValid = topicValidationResult?.isValid;
 
-  // Perform validation on localTopic change
   useEffect(() => {
+    // Validate topic whenever it changes
     dispatch(validateTopicState(localTopic));
   }, [localTopic, dispatch]);
 
+  useEffect(() => {
+    // Debugging: Log the input value and its validation result
+    console.log("Input value:", localTopic, "Is valid:", topicValidationResult?.isValid);
+  }, [localTopic, topicValidationResult]);
+
   const onTopicSubmit = () => {
-    if (isTopicValid) {
-      dispatch(submitTopic(localTopic)); // Dispatch the action to submit the topic
+    if (topicValidationResult?.isValid) {
+      dispatch(submitTopic(localTopic));
     }
   };
 
@@ -27,7 +30,7 @@ const SplashPage = () => {
       localTopic={localTopic} 
       setLocalTopic={setLocalTopic} 
       handleTopicSubmit={onTopicSubmit}
-      isSubmitEnabled={isTopicValid} // Enable or disable submit based on topic validity
+      isSubmitEnabled={topicValidationResult?.isValid}
     />
   );
 };
