@@ -1,26 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { validateTopic } from './validateTopic'; // This imports validateTopic
-import { validateRows } from './validateRows'; // Update this path as per actual location of validateRows
 
 export const validateSlice = createSlice({
   name: 'validate',
   initialState: {
-    topicValidationResult: null,
-    rowsValidationResult: null
+    topicValidationResult: { isValid: false, message: '' },
+    rowsValidationResult: { isValid: false, message: '' }
   },
   reducers: {
     validateTopicState: (state, action) => {
-      const result = validateTopic(action.payload);
+      const topic = action.payload;
       state.topicValidationResult = {
-        isValid: result.isValid,
-        message: result.message
+        isValid: topic.trim() !== '',
+        message: topic.trim() !== '' ? '' : 'Topic is required.'
       };
     },
     validateRowsState: (state, action) => {
-      const result = validateRows(action.payload);
+      const rows = action.payload;
+      const isValid = rows.every(row => row.trim() !== '');
       state.rowsValidationResult = {
-        isValid: result.isValid,
-        message: result.message
+        isValid,
+        message: isValid ? '' : 'All items must be filled in.'
       };
     }
   }
