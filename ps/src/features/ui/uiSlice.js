@@ -11,10 +11,8 @@ export const uiSlice = createSlice({
   initialState: {
     topic: '',
     rows: ['', '', ''],
-    value: '',
-    isSubmissionFailed: false,
     items: [],
-    scores: {}
+    scores: {},
   },
   reducers: {
     /** Splash Page */
@@ -22,11 +20,9 @@ export const uiSlice = createSlice({
       const topic = action.payload;
       if (!topic.trim()) {
           alert('Please enter a topic.');
-          state.isSubmissionSuccessful = false;
           return;
       }
       state.topic = topic;
-      state.isSubmissionSuccessful = true;
     },
     setTopic: (state, action) => {
       state.topic = action.payload;

@@ -9,8 +9,6 @@ export const matchupSlice = createSlice({
   initialState: {
     currentPairIndex: 0,
     isComparisonComplete: false,
-    scores: {},
-    rankings: [],
     pairs: [],
   },
   reducers: {

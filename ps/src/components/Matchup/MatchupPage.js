@@ -29,9 +29,7 @@ const MatchupPage = () => {
     dispatch(nextPair());
   };
 
-  if (!currentPair) {
-    return <p>{ERRORS.MATCHUP}</p>;
-  }
+
 
   return (
     <MatchupView 
