@@ -15,15 +15,17 @@ export const matchupSlice = createSlice({
   },
   reducers: {
     startMatchup: (state, action) => {
-      const items = action.payload ? action.payload : selectUiItems(state);
-      if (!items) {
-        console.error('Items is undefined');
+      const items = action.payload;
+      if (!items || items.length < 2) {
+        console.error('Insufficient items for matchup');
+        state.pairs = [];
         return;
       }
-      state.pairs = items && items.length > 1 ? pairingLogic(items) : [];
+      state.pairs = pairingLogic(items);
       state.currentPairIndex = 0;
       state.isComparisonComplete = false;
     },
+
     nextPair: (state) => {
       if (state.currentPairIndex < state.pairs.length) {
         state.currentPairIndex += 1;

@@ -15,7 +15,7 @@ const MatchupPage = () => {
 
   useEffect(() => {
     dispatch(startMatchup());
-  }, [dispatch]); 
+  }, [dispatch]);
   
   useEffect(() => {
     if (isComparisonComplete) {
