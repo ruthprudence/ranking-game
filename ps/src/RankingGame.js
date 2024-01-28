@@ -10,6 +10,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { advancePage } from './features/game/gameSlice';
 import MatchupCompletionHandler from './features/matchup/MatchupCompletionHandler';
+import { PAGES } from './features/constants';
 
 import SplashPage from './components/Splash/SplashPage';
 import InputPage from './components/Input/InputPage';
@@ -20,23 +21,15 @@ const RankingGame = () => {
     const currentPage = useSelector((state) => state.game.currentPage);
     const dispatch = useDispatch();
 
-const handleMatchupCompletion = () => {
-    // Check if all matchups are completed, then advance page
-    // dispatch(advancePage());
-};
 
 switch (currentPage) {
-    case 'SPLASH_PAGE':
+    case PAGES.SPLASH:
         return <SplashPage onAdvance={() => dispatch(advancePage())} />;
-    case 'INPUT_PAGE':
+    case PAGES.INPUT:
         return <InputPage onAdvance={() => dispatch(advancePage())} />;
-        case 'MATCHUP_PAGE':
-            return (
-                <>
-                    <MatchupPage />
-                    <MatchupCompletionHandler onComplete={() => dispatch(advancePage())} />
-                </>);
-    case 'RESULTS_PAGE':
+    case PAGES.MATCHUP:
+        return  <MatchupPage onAdvance={() => dispatch(advancePage())} />;         
+    case PAGES.RESULTS:
         return <ResultsPage />;
     default:
         console.error('Error: Unknown currentPage', currentPage);

@@ -1,6 +1,6 @@
 // Import the necessary actions and reducer
 import reducer, { addRow } from '../../../../../src/features/ui/uiSlice';
-import { MAXCHOICES } from '../../../../../src/features/ui/constants';
+import { MAXCHOICES } from '../../../../../src/features/constants';
 
 describe('uiSlice reducer', () => {
   describe('addRow action', () => {

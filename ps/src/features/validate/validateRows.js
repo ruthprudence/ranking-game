@@ -4,7 +4,7 @@
  * 
  */
 
-import { MAXCHOICES, MINCHOICES } from '../ui/constants';
+import { MAXCHOICES, MINCHOICES } from '../constants';
 
 export const validateRows = (rows) => {
     if (rows.some(row => !row.trim())) {

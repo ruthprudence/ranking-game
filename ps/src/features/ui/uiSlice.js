@@ -3,7 +3,7 @@ import { createSlice, createAction} from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../matchup/createItemsWithVotes';
 import { validateRows } from '../validate/validateRows';
 import { initializeScores } from '../matchup/initializeScores';
-import { MAXCHOICES, MINCHOICES } from './constants';
+import { MAXCHOICES, MINCHOICES } from '../constants';
 
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
@@ -18,14 +18,10 @@ export const uiSlice = createSlice({
     scores: {}
   },
   reducers: {
-    // ... other reducers
     submitInputPage: (state, action) => {
-        // console.log("Submitting rows:", action.payload); // Log the rows being submitted
         if (!validateRows(state.rows)) {
-        //   console.log("Validation failed for rows:", state.rows);
           state.isSubmissionFailed = true;
         } else {
-        //   console.log("Validation passed, processing submission.");
           state.isSubmissionFailed = false;
           state.items = createItemsWithVotes(state.rows);
           state.scores = initializeScores(state); // Ensure items are correctly passed
@@ -42,17 +38,7 @@ export const uiSlice = createSlice({
             state.topic = topic;
             state.isSubmissionSuccessful = true;
         },
-        /** Input Page
-         * 1. Add a row
-         * 2. Remove a row
-         * 3. Update a row
-         * 4. Submit the input page
-         * 5. Set the items
-         * 6. Set the value
-         */
-        addItem: (state) => {
-            state.items.push('');
-        },
+
         setTopic: (state, action) => {
             state.topic = action.payload;
         },
@@ -94,14 +80,33 @@ export const uiSlice = createSlice({
           } else {
               state.topic = topic;
               state.isSubmissionFailed = false;
-              // Trigger transition to the next page
-              // Replace 'NEXT_PAGE' with the actual next page's identifier
               state.currentPage = 'NEXT_PAGE';
           }
+      },
+      handleValidation: (state) => {
+        const validationResult = validateRows([state.topic]);
+        if (!validationResult.isValid) {
+          console.error(validationResult.message);
+        } else {
+          // Code for handling valid rows
+        }
+      },
+      handleTopicSubmit: async (state, action) => {
+        try {
+          const validationResult = validateRows([state.topic]);
+          if (!validationResult.isValid) {
+            console.error(validationResult.message);
+          } else {
+            state.topic = action.payload;
+            // Additional actions on successful topic submission
+          }
+        } catch (error) {
+          console.error('Validation failed:', error);
+        }
       },
     },
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance } = uiSlice.actions;
+export const { updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit } = uiSlice.actions;
   
   export default uiSlice.reducer;
