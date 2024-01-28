@@ -3,6 +3,8 @@ import { createSlice, createAction} from '@reduxjs/toolkit';
 import { calculateRankings } from './calculateRankings';
 import { calculateScores } from './calculateScores';
 
+// useSelector to get state.ui.items
+
 export const resultsSlice = createSlice({
     name: 'results',
     initialState: {
@@ -10,7 +12,13 @@ export const resultsSlice = createSlice({
         rankings: [],
       },
       reducers : {
-
+        completeMatchup: (state) => {
+            if (state.currentPairIndex >= state.pairs.length) {
+              state.isComparisonComplete = true;
+              state.scores = calculateScores(state);
+              state.rankings = calculateRankings(state); 
+            }
+          },
       },
     });
 
