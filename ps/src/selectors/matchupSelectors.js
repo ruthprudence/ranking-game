@@ -1,7 +1,6 @@
 export const selectCurrentPair = (state) => {
     return state.matchup.pairs[state.matchup.currentPairIndex];
   };
-
   
   export const selectInitialScores = (state) => {
     const initialScores = {};
@@ -15,7 +14,6 @@ export const selectCurrentPair = (state) => {
     return Object.keys(state.matchup.scores).sort((a, b) => state.matchup.scores[b] - state.matchup.scores[a]);
   };
   
-
   export const selectAdjustedRankings = (state) => {
     const sortedChoices = Object.entries(state.matchup.scores).sort((a, b) => b[1] - a[1]);
     let lastScore = null, rank = 0;
@@ -28,7 +26,6 @@ export const selectCurrentPair = (state) => {
     });
   };
 
-  
   export const selectCurrentPairItems = (state) => {
     const pair = selectCurrentPair(state);
     return pair ? [state.matchup.items[pair[0]], state.matchup.items[pair[1]]] : null;

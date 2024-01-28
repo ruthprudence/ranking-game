@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { pairingLogic } from './pairingLogic';
-import { calculateScores } from '../results/calculateScores';
-import { calculateRankings } from '../results/calculateRankings';
-import { selectItems as selectUiItems } from '../ui/uiSlice';
 
 export const matchupSlice = createSlice({
   name: 'matchup',
@@ -15,26 +12,35 @@ export const matchupSlice = createSlice({
     startMatchup: (state, action) => {
       const items = action.payload;
       state.pairs = pairingLogic(items);
+      state.currentPairIndex = 0;
+      state.isComparisonComplete = false;
     },
-
     nextPair: (state) => {
-      if (state.currentPairIndex < state.pairs.length) {
-        state.currentPairIndex += 1;
-      } else {
-        state.isComparisonComplete = true;
-        state.scores = calculateScores(state);
-        state.rankings = calculateRankings(state);
-      }
+      state.currentPairIndex = state.currentPairIndex < state.pairs.length - 1 ? state.currentPairIndex + 1 : state.currentPairIndex;
+      state.isComparisonComplete = state.currentPairIndex >= state.pairs.length - 1;
     },
     handleChoice: (state, action) => {
-      // Your existing logic
-    },
-    selectChoice: (state, action) => {
+      const choiceName = action.payload;
+      state.items = state.items.map(item => {
+        if (item.name === choiceName) {
+          return { ...item, votes: (item.votes || 0) + 1 };
+        }
+        return item;
+      });
       state.currentPairIndex += 1;
     },
-    completeMatchup: (state) => {
-      // Your existing logic
+    selectChoice: (state, action) => {
+      const choiceName = action.payload;
+      const updatedItems = state.items.map(item => {
+        if (item.name === choiceName) {
+          return { ...item, votes: item.votes + 1 };
+        }
+        return item;
+      });
+      state.items = updatedItems;
+      state.currentPairIndex += 1; // Increment the currentPairIndex
     },
+
   },
 });
 
