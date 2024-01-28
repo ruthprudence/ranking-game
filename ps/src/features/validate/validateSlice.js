@@ -1,42 +1,30 @@
-// validateSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { validateRows } from './validateRows';
-import { MAXCHOICES, MINCHOICES } from '../constants';
+import { createSlice } from '@reduxjs/toolkit';
+import { validateTopic } from './validateTopic'; // This imports validateTopic
+import { validateRows } from './validateRows'; // Update this path as per actual location of validateRows
 
-// Async thunk for topic validation
-export const validateTopicAsync = createAsyncThunk(
-    'validate/validateTopic',
-    async (topic, { rejectWithValue }) => {
-        try {
-            const isValid = topic.trim() !== '';
-            if (isValid) {
-                return { topic };
-            } else {
-                return rejectWithValue('Topic is required.');
-            }
-        } catch (error) {
-            return rejectWithValue(error.toString());
-        }
+export const validateSlice = createSlice({
+  name: 'validate',
+  initialState: {
+    topicValidationResult: null,
+    rowsValidationResult: null
+  },
+  reducers: {
+    validateTopicState: (state, action) => {
+      const result = validateTopic(action.payload);
+      state.topicValidationResult = {
+        isValid: result.isValid,
+        message: result.message
+      };
+    },
+    validateRowsState: (state, action) => {
+      const result = validateRows(action.payload);
+      state.rowsValidationResult = {
+        isValid: result.isValid,
+        message: result.message
+      };
     }
-);
-
-const validateSlice = createSlice({
-    name: 'validate',
-    initialState: {
-        topicError: '',
-        rowsError: '',
-    },
-    reducers: {
-        // Reducers for other actions
-    },
-    extraReducers: (builder) => {
-        builder.addCase(validateTopicAsync.fulfilled, (state, action) => {
-            state.topicError = '';
-        });
-        builder.addCase(validateTopicAsync.rejected, (state, action) => {
-            state.topicError = action.payload;
-        });
-    },
+  }
 });
 
+export const { validateTopicState, validateRowsState } = validateSlice.actions;
 export default validateSlice.reducer;
