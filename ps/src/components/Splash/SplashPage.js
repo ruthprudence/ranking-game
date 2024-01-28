@@ -12,9 +12,7 @@ const SplashPage = () => {
   const topicValidationResult = useSelector((state) => state.validate.topicValidationResult);
 
   useEffect(() => {
-    // Only run validation if localTopic is not empty
-    if (localTopic.trim() !== '') {
-        console.log("Input value:", localTopic, "Is valid:", topicValidationResult?.isValid);
+    if (localTopic.trim() !== '') { // Only run validation if localTopic is not empty
       dispatch(validateTopicState(localTopic));
     }
   }, [localTopic, dispatch]);
