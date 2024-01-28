@@ -69,9 +69,21 @@ export const uiSlice = createSlice({
     setValue: (state, action) => {
         state.value = action.payload;
     },    
+    selectChoice: (state, action) => {
+      const choiceName = action.payload;
+      state.items = state.items.map(item => {
+        if (item.name === choiceName) {
+          return { ...item, votes: item.votes + 1 };
+        }
+        return item;
+      });
+    },
+  
   },
 });
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit } = uiSlice.actions;
+export const selectItems = (state) => state.ui.items;
+
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice } = uiSlice.actions;
   
   export default uiSlice.reducer;
