@@ -1,29 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {selectRankings, completeMatchup } from '../../features/matchup/matchupSlice';
-import {ResultsView } from './ResultsView';
+import { ResultsView } from './ResultsView';
+import { completeMatchup } from '../../features/results/resultsSlice';
 
 const ResultsPage = () => {
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.game.items);
-    // const rankings = useSelector(selectRankings);
+    const items = useSelector((state) => state.ui.items);
+    const rankings = useSelector((state) => state.results.rankings);
 
-    // useEffect(() => {
-    //     console.log('Items state at ResultsPage:', items);
-    //     if (items && items.length > 0) {
-    //         dispatch(calculateScores());
-    //         dispatch(calculateRankings());
-    //     }
-    // }, [dispatch, items]);
+    useEffect(() => {
+        if (items && items.length > 0) {
+            dispatch(completeMatchup(items));
+        }
+    }, [dispatch, items]);
       
-    //   console.log('Rankings:', rankings);
-      
-
-    return (
-        <ResultsView
-    //    rankings={rankings}
-    />
-    );
+    return <ResultsView rankings={rankings} />;
 };
 
 export default ResultsPage;

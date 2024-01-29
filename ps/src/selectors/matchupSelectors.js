@@ -1,6 +1,7 @@
 export const selectCurrentPair = (state) => {
-    return state.matchup.pairs[state.matchup.currentPairIndex];
-  };
+  return state.matchup.pairs[state.matchup.currentPairIndex] || [];
+};
+
   
   export const selectInitialScores = (state) => {
     const initialScores = {};

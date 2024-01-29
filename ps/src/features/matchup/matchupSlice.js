@@ -16,43 +16,23 @@ export const matchupSlice = createSlice({
       state.isComparisonComplete = false;
     },
     nextPair: (state) => {
-      state.currentPairIndex = state.currentPairIndex < state.pairs.length - 1 ? state.currentPairIndex + 1 : state.currentPairIndex;
-      state.isComparisonComplete = state.currentPairIndex >= state.pairs.length - 1;
+      if (state.currentPairIndex < state.pairs.length - 1) {
+        state.currentPairIndex += 1;
+      } else {
+        state.isComparisonComplete = true;
+      }
     },
-    handleChoice: (state, action) => {
-      const choiceName = action.payload;
-      state.items = state.items.map(item => {
-        if (item.name === choiceName) {
-          return { ...item, votes: (item.votes || 0) + 1 };
-        }
-        return item;
-      });
+    handleChoice: (state) => {
+      // Increment currentPairIndex
       state.currentPairIndex += 1;
     },
-    selectChoice: (state, action) => {
-      const choiceName = action.payload;
-      const updatedItems = state.items.map(item => {
-        if (item.name === choiceName) {
-          return { ...item, votes: item.votes + 1 };
-        }
-        return item;
-      });
-      state.items = updatedItems;
-      state.currentPairIndex += 1; // Increment the currentPairIndex
-    },
-
+    selectChoice: (state) => {
+      // Increment currentPairIndex
+      state.currentPairIndex += 1;
+    }
   },
 });
 
-export const { 
-  startMatchup, 
-  nextPair, 
-  handleChoice, 
-  selectChoice, 
-  completeMatchup 
-} = matchupSlice.actions;
-
-
-export const selectRankings = (state) => state.matchup.rankings;
+export const { startMatchup, nextPair, handleChoice, selectChoice } = matchupSlice.actions;
 
 export default matchupSlice.reducer;
