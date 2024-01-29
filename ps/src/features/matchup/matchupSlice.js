@@ -23,8 +23,11 @@ export const matchupSlice = createSlice({
       }
     },
     handleChoice: (state) => {
-      // Increment currentPairIndex
-      state.currentPairIndex += 1;
+      if (state.currentPairIndex < state.pairs.length - 1) {
+        state.currentPairIndex += 1;
+      } else {
+        state.isComparisonComplete = true;
+      }
     },
     selectChoice: (state) => {
       // Increment currentPairIndex
