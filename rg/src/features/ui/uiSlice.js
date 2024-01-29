@@ -81,6 +81,14 @@ export const uiSlice = createSlice({
       console.log("Updated items:", updatedItems);
       state.items = updatedItems;
     },
+    incrementVote: (state, action) => {
+      const selectedItem = action.payload;
+      const itemIndex = state.items.findIndex(item => item.id === selectedItem.id);
+      if (itemIndex !== -1) {
+        state.items[itemIndex].votes += 1;
+      }
+    },
+    
     
   
   },
@@ -88,6 +96,6 @@ export const uiSlice = createSlice({
 
 export const selectItems = (state) => state.ui.items;
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote } = uiSlice.actions;
   
   export default uiSlice.reducer;
