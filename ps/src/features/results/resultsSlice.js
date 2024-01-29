@@ -5,14 +5,12 @@ import { calculateScores } from './calculateScores';
 export const resultsSlice = createSlice({
     name: 'results',
     initialState: {
-        scores: {},
         rankings: [],
     },
     reducers: {
         completeMatchup: (state, action) => {
-            const items = action.payload;
-            state.scores = calculateScores(items);
-            state.rankings = calculateRankings(items, state.scores);
+            const { items, scores } = action.payload;
+            state.rankings = calculateRankings(items, scores);
         },
     },
 });

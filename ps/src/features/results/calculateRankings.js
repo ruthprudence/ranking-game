@@ -1,9 +1,9 @@
-export const calculateRankings = (state) => {
-    if (!state.scores) {
+export const calculateRankings = (items, scores) => {
+    if (!scores) {
         return [];
     }
 
-    const sortedChoices = Object.entries(state.scores).sort((a, b) => b[1] - a[1]);
+    const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
     let lastScore = null;
     let rank = 0;
 
@@ -12,7 +12,7 @@ export const calculateRankings = (state) => {
             rank = index + 1;
             lastScore = score;
         }
-        const itemName = state.items.find(item => item.id.toString() === id).name;
+        const itemName = items.find(item => item.id.toString() === id).name;
         return { itemName, score, rank };
     });
 };
