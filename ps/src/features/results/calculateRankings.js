@@ -3,6 +3,9 @@ export const calculateRankings = (items, scores) => {
         return [];
     }
 
+    console.log('Scores:', scores);
+    console.log('Items:', items);
+
     const sortedChoices = Object.entries(scores).sort((a, b) => b[1] - a[1]);
     let lastScore = null;
     let rank = 0;
@@ -12,7 +15,8 @@ export const calculateRankings = (items, scores) => {
             rank = index + 1;
             lastScore = score;
         }
-        const itemName = items.find(item => item.id.toString() === id).name;
+        // Use optional chaining to safely access the name property
+        const itemName = items.find(item => item.id.toString() === id)?.name || 'Unknown';
         return { itemName, score, rank };
     });
 };

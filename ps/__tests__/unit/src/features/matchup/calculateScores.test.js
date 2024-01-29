@@ -1,4 +1,4 @@
-import { calculateScores } from '../../../../../src/features/matchup/calculateScores';
+import { calculateScores } from '../../../../../src/features/results/calculateScores';
 
 describe('calculateScores utility function', () => {
     it('should correctly calculate scores from a list of items', () => {
