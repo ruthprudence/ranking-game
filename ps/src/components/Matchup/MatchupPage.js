@@ -26,10 +26,12 @@ const MatchupPage = () => {
   }, [isComparisonComplete, dispatch]);
 
   const handleChoiceSelect = (choiceIndex) => {
-    const choiceName = currentPair[choiceIndex].name;
-    dispatch(handleChoice()); // Only update the current pair index
-    dispatch(selectChoice(choiceName)); // Dispatch action to update votes in uiSlice
-    dispatch(nextPair());
+    if (currentPair && currentPair.length === 2 && currentPair[choiceIndex]) {
+      const choiceName = currentPair[choiceIndex].name;
+      dispatch(handleChoice());
+      dispatch(selectChoice(choiceName));
+      dispatch(nextPair());
+    }
   };
   
   
