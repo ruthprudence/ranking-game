@@ -1,6 +1,5 @@
 // src/features/game/gameSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { validateTopicAsync } from '../validate/validateSlice';
 import { PAGES, ERRORS } from '../../features/constants';
 
 export const gameSlice = createSlice({
@@ -31,16 +30,6 @@ export const gameSlice = createSlice({
       }
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(validateTopicAsync.fulfilled, (state, action) => {
-  //     state.isSubmissionSuccessful = true;
-  //     state.validationError = '';
-  //   });
-  //   builder.addCase(validateTopicAsync.rejected, (state, action) => {
-  //     state.isSubmissionSuccessful = false;
-  //     state.validationError = action.payload;
-  //   });
-  // },
 });
 
 export const { setCurrentPage, advancePage } = gameSlice.actions;

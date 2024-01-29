@@ -69,7 +69,7 @@ export const uiSlice = createSlice({
       const choiceName = action.payload;
       state.items = state.items.map(item => {
         if (item.name === choiceName) {
-          return { ...item, votes: item.votes + 1 };
+          return { ...item, votes: (item.votes || 0) + 1 };
         }
         return item;
       });

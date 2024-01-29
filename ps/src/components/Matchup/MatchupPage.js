@@ -6,6 +6,7 @@ import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { MatchupView } from './MatchupView';
 import { ERRORS, PAGES } from '../../features/constants';
+import { selectChoice } from '../../features/ui/uiSlice';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
@@ -25,9 +26,13 @@ const MatchupPage = () => {
   }, [isComparisonComplete, dispatch]);
 
   const handleChoiceSelect = (choiceIndex) => {
-    dispatch(handleChoice(currentPair[choiceIndex].name));
+    const choiceName = currentPair[choiceIndex].name;
+    dispatch(handleChoice()); // Only update the current pair index
+    dispatch(selectChoice(choiceName)); // Dispatch action to update votes in uiSlice
     dispatch(nextPair());
   };
+  
+  
 
 
 
