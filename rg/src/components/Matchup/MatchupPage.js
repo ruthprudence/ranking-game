@@ -1,6 +1,6 @@
 // MatchupPage.js
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { startMatchup, nextPair } from '../../features/matchup/matchupSlice';
 import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
@@ -10,10 +10,10 @@ import { selectChoice } from '../../features/ui/uiSlice';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
-  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete);
-  const currentPair = useSelector(selectCurrentPair);
-  const topic = useSelector((state) => state.ui.topic);
-  const items = useSelector((state) => state.ui.items);
+  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete, shallowEqual);
+  const currentPair = useSelector(selectCurrentPair, shallowEqual);
+  const topic = useSelector((state) => state.ui.topic, shallowEqual);
+  const items = useSelector((state) => state.ui.items, shallowEqual);
 
   useEffect(() => {
     dispatch(startMatchup(items));
