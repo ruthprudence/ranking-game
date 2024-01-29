@@ -28,7 +28,6 @@ const MatchupPage = () => {
   const handleChoiceSelect = (choiceIndex) => {
     if (currentPair && currentPair.length === 2 && currentPair[choiceIndex]) {
       const choiceName = currentPair[choiceIndex].name;
-      dispatch(handleChoice());
       dispatch(selectChoice(choiceName));
       dispatch(nextPair());
     }

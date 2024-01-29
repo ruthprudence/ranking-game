@@ -29,13 +29,9 @@ export const matchupSlice = createSlice({
         state.isComparisonComplete = true;
       }
     },
-    selectChoice: (state) => {
-      // Increment currentPairIndex
-      state.currentPairIndex += 1;
-    }
   },
 });
 
-export const { startMatchup, nextPair, handleChoice, selectChoice } = matchupSlice.actions;
+export const { startMatchup, nextPair, handleChoice } = matchupSlice.actions;
 
 export default matchupSlice.reducer;
