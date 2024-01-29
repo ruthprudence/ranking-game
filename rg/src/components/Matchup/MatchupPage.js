@@ -6,7 +6,7 @@ import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { MatchupView } from './MatchupView';
 import { ERRORS, PAGES } from '../../features/constants';
-import { selectChoice } from '../../features/ui/uiSlice';
+import { selectChoice, incrementVote } from '../../features/ui/uiSlice';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
@@ -26,14 +26,17 @@ const MatchupPage = () => {
   }, [isComparisonComplete, dispatch]);
 
   const handleChoiceSelect = (choiceIndex) => {
-    if (currentPair && currentPair.length === 2 && currentPair[choiceIndex]) {
-      const choiceName = currentPair[choiceIndex].name;
-      console.log("Handling choice select for:", choiceName);
-  
-      dispatch(selectChoice(choiceName));
-      dispatch(nextPair());
+    if (currentPair && currentPair.length === 2) {
+      const selectedItem = items[currentPair[choiceIndex]];
+      if (selectedItem) {
+        dispatch(incrementVote(selectedItem)); // Passing the whole item object
+        dispatch(nextPair());
+      }
     }
   };
+  
+  
+  
   
   
   
