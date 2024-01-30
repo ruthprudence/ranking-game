@@ -1,5 +1,14 @@
+export const incrementVote = (state, action) => {
+  const selectedItem = action.payload;
+  const itemIndex = state.items.findIndex(item => item.id === selectedItem.id);
+  if (itemIndex !== -1) {
+    state.items[itemIndex].votes += 1;
+  }
+};
+
+
 export const selectCurrentPair = (state) => {
-  return state.matchup.pairs[state.matchup.currentPairIndex];
+  return state.ui.pairs[state.ui.currentPairIndex];
 };
 
   
@@ -12,11 +21,11 @@ export const selectCurrentPair = (state) => {
   };
   
   export const selectSortedPriorities = (state) => {
-    return Object.keys(state.matchup.scores).sort((a, b) => state.matchup.scores[b] - state.matchup.scores[a]);
+    return Object.keys(state.matchup.scores).sort((a, b) => state.ui.scores[b] - state.ui.scores[a]);
   };
   
   export const selectAdjustedRankings = (state) => {
-    const sortedChoices = Object.entries(state.matchup.scores).sort((a, b) => b[1] - a[1]);
+    const sortedChoices = Object.entries(state.ui.scores).sort((a, b) => b[1] - a[1]);
     let lastScore = null, rank = 0;
     return sortedChoices.map(([choice, score], index) => {
       if (score !== lastScore) {
@@ -29,6 +38,6 @@ export const selectCurrentPair = (state) => {
 
   export const selectCurrentPairItems = (state) => {
     const pair = selectCurrentPair(state);
-    return pair ? [state.matchup.items[pair[0]], state.matchup.items[pair[1]]] : null;
+    return pair ? [state.ui.items[pair[0]], state.ui.items[pair[1]]] : null;
   };
   
