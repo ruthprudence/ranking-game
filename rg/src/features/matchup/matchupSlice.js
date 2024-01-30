@@ -12,15 +12,25 @@ export const matchupSlice = createSlice({
     startMatchup: (state, action) => {
       const items = action.payload;
       state.pairs = pairingLogic(items);
+      console.log("Starting matchup with items:", items);
+      console.log("Generated pairs:", state.pairs);
       state.currentPairIndex = 0;
       state.isComparisonComplete = false;
     },
     nextPair: (state) => {
+      console.log("Current pair index before update:", state.currentPairIndex);
+      console.log("Pairs:", state.pairs);
+
       if (state.currentPairIndex < state.pairs.length - 1) {
         state.currentPairIndex += 1;
       } else {
         state.isComparisonComplete = true;
       }
+
+      console.log("Updated current pair index:", state.currentPairIndex);
+      console.log("New Current Pair:", state.pairs[state.currentPairIndex]);
+
+      console.log("Is comparison complete:", state.isComparisonComplete);
     },
   },
 });
