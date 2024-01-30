@@ -23,7 +23,7 @@ const MatchupPage = () => {
 
   useEffect(() => {
     dispatch(startMatchup(items));
-  }, [dispatch, items]);
+  }, [dispatch]);
   
   useEffect(() => {
     if (isComparisonComplete) {
@@ -33,10 +33,11 @@ const MatchupPage = () => {
 
   const handleChoiceSelect = (choiceIndex) => {
     console.log(`handleChoiceSelect called with choiceIndex: ${choiceIndex}`);
-    
+  
     if (currentPair && currentPair.length === 2) {
       console.log(`currentPair: ${currentPair}`);
       
+      // Logging the items on the left and right
       const leftItem = items[currentPair[0]];
       const rightItem = items[currentPair[1]];
       console.log(`Item on the left: ${JSON.stringify(leftItem, null, 2)}`);
@@ -52,13 +53,22 @@ const MatchupPage = () => {
         dispatch(nextPair());
         console.log('nextPair dispatched');
       }
-
+  
       // Output the items and their votes after the vote
       items.forEach(item => {
         console.log(`Item: ${item.name}, Votes: ${item.votes}`);
       });
     }
   };
+  
+  
+  
+  
+  
+  
+  
+
+
 
   return (
     <MatchupView 
