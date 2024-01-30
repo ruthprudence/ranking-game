@@ -1,25 +1,21 @@
 // MatchupPage.js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import { startMatchup, nextPair } from '../../features/matchup/matchupSlice';
-import { selectCurrentPair } from '../../selectors/matchupSelectors';
+
 import { setCurrentPage } from '../../features/game/gameSlice';
-import { MatchupView } from './MatchupView';
+import { selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect} from '../../features/ui/uiSlice';
+
+import { selectCurrentPair } from '../../selectors/matchupSelectors';
 import { ERRORS, PAGES } from '../../features/constants';
-import { selectChoice, incrementVote } from '../../features/ui/uiSlice';
+
+import { MatchupView } from './MatchupView';
 
 const MatchupPage = () => {
   const dispatch = useDispatch();
-  const isComparisonComplete = useSelector((state) => state.matchup.isComparisonComplete, shallowEqual);
+  const isComparisonComplete = useSelector((state) => state.ui.isComparisonComplete);
   const currentPair = useSelector(selectCurrentPair);
-  const topic = useSelector((state) => state.ui.topic, shallowEqual);
+  const topic = useSelector((state) => state.ui.topic);
   const items = useSelector((state) => state.ui.items);
-
-  console.log(`
-  isComparisonComplete: ${isComparisonComplete}
-  currentPair: ${currentPair}
-  topic: ${topic}
-  items: ${items.map(item => JSON.stringify(item, null, 2))}`);
 
   useEffect(() => {
     dispatch(startMatchup(items));
@@ -31,49 +27,22 @@ const MatchupPage = () => {
     }
   }, [isComparisonComplete, dispatch]);
 
-  const handleChoiceSelect = (choiceIndex) => {
-    console.log(`handleChoiceSelect called with choiceIndex: ${choiceIndex}`);
-  
+  const onChoiceSelect = (choiceIndex) => {
+    // Use the currentPair from useSelector
     if (currentPair && currentPair.length === 2) {
-      console.log(`currentPair: ${currentPair}`);
-      
-      // Logging the items on the left and right
-      const leftItem = items[currentPair[0]];
-      const rightItem = items[currentPair[1]];
-      console.log(`Item on the left: ${JSON.stringify(leftItem, null, 2)}`);
-      console.log(`Item on the right: ${JSON.stringify(rightItem, null, 2)}`);
-  
       const selectedItem = items[currentPair[choiceIndex]];
-      console.log(`User chose: ${JSON.stringify(selectedItem, null, 2)}`);
-      
+    
       if (selectedItem) {
-        dispatch(incrementVote(selectedItem)); // Passing the whole item object
-        console.log(`incrementVote dispatched with selectedItem: ${JSON.stringify(selectedItem, null, 2)}`);
-        
-        dispatch(nextPair());
-        console.log('nextPair dispatched');
+        dispatch(incrementVote({ id: selectedItem.id })); 
+        dispatch(handleChoiceSelect({ choiceIndex, items }));
       }
-  
-      // Output the items and their votes after the vote
-      items.forEach(item => {
-        console.log(`Item: ${item.name}, Votes: ${item.votes}`);
-      });
     }
   };
-  
-  
-  
-  
-  
-  
-  
-
-
 
   return (
     <MatchupView 
       topic={topic}
-      handleChoiceSelect={handleChoiceSelect}
+      handleChoiceSelect={onChoiceSelect}
       currentPair={currentPair}
       items={items}
     />

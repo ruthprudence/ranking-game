@@ -3,7 +3,7 @@ import { createSlice, createAction} from '@reduxjs/toolkit';
 import { createItemsWithVotes } from '../matchup/createItemsWithVotes';
 import { initializeScores } from '../matchup/initializeScores';
 import { MAXCHOICES, MINCHOICES } from '../constants';
-
+import { pairingLogic } from '../matchup/pairingLogic';
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
 export const uiSlice = createSlice({
@@ -13,6 +13,9 @@ export const uiSlice = createSlice({
     rows: ['', '', ''],
     items: [],
     scores: {},
+    pairs: [],
+    currentPairIndex: 0,
+    isComparisonComplete: false,
   },
   reducers: {
     /** Splash Page */
@@ -64,7 +67,13 @@ export const uiSlice = createSlice({
     },
     setValue: (state, action) => {
         state.value = action.payload;
-    },    
+    },  
+    startMatchup: (state, action) => {
+      const items = action.payload;
+      state.pairs = pairingLogic(items);
+      state.currentPairIndex = 0;
+      state.isComparisonComplete = false;
+    },  
     selectChoice: (state, action) => {
       const choiceName = action.payload;
       console.log("Selected choice name:", choiceName);
@@ -88,7 +97,38 @@ export const uiSlice = createSlice({
         state.items[itemIndex].votes += 1;
       }
     },
+
+    nextPair: (state) => {
+      console.log("Current pair index before update:", state.currentPairIndex);
+      console.log("Pairs:", state.pairs);
+      state.currentPairIndex += 1;
+      console.log("Updated current pair index:", state.currentPairIndex);
+      console.log("New Current Pair:", state.pairs[state.currentPairIndex]);
+    },
+    handleChoiceSelect: (state, action) => {
+      const { choiceIndex, items } = action.payload;
     
+      if (state.pairs.length > state.currentPairIndex) {
+        const currentPair = state.pairs[state.currentPairIndex];
+        if (currentPair && currentPair.length === 2) {
+          const selectedItem = items[currentPair[choiceIndex]];
+          
+          if (selectedItem) {
+            // Directly update votes here
+            const itemIndex = state.items.findIndex(item => item.id === selectedItem.id);
+            if (itemIndex !== -1) {
+              state.items[itemIndex].votes += 1; // Increment votes
+            }
+            state.currentPairIndex += 1;
+          }
+        }
+      }
+    
+      // Check if the comparison is complete
+      if (state.currentPairIndex >= state.pairs.length) {
+        state.isComparisonComplete = true;
+      }
+    },
     
   
   },
@@ -96,6 +136,6 @@ export const uiSlice = createSlice({
 
 export const selectItems = (state) => state.ui.items;
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect } = uiSlice.actions;
   
   export default uiSlice.reducer;

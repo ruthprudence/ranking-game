@@ -1,7 +1,7 @@
 // src/utils/createItemsWithVotes.js
 export const createItemsWithVotes = (rows) => {
     return rows.map((row, index) => ({
-        id: `${index + 1} - ${row}`, 
+        id: index, 
         name: row,
         votes: 0
     }));
