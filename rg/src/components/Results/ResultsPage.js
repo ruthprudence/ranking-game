@@ -6,16 +6,16 @@ import { completeMatchup } from '../../features/ui/uiSlice';
 const ResultsPage = () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.ui.items);
-    const scores = useSelector((state) => state.ui.scores);
     const rankings = useSelector((state) => state.ui.rankings);
 
     useEffect(() => {
         if (items && items.length > 0) {
-            dispatch(completeMatchup({ items, scores }));
+            dispatch(completeMatchup());
         }
-    }, [dispatch, items, scores]);
+    }, [dispatch, items]);
       
     return <ResultsView rankings={rankings} />;
 };
+
 
 export default ResultsPage;
