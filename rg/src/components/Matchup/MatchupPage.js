@@ -5,7 +5,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect} from '../../features/ui/uiSlice';
 
-import { selectCurrentPair } from '../../selectors/matchupSelectors';
+import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { ERRORS, PAGES } from '../../features/constants';
 
 import { MatchupView } from './MatchupView';

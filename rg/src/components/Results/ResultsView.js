@@ -1,10 +1,11 @@
 // ResultsView.js
 import React from 'react';
 import Button from '../UI/Button';
+import Footer from '../UI/Footer';
 
 export const ResultsView = ({ rankings}) => {
     return (
-        <div>
+        <div className="page-view">
         <h2>Results</h2>
         {rankings.length > 0 ? (
             <table>
@@ -28,6 +29,7 @@ export const ResultsView = ({ rankings}) => {
         ) : (
             <p>No results available.</p>
         )}
+        <Footer /> 
     </div>
     );
 };

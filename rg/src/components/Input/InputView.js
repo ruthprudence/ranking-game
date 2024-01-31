@@ -2,11 +2,12 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
+import Footer from '../UI/Footer';
 import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
     return (
-        <div>
+        <div className="page-view">
             <h2>{topic}</h2>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <table>
@@ -23,7 +24,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                             </td>
                             {index >= 3 && (
                                 <td className="remove-button-cell">
-                                    <Button onClick={() => handleRemoveRow(index)}>Remove</Button>
+                                    <Button  className="button" onClick={() => handleRemoveRow(index)}>Remove</Button>
                                 </td>
                             )}
                             {index < 3 && <td className="remove-button-cell"></td>}
@@ -31,9 +32,10 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                     ))}
                 </tbody>
             </table>
-            <Button onClick={handleAddRow}>Add Item</Button>
-            <Button onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
+            <Button  className="button" onClick={handleAddRow}>Add Item</Button>
+            <Button  className="button" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
             <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
+            <Footer /> 
         </div>
     );
 };

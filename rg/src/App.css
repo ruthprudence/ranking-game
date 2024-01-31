@@ -1,0 +1,107 @@
+/* Base Styles */
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  background-color: whitesmoke;
+}
+
+/* Global Header Style */
+.App h1, h2, h3 {
+  margin: 10px 20px; /* Reduced margin */
+}
+
+/* Global InputField Style */
+.input-field {
+  width: 80%;
+  padding: 10px;
+  font-size: 2.2em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Global Button Style */
+.button {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: .8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Global Table Style */
+table {
+  width: 100%;
+  text-align: left;
+  margin-top: 15px; /* Reduced margin */
+}
+
+td, th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Specific Page Styles */
+.page-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Changed to center for a more compact layout */
+  padding: 5px; /* Reduced padding */
+  height: auto; /* Changed from 100vh to auto for a more natural height */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* Media Query Adjustments */
+@media (max-width: 600px) {
+  .input-field, .button {
+    width: 95%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .input-field, .button {
+    width: 85%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .input-field, .button {
+    width: 75%;
+  }
+}
+
+.matchup-buttons-container {
+  display: flex;
+  justify-content: space-between; /* Adjusts to space out buttons */
+  align-items: center; /* Aligns buttons vertically in the center */
+  width: 100%; /* Full width of the container */
+  margin: 20px 0; /* Space above and below the button container */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 15px; /* Padding around buttons */
+  border-radius: 10px; /* Optional: rounded corners for the container */
+}
+
+.matchup-buttons-container button {
+  flex: 0 0 48%; /* Each button takes almost half of the container */
+  margin: 0 1%; /* Small margin for spacing */
+  /* Add more button styles if needed (e.g., padding, font-size) */
+}
+
+
+#splash-prompt {
+  size: 4.2em;
+}
