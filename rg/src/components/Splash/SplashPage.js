@@ -12,15 +12,14 @@ const SplashPage = () => {
   const topicValidationResult = useSelector((state) => state.validate.topicValidationResult);
 
   useEffect(() => {
-    if (localTopic.trim() !== '') { // Only run validation if localTopic is not empty
-      dispatch(validateTopicState(localTopic));
-    }
+    // Dispatch validateTopicState every time localTopic changes
+    dispatch(validateTopicState(localTopic));
   }, [localTopic, dispatch]);
 
   const onTopicSubmit = () => {
     if (topicValidationResult?.isValid) {
       dispatch(submitTopic(localTopic));
-      dispatch(setCurrentPage(PAGES.INPUT)); // Update the current page to INPUT
+      dispatch(setCurrentPage(PAGES.INPUT));
     }
   };
 
