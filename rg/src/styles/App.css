@@ -1,3 +1,4 @@
+/* Base Styles */
 .App {
   text-align: center;
   display: flex;
@@ -7,7 +8,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin; /* Adjusted for better sizing */
   pointer-events: none;
 }
 
@@ -18,18 +19,19 @@
 }
 
 .theme_Box {
-  width: 70%;
+  width: 80%; /* Increased width for better screen utilization */
+  margin: auto; /* Centering the box */
 }
 
 input::placeholder {
   color: grey;
-  opacity: 0.7; /* Adjust as needed */
-  font-style: italic; /* Optional style */
+  opacity: 0.7;
+  font-style: italic;
 }
 
 body {
   background-color: whitesmoke;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem); /* Adjusted for dynamic resizing */
 }
 
 .App-header {
@@ -55,55 +57,65 @@ body {
   }
 }
 
-/* ComparisonUI Component Styles */
+/* Component Specific Styles */
 .comparison-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  margin: 5px;
-  /* Additional styling */
+  padding: 12px 24px; /* Increased for touch friendliness */
+  font-size: 1.2rem; /* Larger text for readability */
+  margin: 15px; /* More spacing */
 }
 
-/* InputRow Component Styles */
 .input-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Increased spacing */
 }
 
 .input-row input {
   flex-grow: 1;
   margin-right: 10px;
-  padding: 5px;
+  padding: 10px; /* Increased padding for touch friendliness */
 }
 
 .input-row button {
-  padding: 5px 10px;
+  padding: 10px 15px;
 }
 
-/* ResultsTable Component Styles */
 .results-table {
   overflow-x: auto;
 }
 
 .remove-button-cell {
-  width: 100px; /* Adjust as needed for your design */
+  width: 120px; /* Increased width */
 }
 
-/* You may also want to ensure that the table cells do not change width */
 td {
   text-align: left;
   vertical-align: middle;
 }
 
-/* Media Queries for Responsive Design */
+/* Responsive Design Adjustments */
 @media (max-width: 600px) {
-  /* Styles for small screens */
+  .theme_Box, .input-row, .comparison-button {
+    width: 95%; /* Utilize more screen width */
+  }
+
+  .input-row button, .comparison-button {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-  /* Styles for medium screens */
+  .theme_Box {
+    width: 85%;
+  }
+
+  .input-row, .comparison-button {
+    font-size: 1.1rem;
+  }
 }
 
 @media (min-width: 1025px) {
-  /* Styles for large screens */
+  .theme_Box {
+    width: 75%; /* Optimal width for larger screens */
+  }
 }
