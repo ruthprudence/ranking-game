@@ -1,7 +1,5 @@
 import React from 'react';
-import './styles/App.css';
-import './styles/components/PageStyles.css';
-import './styles/components/buttons.css';
+import './App.css';
 import RankingGame from './RankingGame.js';
 
 
