@@ -4,7 +4,7 @@ import Button from '../UI/Button';
 
 export const ResultsView = ({ rankings}) => {
     return (
-        <div>
+        <div className="page-view">
         <h2>Results</h2>
         {rankings.length > 0 ? (
             <table>
