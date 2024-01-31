@@ -32,7 +32,7 @@ const MatchupPage = () => {
       const selectedItem = items[currentPair[buttonIndex]];
 
       if (selectedItem) {
-        dispatch(incrementVote({ id: selectedItem.id }));
+        // dispatch(incrementVote({ id: selectedItem.id }));
         dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
       }
     }
