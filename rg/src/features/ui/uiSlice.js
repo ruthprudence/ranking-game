@@ -4,6 +4,10 @@ import { createItemsWithVotes } from '../matchup/createItemsWithVotes';
 import { initializeScores } from '../matchup/initializeScores';
 import { MAXCHOICES, MINCHOICES } from '../constants';
 import { pairingLogic } from '../matchup/pairingLogic';
+
+import { calculateRankings } from '../results/calculateRankings';
+import { calculateScores } from '../results/calculateScores';
+
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
 export const uiSlice = createSlice({
@@ -16,6 +20,7 @@ export const uiSlice = createSlice({
     pairs: [],
     currentPairIndex: 0,
     isComparisonComplete: false,
+    rankings: [],
   },
   reducers: {
     /** Splash Page */
@@ -129,6 +134,10 @@ export const uiSlice = createSlice({
         state.isComparisonComplete = true;
       }
     },
+    completeMatchup: (state, action) => {
+      const { items, scores } = action.payload;
+      state.rankings = calculateRankings(items, scores);
+  },
     
   
   },
@@ -136,6 +145,6 @@ export const uiSlice = createSlice({
 
 export const selectItems = (state) => state.ui.items;
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect, completeMatchup } = uiSlice.actions;
   
   export default uiSlice.reducer;
