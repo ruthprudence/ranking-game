@@ -1,6 +1,7 @@
 // ResultsView.js
 import React from 'react';
 import Button from '../UI/Button';
+import Footer from '../UI/Footer';
 
 export const ResultsView = ({ rankings}) => {
     return (
@@ -28,6 +29,7 @@ export const ResultsView = ({ rankings}) => {
         ) : (
             <p>No results available.</p>
         )}
+        <Footer /> 
     </div>
     );
 };

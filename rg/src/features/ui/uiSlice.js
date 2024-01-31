@@ -10,18 +10,20 @@ import { calculateScores } from '../results/calculateScores';
 
 export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
+const initialState = {
+  topic: '',
+  rows: ['', '', ''],
+  items: [],
+  scores: {},
+  pairs: [],
+  currentPairIndex: 0,
+  isComparisonComplete: false,
+  rankings: [],
+};
+
 export const uiSlice = createSlice({
   name: 'ui',
-  initialState: {
-    topic: '',
-    rows: ['', '', ''],
-    items: [],
-    scores: {},
-    pairs: [],
-    currentPairIndex: 0,
-    isComparisonComplete: false,
-    rankings: [],
-  },
+  initialState,
   reducers: {
     /** Splash Page */
     submitTopic: (state, action) => {
@@ -129,11 +131,15 @@ export const uiSlice = createSlice({
     completeMatchup: (state) => {
       state.rankings = calculateRankings(state.items);
     },
+    resetState: () => initialState,
+    
     
     
   
   },
 });
+
+export const { resetState } = uiSlice.actions;
 
 export const selectItems = (state) => state.ui.items;
 
