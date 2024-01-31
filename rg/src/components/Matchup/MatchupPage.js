@@ -27,6 +27,17 @@ const MatchupPage = () => {
     }
   }, [isComparisonComplete, dispatch]);
 
+  const onButtonClick = (buttonIndex) => {
+    if (currentPair && currentPair.length === 2) {
+      const selectedItem = items[currentPair[buttonIndex]];
+
+      if (selectedItem) {
+        dispatch(incrementVote({ id: selectedItem.id }));
+        dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
+      }
+    }
+  };
+
   const onChoiceSelect = (choiceIndex) => {
     if (currentPair && currentPair.length === 2) {
       const selectedItem = items[currentPair[choiceIndex]];
@@ -44,6 +55,7 @@ const MatchupPage = () => {
       handleChoiceSelect={onChoiceSelect}
       currentPair={currentPair}
       items={items}
+      onButtonClick={onButtonClick}
     />
   );
 };

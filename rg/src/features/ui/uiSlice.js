@@ -134,10 +134,10 @@ export const uiSlice = createSlice({
         state.isComparisonComplete = true;
       }
     },
-    completeMatchup: (state, action) => {
-      const { items, scores } = action.payload;
-      state.rankings = calculateRankings(items, scores);
-  },
+    completeMatchup: (state) => {
+      state.rankings = calculateRankings(state.items);
+    },
+    
     
   
   },
