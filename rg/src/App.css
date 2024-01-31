@@ -11,15 +11,15 @@
 
 /* Global Header Style */
 .App h1, h2, h3 {
-  margin-bottom: 15px;
+  margin: 10px 20px; /* Reduced margin */
 }
 
 /* Global InputField Style */
 .input-field {
   width: 80%;
-  padding: 15px;
-  font-size: 1.2em;
-  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 4.2em;
+  border: 2px solid #ccc;
   border-radius: 5px;
 }
 
@@ -36,7 +36,7 @@
 table {
   width: 100%;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 15px; /* Reduced margin */
 }
 
 td, th {
@@ -49,9 +49,9 @@ td, th {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-  height: 100vh;
+  justify-content: center; /* Changed to center for a more compact layout */
+  padding: 5px; /* Reduced padding */
+  height: auto; /* Changed from 100vh to auto for a more natural height */
 }
 
 .buttons-container {
@@ -63,6 +63,7 @@ td, th {
   border-radius: 10px;
 }
 
+/* Media Query Adjustments */
 @media (max-width: 600px) {
   .input-field, .button {
     width: 95%;
