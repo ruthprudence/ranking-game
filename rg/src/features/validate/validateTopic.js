@@ -1,16 +1,17 @@
-// Async thunk for topic validation
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { submitTopic } from '../actions';
+import { sanitizeAndTruncate } from '../ui/inputUtils'; // Import the utility function
+
 export const validateTopic = createAsyncThunk(
     'validate/validateTopic',
     async (topic, { dispatch }) => {
-        // Perform validation logic
-        const isValid = topic.trim() !== '';
-        if (isValid) {
-            // Dispatch actions based on validation result
-            dispatch(submitTopic(topic));
-            return { isValid: true, topic };
+        // Use the sanitizeAndTruncate function
+        const processedTopic = sanitizeAndTruncate(topic);
+
+        const isNotEmpty = processedTopic.trim() !== '';
+        if (isNotEmpty) {
+            dispatch(submitTopic(processedTopic));
+            return { isValid: true, topic: processedTopic };
         } else {
             return { isValid: false, topicError: 'Topic is required.' };
         }
