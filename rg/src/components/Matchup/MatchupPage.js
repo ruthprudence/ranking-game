@@ -28,7 +28,6 @@ const MatchupPage = () => {
   }, [isComparisonComplete, dispatch]);
 
   const onChoiceSelect = (choiceIndex) => {
-    // Use the currentPair from useSelector
     if (currentPair && currentPair.length === 2) {
       const selectedItem = items[currentPair[choiceIndex]];
     
