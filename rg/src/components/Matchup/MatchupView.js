@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../UI/Button';
+import Footer from '../UI/Footer';
 
 export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick }) => {
   return (
@@ -14,6 +15,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
         )}
       </div>
       <p><i>Who Wins?</i></p>
+      <Footer /> 
     </div>
   );
 };

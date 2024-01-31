@@ -2,6 +2,7 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
+import Footer from '../UI/Footer';
 import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
@@ -34,6 +35,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             <Button  className="button" onClick={handleAddRow}>Add Item</Button>
             <Button  className="button" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
             <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
+            <Footer /> 
         </div>
     );
 };

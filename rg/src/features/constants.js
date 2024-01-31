@@ -9,6 +9,11 @@ export const PAGES = {
     RESULTS: 'RESULTS_PAGE',
 };
 
+export const BUTTONS = {
+    DEFAULT: 'Reset -- Lose Progress',
+    RETRY: 'Rank Again!',
+}
+
 export const PROMPTS = {
     SPLASH: 'Rank Something!',
     INPUT: 'Click "Submit" to begin',
