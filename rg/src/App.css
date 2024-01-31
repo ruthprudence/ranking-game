@@ -18,7 +18,7 @@
 .input-field {
   width: 80%;
   padding: 10px;
-  font-size: 4.2em;
+  font-size: 2.2em;
   border: 2px solid #ccc;
   border-radius: 5px;
 }
@@ -27,7 +27,7 @@
 .button {
   padding: 12px 24px;
   margin: 10px;
-  font-size: 1.2rem;
+  font-size: .8rem;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@ td, th {
   justify-content: space-evenly;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
 }
 
@@ -82,4 +82,26 @@ td, th {
   .input-field, .button {
     width: 75%;
   }
+}
+
+.matchup-buttons-container {
+  display: flex;
+  justify-content: space-between; /* Adjusts to space out buttons */
+  align-items: center; /* Aligns buttons vertically in the center */
+  width: 100%; /* Full width of the container */
+  margin: 20px 0; /* Space above and below the button container */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 15px; /* Padding around buttons */
+  border-radius: 10px; /* Optional: rounded corners for the container */
+}
+
+.matchup-buttons-container button {
+  flex: 0 0 48%; /* Each button takes almost half of the container */
+  margin: 0 1%; /* Small margin for spacing */
+  /* Add more button styles if needed (e.g., padding, font-size) */
+}
+
+
+#splash-prompt {
+  size: 4.2em;
 }

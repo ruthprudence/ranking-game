@@ -13,7 +13,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
             <div className="button-container">
                 <Button  className="button"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>
             </div>
-            <p><i>{PROMPTS.SPLASH}</i></p>
+            <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p>
         </div>
     );
 };

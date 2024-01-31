@@ -81,18 +81,14 @@ export const uiSlice = createSlice({
     },  
     selectChoice: (state, action) => {
       const choiceName = action.payload;
-      console.log("Selected choice name:", choiceName);
-      console.log("Current items before update:", state.items);
     
       const updatedItems = state.items.map(item => {
         if (item.name === choiceName) {
-          console.log(`Updating votes for ${choiceName}`);
           return { ...item, votes: (item.votes || 0) + 1 };
         }
         return item;
       });
     
-      console.log("Updated items:", updatedItems);
       state.items = updatedItems;
     },
     incrementVote: (state, action) => {
@@ -104,11 +100,7 @@ export const uiSlice = createSlice({
     },
 
     nextPair: (state) => {
-      console.log("Current pair index before update:", state.currentPairIndex);
-      console.log("Pairs:", state.pairs);
       state.currentPairIndex += 1;
-      console.log("Updated current pair index:", state.currentPairIndex);
-      console.log("New Current Pair:", state.pairs[state.currentPairIndex]);
     },
     handleChoiceSelect: (state, action) => {
       const { choiceIndex, items } = action.payload;
@@ -145,6 +137,6 @@ export const uiSlice = createSlice({
 
 export const selectItems = (state) => state.ui.items;
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, submitTopicAndAdvance, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect, completeMatchup } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect, completeMatchup } = uiSlice.actions;
   
   export default uiSlice.reducer;
