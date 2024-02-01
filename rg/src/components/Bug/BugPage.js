@@ -17,6 +17,15 @@ const BugPage = () => {
     dispatch(updateDescription(e.target.value));
   };
 
+  const handleStepsChange = (e) => {
+    setStepsToReproduce(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setContactEmail(e.target.value);
+  };
+
+
   // Add handlers for stepsToReproduce and contactEmail
 
   const handleSubmit = () => {
@@ -33,16 +42,18 @@ const BugPage = () => {
 
   return (
     <BugView 
-      description={description}
-      stepsToReproduce={stepsToReproduce}
-      contactEmail={contactEmail}
-      isSubmitting={isSubmitting}
-      submitSuccess={submitSuccess}
-      submitError={submitError}
-      onDescriptionChange={handleDescriptionChange}
-      onSubmit={handleSubmit}
-      onReset={handleReset}
-    />
+    description={description}
+    stepsToReproduce={stepsToReproduce}
+    contactEmail={contactEmail}
+    isSubmitting={isSubmitting}
+    submitSuccess={submitSuccess}
+    submitError={submitError}
+    onDescriptionChange={handleDescriptionChange}
+    onStepsChange={handleStepsChange}
+    onEmailChange={handleEmailChange}
+    onSubmit={handleSubmit}
+    onReset={handleReset}
+  />
   );
 };
 

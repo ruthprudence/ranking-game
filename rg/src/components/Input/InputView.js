@@ -32,8 +32,8 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                     ))}
                 </tbody>
             </table>
-            <Button  className="button" onClick={handleAddRow}>Add Item</Button>
-            <Button  className="button" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
+            <Button  className="button addItem" onClick={handleAddRow}>Add Item</Button>
+            <Button  className="button submit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
             <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
             <Footer /> 
         </div>

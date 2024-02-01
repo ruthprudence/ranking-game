@@ -1,52 +1,46 @@
 const express = require('express');
-const app = express();
 const path = require('path');
-const {createDatabaseConnection, closeDatabaseConnection} = require('./database');
+const { createDatabaseConnection, closeDatabaseConnection } = require('./database');
 
-app.use(express.static('build'));
+const app = express();
 
-// const PORT = process.env.PORT || 3000;
-
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
-
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 
-app.post('/submit-data', async (req, res) => {
+// POST endpoint to handle bug report submissions
+app.post('/api/bug-report', async (req, res) => {
     try {
         const db = await createDatabaseConnection();
-        const { username, ipAddress, subjects } = req.body;
+        const { description, stepsToReproduce, contactEmail } = req.body;
 
-        // Start a transaction
         await db.beginTransaction();
-
         try {
-            // Insert into Sessions table
-            const sessionQuery = 'INSERT INTO Sessions (username, loggedTime, ip_address) VALUES (?, NOW(), ?)';
-            await db.query(sessionQuery, [username, ipAddress]);
+            // Update the query to insert data into a bug reports table
+            const bugReportQuery = 'INSERT INTO BugReports (description, stepsToReproduce, contactEmail) VALUES (?, ?, ?)';
+            await db.query(bugReportQuery, [description, stepsToReproduce, contactEmail]);
 
-            // Additional database operations for Respondents, Subjects, and Responses can go here
-
-            // Commit the transaction
             await db.commit();
-            await res.send('Data inserted successfully');
+            res.send('Bug report submitted successfully');
         } catch (error) {
-        // Handle database connection errors
-        await db.rollback();
-        await console.error('Database connection error:', error);
-        await res.status(500).send(error);
+            await db.rollback();
+            console.error('Error during database transaction:', error);
+            res.status(500).send('Error processing request');
+        } finally {
+            await closeDatabaseConnection(db);
+        }
+    } catch (error) {
+        console.error('Database connection error:', error);
+        res.status(500).send('Internal Server Error');
     }
-} catch (error) {
-    // handle db connection errors
-    console.error('Database connection error: ', error);
-    await res.status(500).send('Internal Server Error');
-}
 });
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;

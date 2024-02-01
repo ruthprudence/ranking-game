@@ -11,19 +11,29 @@ export const BugView = ({
   submitSuccess, 
   submitError, 
   onDescriptionChange, 
-  // Add props for stepsToReproduce and contactEmail handlers
+  onStepsChange,
+  onEmailChange,
   onSubmit, 
-  onReset 
+  onReset
 }) => {
   return (
     <div className="bug-view">
       <h1>Report a Bug</h1>
-      <InputField
-        value={description}
-        onChange={onDescriptionChange}
-        placeholder="Describe the bug"
+      <InputField 
+        value={description} 
+        onChange={onDescriptionChange} 
+        placeholder="Describe the bug" 
       />
-      {/* Add input fields for stepsToReproduce and contactEmail */}
+      <InputField 
+        value={stepsToReproduce} 
+        onChange={onStepsChange} 
+        placeholder="Steps to Reproduce" 
+      />
+      <InputField 
+        value={contactEmail} 
+        onChange={onEmailChange} 
+        placeholder="Your Email (optional)" 
+      />
       {submitError && <p className="error-message">{submitError}</p>}
       {submitSuccess && <p className="success-message">Bug reported successfully!</p>}
       <Button onClick={onSubmit} disabled={isSubmitting}>Submit Bug</Button>
