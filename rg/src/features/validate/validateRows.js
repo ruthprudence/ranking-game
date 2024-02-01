@@ -1,5 +1,5 @@
 import { MAXCHOICES, MINCHOICES } from '../constants';
-import { sanitizeAndTruncate } from '../utils/inputUtils'; // Import the utility function
+import { sanitizeAndTruncate } from '../ui/inputUtils'; // Import the utility function
 
 export const validateRows = (rows) => {
     const processedRows = rows.map(row => sanitizeAndTruncate(row));
