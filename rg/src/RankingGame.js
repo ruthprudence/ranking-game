@@ -14,6 +14,7 @@ import SplashPage from './components/Splash/SplashPage';
 import InputPage from './components/Input/InputPage';
 import MatchupPage from './components/Matchup/MatchupPage';
 import ResultsPage from './components/Results/ResultsPage';
+import BugPage from './components/Bug/BugPage';
 
 const RankingGame = () => {
     const currentPage = useSelector((state) => state.game.currentPage);
@@ -28,6 +29,8 @@ const RankingGame = () => {
             return  <MatchupPage onAdvance={() => dispatch(advancePage())} />;         
         case PAGES.RESULTS:
             return <ResultsPage />;
+        case PAGES.BUG:
+            return <BugPage />;
         default:
             console.error('Error: Unknown currentPage', currentPage);
             return <div>Error: Unknown page</div>;

@@ -25,6 +25,9 @@ export const gameSlice = createSlice({
         case 'RESULTS_PAGE':
           state.currentPage = PAGES.RESULTS;
           break;
+        case 'BUG_REPORT_PAGE':
+          state.currentPage = PAGES.BUG;
+          break;
         default:
           console.error(ERRORS.PAGE);
       }

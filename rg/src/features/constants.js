@@ -9,6 +9,7 @@ export const PAGES = {
     INPUT: 'INPUT_PAGE',
     MATCHUP: 'MATCHUP_PAGE',
     RESULTS: 'RESULTS_PAGE',
+    BUG: 'BUG_REPORT_PAGE',
 };
 
 export const BUTTONS = {

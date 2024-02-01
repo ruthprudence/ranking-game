@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
+import Footer from '../UI/Footer';
 
 export const BugView = ({
   description, 
@@ -27,6 +28,7 @@ export const BugView = ({
       {submitSuccess && <p className="success-message">Bug reported successfully!</p>}
       <Button onClick={onSubmit} disabled={isSubmitting}>Submit Bug</Button>
       <Button onClick={onReset}>Reset</Button>
+      <Footer />
     </div>
   );
 };

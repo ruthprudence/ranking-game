@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BugView } from './BugView';
-import { submitBugReport, updateDescription, resetBugReportForm } from '../../features/bugs/bugSlice';
+import { submitBugReport, updateDescription, resetBugReportForm } from '../../features/bug/bugSlice';
 
 const BugPage = () => {
   const [description, setDescription] = useState('');
@@ -9,7 +9,8 @@ const BugPage = () => {
   const [contactEmail, setContactEmail] = useState('');
   
   const dispatch = useDispatch();
-  const { isSubmitting, submitSuccess, submitError } = useSelector((state) => state.bugs);
+  const { isSubmitting, submitSuccess, submitError } = useSelector((state) => state.bug);
+
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
@@ -39,7 +40,6 @@ const BugPage = () => {
       submitSuccess={submitSuccess}
       submitError={submitError}
       onDescriptionChange={handleDescriptionChange}
-      // Add props for stepsToReproduce and contactEmail handlers
       onSubmit={handleSubmit}
       onReset={handleReset}
     />
