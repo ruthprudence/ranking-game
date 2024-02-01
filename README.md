@@ -2,13 +2,21 @@
 
 ## Introduction
 
-Welcome to the Ranking Game, a web-based application designed to facilitate decision-making and prioritization in a fun and interactive way. 
+This is a demonstration of my back-end and front-end development: a simple app with tests written, intended to scale.
+
+I decided to use React because it would handle the single-page nature of the app well. I went with Redux to handle state properties throughout the app. I started with an MVC (model view controller) approach, then eventually upgrading to a component/feature model utilizing slices and reducers to handle logic/flow.
+
+I started with a web view and eventually migrated to React Native so display worked best mobile-first. There's plenty of room for growth.
+
+---
+
+The Ranking Game is a web-based application that facilitates decision-making and prioritization in a fun and interactive way. 
 
 The goal is to combine the robustness of modern web technologies with a user-centered design philosophy, and a humble demo is hosted on my website [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
 ## Project Overview
 
-The Ranking Game is a React and React Native application offering an engaging experience on both web and mobile platforms. It features dynamic input fields, real-time updates, and an intuitive interface, making decision-making seamless.
+The Ranking Game is a React application that features dynamic input fields, real-time updates, and an intuitive interface, making decision-making seamless.
 
 ### Key Features
 
