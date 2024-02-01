@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 
 // POST endpoint to handle bug report submissions
+// POST endpoint to handle bug report submissions
 app.post('/api/bug-report', async (req, res) => {
     try {
         const db = await createDatabaseConnection();
@@ -15,12 +16,11 @@ app.post('/api/bug-report', async (req, res) => {
 
         await db.beginTransaction();
         try {
-            // Update the query to insert data into a bug reports table
             const bugReportQuery = 'INSERT INTO BugReports (description, stepsToReproduce, contactEmail) VALUES (?, ?, ?)';
             await db.query(bugReportQuery, [description, stepsToReproduce, contactEmail]);
 
             await db.commit();
-            res.send('Bug report submitted successfully');
+            res.json({ message: 'Bug report submitted successfully' }); // Updated to send JSON response
         } catch (error) {
             await db.rollback();
             console.error('Error during database transaction:', error);
@@ -34,9 +34,21 @@ app.post('/api/bug-report', async (req, res) => {
     }
 });
 
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.get('/test', (req, res) => {
+    res.json({ message: "Server is working" });
+});
+
+const cors = require('cors');
+
+app.use(cors({
+    origin: 'http://localhost:3002' // Adjust if your frontend port changes
+}));
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

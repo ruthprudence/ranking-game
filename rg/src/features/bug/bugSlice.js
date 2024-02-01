@@ -1,19 +1,26 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// Async thunk for submitting bug report (optional)
+// Async thunk for submitting bug report
 export const submitBugReport = createAsyncThunk(
     'bugs/submitBugReport',
     async (bugData, { rejectWithValue }) => {
         try {
             // API call to submit bug data
-            const response = await fetch('/api/bug-report', {
+            const response = await fetch('http://localhost:3000/api/bug-report', {
                 method: 'POST',
                 body: JSON.stringify(bugData),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            if (!response.ok) throw new Error('Failed to submit bug report');
+
+            // Check if the response is ok
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to submit bug report');
+            }
+
+            // Parse and return the response data
             return await response.json();
         } catch (error) {
             return rejectWithValue(error.message);
@@ -45,14 +52,15 @@ export const bugSlice = createSlice({
             .addCase(submitBugReport.pending, (state) => {
                 state.isSubmitting = true;
             })
-            .addCase(submitBugReport.fulfilled, (state) => {
+            .addCase(submitBugReport.fulfilled, (state, action) => {
                 state.isSubmitting = false;
                 state.submitSuccess = true;
-                // Optionally reset form here
+                state.submitError = null;
+                state.responseMessage = action.payload.message; // Store success message from response
             })
             .addCase(submitBugReport.rejected, (state, action) => {
                 state.isSubmitting = false;
-                state.submitError = action.payload;
+                state.submitError = action.payload; // Store error message
             });
     },
 });
