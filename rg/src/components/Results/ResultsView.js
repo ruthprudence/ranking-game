@@ -3,10 +3,10 @@ import React from 'react';
 import Button from '../UI/Button';
 import Footer from '../UI/Footer';
 
-export const ResultsView = ({ rankings}) => {
+export const ResultsView = ({ topic, rankings}) => {
     return (
         <div className="page-view">
-        <h2>Results</h2>
+        <h2>{topic} ..ranked!</h2>
         {rankings.length > 0 ? (
             <table>
                 <thead>

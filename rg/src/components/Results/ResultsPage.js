@@ -7,6 +7,7 @@ const ResultsPage = () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.ui.items);
     const rankings = useSelector((state) => state.ui.rankings);
+    const topic = useSelector((state) => state.ui.topic);
 
     useEffect(() => {
         if (items && items.length > 0) {
@@ -14,7 +15,9 @@ const ResultsPage = () => {
         }
     }, [dispatch, items]);
       
-    return <ResultsView rankings={rankings} />;
+    return <ResultsView 
+    rankings={rankings}
+    topic={topic} />;
 };
 
 

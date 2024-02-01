@@ -10,7 +10,8 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <p>Copyright 2024 Ruth Prudence, All Rights Reserved</p>
+            <p>Copyright 2024</p>
+            <p>Ruth Prudence, All Rights Reserved</p>
             <RenderFooterButton currentPage={currentPage} />{/* For non-React Router approach */}
             {/* <Link to="/" onClick={handleReset}>Reset and Go to Start</Link> */} {/* For React Router approach */}
             <p>Report a Bug</p>

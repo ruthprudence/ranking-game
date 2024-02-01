@@ -11,7 +11,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
             <div className="input-container">
                 <InputField className="input-field" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
             </div>
-            <div className="button-container">
+            <div className="button-container submit">
                 <Button  className="button"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>
             </div>
             <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p>
