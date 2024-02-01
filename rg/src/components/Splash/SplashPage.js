@@ -8,8 +8,10 @@ import { PAGES } from '../../features/constants';
 
 const SplashPage = () => {
   const [localTopic, setLocalTopic] = useState('');
-  const dispatch = useDispatch();
+  
+  const isTopicValid = useSelector((state) => state.ui.isTopicValid);
   const topicValidationResult = useSelector((state) => state.validate.topicValidationResult);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // Dispatch validateTopicState every time localTopic changes

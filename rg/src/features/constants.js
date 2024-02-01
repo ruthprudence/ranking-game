@@ -2,7 +2,7 @@
 export const MAXCHOICES = 12;
 export const MINCHOICES = 3;
 
-export const MAXLENGTH = 28;
+export const MAXLENGTH = 20;
 
 export const PAGES = {
     SPLASH: 'SPLASH_PAGE',

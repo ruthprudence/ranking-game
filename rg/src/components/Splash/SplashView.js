@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
-import { PLACEHOLDER_SPLASH, PLACEHOLDER_PROMPT, PLACEHOLDERS, PROMPTS } from '../../features/constants';
+import { PLACEHOLDERS, PROMPTS } from '../../features/constants';
 
 export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSubmitEnabled }) => {
     return (

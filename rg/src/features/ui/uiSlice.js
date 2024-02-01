@@ -4,6 +4,7 @@ import { createItemsWithVotes } from '../matchup/createItemsWithVotes';
 import { initializeScores } from '../matchup/initializeScores';
 import { MAXCHOICES, MINCHOICES } from '../constants';
 import { pairingLogic } from '../matchup/pairingLogic';
+import { validateTopic } from '../../features/validate/validateTopic'
 
 import { calculateRankings } from '../results/calculateRankings';
 import { calculateScores } from '../results/calculateScores';
@@ -19,6 +20,7 @@ const initialState = {
   currentPairIndex: 0,
   isComparisonComplete: false,
   rankings: [],
+  isTopicValid: false,
 };
 
 export const uiSlice = createSlice({
@@ -136,6 +138,16 @@ export const uiSlice = createSlice({
     
     
   
+  },
+  extraReducers: (builder) => {
+    builder.addCase(validateTopic.fulfilled, (state, action) => {
+      state.isTopicValid = action.payload.isTopicValid;
+      if (state.isTopicValid) {
+        state.topic = action.payload.topic;
+      }
+      // Handle other aspects of the validation result as needed
+    });
+    // Handle other async actions as needed
   },
 });
 

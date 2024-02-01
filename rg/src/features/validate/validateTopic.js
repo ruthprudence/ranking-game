@@ -5,15 +5,14 @@ import { sanitizeAndTruncate } from '../ui/inputUtils'; // Import the utility fu
 export const validateTopic = createAsyncThunk(
     'validate/validateTopic',
     async (topic, { dispatch }) => {
-        // Use the sanitizeAndTruncate function
         const processedTopic = sanitizeAndTruncate(topic);
+        const isTopicValid = processedTopic.trim() !== '';
 
-        const isNotEmpty = processedTopic.trim() !== '';
-        if (isNotEmpty) {
+        if (isTopicValid) {
             dispatch(submitTopic(processedTopic));
-            return { isValid: true, topic: processedTopic };
+            return { isTopicValid, topic: processedTopic };
         } else {
-            return { isValid: false, topicError: 'Topic is required.' };
+            return { isTopicValid, topicError: 'Topic is required.' };
         }
     }
 );

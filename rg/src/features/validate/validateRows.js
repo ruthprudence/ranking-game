@@ -1,5 +1,5 @@
 import { MAXCHOICES, MINCHOICES } from '../constants';
-import { sanitizeAndTruncate } from '../ui/inputUtils';
+import { sanitizeAndTruncate } from '../utils/inputUtils'; // Import the utility function
 
 export const validateRows = (rows) => {
     const processedRows = rows.map(row => sanitizeAndTruncate(row));
@@ -10,5 +10,5 @@ export const validateRows = (rows) => {
     if (processedRows.length < MINCHOICES || processedRows.length > MAXCHOICES) {
         return { isValid: false, message: `Please enter between ${MINCHOICES} and ${MAXCHOICES} items.` };
     }
-    return { isValid: true, message: '', processedRows };
+    return { isValid: true, message: '' };
 };
