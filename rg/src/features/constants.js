@@ -18,12 +18,12 @@ export const BUTTONS = {
 }
 
 export const PROMPTS = {
-    SPLASH: 'Rank Something!',
-    INPUT: 'Click "Submit" to begin',
+    SPLASH: '(click Submit Topic to begin)',
+    INPUT: '(click "Submit" to begin)',
 };
 
 export const ERRORS = {
-    SPLASH: '',
+    SPLASH: '(enter a topic above)',
     MATCHUP: 'Something went wrong. Please try again.',
     INPUT: `Choose between ${MINCHOICES} and ${MAXCHOICES} items.`,
     RESULTS: '',

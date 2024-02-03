@@ -18,16 +18,24 @@
 .input-field {
   width: 80%;
   padding: 10px;
-  font-size: 2.2em;
+  font-size: 1.4em;
   border: 2px solid #ccc;
   border-radius: 5px;
 }
 
 /* Global Button Style */
 .button {
-  padding: 12px 12px;
-  margin: 5px;
-  font-size: .4rem;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  font-size: .8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submitTopicButton {
+  padding: 10px 10px 10px 10px;
+  margin: 15px 15px;
+  font-size: .8rem;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -103,9 +111,9 @@ td, th {
 
 
 #splash-prompt {
-  size: 4.2em;
+  size: 3.2em;
 }
 
 .copyright {
-  font-size: 0.45rem; /* adjust as needed */
+  font-size: 0.75rem; /* adjust as needed */
 }

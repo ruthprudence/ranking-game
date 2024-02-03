@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
-import { PLACEHOLDERS, PROMPTS } from '../../features/constants';
+import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 
 export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSubmitEnabled }) => {
     return (
@@ -12,9 +12,10 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
                 <InputField className="input-field" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
             </div>
             <div className="button-container submit">
-                <Button  className="button"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>
+                <Button  className="button" id="submitTopicButton"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>
             </div>
-            <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p>
+            <p><i>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</i></p>
+            {/* <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p> */}
             <Footer /> 
         </div>
     );
