@@ -6,7 +6,7 @@ export const submitBugReport = createAsyncThunk(
     async (bugData, { rejectWithValue }) => {
         try {
             // API call to submit bug data
-            const response = await fetch('http://localhost:3000/api/bug-report', {
+            const response = await fetch('https://ruthprudence.com/rg/api/bug-report', {
                 method: 'POST',
                 body: JSON.stringify(bugData),
                 headers: {

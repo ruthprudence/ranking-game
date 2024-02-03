@@ -1,14 +1,20 @@
-const express = require('express');
 const path = require('path');
+const express = require('express');
 const cors = require('cors');
-const routes = require('./routes'); // Import the routes
-
 const app = express();
+const routes = require('./routes'); // Assuming routes.js is in the same directory
 
-// Enable CORS for your frontend origin
-app.use(cors({
-    origin: 'http://localhost:3001' // Adjust if your frontend port changes
-}));
+
+
+// Configure CORS for a specific domain
+// app.use(cors({
+//     origin: 'https://ruthprudence.com/rg'
+// }));
+
+app.use(cors());
+
+
+
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
