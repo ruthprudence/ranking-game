@@ -71,42 +71,19 @@ td, th {
   border-radius: 10px;
 }
 
-/* Media Query Adjustments */
-@media (max-width: 600px) {
-  .input-field, .button {
-    width: 95%;
-    font-size: .4rem;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  .input-field, .button {
-    width: 85%;
-    font-size: 1.1rem;
-  }
-}
-
-@media (min-width: 1025px) {
-  .input-field, .button {
-    width: 75%;
-  }
-}
-
 .matchup-buttons-container {
   display: flex;
-  justify-content: space-between; /* Adjusts to space out buttons */
-  align-items: center; /* Aligns buttons vertically in the center */
-  width: 100%; /* Full width of the container */
-  margin: 20px 0; /* Space above and below the button container */
-
-  padding: 15px; /* Padding around buttons */
-  border-radius: 10px; /* Optional: rounded corners for the container */
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%; 
+  margin: 20px 0; 
+  padding: 15px; 
+  border-radius: 10px; 
 }
 
 .matchup-buttons-container button {
-  flex: 0 0 48%; /* Each button takes almost half of the container */
-  margin: 0 1%; /* Small margin for spacing */
-  /* Add more button styles if needed (e.g., padding, font-size) */
+  flex: 0 0 42%; 
+  margin: 0 2%; 
 }
 
 
@@ -121,9 +98,9 @@ td, th {
 
 /* Round Button Styles */
 .round-button {
-  display: flex; /* Enables Flexbox */
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -135,9 +112,101 @@ td, th {
 }
 
 .round-button.add {
-  background-color: green; /* Green background for add button */
+  background-color: green; 
 }
 
 .round-button.remove {
-  background-color: red; /* Red background for remove button */
+  background-color: red; 
+}
+
+/* Media Query Adjustments */
+@media (min-width: 300px) and (max-width: 450px) {
+  .input-field {
+    width: 95%;
+    font-size: 2rem;
+    margin: 5pm auto;
+    padding: 10px;
+  }
+
+  /* .button {
+    width: 100%;
+    font-size: 2rem;
+    margin: 5pm auto;
+    padding: 10px;
+  } */
+
+  #submitTopicButton {
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 5pm auto;
+    padding: 10px;
+  }
+
+  .App, .page-view {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    }
+
+    .copyright {
+      font-size: 1.2em;
+    }
+
+    #splashPrompt {
+      font-size: 2.0em;
+    }
+
+    #inputPrompt {
+      font-size: 2.0em;
+    }
+
+    #matchupPrompt {
+      font-size: 2.0em;
+    }
+
+    td input {
+      width: 80%;
+      font-size: 1.5rem;
+    
+    }
+
+    td.remove-button-cell {
+      padding: 5px 25px 5px 0px;
+    }
+
+    button.button.submit {
+      font-size: 2.6em;
+    }
+
+
+
+    .resetBtn {
+      font-size: 1.5em;
+    }
+
+    .matchup-buttons-container button {
+      font-size: 2.0em;
+    }
+
+    .matchup-buttons-container {
+      font-size: 1.4em;
+    }
+
+    #resultsTable {
+      font-size: 2em;
+    }
+
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .input-field, .button {
+    width: 85%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .input-field, .button {
+    width: 75%;
+  }
 }

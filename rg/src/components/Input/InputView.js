@@ -39,7 +39,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             
 
             <Button  className="button submit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</Button>
-            <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
+            <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <Footer /> 
         </div>
     );

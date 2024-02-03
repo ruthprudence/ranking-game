@@ -18,8 +18,8 @@ export const BUTTONS = {
 }
 
 export const PROMPTS = {
-    SPLASH: 'click "Submit Topic" to proceed',
-    INPUT: 'click Rank!',
+    SPLASH: 'click "Submit Topic"',
+    INPUT: 'click Rank! to begin',
 };
 
 export const ERRORS = {

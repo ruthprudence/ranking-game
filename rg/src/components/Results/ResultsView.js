@@ -8,7 +8,7 @@ export const ResultsView = ({ topic, rankings}) => {
         <div className="page-view">
         <h2>{topic} ..ranked!</h2>
         {rankings.length > 0 ? (
-            <table>
+            <table id="resultsTable">
                 <thead>
                     <tr>
                         <th>Rank</th>

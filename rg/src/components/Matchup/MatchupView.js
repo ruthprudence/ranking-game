@@ -9,12 +9,12 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
       <div className="matchup-buttons-container">
         {currentPair && currentPair.length === 2 && (
           <>
-             <Button  className="button" onClick={() => onButtonClick(0)}>{items[currentPair[0]].name}</Button> vs 
-            <Button  className="button" onClick={() => onButtonClick(1)}>{items[currentPair[1]].name}</Button>
+             <Button  className="button matchupBtn" onClick={() => onButtonClick(0)}>{items[currentPair[0]].name}</Button> vs 
+            <Button  className="button matchupBtn" onClick={() => onButtonClick(1)}>{items[currentPair[1]].name}</Button>
           </>
         )}
       </div>
-      <p><i>Choose the Winner!</i></p>
+      <p id="matchupPrompt"><i>Choose the Winner!</i></p>
       <Footer /> 
     </div>
   );

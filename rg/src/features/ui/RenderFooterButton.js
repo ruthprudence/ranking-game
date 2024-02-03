@@ -18,12 +18,12 @@ export const RenderFooterButton = ({ currentPage }) => {
     case PAGES.SPLASH:
         return null;
     case PAGES.INPUT:
-        return <button onClick={handleReset}>{defaultText}</button>;
+        return <button className ="resetBtn" onClick={handleReset}>{defaultText}</button>;
     case PAGES.MATCHUP:
-        return <button onClick={handleReset}>{defaultText}</button>;
+        return <button className ="resetBtn" onClick={handleReset}>{defaultText}</button>;
     case PAGES.RESULTS:
-        return <button onClick={handleReset}>Rank Again!</button>;
+        return <button className ="resetBtn" onClick={handleReset}>Rank Again!</button>;
     default:
-        return <button onClick={handleReset}>The Ranking Game</button>;
+        return <button className ="resetBtn" onClick={handleReset}>The Ranking Game</button>;
 }
 };
