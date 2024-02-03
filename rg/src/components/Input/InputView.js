@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
-import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
+import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
     return (
@@ -24,7 +24,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                             </td>
                             {index >= 3 && (
                                 <td className="remove-button-cell rowButtons">
-                                    <Button  className="button" onClick={() => handleRemoveRow(index)}>-</Button>
+                                    <Button  className="button round-button remove" onClick={() => handleRemoveRow(index)}>-</Button>
                                 </td>
                             )}
                             {index < 3 && <td className="remove-button-cell"></td>}
@@ -32,8 +32,13 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                     ))}
                 </tbody>
             </table>
-            <Button  className="button addItem rowButtons" onClick={handleAddRow}>+</Button>
-            <Button  className="button submit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</Button>
+
+            {rows.length < MAXCHOICES && (
+                <Button className="button addItem rowButtons round-button add" onClick={handleAddRow}>+</Button>
+            )}
+            
+
+            <Button  className="button submit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</Button>
             <p><i>{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</i></p>
             <Footer /> 
         </div>

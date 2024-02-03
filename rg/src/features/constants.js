@@ -18,14 +18,14 @@ export const BUTTONS = {
 }
 
 export const PROMPTS = {
-    SPLASH: '(click Submit Topic to begin)',
-    INPUT: '(click "Submit" to begin)',
+    SPLASH: 'click "Submit Topic" to proceed',
+    INPUT: 'click Rank!',
 };
 
 export const ERRORS = {
     SPLASH: '(enter a topic above)',
     MATCHUP: 'Something went wrong. Please try again.',
-    INPUT: `Choose between ${MINCHOICES} and ${MAXCHOICES} items.`,
+    INPUT: `Enter between ${MINCHOICES} and ${MAXCHOICES} items.`,
     RESULTS: '',
     PAGE: 'Invalid page transition',
 };

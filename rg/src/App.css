@@ -117,3 +117,27 @@ td, th {
 .copyright {
   font-size: 0.75rem; /* adjust as needed */
 }
+
+
+/* Round Button Styles */
+.round-button {
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.round-button.add {
+  background-color: green; /* Green background for add button */
+}
+
+.round-button.remove {
+  background-color: red; /* Red background for remove button */
+}
