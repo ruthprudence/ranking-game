@@ -1,16 +1,31 @@
 import React from 'react';
 import Button from '../UI/Button';
 import Footer from '../UI/Footer';
+import { MAXLENGTH } from '../../features/constants';
+
+const isLongText = (items, currentPair) => {
+  if (!items || !currentPair || currentPair.length < 2) {
+    return false; // Return false if items or currentPair are not properly defined
+  }
+  return items[currentPair[0]].name.length + items[currentPair[1]].name.length > MAXLENGTH / 2;
+};
 
 export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick }) => {
+  const verticalLayout = isLongText(items, currentPair);
+  
   return (
     <div className="page-view">
       <h3>{topic}</h3>
-      <div className="matchup-buttons-container">
+      <div className={`matchup-buttons-container ${verticalLayout ? 'vertical' : ''}`}>
         {currentPair && currentPair.length === 2 && (
           <>
-             <Button  className="button matchupBtn" onClick={() => onButtonClick(0)}>{items[currentPair[0]].name}</Button> vs 
-            <Button  className="button matchupBtn" onClick={() => onButtonClick(1)}>{items[currentPair[1]].name}</Button>
+            <Button className="button matchupBtn" onClick={() => onButtonClick(0)}>
+              {items[currentPair[0]].name}
+            </Button> 
+            vs 
+            <Button className="button matchupBtn" onClick={() => onButtonClick(1)}>
+              {items[currentPair[1]].name}
+            </Button>
           </>
         )}
       </div>

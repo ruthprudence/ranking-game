@@ -298,3 +298,27 @@ td, th {
 .burst-button {
   animation: burst-animation .5s ease; /* Adjust duration as needed */
 }
+
+.matchup-buttons-container.vertical button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px; 
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.page-slide-in {
+  animation: slideRightToLeft 0.5s ease forwards;
+}
+
+
+

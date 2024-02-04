@@ -8,6 +8,7 @@ import { selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { ERRORS, PAGES } from '../../features/constants';
 
+
 import { MatchupView } from './MatchupView';
 
 const MatchupPage = () => {
