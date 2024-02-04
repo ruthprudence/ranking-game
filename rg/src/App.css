@@ -112,11 +112,15 @@ td, th {
 }
 
 .round-button.add {
-  background-color: green; 
+  background-color: green;
+  width: 40px;
+  height: 40px;
 }
 
 .round-button.remove {
   background-color: red; 
+  width: 40px;
+  height: 40px;
 }
 
 /* Media Query Adjustments */
