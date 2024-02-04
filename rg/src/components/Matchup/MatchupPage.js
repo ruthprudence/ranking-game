@@ -30,13 +30,21 @@ const MatchupPage = () => {
   const onButtonClick = (buttonIndex) => {
     if (currentPair && currentPair.length === 2) {
       const selectedItem = items[currentPair[buttonIndex]];
-
       if (selectedItem) {
-        // dispatch(incrementVote({ id: selectedItem.id }));
-        dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
+        // Add animation class to the button
+        const buttons = document.querySelectorAll('.matchupBtn');
+        buttons[buttonIndex].classList.add('burst-button');
+        
+        // Proceed to the next step after the animation
+        setTimeout(() => {
+          dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
+          // Remove the animation class
+          buttons[buttonIndex].classList.remove('burst-button');
+        }, 500); // This timeout duration should match the CSS animation duration
       }
     }
   };
+  
 
   const onChoiceSelect = (choiceIndex) => {
     if (currentPair && currentPair.length === 2) {

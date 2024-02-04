@@ -101,8 +101,6 @@ td, th {
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
   color: white;
   font-size: 20px;
@@ -123,21 +121,17 @@ td, th {
   height: 40px;
 }
 
+
+
+
 /* Media Query Adjustments */
-@media (min-width: 300px) and (max-width: 450px) {
+@media (min-width: 300px) and (max-width: 650px) {
   .input-field {
     width: 95%;
     font-size: 2rem;
     margin: 5pm auto;
     padding: 10px;
   }
-
-  /* .button {
-    width: 100%;
-    font-size: 2rem;
-    margin: 5pm auto;
-    padding: 10px;
-  } */
 
   #submitTopicButton {
     width: 100%;
@@ -171,7 +165,6 @@ td, th {
     td input {
       width: 80%;
       font-size: 1.5rem;
-    
     }
 
     td.remove-button-cell {
@@ -181,8 +174,6 @@ td, th {
     button.button.submit {
       font-size: 2.6em;
     }
-
-
 
     .resetBtn {
       font-size: 1.5em;
@@ -202,15 +193,108 @@ td, th {
 
 }
 
-@media (min-width: 601px) and (max-width: 1024px) {
-  .input-field, .button {
-    width: 85%;
-    font-size: 1.1rem;
+@media (min-width: 651px) and (max-width: 1200px) {
+  .input-field {
+    width: 95%;
+    font-size: 120%;
+    margin: 5pm auto;
+    padding: 10px;
   }
+
+  #submitTopicButton {
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 5pm auto;
+    padding: 10px;
+  }
+
+  .App, .page-view {
+    width: 75%;
+    margin: 0;
+    padding: 0;
+    }
+
+    .copyright {
+      font-size: 1.2em;
+    }
+
+    #splashPrompt {
+      font-size: 1.5em;
+    }
+
+    #inputPrompt {
+      font-size: 1.5em;
+    }
+
+    #matchupPrompt {
+      font-size: 1.5em;
+    }
+
+    td input {
+      width: 95%;
+      font-size: 1.5rem;
+    }
+
+    td.remove-button-cell {
+      padding: 5px 25px 5px 0px;
+    }
+
+    button.button.submit {
+      font-size: 2.6em;
+    }
+
+    .resetBtn {
+      font-size: .75em;
+    }
+
+    .matchup-buttons-container button {
+      font-size: 2.0em;
+    }
+
+    .matchup-buttons-container {
+      font-size: 1.4em;
+    }
+
+    #resultsTable {
+      font-size: 2em;
+    }
+ 
+
 }
 
-@media (min-width: 1025px) {
-  .input-field, .button {
-    width: 75%;
-  }
+
+
+
+.input-field {
+  width: 80%;
+  padding: 10px;
+  font-size: 1.4em;
+  border: 5px solid #ccc;
+  border-radius: 20px; /* More rounded edges */
+  background-color: #f2f2f2; /* New background color */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Box shadow for 3D effect */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+  border-color: #4A90E2; /* Border color changes on focus */
+}
+
+.input-field:hover {
+  border-color: #AAAAAA; /* Border color changes on hover */
+}
+
+::placeholder {
+  color: #727272; /* Placeholder text color and style */
+  font-style: italic;
+}
+
+@keyframes burst-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); } /* Adjust the scale value for the 'burst' effect */
+  100% { transform: scale(.7); }
+}
+
+.burst-button {
+  animation: burst-animation .5s ease; /* Adjust duration as needed */
 }
