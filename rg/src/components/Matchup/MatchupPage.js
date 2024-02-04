@@ -41,7 +41,7 @@ const MatchupPage = () => {
           dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
           // Remove the animation class
           buttons[buttonIndex].classList.remove('burst-button');
-        }, 500); // This timeout duration should match the CSS animation duration
+        }, 400); // This timeout duration should match the CSS animation duration
       }
     }
   };

@@ -88,6 +88,7 @@ td, th {
 
 
 #splash-prompt {
+  font-family: 'Courier New', monospace;
   size: 3.2em;
 }
 
@@ -135,8 +136,8 @@ td, th {
 
   #submitTopicButton {
     width: 100%;
-    font-size: 1.5rem;
-    margin: 5pm auto;
+    font-size: 0.9rem;
+    margin: 5px auto;
     padding: 10px;
   }
 
@@ -204,7 +205,7 @@ td, th {
   #submitTopicButton {
     width: 100%;
     font-size: 1.5rem;
-    margin: 5pm auto;
+    margin: 5px auto;
     padding: 10px;
   }
 
@@ -296,7 +297,7 @@ td, th {
 }
 
 .burst-button {
-  animation: burst-animation .5s ease; /* Adjust duration as needed */
+  animation: burst-animation .4s ease; /* Adjust duration as needed */
 }
 
 .matchup-buttons-container.vertical button {
@@ -320,5 +321,12 @@ td, th {
   animation: slideRightToLeft 0.5s ease forwards;
 }
 
+.inputTable input {
+  border-radius: 15px;
 
 
+}
+
+button.submit {
+  border-radius: 1px;
+}

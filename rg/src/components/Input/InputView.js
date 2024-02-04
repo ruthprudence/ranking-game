@@ -10,7 +10,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
         <div className="page-view">
             <h2>{topic}</h2>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
-            <table>
+            <table className="inputTable">
                 <tbody>
                     {rows.map((row, index) => (
                         <tr key={index}>
