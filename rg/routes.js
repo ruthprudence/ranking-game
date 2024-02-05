@@ -9,11 +9,12 @@ router.post('/api/bug-report',
   [
     body('description').trim().escape(),
     body('stepsToReproduce').trim().escape(),
-    body('contactEmail').isEmail().normalizeEmail()
+    body('contactEmail').trim() // Relaxing email validation
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Validation Errors:', errors.array()); // Logging validation errors
       return res.status(400).json({ errors: errors.array() });
     }
     try {
