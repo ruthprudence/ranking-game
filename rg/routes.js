@@ -2,9 +2,20 @@
 const express = require('express');
 const { createDatabaseConnection, closeDatabaseConnection } = require('./database');
 const router = express.Router();
+const { body, validationResult } = require('express-validator');
 
 // POST endpoint to handle bug report submissions
-router.post('/api/bug-report', async (req, res) => {
+router.post('/api/bug-report', 
+  [
+    body('description').trim().escape(),
+    body('stepsToReproduce').trim().escape(),
+    body('contactEmail').isEmail().normalizeEmail()
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     try {
         const db = await createDatabaseConnection();
         const { description, stepsToReproduce, contactEmail } = req.body;
@@ -27,6 +38,11 @@ router.post('/api/bug-report', async (req, res) => {
         console.error('Database connection error:', error);
         res.status(500).send('Internal Server Error');
     }
+    console.log(errors.array)
+  }
+);
+
+   
 });
 
 // Test endpoint

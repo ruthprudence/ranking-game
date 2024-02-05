@@ -11,6 +11,28 @@ const BugPage = () => {
   const dispatch = useDispatch();
   const { isSubmitting, submitSuccess, submitError } = useSelector((state) => state.bug);
 
+  const validateDescription = () => {
+    if (!description) {
+      return "Description is required";
+    }
+    // Add any other validation rules for description
+  };
+  
+  const validateStepsToReproduce = () => {
+    if (!stepsToReproduce) {
+      return "Steps to reproduce are required";
+    }
+    // Additional validation rules if needed
+  };
+  
+  const validateContactEmail = () => {
+    if (!contactEmail.match(/\S+@\S+\.\S+/)) {
+      return "Email is invalid";
+    }
+    // Other email validations if required
+  };
+  
+
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
@@ -29,9 +51,17 @@ const BugPage = () => {
   // Add handlers for stepsToReproduce and contactEmail
 
   const handleSubmit = () => {
-    const bugData = { description, stepsToReproduce, contactEmail };
-    dispatch(submitBugReport(bugData));
+    const descriptionError = validateDescription();
+    const stepsError = validateStepsToReproduce();
+    const emailError = validateContactEmail();
+  
+    if (descriptionError || stepsError || emailError) {
+      // Handle the errors, for example, by showing an error message to the user
+    } else {
+      dispatch(submitBugReport({ description, stepsToReproduce, contactEmail }));
+    }
   };
+  
 
   const handleReset = () => {
     setDescription('');
