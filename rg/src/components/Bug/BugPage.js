@@ -61,7 +61,12 @@ const BugPage = () => {
     const stepsError = validateStepsToReproduce();
     const emailError = validateContactEmail();
 
-    console.log(  descriptionError, stepsError, emailError);
+    console.log(`
+      ${descriptionError}
+      ${stepsError}
+      ${emailError}
+
+    `);
   
     if (descriptionError || stepsError) {
       // Handle the errors, for example, by showing an error message to the user
