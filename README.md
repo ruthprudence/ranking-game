@@ -6,7 +6,7 @@ This web app is built with JavaScript--React/Redux, Express, and Jest--demonstra
 
 See live demo: [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
-I used React because of the app's single-page nature; I went with Redux for managing state properties throughout the app; I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
+I used React because of the app's single-page nature; I went with Redux for managing state properties throughout. I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
 
 ---
 
