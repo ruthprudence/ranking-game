@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating my full-stack (front- and back-end) development, testing, and project management.
+This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating my full-stack development, testing, and project management skills.
 
 See live demo: [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
