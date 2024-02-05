@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This web app is built with JavaScript--React/Redux, Express, and Jest--demonstrating my front-, back-end development, and testing.
+This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating my front-, back-end development, and testing.
 
 See live demo: [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
