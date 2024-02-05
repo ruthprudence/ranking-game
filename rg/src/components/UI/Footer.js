@@ -21,7 +21,7 @@ const Footer = () => {
             <p className="copyright">Ruth Prudence, All Rights Reserved</p>
             <RenderFooterButton currentPage={currentPage} />{/* For non-React Router approach */}
             {/* <Link to="/" onClick={handleReset}>Reset and Go to Start</Link> */} {/* For React Router approach */}
-            <RenderBugButton currentPage={currentPage} />
+            {/* <RenderBugButton currentPage={currentPage} /> */}
         </footer>
     );
 };

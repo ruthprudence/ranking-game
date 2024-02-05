@@ -4,14 +4,22 @@ const cors = require('cors');
 const app = express();
 const routes = require('./routes'); // Assuming routes.js is in the same directory
 
-
+// // Redirect HTTP to HTTPS
+// app.use((req, res, next) => {
+//     if (req.secure) {
+//       next();
+//     } else {
+//       const host = req.headers.host.replace(/:\d+$/, ''); // Remove port number if present
+//       res.redirect(`https://${host}${req.url}`);
+//     }
+//   });
 
 // Configure CORS for a specific domain
 // app.use(cors({
 //     origin: 'https://ruthprudence.com/rg'
 // }));
 
-app.use(cors());
+// app.use(cors());
 
 
 
@@ -29,9 +37,12 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8011;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+app.set('trust proxy', true);
+
 
 module.exports = app;

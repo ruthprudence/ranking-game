@@ -1,4 +1,3 @@
-// routes.js
 const express = require('express');
 const { createDatabaseConnection, closeDatabaseConnection } = require('./database');
 const router = express.Router();
@@ -9,7 +8,7 @@ router.post('/api/bug-report',
   [
     body('description').trim().escape(),
     body('stepsToReproduce').trim().escape(),
-    body('contactEmail').trim() // Relaxing email validation
+    body('contactEmail').trim().escape() // Ensure email is properly trimmed and escaped
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -39,12 +38,8 @@ router.post('/api/bug-report',
         console.error('Database connection error:', error);
         res.status(500).send('Internal Server Error');
     }
-    console.log(errors.array)
   }
 );
-
-   
-});
 
 // Test endpoint
 router.get('/test', (req, res) => {
