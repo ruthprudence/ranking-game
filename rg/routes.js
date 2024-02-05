@@ -6,10 +6,9 @@ const { body, validationResult } = require('express-validator');
 
 // POST endpoint to handle bug report submissions
 router.post('/api/bug-report', 
-  [
     body('description').trim().escape(),
     body('stepsToReproduce').trim().escape(),
-    body('contactEmail').trim() // Relaxing email validation
+    body('contactEmail').isEmail().normalizeEmail()
   ],
   async (req, res) => {
     const errors = validationResult(req);
