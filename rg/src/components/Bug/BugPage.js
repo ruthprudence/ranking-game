@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import { BugView } from './BugView';
 import { submitBugReport, updateDescription, resetBugReportForm } from '../../features/bug/bugSlice';
 
@@ -26,11 +26,11 @@ const BugPage = () => {
   };
   
   const validateContactEmail = () => {
-    if (!contactEmail.match(/\S+@\S+\.\S+/)) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactEmail)) {
       return "Email is invalid";
     }
-    // Other email validations if required
-  };
+  };  
   
 
 
@@ -46,7 +46,13 @@ const BugPage = () => {
   const handleEmailChange = (e) => {
     setContactEmail(e.target.value);
   };
-
+  
+  useEffect(() => {
+    // This function will be called when the component is unmounted
+    return () => {
+      dispatch(resetBugReportForm());
+    };
+  }, [dispatch]);
 
   // Add handlers for stepsToReproduce and contactEmail
 
@@ -54,13 +60,17 @@ const BugPage = () => {
     const descriptionError = validateDescription();
     const stepsError = validateStepsToReproduce();
     const emailError = validateContactEmail();
+
+    console.log(  descriptionError, stepsError, emailError);
   
-    if (descriptionError || stepsError || emailError) {
+    if (descriptionError || stepsError) {
       // Handle the errors, for example, by showing an error message to the user
     } else {
       dispatch(submitBugReport({ description, stepsToReproduce, contactEmail }));
     }
   };
+
+
   
 
   const handleReset = () => {

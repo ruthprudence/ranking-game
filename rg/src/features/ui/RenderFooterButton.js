@@ -24,6 +24,6 @@ export const RenderFooterButton = ({ currentPage }) => {
     case PAGES.RESULTS:
         return <button className ="resetBtn" onClick={handleReset}>Rank Again!</button>;
     default:
-        return <button className ="resetBtn" onClick={handleReset}>The Ranking Game</button>;
+        return <button className ="resetBtn" onClick={handleReset}>play The Ranking Game!</button>;
 }
 };
