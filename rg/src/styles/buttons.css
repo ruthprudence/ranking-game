@@ -44,14 +44,14 @@
   
   .round-button.add {
     background-color: green;
-    width: 40px;
-    height: 40px;
+    width: 1.5em;
+    height: 1.5em;
   }
   
   .round-button.remove {
     background-color: red; 
-    width: 40px;
-    height: 40px;
+    width: 1.5em;
+    height: 1.5em;
   }
   
   

@@ -7,9 +7,10 @@ import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSubmitEnabled }) => {
     return (
         <div className="page-view">
-            <h1>the Ranking Game</h1>
+            <h1 id="heading">the Ranking Game</h1>
             <div className="input-container">
-                <InputField className="input-field" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
+                <InputField className="input-field" id=
+                "topicInput" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
             </div>
             <div className="button-container submit">
                 <Button  className="button" id="submitTopicButton"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>

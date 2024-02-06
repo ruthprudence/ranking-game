@@ -1,72 +1,44 @@
 
 /* Media Query Adjustments */
-/* @media (min-width: 300px) and (max-width: 650px) {
-    .input-field {
-      width: 95%;
-      font-size: 2rem;
-      margin: 5pm auto;
-      padding: 10px;
+@media (min-width: 300px) and (max-width: 650px) {
+
+    #heading {
+        font-size: 3em;
+        margin: 1em 0 1.5em 0;
     }
-  
-    #submitTopicButton {
-      width: 100%;
-      font-size: 0.9rem;
-      margin: 5px auto;
-      padding: 10px;
-    }
-  
-    .App, .page-view {
-      width: 100%;
-      margin: 0;
-      padding: 0;
+
+  /* Splash */
+
+      #topicInput {
+        font-size: 2.5em;
+        margin: 0 0 .25em 0;
       }
-  
-      .copyright {
-        font-size: 1.2em;
-      }
-  
-      #splashPrompt {
-        font-size: 2.0em;
-      }
-  
-      #inputPrompt {
-        font-size: 2.0em;
-      }
-  
-      #matchupPrompt {
-        font-size: 2.0em;
-      }
-  
-      td input {
-        width: 80%;
+
+      #submitTopicButton {
         font-size: 1.5rem;
       }
-  
-      td.remove-button-cell {
-        padding: 5px 25px 5px 0px;
+
+      #splashPrompt {
+        font-size: 2.5em;
       }
-  
-      button.button.submit {
-        font-size: 2.6em;
+
+
+
+      .round-button.add {
+        width: 3em;
+        height: 3em;
       }
-  
-      .resetBtn {
-        font-size: 1.5em;
+      
+      .round-button.remove {
+        width: 3em;
+        height: 3em;
       }
-  
-      .matchup-buttons-container button {
-        font-size: 2.0em;
-      }
-  
-      .matchup-buttons-container {
-        font-size: 1.4em;
-      }
-  
-      #resultsTable {
+
+      .footer p{
         font-size: 2em;
       }
   
-  } */
+  }
   
   /* @media (min-width: 651px) and (max-width: 1200px) {
     .input-field {
