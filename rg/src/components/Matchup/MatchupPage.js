@@ -18,13 +18,22 @@ const MatchupPage = () => {
   const topic = useSelector((state) => state.ui.topic);
   const items = useSelector((state) => state.ui.items);
 
+
+  useEffect(() => {
+    setTimeout(() => {
+      const element = document.getElementById('headingMatchup');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
+  }, []);
+  
+
   useEffect(() => {
     dispatch(startMatchup(items));
   }, [dispatch]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  
   
   useEffect(() => {
     if (isComparisonComplete) {

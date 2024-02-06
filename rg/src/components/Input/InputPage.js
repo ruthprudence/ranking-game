@@ -36,6 +36,7 @@ const InputPage = () => {
         if (isSubmitEnabled) {
             dispatch(submitInputPage());
             dispatch(setCurrentPage(PAGES.MATCHUP)); // Move to the next page if submission is successful
+            setTimeout(() => window.scrollTo(0, 0), 0); 
         } else {
             console.error('Submission failed: Rows are not valid.');
         }
