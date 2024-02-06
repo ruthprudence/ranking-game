@@ -87,15 +87,15 @@
   justify-content: space-between;
   align-items: center; 
   width: 100%; 
-  margin: 20px 0; 
-  padding: 15px; 
-  border-radius: 10px; 
+  margin: 1em; 
+  padding: 1em; 
+  border-radius: 1em; 
 }
 
-.matchup-buttons-container button {
+/* .matchup-buttons-container button {
   flex: 0 0 42%; 
   margin: 0 2%; 
-}
+} */
 
 .matchup-buttons-container.vertical button {
   display: block;

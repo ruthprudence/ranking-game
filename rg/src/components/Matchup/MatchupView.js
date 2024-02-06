@@ -15,14 +15,14 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
   
   return (
     <div className="page-view">
-      <h3>{topic}</h3>
+      <h3 id="headingMatchup">{topic}</h3>
       <div className={`matchup-buttons-container ${verticalLayout ? 'vertical' : ''}`}>
         {currentPair && currentPair.length === 2 && (
           <>
             <Button className="button matchupBtn" onClick={() => onButtonClick(0)}>
               {items[currentPair[0]].name}
             </Button> 
-            vs 
+            <p id="versus">vs</p> 
             <Button className="button matchupBtn" onClick={() => onButtonClick(1)}>
               {items[currentPair[1]].name}
             </Button>

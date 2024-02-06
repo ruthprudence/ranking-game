@@ -2,10 +2,12 @@
 /* Media Query Adjustments */
 @media (min-width: 100px) and (max-width: 725px) {
 
-    #heading {
+    #headingSplash, #headingInput, #headingMatchup {
         font-size: 3em;
         margin: 1em 0 1.5em 0;
     }
+
+
 
   /* Splash */
 
@@ -76,6 +78,32 @@
         font-size: 1.75em;
         margin: 0 0 .5em 0;
       }
+
+      /* Matchup */
+
+      #matchupPrompt {
+        font-size: 2.5em;
+        margin: 0 0 1.5em 0;
+    }
+
+    .matchup-buttons-container button {
+        font-size: 2em;
+    }
+
+    .matchup-buttons-container {
+        width: 50%;
+        margin: 0 0 0 0;
+        padding: 0;
+        display: flex; justify-content: center; align-items: center;
+    }
+
+    .matchup-buttons-container.vertical {
+        flex-direction: column;
+    }
+
+    #versus {
+        font-size: 2em;
+    }
   
   }
   
