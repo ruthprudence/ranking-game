@@ -24,3 +24,96 @@
     padding: 5px; /* Reduced padding */
     height: auto; /* Changed from 100vh to auto for a more natural height */
   }
+
+  /* Splash Page Styles */
+
+  #submitTopicButton {
+    padding: 10px 10px 10px 10px;
+    margin: 15px 15px;
+    font-size: .8rem;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+  #splash-prompt {
+    font-family: 'Courier New', monospace;
+    size: 3.2em;
+  }
+
+  /* Input Page Styles */
+/* Global InputField Style */
+.input-field {
+  width: 80%;
+  padding: 10px;
+  font-size: 1.4em;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-field {
+  width: 80%;
+  padding: 10px;
+  font-size: 1.4em;
+  border: 5px solid #ccc;
+  border-radius: 20px; /* More rounded edges */
+  background-color: #f2f2f2; /* New background color */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Box shadow for 3D effect */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+  border-color: #4A90E2; /* Border color changes on focus */
+}
+
+.input-field:hover {
+  border-color: #AAAAAA; /* Border color changes on hover */
+}
+
+::placeholder {
+  color: #727272; /* Placeholder text color and style */
+  font-style: italic;
+}
+
+.inputTable input {
+  border-radius: 15px;
+}
+
+/* Matchup Page Styles */
+.matchup-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%; 
+  margin: 20px 0; 
+  padding: 15px; 
+  border-radius: 10px; 
+}
+
+.matchup-buttons-container button {
+  flex: 0 0 42%; 
+  margin: 0 2%; 
+}
+
+.matchup-buttons-container.vertical button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px; 
+}
+
+/* Results Page Styles */
+
+
+
+
+/* Global Table Style */
+table {
+  width: 100%;
+  text-align: left;
+  margin-top: 15px; /* Reduced margin */
+}
+
+td, th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}

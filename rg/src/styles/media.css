@@ -1,6 +1,6 @@
 
 /* Media Query Adjustments */
-@media (min-width: 300px) and (max-width: 650px) {
+/* @media (min-width: 300px) and (max-width: 650px) {
     .input-field {
       width: 95%;
       font-size: 2rem;
@@ -66,9 +66,9 @@
         font-size: 2em;
       }
   
-  }
+  } */
   
-  @media (min-width: 651px) and (max-width: 1200px) {
+  /* @media (min-width: 651px) and (max-width: 1200px) {
     .input-field {
       width: 95%;
       font-size: 120%;
@@ -135,4 +135,4 @@
       }
    
   
-  }
+  } */

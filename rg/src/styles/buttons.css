@@ -1,4 +1,21 @@
 /* Global Button Style */
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#submitTopicButton {
+  padding: 10px 10px 10px 10px;
+  margin: 15px 15px;
+  font-size: .8rem;
+  border-radius: 25px;
+  cursor: pointer;
+
+}
+
 .button {
     padding: 5px 5px;
     margin: 5px 5px;
@@ -7,13 +24,10 @@
     cursor: pointer;
   }
 
-  .buttons-container {
-    display: flex;
-    justify-content: space-evenly;
-    width: 80%;
-    padding: 5px;
-    border-radius: 10px;
+  button.submit {
+    border-radius: 1px;
   }
+
 
   /* Round Button Styles */
 .round-button {
@@ -40,6 +54,4 @@
     height: 40px;
   }
   
-  button.submit {
-    border-radius: 1px;
-  }
+  
