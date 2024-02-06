@@ -1,6 +1,6 @@
 
 /* Media Query Adjustments */
-@media (min-width: 300px) and (max-width: 650px) {
+@media (min-width: 100px) and (max-width: 725px) {
 
     #heading {
         font-size: 3em;
@@ -20,9 +20,31 @@
 
       #splashPrompt {
         font-size: 2.5em;
+        margin: 0 0 5em 0;
       }
 
+/* Input */
 
+        #headingInput {
+            font-size: 3em;
+            margin: 1em 0 .5em 0;
+        }
+
+        #inputPageTopic {
+            font-size: 2.5em;
+        }
+
+        .inputTable td input {
+            font-size: 2em;
+        }
+
+        .inputTable {
+            margin: 0 0 1em 0;
+        }
+
+        .index-column {
+            display: none;
+        }
 
       .round-button.add {
         width: 3em;
@@ -32,10 +54,27 @@
       .round-button.remove {
         width: 3em;
         height: 3em;
+        margin: 0 1.5em 0 0;
+      }
+
+      #RankBtn {
+        font-size: 4em;
+        margin: 1em 0 1em 0;
+      }
+
+      #inputPrompt {
+        font-size: 2.5em;
+        margin: 0 .5em 1.5em .5em;
       }
 
       .footer p{
         font-size: 2em;
+        margin: 0 1em 0 1em;
+      }
+      
+      .resetBtn {
+        font-size: 1.75em;
+        margin: 0 0 .5em 0;
       }
   
   }

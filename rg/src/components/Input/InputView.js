@@ -8,13 +8,14 @@ import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/consta
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
     return (
         <div className="page-view">
-            <h2>{topic}</h2>
+            <h1 id="headingInput">the Ranking Game</h1>
+            <h2 id="inputPageTopic">{topic}</h2>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <table className="inputTable">
                 <tbody>
                     {rows.map((row, index) => (
                         <tr key={index}>
-                            <td>{index + 1}</td>
+                            <td className="index-column">{index + 1}</td>
                             <td>
                                 <InputField 
                                     value={row} 
@@ -38,7 +39,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             )}
             
 
-            <Button  className="button submit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</Button>
+            <Button  className="button submit" id="RankBtn" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</Button>
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <Footer /> 
         </div>
