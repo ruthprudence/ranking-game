@@ -1,0 +1,36 @@
+/* Global InputField Style */
+.input-field {
+    width: 80%;
+    padding: 10px;
+    font-size: 1.4em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  }
+  
+.input-field {
+    width: 80%;
+    padding: 10px;
+    font-size: 1.4em;
+    border: 5px solid #ccc;
+    border-radius: 20px; /* More rounded edges */
+    background-color: #f2f2f2; /* New background color */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* Box shadow for 3D effect */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+  }
+  
+  .input-field:focus {
+    border-color: #4A90E2; /* Border color changes on focus */
+  }
+  
+  .input-field:hover {
+    border-color: #AAAAAA; /* Border color changes on hover */
+  }
+  
+  ::placeholder {
+    color: #727272; /* Placeholder text color and style */
+    font-style: italic;
+  }
+
+  .inputTable input {
+    border-radius: 15px;
+  }

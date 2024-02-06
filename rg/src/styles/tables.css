@@ -1,0 +1,12 @@
+/* Global Table Style */
+table {
+    width: 100%;
+    text-align: left;
+    margin-top: 15px; /* Reduced margin */
+  }
+  
+  td, th {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }

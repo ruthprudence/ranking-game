@@ -1,0 +1,45 @@
+/* Global Button Style */
+.button {
+    padding: 5px 5px;
+    margin: 5px 5px;
+    font-size: .8rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  /* Round Button Styles */
+.round-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .round-button.add {
+    background-color: green;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .round-button.remove {
+    background-color: red; 
+    width: 40px;
+    height: 40px;
+  }
+  
+  button.submit {
+    border-radius: 1px;
+  }
