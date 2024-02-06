@@ -21,6 +21,10 @@ const MatchupPage = () => {
   useEffect(() => {
     dispatch(startMatchup(items));
   }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   useEffect(() => {
     if (isComparisonComplete) {

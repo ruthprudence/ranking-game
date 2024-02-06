@@ -6,7 +6,7 @@ import Footer from '../UI/Footer';
 export const ResultsView = ({ topic, rankings}) => {
     return (
         <div className="page-view">
-        <h2>{topic} ..ranked!</h2>
+        <h2 id="headingResults">{topic} ..ranked!</h2>
         {rankings.length > 0 ? (
             <table id="resultsTable">
                 <thead>

@@ -22,7 +22,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
             <Button className="button matchupBtn" onClick={() => onButtonClick(0)}>
               {items[currentPair[0]].name}
             </Button> 
-            <p id="versus">vs</p> 
+            <p id="versus">  vs  </p> 
             <Button className="button matchupBtn" onClick={() => onButtonClick(1)}>
               {items[currentPair[1]].name}
             </Button>
