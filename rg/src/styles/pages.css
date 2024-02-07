@@ -13,9 +13,9 @@
   }
   
   /* Global Header Style */
-  .App h1, h2, h3 {
-    margin: 10px 20px; /* Reduced margin */
-  }
+  /* .App h1, h2, h3 {
+    margin: 1m 20px; 
+  } */
 
 
 /* Specific Page Styles */
@@ -23,9 +23,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Changed to center for a more compact layout */
-    padding: 5px; /* Reduced padding */
-    height: auto; /* Changed from 100vh to auto for a more natural height */
+    justify-content: center; 
+    padding: .5em;
+    height: auto; 
   }
 
   /* Splash Page Styles */
@@ -34,12 +34,7 @@
     font-size: 1em;
   }
 
-  #submitTopicButton {
-    padding: 1em 1em 1em 1em;
-    margin: 1em 1em 1em 1em;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+
 
   #splash-prompt {
     font-family: 'Courier New', monospace;
@@ -54,6 +49,10 @@
   font-size: 1.4em;
   border: 2px solid #ccc;
   border-radius: 5px;
+}
+
+#inputPrompt {
+  max-width: 100%;
 }
 
 .input-field {
@@ -82,6 +81,7 @@
 
 .inputTable input {
   border-radius: 15px;
+  padding: 1em;
 }
 
 /* Matchup Page Styles */
@@ -123,3 +123,6 @@ td, th {
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
+
+
+

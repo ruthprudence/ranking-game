@@ -7,27 +7,17 @@
   border-radius: 2em;
 }
 
-#submitTopicButton {
-  padding: 10px 10px 10px 10px;
-  margin: 15px 15px;
-  font-size: .8rem;
-  border-radius: 25px;
-  cursor: pointer;
-
-}
-
 .button {
-    padding: 5px 5px;
-    margin: 5px 5px;
-    font-size: .8rem;
-    border-radius: 5px;
+  padding: 1em 1em;
+  margin: 1em 1em;
+  font-size: 1rem;
+    border-radius: 2em;
     cursor: pointer;
   }
 
   button.submit {
     border-radius: 1px;
   }
-
 
   /* Round Button Styles */
 .round-button {
@@ -54,4 +44,7 @@
     height: 1.5em;
   }
   
-  
+  .resetBtn {
+    font-size: 1.75em;
+    margin: 0 0 .5em 0;
+  }
