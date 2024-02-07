@@ -11,9 +11,9 @@ export const ResultsView = ({ topic, rankings}) => {
             <table id="resultsTable">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Votes</th>
+                        <th id="resultsTableRank">Rank</th>
+                        <th id="resultsTableName">Name</th>
+                        <th id="resultsTableVotes">Votes</th>
                     </tr>
                 </thead>
                 <tbody>

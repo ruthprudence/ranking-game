@@ -64,13 +64,21 @@
 table {
   width: 100%;
   text-align: left;
-  margin-top: 15px; /* Reduced margin */
+  margin-top: 1em; /* Reduced margin */
+  table-layout: fixed;
 }
 
 td, th {
-  padding: 8px;
+  padding: 1em 0 1em 1em;
+  margin: 1em 0 1em 1em;
   border-bottom: 1px solid #ddd;
   text-align: center;
+  word-wrap: break-word;
+}
+
+td.remove-button-cell {
+  margin: 1em 0 1em 1em;
+  padding: 1em 0 1em 1em;
 }
 
 
