@@ -30,10 +30,10 @@
 
   /* Splash Page Styles */
 
-  #topicInput {
-    font-size: 1em;
-  }
 
+  #topicInput {
+    font-size: 2em;
+  }
 
 
   #splash-prompt {
@@ -51,22 +51,9 @@
 
 
 /* Matchup Page Styles */
-.matchup-buttons-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  width: 100%; 
-  margin: 1em; 
-  padding: 1em; 
-  border-radius: 1em; 
-}
 
-.matchup-buttons-container.vertical button {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 10px; 
-}
+
+
 
 /* Results Page Styles */
 

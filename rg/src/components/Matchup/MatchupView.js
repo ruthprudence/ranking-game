@@ -7,7 +7,7 @@ const isLongText = (items, currentPair) => {
   if (!items || !currentPair || currentPair.length < 2) {
     return false; // Return false if items or currentPair are not properly defined
   }
-  return items[currentPair[0]].name.length + items[currentPair[1]].name.length > MAXLENGTH / 2;
+  return items[currentPair[0]].name.length + items[currentPair[1]].name.length > 15;
 };
 
 export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick }) => {

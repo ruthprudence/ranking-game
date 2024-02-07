@@ -60,4 +60,30 @@
   .matchup-buttons-container button {
     font-size: 2em;
     border-radius: 1em;
+    white-space: normal; /* Allow the text to wrap */
+    word-wrap: break-word; /* Breaks long words to prevent overflow */
+    padding: 10px; /* Adjust padding to provide space around text */
+    min-height: 50px; /* Set a minimum height for the button */
+    display: flex; /* Use flexbox for better content alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Ensure text is centered */
+}
+
+
+.matchup-buttons-container.vertical button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px; 
+}
+
+.matchup-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%; 
+  margin: 1em; 
+  padding: 1em; 
+  border-radius: 1em; 
 }
