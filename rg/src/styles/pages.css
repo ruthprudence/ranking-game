@@ -28,39 +28,19 @@
     height: auto; 
   }
 
-  /* Splash Page Styles */
-
-
   #topicInput {
     font-size: 2em;
   }
-
 
   #splash-prompt {
     font-family: 'Courier New', monospace;
     size: 3.2em;
   }
 
-  /* Input Page Styles */
-
-
 #inputPrompt {
   max-width: 100%;
 }
 
-
-
-/* Matchup Page Styles */
-
-
-
-
-/* Results Page Styles */
-
-
-
-
-/* Global Table Style */
 table {
   width: 100%;
   text-align: left;
@@ -79,9 +59,11 @@ td, th {
 td.remove-button-cell {
   margin: 1em 0 1em 1em;
   padding: 1em 0 1em 1em;
-  width: calc(100% - 50px);
+  width: 25%;
   word-wrap: normal;
 }
 
-
+td.index-column {
+  max-width: 20px;
+}
 

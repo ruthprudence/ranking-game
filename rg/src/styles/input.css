@@ -26,3 +26,15 @@
     border-radius: 2em;
     padding: 1em;
   }
+
+  .inputTable.inputRow {
+    width: 70%;
+  }
+
+  td.remove-button-cell {
+    width: 25%;
+  }
+
+  td.index-column {
+    max-width: 20px;
+  }

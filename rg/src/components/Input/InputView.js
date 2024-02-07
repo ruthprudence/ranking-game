@@ -14,7 +14,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             <table className="inputTable">
                 <tbody>
                     {rows.map((row, index) => (
-                        <tr key={index}>
+                        <tr className="inputRow" key={index}>
                             <td className="index-column">{index + 1}</td>
                             <td>
                                 <InputField 
