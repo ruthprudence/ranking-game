@@ -16,7 +16,7 @@
   }
 
   button.submit {
-    border-radius: 1px;
+    border-radius: 2em;
   }
 
   /* Round Button Styles */
@@ -46,5 +46,18 @@
   
   .resetBtn {
     font-size: 1.75em;
-    margin: 0 0 .5em 0;
+    margin: .2em .2em .2em .2em;
+    border-radius: 2em;
+    padding: .5em .5em;
   }
+
+  .round-button.add,   .round-button.remove {
+    width: 4em;
+    height: 4em;
+  }
+  
+
+  .matchup-buttons-container button {
+    font-size: 2em;
+    border-radius: 1em;
+}
