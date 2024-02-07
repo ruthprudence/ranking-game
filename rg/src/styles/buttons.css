@@ -48,8 +48,8 @@
   }
 
   .round-button.add,   .round-button.remove {
-    width: 4em;
-    height: 4em;
+    width: 75px;
+    height: 75px;
   }
   
 
@@ -63,14 +63,15 @@
     justify-content: center; 
     align-items: center; 
     text-align: center; 
-    margin: 1em 1em;
+    margin: 0;
 }
 
 
 .matchup-buttons-container.vertical button {
   display: block;
-  width: 70%;
+  width: auto;
   height: auto;
+  max-width: 65%;
   margin: 1em 1em; 
   padding: 1em 1em;
 }

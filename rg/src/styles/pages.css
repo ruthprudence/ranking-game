@@ -79,6 +79,8 @@ td, th {
 td.remove-button-cell {
   margin: 1em 0 1em 1em;
   padding: 1em 0 1em 1em;
+  width: calc(100% - 50px);
+  word-wrap: normal;
 }
 
 
