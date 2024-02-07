@@ -53,36 +53,41 @@
   }
   
 
-  .matchup-buttons-container button {
-    font-size: 2em;
-    border-radius: 1em;
-    white-space: normal; 
-    word-wrap: break-word; 
-    padding: 1em 1em;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    margin: 0;
-}
+  .matchup-buttons-container vertical {
+    width: auto;
+  }
 
 
 .matchup-buttons-container.vertical button {
   display: block;
   width: auto;
   height: auto;
-  min-width: 10em;
-  max-width: 65%;
+  min-width: 20%;
+  max-width: 100%;
   margin: 1em 1em; 
   padding: 1em 1em;
 }
 
 .matchup-buttons-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; 
-  width: 100%; 
+  width: auto;
+  max-width: 40%; 
   margin: 1em; 
   padding: 1em; 
   border-radius: 1em; 
+}
+
+.matchup-buttons-container button {
+  font-size: 2em;
+  border-radius: 1em;
+  white-space: normal; 
+  word-wrap: break-word; 
+  /* padding: 1em 1em; */
+  /* display: flex;  */
+  /* justify-content: center;  */
+  /* align-items: center;  */
+  /* text-align: center;  */
+  /* margin: 0; */
 }

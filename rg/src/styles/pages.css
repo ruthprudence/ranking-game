@@ -45,7 +45,7 @@ table {
   width: 100%;
   text-align: left;
   margin-top: 1em; /* Reduced margin */
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 td, th {
@@ -65,5 +65,10 @@ td.remove-button-cell {
 
 td.index-column {
   max-width: 20px;
+}
+
+.matchup-buttons-container vertical {
+  width: auto; 
+  max-width: 30%;
 }
 

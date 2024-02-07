@@ -1,12 +1,12 @@
 // MatchupPage.js
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrentPage } from '../../features/game/gameSlice';
-import { selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect} from '../../features/ui/uiSlice';
+import { incrementVote, startMatchup, handleChoiceSelect} from '../../features/ui/uiSlice';
 
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
-import { ERRORS, PAGES } from '../../features/constants';
+import { PAGES } from '../../features/constants';
 
 
 import { MatchupView } from './MatchupView';

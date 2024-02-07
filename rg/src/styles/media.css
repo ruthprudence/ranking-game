@@ -67,10 +67,10 @@
         margin: 0 0 1.5em 0;
     }
 
-   
+    
 
     .matchup-buttons-container {
-        width: 80%;
+        width: 75%;
         margin: 1em 1em;
         padding: 1em 1em;
         display: flex; justify-content: center; align-items: center;
@@ -78,6 +78,7 @@
 
     .matchup-buttons-container.vertical {
         flex-direction: column;
+        margin: 0 0 0 0;
     }
 
     #versus {
@@ -90,6 +91,7 @@
     #resultsTable {
         font-size: 2em;
         margin: 0 1em 2em 0;
+        max-width: 100%;
     }
   }
   
@@ -97,5 +99,27 @@
     table { 
       width: 80%;
     }
-  
+
+    table {
+      max-width: 80%;
+      table-layout: auto;
+    }
+    
+    td, th {
+      padding: 1em 0 1em 1em;
+      margin: 1em 0 1em 1em;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    tr.inputRow input {
+      font-size: 1.5em;
+    }
+
+    .matchup-buttons-container vertical {
+      width: auto; 
+      max-width: 40%;
+    }
+
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '../UI/Button';
 import Footer from '../UI/Footer';
-import { MAXLENGTH } from '../../features/constants';
 
 const isLongText = (items, currentPair) => {
   if (!items || !currentPair || currentPair.length < 2) {
