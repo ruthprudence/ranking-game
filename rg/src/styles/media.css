@@ -5,6 +5,7 @@
     #headingSplash, #headingInput, #headingMatchup, #headingResults {
         font-size: 3em;
         margin: 1em 0 1.5em 0;
+        word-break: break-all;
     }
 
   /* Splash */
@@ -29,6 +30,8 @@
 
         #inputPageTopic {
             font-size: 2.5em;
+            word-break: break-all;
+
         }
 
         .inputTable td input {
@@ -93,6 +96,12 @@
         margin: 0 1em 2em 0;
         max-width: 100%;
     }
+
+    #resultsTable td {
+      overflow-wrap: break-word;
+      word-break: break-all;
+    }
+
   }
   
   @media (min-width: 726px) and (max-width: 5200px) {
