@@ -15,12 +15,12 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                 <tbody>
                     {rows.map((row, index) => (
                         <tr className="inputRow" key={index}>
-                            <td className="index-column">{index + 1}</td>
-                            <td>
+                            <td className="index-colum">{index + 1}</td>
+                            <td name={index + 1}>
                                 <InputField 
                                     value={row} 
                                     onChange={(e) => handleItemChange(index, e.target.value)} 
-                                    placeholder={index < 3 ? `e.g. ${PLACEHOLDERS.INPUT_DEFAULT[index]}` : PLACEHOLDERS.INPUT_ROWS}
+                                    placeholder={index < 3 ? `e.g. ${PLACEHOLDERS.INPUT_DEFAULT[index]}` : PLACEHOLDERS.INPUT_ROWS} 
                                 />
                             </td>
                             {index >= 3 && (
