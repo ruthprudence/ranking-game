@@ -2,11 +2,41 @@
 /* Media Query Adjustments */
 @media (min-width: 100px) and (max-width: 1025px) {
 
-    #headingSplash, #headingInput, #headingMatchup, #headingResults {
-        font-size: 3em;
-        margin: 1em 0 1.5em 0;
-        word-break: break-all;
+
+
+    #headingSplash, #headingInput {
+      font-size: 3em;
+      margin: 1em 0 1.5em 0;
+      /* overflow-wrap: break-word;
+      word-break: break-all; */
+      width: 100%;
+
     }
+
+    #inputPageTopic {
+        font-size: 2.5em;
+        word-break: break-all;
+        margin: 1em 1em;
+        max-width: 70%;
+    }
+
+
+    #headingMatchup {
+      font-size: 2.5em;
+      word-break: break-all;
+      margin: 1em 1em;
+      max-width: 25%;
+      hyphens: auto;
+    }
+
+    #headingResults {
+      font-size: 3em;
+      margin: 1em 0 1.5em 0;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      width: 75%;
+      
+  }
 
   /* Splash */
 
@@ -28,11 +58,7 @@
             margin: 1em 0 .5em 0;
         }
 
-        #inputPageTopic {
-            font-size: 2.5em;
-            word-break: break-all;
-
-        }
+  
 
         .inputTable td input {
             font-size: 1.75em;
@@ -73,16 +99,17 @@
     
 
     .matchup-buttons-container {
-        width: 75%;
+        max-width: 75%;
+        
         margin: 1em 1em;
         padding: 1em 1em;
         display: flex; justify-content: center; align-items: center;
     }
 
-    .matchup-buttons-container.vertical {
+    /* .matchup-buttons-container.vertical {
         flex-direction: column;
         margin: 0 0 0 0;
-    }
+    } */
 
     #versus {
         font-size: 2em;
@@ -126,9 +153,9 @@
       font-size: 1.5em;
     }
 
-    .matchup-buttons-container vertical {
+    /* .matchup-buttons-container vertical {
       width: auto; 
       max-width: 40%;
-    }
+    } */
 
   }

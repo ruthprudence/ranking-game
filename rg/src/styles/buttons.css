@@ -15,6 +15,7 @@
     cursor: pointer;
   }
 
+
   button.submit {
     border-radius: 2em;
   }
@@ -52,42 +53,27 @@
     height: 75px;
   }
   
-
-  .matchup-buttons-container vertical {
-    width: auto;
-  }
-
-
-.matchup-buttons-container.vertical button {
-  display: block;
-  width: auto;
-  height: auto;
-  min-width: 20%;
-  max-width: 100%;
-  margin: 1em 1em; 
-  padding: 1em 1em;
-}
-
 .matchup-buttons-container {
   display: flex;
   justify-content: center;
   align-items: center; 
-  width: auto;
-  max-width: 40%; 
+  width: 100%;
+  height: auto; 
   margin: 1em; 
   padding: 1em; 
   border-radius: 1em; 
 }
 
-.matchup-buttons-container button {
-  font-size: 2em;
+#leftMatchupBtn, #rightMatchupBtn {
+  padding: 1em 1em;
+  margin: 1em 0 1em 0;
   border-radius: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
   white-space: normal; 
-  word-wrap: break-word; 
-  /* padding: 1em 1em; */
+  width: 12%;
   /* display: flex;  */
-  /* justify-content: center;  */
-  /* align-items: center;  */
-  /* text-align: center;  */
-  /* margin: 0; */
+  /* hyphens: auto; */
+  overflow-wrap: break-word;
+  /* word-break: break-all; */
 }
