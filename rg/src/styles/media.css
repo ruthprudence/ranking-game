@@ -13,21 +13,17 @@
 
     }
 
-    #inputPageTopic {
+    #inputPageTopic, #headingMatchup {
         font-size: 2.5em;
+        overflow-wrap: break-word;
         word-break: break-all;
         margin: 1em 1em;
-        max-width: 70%;
+        padding: 1em 1em;
+        width: 70%;
     }
 
 
-    #headingMatchup {
-      font-size: 2.5em;
-      word-break: break-all;
-      margin: 1em 1em;
-      max-width: 25%;
-      hyphens: auto;
-    }
+  
 
     #headingResults {
       font-size: 3em;
@@ -99,17 +95,10 @@
     
 
     .matchup-buttons-container {
-        max-width: 75%;
-        
         margin: 1em 1em;
         padding: 1em 1em;
         display: flex; justify-content: center; align-items: center;
     }
-
-    /* .matchup-buttons-container.vertical {
-        flex-direction: column;
-        margin: 0 0 0 0;
-    } */
 
     #versus {
         font-size: 2em;
@@ -152,10 +141,5 @@
     tr.inputRow input {
       font-size: 1.5em;
     }
-
-    /* .matchup-buttons-container vertical {
-      width: auto; 
-      max-width: 40%;
-    } */
 
   }
