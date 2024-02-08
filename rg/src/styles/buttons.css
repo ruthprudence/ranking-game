@@ -71,5 +71,6 @@
   hyphens: auto;
   overflow-wrap: break-all; */
   flex-wrap: wrap;
-  width: 40%;
+  min-width: 40%;
+  max-width: 50%;
 }
