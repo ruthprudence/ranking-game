@@ -24,9 +24,9 @@ describe('Ranking Game E2E Tests', () => {
     //   cy.url().should('include', '/input'); // Checking if the URL is correct
       cy.get('h2#inputPageTopic').should('have.text', 'fruits');
       cy.get('button#RankBtn').should('be.disabled');
-      cy.get('td[name="1"] input').type('apricots');
-      cy.get('td[name="2"] input').type('persimmons');
-      cy.get('td[name="3"] input').type('cranberries');
+      cy.get('td[name="1"] input').type('TheQuickBrownFoxJumpsOverTheLazyDogTheQuickBrownFoxJumpsOverTheLazyDog');
+      cy.get('td[name="2"] input').type('TheQuickBrownFoxJumpsOverTheLazyDog');
+      cy.get('td[name="3"] input').type('The Quick Brown Fox Jumps Over The Laz Dog');
       cy.get('button#RankBtn').should('be.enabled').click();
   
       // Matchup Page

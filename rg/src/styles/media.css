@@ -14,19 +14,20 @@
     }
 
     #inputPageTopic, #headingMatchup {
-        font-size: 2.5em;
+        font-size: 2em;
         overflow-wrap: break-word;
         word-break: break-all;
         margin: 1em 1em;
         padding: 1em 1em;
-        width: 70%;
+        flex-wrap: wrap;
+        max-width: 50%;
     }
 
 
   
 
     #headingResults {
-      font-size: 3em;
+      font-size: 2em;
       margin: 1em 0 1.5em 0;
       overflow-wrap: break-word;
       word-break: break-all;
@@ -143,7 +144,7 @@
     }
 
     .matchup-buttons-container {
-      max-width: 50%;
+      max-width: 80%;
       margin: 1em 1em;
     }
 
@@ -152,7 +153,16 @@
     }
 
     .page-view {
-      max-width: 60%;
+      max-width: 40%;
     }
+
+    #inputPageTopic, #headingMatchup {
+      font-size: 1.5em;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      margin: 0 1em;
+      padding: 0 1em;
+      /* max-width: 50%; */
+  }
 
   }
