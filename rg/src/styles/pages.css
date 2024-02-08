@@ -30,6 +30,7 @@
 
   #topicInput {
     font-size: 2em;
+    margin: 0 0 1em 0;
   }
 
   #splash-prompt {
@@ -59,7 +60,6 @@ td, th {
 td.remove-button-cell {
   margin: 1em 0 1em 1em;
   padding: 1em 0 1em 1em;
-  width: 25%;
   word-wrap: normal;
 }
 
@@ -72,3 +72,10 @@ td.index-column {
   max-width: 30%;
 } */
 
+.matchup-page-view {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between; /* This will push the footer and prompt to the bottom */
+  min-height: 65vh; /* Ensure the container takes up at least the full viewport height */
+}

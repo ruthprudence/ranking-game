@@ -24,7 +24,7 @@
   
   .inputTable input {
     border-radius: 2em;
-    padding: 1em;
+    padding: .2em 1em;
   }
 
   .inputTable.inputRow {

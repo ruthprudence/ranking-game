@@ -15,6 +15,8 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
   return (
     <div className="page-view">
       <h2 id="headingMatchup">{topic}</h2>
+      <div className="matchup-page-view">
+      
       <div className={`matchup-buttons-container`}>
         {currentPair && currentPair.length === 2 && (
           <>
@@ -28,8 +30,10 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
           </>
         )}
       </div>
-      <p id="matchupPrompt"><i>Choose the Winner!</i></p>
-      <div class="footer-container matchupFooter"><Footer /> </div> 
+      
+      <div class="footer-container matchupFooter">
+      <p id="matchupPrompt">Choose the Winner!</p><Footer /> </div> 
+      </div>
     </div>
   );
 };

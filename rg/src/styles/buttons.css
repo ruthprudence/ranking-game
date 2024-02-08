@@ -8,8 +8,8 @@
 }
 
 .button {
-  padding: 1em 1em;
-  margin: 1em 1em;
+  padding: .2em 1em;
+  margin: .05em 1em;
   font-size: 1rem;
     border-radius: 2em;
     cursor: pointer;
