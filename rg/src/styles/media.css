@@ -142,4 +142,17 @@
       font-size: 1.5em;
     }
 
+    .matchup-buttons-container {
+      max-width: 50%;
+      margin: 1em 1em;
+    }
+
+    #versus {
+      margin: 1em 2em 1em 2em;
+    }
+
+    .page-view {
+      max-width: 60%;
+    }
+
   }

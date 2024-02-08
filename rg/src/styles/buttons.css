@@ -57,36 +57,19 @@
   display: flex;
   justify-content: center;
   align-items: center; 
-  width: auto;
-  height: auto; 
-  max-width: 90%;
   margin: 1em; 
   padding: 1em; 
   border-radius: 1em; 
+  justify-content: space-between;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  cursor: pointer;
 }
 
-#leftMatchupBtn {
+#leftMatchupBtn, #rightMatchupBtn {
   padding: 1em 1em;
   margin: 1em 0 1em 0;
   border-radius: 1em;
   font-size: 1.5em;
-  cursor: pointer;
-  max-width: 20%;
-  /* display: flex;  */
-  /* hyphens: auto; */
-  overflow-wrap: break-word;
-  /* word-break: break-all; */
-}
-
-#rightMatchupBtn {
-  padding: 1em 1em;
-  margin: 1em 0 1em 0;
-  border-radius: 1em;
-  font-size: 1.5em;
-  cursor: pointer;
-  max-width: 40%;
-  /* display: flex;  */
-  /* hyphens: auto; */
-  overflow-wrap: break-word;
-  /* word-break: break-all; */
 }
