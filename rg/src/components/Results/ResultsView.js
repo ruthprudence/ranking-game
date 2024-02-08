@@ -29,7 +29,7 @@ export const ResultsView = ({ topic, rankings}) => {
         ) : (
             <p>No results available.</p>
         )}
-        <Footer /> 
+        <div class="footer-container resultsFooter"><Footer /> </div>
     </div>
     );
 };

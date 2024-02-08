@@ -41,12 +41,7 @@
     background-color: red; 
   }
   
-  .resetBtn {
-    font-size: .75em;
-    margin: .2em .2em .2em .2em;
-    border-radius: 2em;
-    padding: .5em .5em;
-  }
+
 
   .round-button.add,   .round-button.remove {
     width: 75px;
@@ -71,10 +66,10 @@
   padding: 1em 1em;
   margin: 1em 0 1em 0;
   border-radius: 1em;
-  font-size: 1em;
+  font-size: 1.5em;
   /* word-wrap: break-word; 
   hyphens: auto;
   overflow-wrap: break-all; */
   flex-wrap: wrap;
- width: 40%;
+  width: 40%;
 }

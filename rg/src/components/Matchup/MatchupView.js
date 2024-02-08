@@ -29,7 +29,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
         )}
       </div>
       <p id="matchupPrompt"><i>Choose the Winner!</i></p>
-      <Footer /> 
+      <div class="footer-container matchupFooter"><Footer /> </div> 
     </div>
   );
 };

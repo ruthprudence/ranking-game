@@ -3,5 +3,38 @@
   }
 
   .footer {
-    margin: 0 0 1em 0;
+    position: relative;
+    margin-top: auto;  /* Pushes footer to the bottom */
+    width: 100%;
+    padding: 1vh 0;    /* Adjust vertical padding */
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 45vh;
+  }
+
+  .resultsFooter {
+    min-height: 0;
+  }
+
+  .resultsFooter button.resetBtn {
+    font-size: 2em;
+  }
+
+  .inputFooter {
+    min-height: 0;
+  }
+
+  .resetBtn {
+    font-size: 1.5em;
+    margin: .2em .2em .2em .2em;
+    border-radius: 2em;
+    padding: .5em .5em;
+  }
+
+  .matchupFooter {
+    min-height: 35vh;
   }
