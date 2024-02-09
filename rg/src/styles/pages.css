@@ -79,3 +79,11 @@ td.index-column {
   justify-content: space-between; /* This will push the footer and prompt to the bottom */
   min-height: 65vh; /* Ensure the container takes up at least the full viewport height */
 }
+
+.volume-control {
+  position: flex;
+  bottom: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's above other elements */
+}

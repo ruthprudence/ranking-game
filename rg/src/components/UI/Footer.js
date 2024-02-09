@@ -5,6 +5,7 @@ import { PAGES } from   '../../features/constants';
 import { setCurrentPage } from '../../features/game/gameSlice';
 // eslint-disable-next-line
 import { RenderBugButton } from '../../features/ui/RenderBugButton';
+import VolumeControl from '../UI/VolumeControl';
 
 const Footer = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Footer = () => {
     return (
         <footer className="footer">
 
-            
+            <VolumeControl />
             <p className="copyright">Copyright 2024</p>
             <p className="copyright">Ruth Prudence, All Rights Reserved</p>
             <RenderFooterButton currentPage={currentPage} />
