@@ -1,15 +1,15 @@
 import React from 'react';
-import uhOh from '../../assets/audio/pacman_death.wav'; 
+// import uhOh from '../../assets/audio/pacman_death.wav'; 
 import { useSelector } from 'react-redux';
 
 const ResetButton = ({ onClick, children, ...props }) => {
 
-    const muted = useSelector((state) => state.sound.muted);
+    const muted = useSelector((state) => state.audio.muted);
 
     const handleClick = (e) => {
-        if(!muted){
-            new Audio(uhOh).play(); 
-        }
+        // if(!muted){
+        //     new Audio(uhOh).play(); 
+        // }
         
         
         if (onClick) {

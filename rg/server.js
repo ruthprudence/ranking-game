@@ -19,7 +19,7 @@ const routes = require('./routes'); // Assuming routes.js is in the same directo
 //     origin: 'https://ruthprudence.com/rg'
 // }));
 
-// app.use(cors());
+app.use(cors());
 
 
 

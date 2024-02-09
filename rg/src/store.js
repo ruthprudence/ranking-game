@@ -4,7 +4,9 @@ import gameReducer from './features/game/gameSlice';
 import uiReducer from './features/ui/uiSlice';
 import validateReducer from './features/validate/validateSlice';
 import bugReducer from './features/bug/bugSlice';
-import soundReducer from './features/sound/soundSlice';
+import audioReducer from './features/audio/audioSlice';
+
+import audioMiddleware from './middleware/audioMiddleware';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +14,7 @@ export const store = configureStore({
     ui: uiReducer,
     validate: validateReducer,
     bug: bugReducer,
-    sound: soundReducer,
+    audio: audioReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(audioMiddleware),
 });

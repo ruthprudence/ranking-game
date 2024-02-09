@@ -1,14 +1,19 @@
 import React from 'react';
-import eatFruit from '../../assets/audio/pacman_eatfruit.wav'; 
+// import eatFruit from '../../assets/audio/pacman_eatfruit.wav'; 
 import { useSelector } from 'react-redux';
+import { loadSound, playSound } from '../../features/audio/audioSlice';
+import { useDispatch } from 'react-redux';
 
-const SoundButton = ({ onClick, children, ...props }) => {
+const SoundButton = ({ onClick, children, eatFruit, ...props }) => {
+
+    const dispatch = useDispatch();
     
-    const muted = useSelector((state) => state.sound.muted);
+    const muted = useSelector((state) => state.audio.muted);
     
     const handleClick = (e) => {
-        if(!muted){
-            new Audio(eatFruit).play();
+        if(!muted & eatFruit){
+            dispatch(playSound(eatFruit));
+            // new Audio(eatFruit).play();
         }
         
         if (onClick) {

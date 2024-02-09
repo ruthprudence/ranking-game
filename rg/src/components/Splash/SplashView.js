@@ -18,7 +18,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
             </div>
             <p id="splashPrompt"><i>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</i></p>
             {/* <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p> */}
-            <div class="footer-container" ><Footer /> </div>
+            <div className="footer-container" ><Footer /> </div>
         </div>
     );
 };

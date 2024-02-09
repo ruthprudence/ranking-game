@@ -1,12 +1,12 @@
 // src/components/VolumeControl.js
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleMute } from '../../features/sound/soundSlice';
+import { toggleMute } from '../../features/audio/audioSlice';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 const VolumeControl = () => {
     const dispatch = useDispatch();
-    const muted = useSelector((state) => state.sound.muted);
+    const muted = useSelector((state) => state.audio.muted);
     const Icon = muted ? FaVolumeMute : FaVolumeUp;
 
     const handleToggleSound = () => {

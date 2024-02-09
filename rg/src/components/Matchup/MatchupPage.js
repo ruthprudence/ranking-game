@@ -7,7 +7,7 @@ import { incrementVote, startMatchup, handleChoiceSelect} from '../../features/u
 
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { PAGES } from '../../features/constants';
-import eatGhost from '../../assets/audio/pacman_eatghost.wav';
+// import eatGhost from '../../assets/audio/pacman_eatghost.wav';
 
 
 import { MatchupView } from './MatchupView';
@@ -48,7 +48,7 @@ const MatchupPage = () => {
       buttons[buttonIndex].classList.add('button-clicked');
       
       // setClickedButtonIndex(buttonIndex);
-      new Audio(eatGhost).play();
+      // new Audio(eatGhost).play();
 
       setTimeout(() => {
         buttons[buttonIndex].classList.remove('button-clicked');

@@ -40,7 +40,7 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://localhost:3000",
+    "proxy": "http://localhost:8012",
     "devDependencies": {
         "@babel/preset-react": "^7.23.3",
         "@testing-library/jest-dom": "^6.2.0",

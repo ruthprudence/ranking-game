@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ResultsView } from './ResultsView';
 import { completeMatchup } from '../../features/ui/uiSlice';
-import victorySound from '../../assets/audio/pacman_extrapac.wav';
+// import victorySound from '../../assets/audio/pacman_extrapac.wav';
 
 
 const ResultsPage = () => {
@@ -19,10 +19,10 @@ const ResultsPage = () => {
         }
     }, [dispatch, items]);
 
-    useEffect(() => {
-        const audio = new Audio(victorySound);
-        audio.play();
-    }, []);
+    // useEffect(() => {
+    //     const audio = new Audio(victorySound);
+    //     audio.play();
+    // }, []);
       
     return <ResultsView 
     rankings={rankings}
