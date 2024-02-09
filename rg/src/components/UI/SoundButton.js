@@ -11,9 +11,8 @@ const SoundButton = ({ onClick, children, eatFruit, ...props }) => {
     const muted = useSelector((state) => state.audio.muted);
     
     const handleClick = (e) => {
-        if(!muted & eatFruit){
-            dispatch(playSound(eatFruit));
-            // new Audio(eatFruit).play();
+        if(!muted){
+            dispatch(playSound({ name: eatFruit }));
         }
         
         if (onClick) {
