@@ -4,6 +4,7 @@ import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
 import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
+import SoundButton from '../UI/SoundButton';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
     return (
@@ -25,7 +26,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                             </td>
                             {index >= 3 && (
                                 <td className="remove-button-cell rowButtons">
-                                    <Button  className="button round-button remove" onClick={() => handleRemoveRow(index)}>-</Button>
+                                    <SoundButton  className="button round-button remove" onClick={() => handleRemoveRow(index)}>-</SoundButton>
                                 </td>
                             )}
                             {index < 3 && <td className="remove-button-cell"></td>}
@@ -35,11 +36,11 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             </table>
 
             {rows.length < MAXCHOICES && (
-                <Button className="button addItem rowButtons round-button add" onClick={handleAddRow}>+</Button>
+                <SoundButton className="button addItem rowButtons round-button add" onClick={handleAddRow}>+</SoundButton>
             )}
             
 
-            <Button  className="button submit" id="RankBtn" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</Button>
+            <SoundButton  className="button submit" id="RankBtn" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <div class="footer-container inputFooter"><Footer /> </div>
         </div>

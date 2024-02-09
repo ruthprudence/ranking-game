@@ -185,4 +185,14 @@
       /* max-width: 50%; */
   }
 
+  #RankBtn {
+    margin: 1em 1em;
+    font-size: 2em;
+  }
+
+  #submitTopicButton {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+  }
+
   }

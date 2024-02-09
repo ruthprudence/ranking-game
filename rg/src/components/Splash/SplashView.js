@@ -3,6 +3,7 @@ import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
 import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
+import SoundButton from '../UI/SoundButton';
 
 export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSubmitEnabled }) => {
     return (
@@ -13,7 +14,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
                 "topicInput" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
             </div>
             <div className="button-container submit">
-                <Button  className="button" id="submitTopicButton"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</Button>
+                <SoundButton  className="button" id="submitTopicButton"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</SoundButton>
             </div>
             <p id="splashPrompt"><i>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</i></p>
             {/* <p id="splash-prompt"><i>{PROMPTS.SPLASH}</i></p> */}

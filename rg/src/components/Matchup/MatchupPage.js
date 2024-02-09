@@ -1,5 +1,5 @@
 // MatchupPage.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrentPage } from '../../features/game/gameSlice';
@@ -7,6 +7,7 @@ import { incrementVote, startMatchup, handleChoiceSelect} from '../../features/u
 
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { PAGES } from '../../features/constants';
+import eatGhost from '../../assets/audio/pacman_eatghost.wav';
 
 
 import { MatchupView } from './MatchupView';
@@ -32,8 +33,6 @@ const MatchupPage = () => {
   useEffect(() => {
     dispatch(startMatchup(items));
   }, [dispatch]);
-
-  
   
   useEffect(() => {
     if (isComparisonComplete) {
@@ -41,21 +40,22 @@ const MatchupPage = () => {
     }
   }, [isComparisonComplete, dispatch]);
 
+  const [clickedButtonIndex, setClickedButtonIndex] = useState(null);
+
   const onButtonClick = (buttonIndex) => {
     if (currentPair && currentPair.length === 2) {
-      const selectedItem = items[currentPair[buttonIndex]];
-      if (selectedItem) {
-        // Add animation class to the button
-        const buttons = document.querySelectorAll('.matchupBtn');
-        buttons[buttonIndex].classList.add('burst-button');
-        
-        // Proceed to the next step after the animation
-        setTimeout(() => {
-          dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
-          // Remove the animation class
-          buttons[buttonIndex].classList.remove('burst-button');
-        }, 400); // This timeout duration should match the CSS animation duration
-      }
+      const buttons = document.querySelectorAll('.matchupBtn');
+      buttons[buttonIndex].classList.add('button-clicked');
+      
+      // setClickedButtonIndex(buttonIndex);
+      new Audio(eatGhost).play();
+
+      setTimeout(() => {
+        buttons[buttonIndex].classList.remove('button-clicked');
+      }, 300); 
+
+      dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
+         
     }
   };
   
