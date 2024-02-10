@@ -1,7 +1,7 @@
 // src/hooks/useLoadSounds.js
 import { useEffect } from 'react'; 
 import { useDispatch } from 'react-redux';
-import { loadSound } from '../audio/audioSlice'; 
+import { loadSound } from './audioSlice'; 
 
 export const useLoadSounds = () => {
   const dispatch = useDispatch();
