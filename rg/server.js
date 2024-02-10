@@ -28,6 +28,8 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+
 // Use the routes
 app.use(routes);
 

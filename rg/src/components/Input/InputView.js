@@ -26,7 +26,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                             </td>
                             {index >= 3 && (
                                 <td className="remove-button-cell rowButtons">
-                                    <SoundButton  className="button round-button remove" onClick={() => handleRemoveRow(index)}>-</SoundButton>
+                                    <SoundButton  className="button round-button remove" soundName="eatFruit"  onClick={() => handleRemoveRow(index)}>-</SoundButton>
                                 </td>
                             )}
                             {index < 3 && <td className="remove-button-cell"></td>}
@@ -36,11 +36,11 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             </table>
 
             {rows.length < MAXCHOICES && (
-                <SoundButton className="button addItem rowButtons round-button add" onClick={handleAddRow}>+</SoundButton>
+                <SoundButton className="button addItem rowButtons round-button add"  soundName="eatFruit" onClick={handleAddRow}>+</SoundButton>
             )}
             
 
-            <SoundButton  className="button submit" id="RankBtn" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
+            <SoundButton  className="button submit" id="RankBtn"  soundName="eatFruit" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <div className="footer-container inputFooter"><Footer /> </div>
         </div>

@@ -1,7 +1,7 @@
 {
     "name": "rg",
     "version": "0.1.0",
-    "homepage": "https://ruthprudence.com/rg",
+    "homepage": "https://rg.ruthprudence.com",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^2.0.1",

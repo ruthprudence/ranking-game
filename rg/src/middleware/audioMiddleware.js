@@ -15,6 +15,7 @@ const audioMiddleware = store => next => action => {
     if (state.audio.sounds[name]?.loaded && !state.audio.muted) {
       const audio = new Audio(state.audio.sounds[name].src);
       audio.play();
+      console.log('playing sound');
     }
   }
 
