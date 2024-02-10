@@ -23,8 +23,8 @@
 
   @keyframes depress {
     0% { transform: scale(1); }
-    50% { transform: scale(.8); }
-    70% { transform: scale(.9); }
+    50% { transform: scale(.7); }
+    75% { transform: scale(.8); }
     100% { transform: scale(1); }
   }
 
@@ -78,4 +78,9 @@
     animation: 
     depress 0.3s forwards;
     /* fadeOut 2s forwards; */
+  }
+
+  .row-button-clicked {
+    animation:
+      depress 0.4s forwards;
   }
