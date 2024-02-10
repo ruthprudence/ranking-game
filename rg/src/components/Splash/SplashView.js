@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../UI/Button';
 import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
 import { PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';

@@ -5,7 +5,6 @@ import { validateRowsState } from '../../features/validate/validateSlice'; // Im
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { InputView } from './InputView';
 import { PAGES } from '../../features/constants';
-import SoundButton from '../UI/SoundButton';
 
 const InputPage = () => {
     const topic = useSelector((state) => state.ui.topic);
