@@ -145,9 +145,9 @@ export const uiSlice = createSlice({
       if (state.isTopicValid) {
         state.topic = action.payload.topic;
       }
-      // Handle other aspects of the validation result as needed
+  
     });
-    // Handle other async actions as needed
+    
   },
 });
 

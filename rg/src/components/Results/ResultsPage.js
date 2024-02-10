@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ResultsView } from './ResultsView';
 import { completeMatchup } from '../../features/ui/uiSlice';
-// import victorySound from '../../assets/audio/pacman_extrapac.wav';
 import { playSound } from '../../features/audio/audioSlice';
 
 
@@ -17,10 +16,9 @@ const ResultsPage = () => {
     useEffect(() => {
         if (items && items.length > 0) {
             dispatch(completeMatchup());
+            dispatch(playSound({ name: 'victorySound' })); 
         }
     }, [dispatch, items]);
-
-    dispatch(playSound({ name: 'victorySound' }));
 
     return <ResultsView 
     rankings={rankings}

@@ -24,8 +24,8 @@ export const RenderFooterButton = ({ currentPage }) => {
     case PAGES.MATCHUP:
         return <SoundButton className ="resetBtn"  soundName="uhOh" onClick={handleReset}>{defaultText}</SoundButton>;
     case PAGES.RESULTS:
-        return <SoundButton className ="resetBtn"  soundName="eatFruit" onClick={handleReset}>Rank Again!</SoundButton>;
+        return <SoundButton className ="resetBtn"  soundName="intermission" onClick={handleReset}>Rank Again!</SoundButton>;
     default:
-        return <SoundButton className ="resetBtn"  soundName="eatGhost" onClick={handleReset}>play The Ranking Game!</SoundButton>;
+        return <SoundButton className ="resetBtn"  soundName="intermission" onClick={handleReset}>play The Ranking Game!</SoundButton>;
 }
 };

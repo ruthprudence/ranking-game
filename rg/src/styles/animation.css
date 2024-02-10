@@ -28,6 +28,15 @@
     100% { transform: scale(1); }
   }
 
+  @keyframes enlarge {
+    0% { font-size: 100%; }
+    50% {font-size: 150%; }
+    70% {font-size: 140%;}
+    100% {font-size: 100%;}
+  }
+
+ 
+
   @keyframes flashBorder {
     0%, 100% { border-color: royalblue; }
     50% { border-color: white;}
@@ -39,16 +48,23 @@
   }
 
   @keyframes fadeOut {
-    0% { opacity: 1;}
-    50% { opacity: .7;}
-    100% { opacity: 0;}
+    0% { 
+      opacity: 1;}
+    60% { 
+      opacity: .7;
+      border: none;}
+    100% { 
+      opacity: 0;
+      border: none;}
   }
 
   
   .button-clicked {
     animation:
-      depress 0.3s forwards,
-      flashBorder 0.6s infinite;
+      depress 0.4s forwards,
+      flashBorder 0.4s infinite,
+      enlarge 0.4s forwards,
+      fadeOut .4s forwards;
     background-color: royalblue;
     color: white;
     font-weight: bold;

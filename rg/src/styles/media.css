@@ -1,6 +1,6 @@
 
 /* Media Query Adjustments */
-@media (min-width: 100px) and (max-width: 1025px) {
+@media (min-width: 100px) and (max-width: 725px) {
 
 
 
@@ -141,7 +141,7 @@
 
   }
   
-  @media (min-width: 726px) and (max-width: 5200px) {
+  @media (min-width: 726px) and (max-width: 850px) {
     table { 
       width: 80%;
     }
@@ -173,9 +173,9 @@
     }
 
     .page-view {
-      max-width: 40%;
+      width: 100%;
     }
-
+======
     #inputPageTopic, #headingMatchup {
       font-size: 1.5em;
       overflow-wrap: break-word;
@@ -196,3 +196,5 @@
   }
 
   }
+
+  @media (min-width: 851px) and (max-width: 5200px) {}

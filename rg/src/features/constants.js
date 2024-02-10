@@ -23,7 +23,7 @@ export const PROMPTS = {
 };
 
 export const ERRORS = {
-    SPLASH: '(enter a topic above)',
+    SPLASH: '(enter a topic below)',
     MATCHUP: 'Something went wrong. Please try again.',
     INPUT: `Enter between ${MINCHOICES} and ${MAXCHOICES} items.`,
     RESULTS: '',

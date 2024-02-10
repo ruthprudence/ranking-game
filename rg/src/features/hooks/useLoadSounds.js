@@ -11,5 +11,7 @@ export const useLoadSounds = () => {
     dispatch(loadSound({ name: 'eatFruit', src: '/assets/audio/pacman_eatfruit.wav' }));
     dispatch(loadSound({ name: 'uhOh', src: '/assets/audio/pacman_death.wav' }));
     dispatch(loadSound({ name: 'victorySound', src: '/assets/audio/pacman_extrapac.wav' }));
+    dispatch(loadSound({ name: 'intermission', src: '/assets/audio/pacman_intermission.wav' }));
   }, [dispatch]);
+  
 };
