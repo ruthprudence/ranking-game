@@ -1,7 +1,7 @@
 {
     "name": "rg",
     "version": "0.1.0",
-    "homepage": "https://rg.ruthprudence.com",
+    "homepage": "https://rg.ruthprudence.com/",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^2.0.1",
@@ -41,7 +41,7 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://localhost:8012",
+    "proxy": "",    
     "devDependencies": {
         "@babel/preset-react": "^7.23.3",
         "@testing-library/jest-dom": "^6.2.0",

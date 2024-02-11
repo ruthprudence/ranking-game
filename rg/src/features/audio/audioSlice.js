@@ -10,21 +10,15 @@ export const audioSlice = createSlice({
     toggleMute: (state) => {
       state.muted = !state.muted;
     },
-    loadSound: (state, action) => {
-      const { name, src } = action.payload;
-      state.sounds[name] = { src, loaded: false };
-    },
-    soundLoaded: (state, action) => {
+    playSound: (state, action) => {
       const { name } = action.payload;
-      if (state.sounds[name]) {
-        state.sounds[name].loaded = true;
+      if (!state.muted) {
+        const audio = new Audio(`/assets/audio/${name}.wav`);
+        audio.play().catch(error => console.error(`Error playing sound: ${name}`, error));
       }
     },
-    playSound: (_, action) => {
-    // console.log(`  Playing sound through slice: ${action.payload.name}`);
-  },
   }
 });
 
-export const { toggleMute, loadSound, soundLoaded, playSound } = audioSlice.actions;
+export const { toggleMute, playSound } = audioSlice.actions;
 export default audioSlice.reducer;
