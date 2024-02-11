@@ -3,10 +3,8 @@
  * This component is responsible for rendering the audio elements that are used throughout the game.
 */
 import React from 'react';
-import { useLoadSounds } from './features/audio/useLoadSounds.js';
 
 const Audio = () => {
-    useLoadSounds();
 
     return (
         <div>
