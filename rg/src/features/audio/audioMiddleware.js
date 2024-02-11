@@ -6,32 +6,39 @@ const playAudio = (soundName) => {
   const sound = document.getElementById(soundName);
   if (sound) {
     sound.play().then(() => {
-      console.log(`Sound played: ${soundName}`);
+      // console.log(`Sound played: ${soundName}`);
     }).catch((error) => {
-      console.error(`Error playing sound (${soundName}):`, error);
+      // console.error(`Error playing sound (${soundName}):`, error);
     });
   } else {
-    console.log(`Sound element not found: ${soundName}`);
+    // console.log(`Sound element not found: ${soundName}`);
   }
 };
 
 const audioMiddleware = store => next => action => {
-  // console.log('Middleware triggered: ', action.type); // Log every action type
+  // console.log(`Middleware received action: ${action.type}`, action);
 
-
-  // if (action.type === 'audio/playSound') {
-    if (action.type === playSound.type) {
+  if (action.type === 'audio/playSound') {
     const { name } = action.payload;
-    console.log(`middleware: ${name}`);
+
+    // Skip processing if the name is undefined
+    if (!name) {
+      // console.log("Skipped playing sound: Name is undefined");
+      return next(action);
+    }
+
     const state = store.getState();
-    if (state.audio.sounds[name]?.loaded && !state.audio.muted) {
-      
+    // console.log(`Middleware processing: ${name}, Muted: ${state.audio.muted}`);
+    
+    if (!state.audio.muted) {
+      // console.log(`Playing sound: ${name}`);
       playAudio(name);
-      
     }
   }
 
   return next(action);
 };
+
+
 
 export default audioMiddleware;

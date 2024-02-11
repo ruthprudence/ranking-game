@@ -7,7 +7,7 @@ const PanelPage = () => {
     const dispatch = useDispatch();
 
     const handleSoundPlay = (soundName) => {
-        console.log(`  Playing sound through PanelPage: ${soundName}`);
+        // console.log(`  Playing sound through PanelPage: ${soundName}`);
         dispatch(playSound({ name: soundName }));
         
     };

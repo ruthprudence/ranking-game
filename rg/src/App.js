@@ -13,7 +13,7 @@ import PanelPage from './components/Panel/PanelPage.js';
 function App() {
 
   return (
-    <Router basename="/rg">
+    <Router  basename="/rg">
             <div className="App">
                 <Audio />
                 <Routes>

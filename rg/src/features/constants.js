@@ -45,5 +45,5 @@ export const SOUNDS = {
     EATFRUIT: 'eatFruit',
     UHOH: 'uhOh',
     VICTORY: 'victorySound',
-    INTERMISSION: 'victorySoundintermission',
+    INTERMISSION: 'intermission',
 };

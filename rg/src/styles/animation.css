@@ -23,8 +23,8 @@
 
   @keyframes depress {
     0% { transform: scale(1); }
-    50% { transform: scale(.7); }
-    75% { transform: scale(.8); }
+    50% { transform: scale(.8); }
+    75% { transform: scale(.9); }
     100% { transform: scale(1); }
   }
 
@@ -63,7 +63,7 @@
     animation:
       depress 0.4s forwards,
       flashBorder 0.4s infinite,
-      enlarge 0.4s forwards,
+      /* enlarge 0.4s forwards, */
       fadeOut .4s forwards;
     background-color: royalblue;
     color: white;
