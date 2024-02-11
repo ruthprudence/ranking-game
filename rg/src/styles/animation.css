@@ -24,6 +24,7 @@
   @keyframes depress {
     0% { transform: scale(1); }
     50% { transform: scale(.8); }
+    70% { transform: scale(.85);}
     75% { transform: scale(.9); }
     100% { transform: scale(1); }
   }
