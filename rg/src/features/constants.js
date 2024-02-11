@@ -39,3 +39,11 @@ export const PLACEHOLDERS = {
     ],
     INPUT_ROWS: 'Enter an item',
 };
+
+export const SOUNDS = {
+    EATGHOST: 'eatGhost',
+    EATFRUIT: 'eatFruit',
+    UHOH: 'uhOh',
+    VICTORY: 'victorySound',
+    INTERMISSION: 'victorySoundintermission',
+};
