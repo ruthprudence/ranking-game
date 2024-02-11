@@ -21,7 +21,7 @@ export const audioSlice = createSlice({
       }
     },
     playSound: (_, action) => {
-    
+    console.log(`  Playing sound through slice: ${action.payload.name}`);
   },
   }
 });

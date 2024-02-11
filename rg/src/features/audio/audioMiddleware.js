@@ -5,16 +5,18 @@ const playSound = (soundName) => {
   const sound = document.getElementById(soundName);
   if (sound) {
     sound.play();
+    console.log(`  Playing sound: ${soundName}`);
   }
 };
 
 const audioMiddleware = store => next => action => {
-  if (action.type === playSound.type) {
+  if (action.type === 'audio/playSound') {
     const { name } = action.payload;
     const state = store.getState();
     if (state.audio.sounds[name]?.loaded && !state.audio.muted) {
+      console.log(`middleware: ${name}`);
       playSound(name);
-      console.log(`Playing sound: ${name}`);
+      
     }
   }
 

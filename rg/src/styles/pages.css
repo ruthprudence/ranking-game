@@ -82,3 +82,17 @@ td.index-column {
   cursor: pointer;
   z-index: 1000;
 }
+
+.panel-view {
+  padding: 20px;
+}
+
+.panel-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.panel-table td {
+  padding: 10px;
+  text-align: center;
+}
