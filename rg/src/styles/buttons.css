@@ -52,13 +52,12 @@
   display: flex;
   justify-content: center;
   align-items: center; 
-  margin: 0 2em; 
   border-radius: 1em; 
-  justify-content: space-between;
   hyphens: auto;
   overflow-wrap: break-word;
   word-break: break-all;
   cursor: pointer;
+  width: 100%;
 }
 
 #leftMatchupBtn, #rightMatchupBtn {
@@ -70,6 +69,10 @@
   hyphens: auto;
   overflow-wrap: break-all; */
   flex-wrap: wrap;
-  min-width: 40%;
-  max-width: 50%;
+  min-width: 20%;
+  max-width: 30%;
+}
+
+.matchupBtn {
+  max-width: 5em;
 }

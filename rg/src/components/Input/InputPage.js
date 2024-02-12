@@ -42,7 +42,9 @@ const InputPage = () => {
         dispatch(removeRow(index));
         if (rows.length > 6) {
             // Scroll up slightly when a row is removed
-            window.scrollBy({ top: -100, behavior: 'smooth' });
+            setTimeout(() => {
+                window.scrollBy({ top: -100, behavior: 'smooth' });
+            }, 100); // Adjust the delay as needed
         }
     };
 
