@@ -17,7 +17,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
             <SoundButton className="button matchupBtn"  soundName="eatGhost"  id="leftMatchupBtn" onClick={() => onButtonClick(0)}>
               {items[currentPair[0]].name}
             </SoundButton> 
-            <p id="versus">  vs  </p> 
+            <p id="versus">vs</p> 
             <SoundButton className="button matchupBtn"  id="rightMatchupBtn"  soundName="eatGhost"    onClick={() => onButtonClick(1)}>
               {items[currentPair[1]].name}
             </SoundButton>

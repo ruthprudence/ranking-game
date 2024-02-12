@@ -131,3 +131,7 @@ td.index-column {
   background-color: blue; /* Color of the slice */
   transform-origin: 50% 50%;
 }
+
+#versus {
+  margin: 1em 2em 1em 2em;
+}
