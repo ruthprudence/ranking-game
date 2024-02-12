@@ -1,8 +1,9 @@
 import React from 'react';
 import Footer from '../UI/Footer';
 import SoundButton from '../UI/SoundButton';
+import Pie from '../UI/Pie.js';
 
-export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick }) => {
+export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick, currentPairIndex, totalPairs }) => {
   
   return (
     <div className="page-view">
@@ -22,6 +23,10 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
             </SoundButton>
           </>
         )}
+       
+      </div>
+      <div className="pie-wrapper">
+        <Pie currentPairIndex={currentPairIndex} totalPairs={totalPairs} />
       </div>
       
       <div className="footer-container matchupFooter">

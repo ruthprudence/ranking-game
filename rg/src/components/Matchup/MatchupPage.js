@@ -19,6 +19,9 @@ const MatchupPage = () => {
   const topic = useSelector((state) => state.ui.topic);
   const items = useSelector((state) => state.ui.items);
 
+  const totalPairs = useSelector((state) => state.ui.pairs.length);
+  const currentPairIndex = useSelector((state) => state.ui.currentPairIndex);
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -75,6 +78,8 @@ const MatchupPage = () => {
       currentPair={currentPair}
       items={items}
       onButtonClick={onButtonClick}
+      currentPairIndex={currentPairIndex}
+      totalPairs={totalPairs}
     />
   );
 };

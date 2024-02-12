@@ -101,3 +101,30 @@ td.index-column {
   font-size: 1.5em;
   margin: 1em 1em 0 1em;
 }
+
+.pie-wrapper {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  width: 100%;             /* Full width of the container */
+  margin-top: 20px;        /* Adjust as needed */
+}
+
+.pie {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: lightgray; /* Background color of the pie */
+}
+
+.pie-slice {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: blue; /* Color of the slice */
+  transform-origin: 50% 50%;
+}
