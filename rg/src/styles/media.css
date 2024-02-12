@@ -17,12 +17,12 @@
         font-size: 2em;
         overflow-wrap: break-word;
         word-break: break-all;
-        margin: 1em 1em 0 1em;
-        padding: 1em 1em 0 1em;
+        margin: 0 1em 1em 1em;
+        padding: 0 1em 0 1em;
         flex-wrap: wrap;
         position: relative;
         text-align: center;
-        width: 100%;
+        max-width: 90%;
         
     }
 
@@ -30,8 +30,8 @@
       font-size: 2em;
       overflow-wrap: break-word;
       word-break: break-all;
-      margin: 1em 1em;
-      padding: 1em 1em;
+      margin: 0 1em;
+      padding: 0 1em;
       flex-wrap: wrap;
       width: 50%;
       text-align: center;
@@ -175,7 +175,7 @@
     .page-view {
       width: 100%;
     }
-======
+
     #inputPageTopic, #headingMatchup {
       font-size: 1.5em;
       overflow-wrap: break-word;

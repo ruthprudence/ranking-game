@@ -6,6 +6,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
   
   return (
     <div className="page-view">
+      <p id="inputTopicDescription">Your Topic:</p>
       <h2 id="headingMatchup">{topic}</h2>
       <div className="matchup-page-view">
       

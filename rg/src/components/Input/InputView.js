@@ -9,6 +9,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
     return (
         <div className="page-view">
             <h1 id="headingInput">the Ranking Game</h1>
+            <p id="inputTopicDescription">Your Topic:</p>
             <h2 id="inputPageTopic">{topic}</h2>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
