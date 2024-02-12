@@ -20,6 +20,16 @@ const InputPage = () => {
     // Determine if the submit button should be enabled
     const isSubmitEnabled = rowsValidationResult?.isValid && rows.length > 0;
 
+    useEffect(() => {
+        if (rows.length >= 6) {
+            // Delay the scroll to allow the DOM to update
+            setTimeout(() => {
+                window.scrollBy({ top: 100, behavior: 'smooth' });
+            }, 100); // Adjust the delay as needed
+        }
+    }, [rows.length]);
+    
+
     const handleAddRow = () => {
         dispatch(addRow());
     };
@@ -30,6 +40,10 @@ const InputPage = () => {
 
     const handleRemoveRow = (index) => {
         dispatch(removeRow(index));
+        if (rows.length > 6) {
+            // Scroll up slightly when a row is removed
+            window.scrollBy({ top: -100, behavior: 'smooth' });
+        }
     };
 
     const handleSubmit = () => {
