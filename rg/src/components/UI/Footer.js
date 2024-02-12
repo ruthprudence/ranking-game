@@ -20,7 +20,7 @@ const Footer = () => {
         <footer className="footer">
 
             <VolumeControl />
-            <p className="copyright">"Pac-Man" is a trademark of BANDAI NAMCO Entertainment</p>
+            <p className="copyright">"Pac-Man" trademark BANDAI NAMCO Entertainment</p>
             <p className="copyright">Copyright 2024</p>
             <p className="copyright">Ruth Prudence, All Rights Reserved</p>
             <RenderFooterButton currentPage={currentPage} />

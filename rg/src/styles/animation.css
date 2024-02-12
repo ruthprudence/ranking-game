@@ -23,9 +23,9 @@
 
   @keyframes depress {
     0% { transform: scale(1); }
-    50% { transform: scale(.8); }
-    70% { transform: scale(.85);}
-    75% { transform: scale(.9); }
+    50% { transform: scale(.97); }
+    70% { transform: scale(.98);}
+    75% { transform: scale(.99); }
     100% { transform: scale(1); }
   }
 
@@ -52,7 +52,7 @@
     0% { 
       opacity: 1;}
     60% { 
-      opacity: .7;
+      opacity: .95;
       border: none;}
     100% { 
       opacity: 0;
@@ -62,12 +62,12 @@
   
   .button-clicked {
     animation:
-      depress 0.4s forwards,
-      flashBorder 0.4s infinite,
-      /* enlarge 0.4s forwards, */
-      fadeOut .4s forwards;
+      depress 0.55s forwards,
+      flashBorder 0.55s infinite,
+      /* enlarge 0.65s forwards, */
+      fadeOut .55s forwards;
     background-color: royalblue;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     border: 2px solid royalblue;
   }
@@ -84,4 +84,10 @@
   .row-button-clicked {
     animation:
       depress 0.4s forwards;
+  }
+
+  .simple-click {
+    animation: 
+      depress 0.4s forwards,
+      enlarge 0.4s forwards;
   }

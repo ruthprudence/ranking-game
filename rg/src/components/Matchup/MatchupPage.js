@@ -49,7 +49,7 @@ const MatchupPage = () => {
       
       setTimeout(() => {
         buttons[buttonIndex].classList.remove('button-clicked');
-      }, 400); 
+      }, 550); 
 
       dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
          

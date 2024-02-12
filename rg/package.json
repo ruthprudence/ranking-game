@@ -1,7 +1,7 @@
 {
     "name": "rg",
     "version": "0.1.0",
-    "homepage": "https://rg.ruthprudence.com/",
+    "homepage": "https://ruthprudence.com/rg/",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^2.0.1",
@@ -19,7 +19,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "react-scripts start --port 8064",
         "build": "react-scripts build",
         "test": "jest --config=jest.config.js --verbose"
     },

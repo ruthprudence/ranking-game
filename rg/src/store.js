@@ -6,8 +6,6 @@ import validateReducer from './features/validate/validateSlice';
 import bugReducer from './features/bug/bugSlice';
 import audioReducer from './features/audio/audioSlice';
 
-import audioMiddleware from './features/audio/audioMiddleware';
-
 export const store = configureStore({
   reducer: {
     game: gameReducer,
@@ -16,5 +14,4 @@ export const store = configureStore({
     bug: bugReducer,
     audio: audioReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(audioMiddleware),
 });

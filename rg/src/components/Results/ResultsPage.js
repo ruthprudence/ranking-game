@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ResultsView } from './ResultsView';
 import { completeMatchup } from '../../features/ui/uiSlice';
-import { playSound } from '../../features/audio/audioSlice';
+import { SOUNDS} from '../../features/constants';
+
 
 
 const ResultsPage = () => {
@@ -10,15 +11,23 @@ const ResultsPage = () => {
     const items = useSelector((state) => state.ui.items);
     const rankings = useSelector((state) => state.ui.rankings);
     const topic = useSelector((state) => state.ui.topic);
+    const muted = useSelector((state) => state.audio.muted);
 
-
+    const playSound = (soundName) => {
+        if (!muted) {
+            const audioElement = document.getElementById(soundName);
+            if (audioElement) {
+                audioElement.play().catch(error => console.error(`Error playing sound: ${soundName}`, error));
+            }
+        }
+    };
 
     useEffect(() => {
         if (items && items.length > 0) {
+            playSound(SOUNDS.VICTORY); 
             dispatch(completeMatchup());
-            dispatch(playSound({ name: 'victorySound' })); 
         }
-    }, [dispatch, items]);
+    }, [dispatch, items, muted]);
 
     return <ResultsView 
     rankings={rankings}

@@ -8,11 +8,11 @@ const Audio = () => {
 
     return (
         <div>
-            <audio id={SOUNDS.EATGHOST} src="/assets/audio/pacman_eatghost.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.EATFRUIT} src="/assets/audio/pacman_eatfruit.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.UHOH} src="/assets/audio/pacman_death.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.VICTORY} src="/assets/audio/pacman_extrapac.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.INTERMISSION} src="/assets/audio/pacman_intermission.wav" preload="auto" hidden></audio>
+            <audio id={SOUNDS.EATGHOST} src="/rg/assets/audio/pacman_eatghost.wav" preload="auto" hidden></audio>
+            <audio id={SOUNDS.EATFRUIT} src="/rg/assets/audio/pacman_eatfruit.wav" preload="auto" hidden></audio>
+            <audio id={SOUNDS.UHOH} src="/rg/assets/audio/pacman_death.wav" preload="auto" hidden></audio>
+            <audio id={SOUNDS.VICTORY} src="/rg/assets/audio/pacman_extrapac.wav" preload="auto" hidden></audio>
+            <audio id={SOUNDS.INTERMISSION} src="/rg/assets/audio/pacman_intermission.wav" preload="auto" hidden></audio>
         </div>
     );
 };
