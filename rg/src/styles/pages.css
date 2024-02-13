@@ -114,8 +114,8 @@ td.index-column {
 }
 
 .pie {
-  width: 80px;
-  height: 80px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
@@ -128,7 +128,7 @@ td.index-column {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: blue; /* Color of the slice */
+  background-color: yellow; /* Color of the slice */
   transform-origin: 50% 50%;
 }
 

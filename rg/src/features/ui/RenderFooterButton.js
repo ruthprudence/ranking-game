@@ -26,6 +26,6 @@ export const RenderFooterButton = ({ currentPage }) => {
     case PAGES.RESULTS:
         return <SoundButton className ="resetBtn"  soundName="intermission" onClick={handleReset}>Rank Again!</SoundButton>;
     default:
-        return <SoundButton className ="resetBtn"  soundName="intermission" onClick={handleReset}>play The Ranking Game!</SoundButton>;
+        return <SoundButton className ="resetBtn"  soundName="intermission" onClick={handleReset}>Rank Again!</SoundButton>;
 }
 };

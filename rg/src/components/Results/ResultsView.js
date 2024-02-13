@@ -1,6 +1,7 @@
 // ResultsView.js
 import React from 'react';
 import Footer from '../UI/Footer';
+import { RenderFooterButton } from '../../features/ui/RenderFooterButton';
 
 export const ResultsView = ({ topic, rankings}) => {
     return (
@@ -29,6 +30,7 @@ export const ResultsView = ({ topic, rankings}) => {
         ) : (
             <p>No results available.</p>
         )}
+        <div className="playAgain"><RenderFooterButton/> </div>
         <div className="footer-container resultsFooter"><Footer /> </div>
     </div>
     );

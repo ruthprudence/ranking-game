@@ -163,9 +163,7 @@
       margin: 1em 1em;
     } */
 
-    #versus {
-      margin: 1em 2em 1em 2em;
-    }
+
 
     .page-view {
       width: 100%;
@@ -192,4 +190,16 @@
 
   }
 
-  @media (min-width: 851px) and (max-width: 5200px) {}
+  @media (min-width: 851px) and (max-width: 5200px) {
+
+  .inputTable input {
+    width: 60%;
+    align-items: left;
+    justify-content: left;
+    font-size: 1.5em;
+  }
+  #rankBtn {
+    margin: 2em 1em;
+    padding: 1em 1em;
+  }
+  }

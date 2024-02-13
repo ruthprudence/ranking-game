@@ -40,7 +40,7 @@ const InputPage = () => {
 
     const handleRemoveRow = (index) => {
         dispatch(removeRow(index));
-        if (rows.length > 6) {
+        if (rows.length > 4) {
             // Scroll up slightly when a row is removed
             setTimeout(() => {
                 window.scrollBy({ top: -100, behavior: 'smooth' });

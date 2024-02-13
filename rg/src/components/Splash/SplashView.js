@@ -14,7 +14,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
                 "topicInput" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
             </div>
             <div className="button-container submit">
-                <SoundButton  className="button simple-click" id="submitTopicButton"  soundName="eatFruit"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</SoundButton>
+                <SoundButton  className="button" id="submitTopicButton"  soundName="eatFruit"  onClick={handleTopicSubmit} disabled={!isSubmitEnabled}>Submit Topic</SoundButton>
             </div>
 
             <div className="footer-container" ><Footer /> </div>
