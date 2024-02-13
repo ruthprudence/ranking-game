@@ -6,8 +6,7 @@ import { RenderFooterButton } from '../../features/ui/RenderFooterButton';
 export const ResultsView = ({ topic, rankings}) => {
     return (
         <div className="page-view">
-        <h2 id="headingResults">{topic}
-        </h2><h3>..ranked!</h3>
+<h2 id="headingResults">{topic} <span className="smaller-text">..ranked!</span></h2>
         {rankings.length > 0 ? (
             <table id="resultsTable">
                 <thead>

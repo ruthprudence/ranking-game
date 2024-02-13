@@ -25,10 +25,16 @@
   .inputTable input {
     border-radius: 2em;
     padding: .2em 1em;
+    width: 60%;
+    justify-content: left;
+    font-size: 1.2em;
   }
 
   .inputTable.inputRow {
     width: 70%;
   }
 
- 
+  #RankBtn {
+    margin: 1em 1em;
+    padding: 1em 1em;
+  }

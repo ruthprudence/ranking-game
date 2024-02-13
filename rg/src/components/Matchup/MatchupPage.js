@@ -25,7 +25,7 @@ const MatchupPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const element = document.getElementById('headingMatchup');
+      const element = document.getElementById('inputTopicDescription');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }

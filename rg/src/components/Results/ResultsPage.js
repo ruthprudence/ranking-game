@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ResultsView } from './ResultsView';
 import { completeMatchup } from '../../features/ui/uiSlice';
 import { SOUNDS} from '../../features/constants';
-
+import { playSound } from '../../features/audio/playSound';
 
 
 const ResultsPage = () => {
@@ -21,6 +21,15 @@ const ResultsPage = () => {
             }
         }
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+          const element = document.getElementById('headingResults');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 0);
+      }, []);
 
     useEffect(() => {
         if (items && items.length > 0) {

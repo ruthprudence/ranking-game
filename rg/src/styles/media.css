@@ -2,7 +2,14 @@
 /* Media Query Adjustments */
 @media (min-width: 100px) and (max-width: 725px) {
 
+  #leftMatchupBtn, #rightMatchupBtn {
 
+    width: 150px;
+  }
+
+  .matchup-buttons-container {
+    height: 250px;
+  }
 
     #headingSplash, #headingInput {
       font-size: 3em;
@@ -16,7 +23,6 @@
     #inputPageTopic{
         font-size: 2em;
         overflow-wrap: break-word;
-        word-break: break-all;
         margin: 0 1em 1em 1em;
         padding: 0 1em 0 1em;
         flex-wrap: wrap;
@@ -29,7 +35,6 @@
     #headingMatchup {
       font-size: 2em;
       overflow-wrap: break-word;
-      word-break: break-all;
       margin: 0 1em;
       padding: 0 1em;
       flex-wrap: wrap;
@@ -46,7 +51,6 @@
       font-size: 2em;
       margin: 1em 0 0 0;
       overflow-wrap: break-word;
-      word-break: break-all;
       width: 75%;
       
   }
@@ -75,7 +79,7 @@
   
 
         .inputTable td input {
-            font-size: 1.75em;
+            font-size: 1.5em;
             width: calc(100% - 50px);
         }
 
@@ -188,18 +192,6 @@
     margin: 0 0 1em 0;
   }
 
-  }
 
-  @media (min-width: 851px) and (max-width: 5200px) {
 
-  .inputTable input {
-    width: 60%;
-    align-items: left;
-    justify-content: left;
-    font-size: 1.5em;
-  }
-  #rankBtn {
-    margin: 2em 1em;
-    padding: 1em 1em;
-  }
   }

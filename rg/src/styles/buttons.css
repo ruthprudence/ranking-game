@@ -46,6 +46,7 @@
   .round-button.add,   .round-button.remove {
     width: 64px;
     height: 64px;
+    font-family: 'Courier New', Courier, monospace;
   }
   
 .matchup-buttons-container {
@@ -65,17 +66,17 @@
 
 #leftMatchupBtn, #rightMatchupBtn {
   padding: 1em 1em;
-  margin: 1em 0 1em 0;
+  margin: 1em 1em;
   border-radius: 1em;
-  font-size: 1.5em;
+  font-size: 1.4em;
   /* word-wrap: break-word; 
   hyphens: auto;
   overflow-wrap: break-all; */
   flex-wrap: wrap;
-  min-width: 20%;
-  max-width: 30%;
+  width: 250px;
 }
 
-.matchupBtn {
-  max-width: 5em;
+
+#submitTopicButton {
+  font-size: 1.2em;
 }

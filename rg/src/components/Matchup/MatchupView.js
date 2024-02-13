@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../UI/Footer';
 import SoundButton from '../UI/SoundButton';
-import Pie from '../UI/Pie.js';
+import Pie from '../UI/Pie/Pie.js';
 
 export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick, currentPairIndex, totalPairs }) => {
   
@@ -17,7 +17,6 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
             <SoundButton className="button matchupBtn"  soundName="eatGhost"  id="leftMatchupBtn" onClick={() => onButtonClick(0)}>
               {items[currentPair[0]].name}
             </SoundButton> 
-            <p id="versus">vs</p> 
             <SoundButton className="button matchupBtn"  id="rightMatchupBtn"  soundName="eatGhost"    onClick={() => onButtonClick(1)}>
               {items[currentPair[1]].name}
             </SoundButton>
@@ -25,12 +24,13 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
         )}
        
       </div>
+     <div> <p id="matchupPrompt">Choose the Winner!</p></div> 
       <div className="pie-wrapper">
         <Pie currentPairIndex={currentPairIndex} totalPairs={totalPairs} />
       </div>
       
       <div className="footer-container matchupFooter">
-      <p id="matchupPrompt">Choose the Winner!</p><Footer /> </div> 
+<Footer /> </div> 
       </div>
     </div>
   );
