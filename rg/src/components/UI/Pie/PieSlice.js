@@ -1,6 +1,6 @@
 // PieSlice.js
 import React from 'react';
-import calculatePath from '../../../features/ui/calculatePath'; 
+import calculatePath from '../../../features/ui/pie/calculatePath'; 
 
 const PieSlice = ({ index, totalSlices, radius }) => {
   const sliceDegree = 360 / totalSlices;

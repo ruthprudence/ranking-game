@@ -1,6 +1,6 @@
 // renderSlices.js
 import React from 'react';
-import PieSlice from '../../components/UI/Pie/PieSlice'; 
+import PieSlice from '../../../components/UI/Pie/PieSlice'; 
 
 const renderSlices = (totalSlices, radius) => {
   const slices = [];

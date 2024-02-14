@@ -1,6 +1,6 @@
 // Pie.js
 import React from 'react';
-import renderSlices from '../../../features/ui/renderSlices'; 
+import renderSlices from '../../../features/ui/pie/renderSlices'; 
 
 const Pie = () => {
   const radius = 50; // Radius of the pie chart
