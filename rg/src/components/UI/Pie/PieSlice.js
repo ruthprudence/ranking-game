@@ -1,24 +1,15 @@
 // PieSlice.js
-const PieSlice = ({ isVisible, sliceAngle, rotationAngle }) => {
-    // The clip-path for a semi-circle slice
-    const clipPath = `polygon(50% 50%, 100% 0, 100% 100%)`;
-  
-    return (
-      <div
-        className="pie-slice"
-        style={{
-          transform: `rotate(${rotationAngle}deg)`,
-          clipPath,
-          transformOrigin: '50% 50%',
-          backgroundColor: isVisible ? 'blue' : 'transparent',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          top: '0',
-          left: '0',
-        }}
-      ></div>
-    );
+import React from 'react';
+
+const PieSlice = ({ area, rotationAngle }) => {
+  // The CSS for the slice will be based on the area and rotationAngle
+  // This is a placeholder style. You will need to adjust it based on your requirements.
+  const sliceStyle = {
+    transform: `rotate(${rotationAngle}deg)`,
+    // Additional styling needed for area and positioning
   };
-  
-  export default PieSlice;
+
+  return <div className="slice" style={sliceStyle}></div>;
+};
+
+export default PieSlice;

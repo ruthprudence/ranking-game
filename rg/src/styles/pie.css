@@ -15,7 +15,7 @@
     background-color: lightgray; /* Background color of the pie */
   }
   
-  .pie-slice {
+  /* .pie-slice {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -26,4 +26,14 @@
     background-color: transparent;
     transform-origin: 50% 50%;
     transition: transform 0.5s ease-in-out;
+  } */
+
+  .slice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: clip-path 0.5s ease-in-out;
   }
+  
