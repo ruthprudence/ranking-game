@@ -1,15 +1,18 @@
 // PieSlice.js
 import React from 'react';
+import calculatePath from '../../../features/ui/calculatePath'; 
 
-const PieSlice = ({ area, rotationAngle }) => {
-  // The CSS for the slice will be based on the area and rotationAngle
-  // This is a placeholder style. You will need to adjust it based on your requirements.
-  const sliceStyle = {
-    transform: `rotate(${rotationAngle}deg)`,
-    // Additional styling needed for area and positioning
-  };
+const PieSlice = ({ index, totalSlices, radius }) => {
+  const sliceDegree = 360 / totalSlices;
+  const startAngle = index * sliceDegree;
+  const endAngle = startAngle + sliceDegree;
 
-  return <div className="slice" style={sliceStyle}></div>;
+  return (
+    <path 
+      d={calculatePath(radius, startAngle, endAngle)}
+      fill={index % 2 === 0 ? 'blue' : 'lightblue'}
+    />
+  );
 };
 
 export default PieSlice;
