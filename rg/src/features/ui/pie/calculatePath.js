@@ -8,7 +8,9 @@ const calculatePath = (radius, startAngle, endAngle) => {
     const endY = radius + radius * Math.sin(Math.PI * endAngle / 180);
     const largeArcFlag = endAngle - startAngle <= 180 ? 0 : 1;
   
-    return `M ${radius},${radius} L ${startX},${startY} A ${radius},${radius} 0 ${largeArcFlag} 1 ${endX},${endY} Z`;
+    const path = `M ${radius},${radius} L ${startX},${startY} A ${radius},${radius} 0 ${largeArcFlag} 1 ${endX},${endY} Z`;
+  console.log(`Calculated Path: ${path}`);
+  return path;
   };
   
   export default calculatePath;

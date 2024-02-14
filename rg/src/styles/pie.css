@@ -18,3 +18,13 @@
     transition: transform 0.5s ease-in-out;
   }
   
+  /* styles.css */
+@keyframes fillAnimation {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+  
+  .animated-slice {
+    animation: fillAnimation 1s ease-out;
+  }
+  
