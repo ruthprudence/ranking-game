@@ -67,6 +67,7 @@ const MatchupPage = () => {
       if (selectedItem) {
         dispatch(incrementVote({ id: selectedItem.id })); 
         dispatch(handleChoiceSelect({ choiceIndex, items }));
+        dispatch({ type: 'ADD_SLICE' });
       }
     }
   };
