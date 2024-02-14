@@ -5,6 +5,7 @@ import uiReducer from './features/ui/uiSlice';
 import validateReducer from './features/validate/validateSlice';
 import bugReducer from './features/bug/bugSlice';
 import audioReducer from './features/audio/audioSlice';
+import pieReducer from './features/ui/pie/pieReducer';
 
 export const store = configureStore({
   reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
     validate: validateReducer,
     bug: bugReducer,
     audio: audioReducer,
+    pie: pieReducer
   },
 });
