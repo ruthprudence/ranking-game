@@ -61,27 +61,27 @@ const MatchupPage = () => {
       }, 550); 
 
       dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
-         
+      dispatch({ type: 'ADD_SLICE' });
     }
   };
   
 
-  const onChoiceSelect = (choiceIndex) => {
-    if (currentPair && currentPair.length === 2) {
-      const selectedItem = items[currentPair[choiceIndex]];
+  // const onChoiceSelect = (choiceIndex) => {
+  //   if (currentPair && currentPair.length === 2) {
+  //     const selectedItem = items[currentPair[choiceIndex]];
     
-      if (selectedItem) {
-        dispatch(incrementVote({ id: selectedItem.id })); 
-        dispatch(handleChoiceSelect({ choiceIndex, items }));
-        dispatch({ type: 'ADD_SLICE' });
-      }
-    }
-  };
+  //     if (selectedItem) {
+  //       dispatch(incrementVote({ id: selectedItem.id })); 
+  //       dispatch(handleChoiceSelect({ choiceIndex, items }));
+
+  //     }
+  //   }
+  // };
 
   return (
     <MatchupView 
       topic={topic}
-      handleChoiceSelect={onChoiceSelect}
+      // handleChoiceSelect={onChoiceSelect}
       currentPair={currentPair}
       items={items}
       onButtonClick={onButtonClick}
