@@ -47,6 +47,7 @@
     width: 40px;
     height: 40px;
     font-family: 'Courier New', Courier, monospace;
+    padding: 0 0 0 0;
   }
   
 .matchup-buttons-container {
@@ -69,11 +70,12 @@
   margin: 1em 1em;
   border-radius: 1em;
   font-size: 1.4em;
-  /* word-wrap: break-word; 
+  word-wrap: break-word;
   hyphens: auto;
-  overflow-wrap: break-all; */
+  overflow-wrap: break-all; 
   flex-wrap: wrap;
   width: 250px;
+  height: 250px;
 }
 
 
