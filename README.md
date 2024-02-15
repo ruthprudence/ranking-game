@@ -8,6 +8,8 @@ See live demo: [ruthprudence.com/rg](https://ruthprudence.com/rg/)
 
 I used React because of the app's single-page nature; I went with Redux for managing state properties throughout. I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
 
+I'm using VS Code, Postman, MySQL Workbench dev tools (Redux, Node) and Git. 
+
 ---
 
 ## Project Overview
@@ -26,9 +28,13 @@ The Ranking Game is a React application that features dynamic input fields, real
 I prioritized deterministic features/components that could be unit tested, and built to scale. For example, The React App calls the RangkingGame file, which controls which page the user sees--this in turn is managed by the gameSlice feature, each part is handling one part of the code/logic.
 
 There are four "pages" a user views:
+
 - **Splash Page**: A landing place for the user, where they can enter a topic. The topic is limited by character length (the user will observe no further text input being entered) and the submit button isn't allowed to be clicked until valid text is in the input box.
+
 - **Input Page**: The input page is where users enter their topics to compare, or rank: they can add rows (until the max limit is reached, which is default set to 12), and rows can be added/subtracted with colorful buttons (green for add, red for subtract). The submit button has a similar validation, where all rows must have valid text before submission, and this page also includes a link in the footer to reset the game and start over: this reset resets all aspects of state, and allows the user a fresh experpience without reloading the page.
+
 - **Matchup Page**: Users compare items they submitted earlier, one match a time--the pairing logic is set (and deterministic) to present a particular order to the user, snaking through their choices (so as to minimize repetition). Upon clicking, the vote is recorded and a small CSS effect alerts the user as to which choice was clicked. This proceeds until all matchups have been completed.
+
 - **Results Page**: After finishing the final matchup, the user is presented with a scorecard of their voting. Items are ranked, and any ties subtract from the next one (for example, if there are two items tied for first-place, the next item will be ranked third-place).
 
 ### Key Features
