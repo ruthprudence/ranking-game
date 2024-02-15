@@ -18,6 +18,7 @@ const MatchupPage = () => {
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.ui.topic);
   const items = useSelector((state) => state.ui.items);
+  const pairs = useSelector((state) => state.ui.pairs);
 
   const totalPairs = useSelector((state) => state.ui.pairs.length);
   const currentPairIndex = useSelector((state) => state.ui.currentPairIndex);
@@ -31,6 +32,11 @@ const MatchupPage = () => {
       }
     }, 0);
   }, []);
+
+  useEffect(() => {
+    // Dispatch SET_TOTAL_SLICES action with the length of pairs
+    dispatch({ type: 'SET_TOTAL_SLICES', payload: pairs });
+  }, [pairs, dispatch]);
   
 
   useEffect(() => {
