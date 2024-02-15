@@ -1,7 +1,7 @@
 /* Styles for SVG Pie Chart Container */
 .pie-wrapper {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
+    width: 250px; /* Adjust as needed */
+    height: 250px; /* Adjust as needed */
     margin: auto; /* Center the pie chart if desired */
   }
   
