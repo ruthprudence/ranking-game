@@ -10,30 +10,30 @@ const initialState = {
   
     switch (action.type) {
       case 'ADD_SLICE':
-        console.log('Current filledSlices:', state.filledSlices); // Log current filledSlices
+        // console.log('Current filledSlices:', state.filledSlices); // Log current filledSlices
   
         if (state.filledSlices < state.totalSlices) {
           const updatedFilledSlices = state.filledSlices + 1;
-          console.log('Incrementing filledSlices to:', updatedFilledSlices); // Log the incremented value
+        //   console.log('Incrementing filledSlices to:', updatedFilledSlices); // Log the incremented value
   
           return {
             ...state,
             filledSlices: updatedFilledSlices,
           };
         } else {
-          console.log('filledSlices reached maximum limit:', state.filledSlices);
+        //   console.log('filledSlices reached maximum limit:', state.filledSlices);
         }
         return state;
   
       case 'SET_TOTAL_SLICES':
-        console.log('Setting totalSlices to:', action.payload.length); // Log the payload length
+        // console.log('Setting totalSlices to:', action.payload.length); // Log the payload length
   
         return {
           ...state,
           totalSlices: action.payload.length, // Set total slices to the length of pairs
         };
     case 'RESET_PIE':
-        console.log('Resetting pie state to initial state');
+        // console.log('Resetting pie state to initial state');
         return { ...initialState, totalSlices: 0, filledSlices: 0  };
       default:
         return state;
