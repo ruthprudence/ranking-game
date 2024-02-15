@@ -4,17 +4,17 @@
 
 This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating my full-stack development, testing, and project management skills.
 
+Built using VS Code, Postman, MySQL, dev tools (Redux, Node) and Git.
+
 See live demo: [ruthprudence.com/rg](https://ruthprudence.com/rg/)
-
-I used React because of the app's single-page nature; I went with Redux for managing state properties throughout. I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
-
-I'm using VS Code, Postman, MySQL Workbench dev tools (Redux, Node) and Git. 
 
 ---
 
 ## Project Overview
 
 The Ranking Game is a React application that features dynamic input fields, real-time updates, and an intuitive interface, making decision-making seamless.
+
+I used React because of the app's single-page nature; I went with Redux for managing state properties throughout. I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
 
 ### Technical Stack
 
