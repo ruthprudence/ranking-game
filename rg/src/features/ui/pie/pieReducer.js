@@ -6,7 +6,7 @@ const initialState = {
   };
   
   const pieReducer = (state = initialState, action) => {
-    console.log('Pie Reducer Action:', action); // Log the action received
+    // console.log('Pie Reducer Action:', action); // Log the action received
   
     switch (action.type) {
       case 'ADD_SLICE':
@@ -34,7 +34,7 @@ const initialState = {
         };
     case 'RESET_PIE':
         console.log('Resetting pie state to initial state');
-        return { ...initialState };
+        return { ...initialState, totalSlices: 0, filledSlices: 0  };
       default:
         return state;
     }

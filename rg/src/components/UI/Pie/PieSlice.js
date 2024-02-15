@@ -7,7 +7,7 @@ const PieSlice = ({ index, totalSlices, radius }) => {
   const startAngle = index * sliceDegree;
   const endAngle = startAngle + sliceDegree;
   const path = calculatePath(radius, startAngle, endAngle);
-  console.log(`Slice ${index}: ${path}`);
+//   console.log(`Slice ${index}: ${path}`);
 
   return (
     <path d={path} fill={index % 2 === 0 ? 'blue' : 'lightblue'} />

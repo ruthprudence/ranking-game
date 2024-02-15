@@ -4,7 +4,6 @@ import { setCurrentPage } from '../game/gameSlice';
 import { useDispatch } from 'react-redux';
 import { resetState } from './uiSlice';
 import SoundButton from '../../components/UI/SoundButton';
-import ResetButton from '../../components/UI/ResetButton';
 
 const defaultText = "Reset (Lose Progress)";
 
@@ -14,6 +13,7 @@ export const RenderFooterButton = ({ currentPage }) => {
   const handleReset = () => {
     dispatch(resetState());
     dispatch(setCurrentPage(PAGES.SPLASH));
+    dispatch({ type: 'RESET_PIE' });
   };
 
   switch (currentPage) {
