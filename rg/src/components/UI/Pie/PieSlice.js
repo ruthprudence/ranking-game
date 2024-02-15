@@ -1,3 +1,4 @@
+
 // PieSlice.js
 import React from 'react';
 import calculatePath from '../../../features/ui/pie/calculatePath';
@@ -7,10 +8,23 @@ const PieSlice = ({ index, totalSlices, radius }) => {
   const startAngle = index * sliceDegree;
   const endAngle = startAngle + sliceDegree;
   const path = calculatePath(radius, startAngle, endAngle);
-//   console.log(`Slice ${index}: ${path}`);
+
+  // Create a path for the arc border
+  const borderPath = calculatePath(radius, startAngle, endAngle, true); // Adjust the calculatePath function to create a path for the border
 
   return (
-    <path d={path} fill={index % 2 === 0 ? 'blue' : 'lightblue'} />
+    <>
+      <path 
+        d={path} 
+        fill="yellow"
+      />
+      <path 
+        d={borderPath} 
+        fill="none" 
+        stroke="black" 
+        strokeWidth="0.5"
+      />
+    </>
   );
 };
 
