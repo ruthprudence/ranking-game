@@ -69,13 +69,12 @@
   padding: 1em 1em;
   margin: 1em 1em;
   border-radius: 1em;
-  font-size: 1.4em;
-  word-wrap: break-word;
+  font-size: 1.4em; 
+  width: 220px;
+  height: 220px;
+  overflow-wrap: break-word;
   hyphens: auto;
-  overflow-wrap: break-all; 
-  flex-wrap: wrap;
-  width: 250px;
-  height: 250px;
+  word-break: break-word;
 }
 
 
