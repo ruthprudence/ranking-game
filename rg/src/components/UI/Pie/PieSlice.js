@@ -15,18 +15,19 @@ const PieSlice = ({ index, totalSlices, radius }) => {
 
   return (
     <>
-      <path 
-        d={path} 
-        fill="yellow"
-      />
-      <path 
-        d={borderPath} 
-        fill="none" 
-        stroke="black" 
-        strokeWidth="0.5"
-      />
+        <path 
+            className="pie-slice" // Apply the class for animation
+            d={path} 
+            fill="yellow"
+        />
+        <path 
+            d={borderPath} 
+            fill="none" 
+            stroke="black" 
+            strokeWidth=".5"
+        />
     </>
-  );
+);
 };
 
 export default PieSlice;

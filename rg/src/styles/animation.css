@@ -62,10 +62,10 @@
   
   .button-clicked {
     animation:
-      depress 0.55s forwards,
-      flashBorder 0.55s infinite,
+      depress 0.22s forwards,
+      flashBorder 0.22s infinite,
       /* enlarge 0.65s forwards, */
-      fadeOut .55s forwards;
+      fadeOut .22s forwards;
     background-color: royalblue;
     color: #ffffff;
     font-weight: bold;

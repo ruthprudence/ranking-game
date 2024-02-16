@@ -24,7 +24,7 @@ const InputPage = () => {
         if (rows.length >= 6) {
             // Delay the scroll to allow the DOM to update
             setTimeout(() => {
-                window.scrollBy({ top: 100, behavior: 'smooth' });
+                window.scrollBy({ top: 105, behavior: 'smooth' });
             }, 100); // Adjust the delay as needed
         }
     }, [rows.length]);
@@ -43,7 +43,7 @@ const InputPage = () => {
         if (rows.length > 3) {
             // Scroll up slightly when a row is removed
             setTimeout(() => {
-                window.scrollBy({ top: -100, behavior: 'smooth' });
+                window.scrollBy({ top: -105, behavior: 'smooth' });
             }, 100); // Adjust the delay as needed
         }
     };

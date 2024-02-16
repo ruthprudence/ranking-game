@@ -1,30 +1,23 @@
 /* Styles for SVG Pie Chart Container */
 .pie-wrapper {
-    width: 250px; /* Adjust as needed */
-    height: 250px; /* Adjust as needed */
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
     margin: auto; /* Center the pie chart if desired */
-  }
-  
-  /* Styles for SVG Pie Chart */
-  .pie-svg {
+    padding: 1em 1em;
+}
+
+/* Styles for SVG Pie Chart */
+.pie-svg {
     display: block; /* Ensure SVG is block-level for proper rendering */
     width: 100%; /* Full width of the container */
     height: 100%; /* Full height of the container */
-  }
-  
-  /* Animation for Pie Slices */
-  @keyframes sliceAnimation {
-    from {
-      transform: scale(0);
-      transform-origin: 50% 50%;
-    }
-    to {
-      transform: scale(1);
-      transform-origin: 50% 50%;
-    }
-  }
-  
-  .pie-slice {
-    animation: sliceAnimation 1s ease-out; /* Apply animation to each slice */
-  }
-  
+    padding: 1px 1px 1px 1px;
+    margin: 1px 1px 1px 1px;
+}
+
+.pie-slice {
+    /* stroke: black; 
+    stroke-width: 1; Thickness of the stroke */
+    fill: yellow; /* Fill color of the slice */
+    transform-origin: 50% 50%; /* Ensure rotation occurs around the center */
+}

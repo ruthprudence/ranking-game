@@ -1,0 +1,13 @@
+/* Animation for Pie Slices */
+@keyframes sliceAnimation {
+    from {
+        opacity: 0; /* Start with slice invisible */
+    }
+    to {
+        opacity: 1; /* Fade in the slice */
+    }
+}
+
+.pie-slice {
+    animation: sliceAnimation .4s ease-out; /* Apply animation to each slice */
+}
