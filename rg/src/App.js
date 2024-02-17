@@ -8,8 +8,10 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
 
+  const basePath = process.env.REACT_APP_BASENAME || '/';
+
   return (
-    <Router basename={process.env.REACT_APP_BASENAME || '/'}>
+    <Router basename={basePath}>
 
             <div className="App">
                 <Audio />

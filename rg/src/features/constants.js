@@ -58,10 +58,10 @@ export const SOUND_NAME = {
     
     const getSoundPaths = (basePath) => {
         return Object.keys(SOUND_FILES).reduce((acc, key) => {
-            acc[key] = `${basePath}assets/audio/${SOUND_FILES[key]}`;
-            return acc;
+          acc[key] = `${basePath}assets/audio/${SOUND_FILES[key]}`;
+          return acc;
         }, {});
-    };
+      };
     
     const audioBasePath = process.env.REACT_APP_AUDIO_BASE_PATH || '/';
     export const SOUND_PATH = getSoundPaths(audioBasePath);
