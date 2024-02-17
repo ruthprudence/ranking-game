@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ResultsView } from './ResultsView';
 import { completeMatchup } from '../../features/ui/uiSlice';
-import { SOUNDS} from '../../features/constants';
-import { playSound } from '../../features/audio/playSound';
+import { SOUND_NAME} from '../../features/constants';
 
 
 const ResultsPage = () => {
@@ -33,7 +32,7 @@ const ResultsPage = () => {
 
     useEffect(() => {
         if (items && items.length > 0) {
-            playSound(SOUNDS.VICTORY); 
+            playSound(SOUND_NAME.VICTORY); 
             dispatch(completeMatchup());
         }
     }, [dispatch, items, muted]);

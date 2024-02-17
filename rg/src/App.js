@@ -4,7 +4,6 @@ import Audio from './Audio.js';
 import RankingGame from './RankingGame.js';
 
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import PanelPage from './components/Panel/PanelPage.js';
 
 
 function App() {
@@ -15,8 +14,6 @@ function App() {
             <div className="App">
                 <Audio />
                 <Routes>
-                    {/* Define the route for the Panel page */}
-                    <Route path="/panel" element={<PanelPage />} />
 
                     {/* Define the default route */}
                     <Route path="/" element={<RankingGame />} />
