@@ -25,3 +25,5 @@ yarn-error.log*
 .env
 tables.sql
 updateHomepage.js
+.env.production
+.env.staging

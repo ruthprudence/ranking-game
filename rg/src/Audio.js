@@ -2,17 +2,18 @@
  * 
  * This component is responsible for rendering the audio elements that are used throughout the game.
 */
+// Audio.js
 import React from 'react';
-import {SOUNDS}  from './features/constants';
-const Audio = () => {
+import { SOUND_NAME, SOUND_PATH } from './features/constants'; // Adjust the import path as needed
 
+const Audio = () => {
     return (
         <div>
-            <audio id={SOUNDS.EATGHOST} src="/rg/assets/audio/pacman_eatghost.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.EATFRUIT} src="/rg/assets/audio/pacman_eatfruit.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.UHOH} src="/rg/assets/audio/pacman_death.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.VICTORY} src="/rg/assets/audio/pacman_extrapac.wav" preload="auto" hidden></audio>
-            <audio id={SOUNDS.INTERMISSION} src="/rg/assets/audio/pacman_intermission.wav" preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.EATGHOST} src={SOUND_PATH.EATGHOST} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.EATFRUIT} src={SOUND_PATH.EATFRUIT} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.UHOH} src={SOUND_PATH.DEATH} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.VICTORY} src={SOUND_PATH.EXTRAPAC} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.INTERMISSION} src={SOUND_PATH.INTERMISSION} preload="auto" hidden></audio>
         </div>
     );
 };

@@ -40,10 +40,28 @@ export const PLACEHOLDERS = {
     INPUT_ROWS: 'Enter an item',
 };
 
-export const SOUNDS = {
+export const SOUND_NAME = {
     EATGHOST: 'eatGhost',
     EATFRUIT: 'eatFruit',
     UHOH: 'uhOh',
     VICTORY: 'victorySound',
     INTERMISSION: 'intermission',
 };
+
+    const SOUND_FILES = {
+        EATGHOST: 'pacman_eatghost.wav',
+        EATFRUIT: 'pacman_eatfruit.wav',
+        DEATH: 'pacman_death.wav',
+        EXTRAPAC: 'pacman_extrapac.wav',
+        INTERMISSION: 'pacman_intermission.wav'
+    };
+    
+    const getSoundPaths = (basePath) => {
+        return Object.keys(SOUND_FILES).reduce((acc, key) => {
+            acc[key] = `${basePath}assets/audio/${SOUND_FILES[key]}`;
+            return acc;
+        }, {});
+    };
+    
+    const audioBasePath = process.env.REACT_APP_AUDIO_BASE_PATH || '/';
+    export const SOUND_PATH = getSoundPaths(audioBasePath);
