@@ -21,8 +21,9 @@
     "scripts": {
         "start": "react-scripts start --port 8064",
         "build": "react-scripts build",
+        "build:subdirectory": "node updateHomepage.js && react-scripts build",
         "test": "jest --config=jest.config.js --verbose"
-    },
+      },
     "eslintConfig": {
         "extends": [
             "react-app",

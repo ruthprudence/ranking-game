@@ -3,9 +3,6 @@ import './App.css';
 import Audio from './Audio.js';
 import RankingGame from './RankingGame.js';
 
-
-
-
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import PanelPage from './components/Panel/PanelPage.js';
 
@@ -13,7 +10,8 @@ import PanelPage from './components/Panel/PanelPage.js';
 function App() {
 
   return (
-    <Router  basename="/rg">
+    <Router basename={process.env.REACT_APP_BASENAME || '/'}>
+
             <div className="App">
                 <Audio />
                 <Routes>
