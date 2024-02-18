@@ -6,7 +6,7 @@ This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--
 
 Built using VS Code, Postman, MySQL, dev tools (Redux, Node) and Git.
 
-See live demo: [rg.ruthprudence.com](https://rg.ruthprudence.com)
+See live demo: [https://rg.ruthprudence.com](https://rg.ruthprudence.com)
 
 ---
 
