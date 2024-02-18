@@ -77,7 +77,28 @@
   word-break: break-word;
 }
 
-
 #submitTopicButton {
   font-size: 1.2em;
+  padding: .2em 1em;
+  margin: .05em 1em;
+  border-radius: 2em;
+  cursor: pointer;
+  animation: borderAnimation 0.4s linear;
+}
+
+#submitTopicButton[enabled] {
+  border: 2px solid black;
+  
+}
+
+#submitTopicButton[disabled] {
+  border: 2px dashed gray;
+}
+
+.button-enabled {
+  animation: borderAnimation 0.4s linear;
+}
+
+.button-disabled {
+  border: 2px dashed gray;
 }

@@ -9,11 +9,13 @@ import { SOUND_NAME, SOUND_PATH } from './features/constants'; // Adjust the imp
 const Audio = () => {
     return (
         <div>
-          {Object.entries(SOUND_PATH).map(([key, path]) => (
-            <audio key={key} id={key} src={path} preload="auto" hidden />
-          ))}
+            <audio id={SOUND_NAME.EATGHOST} src={SOUND_PATH.EATGHOST} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.EATFRUIT} src={SOUND_PATH.EATFRUIT} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.UHOH} src={SOUND_PATH.DEATH} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.VICTORY} src={SOUND_PATH.EXTRAPAC} preload="auto" hidden></audio>
+            <audio id={SOUND_NAME.INTERMISSION} src={SOUND_PATH.INTERMISSION} preload="auto" hidden></audio>
         </div>
-      );
-    };
-    
-    export default Audio;
+    );
+};
+
+export default Audio;

@@ -91,3 +91,23 @@
       depress 0.4s forwards,
       enlarge 0.4s forwards;
   }
+
+
+  .animate-border {
+    animation: borderAnimation 0.4s linear;
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border-top: 2px solid black;
+    }
+    25% {
+      border-right: 2px solid black;
+    }
+    50% {
+      border-bottom: 2px solid black;
+    }
+    100% {
+      border-left: 2px solid black;
+    }
+  }

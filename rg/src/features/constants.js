@@ -48,20 +48,12 @@ export const SOUND_NAME = {
     INTERMISSION: 'intermission',
 };
 
-    const SOUND_FILES = {
-        EATGHOST: 'pacman_eatghost.wav',
-        EATFRUIT: 'pacman_eatfruit.wav',
-        DEATH: 'pacman_death.wav',
-        EXTRAPAC: 'pacman_extrapac.wav',
-        INTERMISSION: 'pacman_intermission.wav'
-    };
-    
-    const getSoundPaths = (basePath) => {
-        return Object.keys(SOUND_FILES).reduce((acc, key) => {
-          acc[key] = `${basePath}assets/audio/${SOUND_FILES[key]}`;
-          return acc;
-        }, {});
-      };
-    
-    const audioBasePath = process.env.REACT_APP_AUDIO_BASE_PATH || '/';
-    export const SOUND_PATH = getSoundPaths(audioBasePath);
+const SOUND_FILES = {
+    EATGHOST: '/assets/audio/pacman_eatghost.wav',
+    EATFRUIT: '/assets/audio/pacman_eatfruit.wav',
+    DEATH: '/assets/audio/pacman_death.wav',
+    EXTRAPAC: '/assets/audio/pacman_extrapac.wav',
+    INTERMISSION: '/assets/audio/pacman_intermission.wav'
+};
+
+export const SOUND_PATH = SOUND_FILES;
