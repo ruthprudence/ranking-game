@@ -83,16 +83,16 @@
   margin: .05em 1em;
   border-radius: 2em;
   cursor: pointer;
-  animation: borderAnimation 0.4s linear;
-}
-
-#submitTopicButton[enabled] {
-  border: 2px solid black;
-  
 }
 
 #submitTopicButton[disabled] {
   border: 2px dashed gray;
+}
+
+#submitTopicButton:not(:disabled) {
+  /* Styles for enabled state */
+  border: 2px solid black;
+  animation: borderAnimation 0.5s linear;
 }
 
 .button-enabled {
@@ -101,4 +101,9 @@
 
 .button-disabled {
   border: 2px dashed gray;
+}
+
+#RankBtn {
+margin: 1em 1em;
+padding: 1em 1em;
 }

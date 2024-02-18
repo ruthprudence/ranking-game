@@ -31,8 +31,8 @@
 
   @keyframes enlarge {
     0% { font-size: 100%; }
-    50% {font-size: 150%; }
-    70% {font-size: 140%;}
+    50% {font-size: 120%; }
+    70% {font-size: 110%;}
     100% {font-size: 100%;}
   }
 
@@ -64,12 +64,13 @@
     animation:
       depress 0.22s forwards,
       flashBorder 0.22s infinite,
-      /* enlarge 0.65s forwards, */
+      enlarge .22s forwards,
       fadeOut .22s forwards;
     background-color: royalblue;
     color: #ffffff;
     font-weight: bold;
     border: 2px solid royalblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
   
 
