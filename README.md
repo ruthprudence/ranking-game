@@ -5,7 +5,7 @@
 [https://rg.ruthprudence.com](https://rg.ruthprudence.com)
 
 
-This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating my full-stack development, testing, and project management skills.
+This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating full-stack development, testing, and project management skills.
 
 Built using VS Code, Postman, MySQL, dev tools (Redux, Node) and Git.
 
