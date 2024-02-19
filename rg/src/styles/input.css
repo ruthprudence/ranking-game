@@ -34,3 +34,41 @@
     width: 70%;
   }
 
+#bug-description, #steps-to-reproduce, #contact-email {
+    border-radius: 2em;
+    display: block;
+    margin: 1em 1em 1em 1em;
+    margin: 1em 1em 1em 1em;
+    width: 60%;
+    font-size: 1.5em;
+    padding: 1em 1em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .bug-view {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally in the container */
+    justify-content: center; /* Center items vertically in the container */
+    max-width: 60%;
+    margin: auto; /* Center the container itself */
+    text-align: center; /* Center the text inside the container */
+  }
+
+  .bug-view label {
+    margin: 0 0;
+    font-size: 1.5em;
+  }
+
+  #bug-description {
+    height: 100px;
+  }
+
+  #steps-to-reproduce {
+    height: 200px;
+  }
+
+  .success-message, .error-message {
+    font-size: 2em;
+  }
