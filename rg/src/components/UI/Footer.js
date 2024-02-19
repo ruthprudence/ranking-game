@@ -24,7 +24,7 @@ const Footer = () => {
             <p className="copyright">Copyright 2024</p>
             <p className="copyright">Ruth Prudence, All Rights Reserved</p>
             <RenderFooterButton currentPage={currentPage} />
-            {/* <RenderBugButton currentPage={currentPage} /> */}
+            <RenderBugButton currentPage={currentPage} />
         </footer>
     );
 };
