@@ -2,49 +2,48 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const routes = require('./routes'); // Assuming routes.js is in the same directory
+const routes = require('./routes'); // Ensure routes.js is correctly set up
 
-// // Redirect HTTP to HTTPS
-// app.use((req, res, next) => {
-//     if (req.secure) {
-//       next();
-//     } else {
-//       const host = req.headers.host.replace(/:\d+$/, ''); // Remove port number if present
-//       res.redirect(`https://${host}${req.url}`);
-//     }
-//   });
+// Middleware to Redirect HTTP to HTTPS
+app.use((req, res, next) => {
+  if (!req.secure && req.get('X-Forwarded-Proto') !== 'https') {
+    const host = req.get('Host');
+    return res.redirect(`https://${host}${req.url}`);
+  }
+  next();
+});
 
-// Configure CORS for a specific domain
+// CORS Configuration
+// Uncomment and customize this if you need to restrict the API to specific domains
 // app.use(cors({
-//     origin: 'https://ruthprudence.com/rg'
+//   origin: 'https://ruthprudence.com/rg'
 // }));
-
 app.use(cors());
 
-
-
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'build')));
+// Parse JSON payloads
 app.use(express.json());
 
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Serve assets from the public directory
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
-// Use the routes
+// Use defined routes for the application
 app.use(routes);
 
 // Route to serve the React application
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Start the server
+// Start the server on the specified PORT
 const PORT = process.env.PORT || 8011;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 
+// Trust proxy for secure cookies and session handling
 app.set('trust proxy', true);
-
 
 module.exports = app;

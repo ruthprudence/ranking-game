@@ -48,12 +48,24 @@ export const SOUND_NAME = {
     INTERMISSION: 'intermission',
 };
 
+// const SOUND_FILES = {
+//     EATGHOST: '/assets/audio/pacman_eatghost.wav',
+//     EATFRUIT: '/assets/audio/pacman_eatfruit.wav',
+//     DEATH: '/assets/audio/pacman_death.wav',
+//     EXTRAPAC: '/assets/audio/pacman_extrapac.wav',
+//     INTERMISSION: '/assets/audio/pacman_intermission.wav'
+// };
+
 const SOUND_FILES = {
-    EATGHOST: '/assets/audio/pacman_eatghost.wav',
-    EATFRUIT: '/assets/audio/pacman_eatfruit.wav',
-    DEATH: '/assets/audio/pacman_death.wav',
-    EXTRAPAC: '/assets/audio/pacman_extrapac.wav',
-    INTERMISSION: '/assets/audio/pacman_intermission.wav'
+    EATGHOST: '/rg/assets/audio/pacman_eatghost.wav',
+    EATFRUIT: '/rg/assets/audio/pacman_eatfruit.wav',
+    DEATH: '/rg/assets/audio/pacman_death.wav',
+    EXTRAPAC: '/rg/assets/audio/pacman_extrapac.wav',
+    INTERMISSION: '/rg/assets/audio/pacman_intermission.wav'
 };
+
+
+
+
 
 export const SOUND_PATH = SOUND_FILES;
