@@ -1,0 +1,8 @@
+67.168.60.195 - - [19/Feb/2024:16:39:59 -0800] "GET /static/js/main.e6dc1401.js HTTP/2.0" 200 70318 "https://rg.ruthprudence.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" 
+67.168.60.195 - - [19/Feb/2024:16:40:00 -0800] "GET /assets/audio/pacman_eatghost.wav HTTP/2.0" 206 6948 "https://rg.ruthprudence.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" 
+67.168.60.195 - - [19/Feb/2024:16:40:00 -0800] "GET /assets/audio/pacman_intermission.wav HTTP/2.0" 206 57895 "https://rg.ruthprudence.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" 
+67.168.60.195 - - [19/Feb/2024:16:40:00 -0800] "GET /assets/audio/pacman_eatfruit.wav HTTP/2.0" 206 5412 "https://rg.ruthprudence.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" 
+67.168.60.195 - - [19/Feb/2024:19:00:03 -0800] "GET /assets/audio/pacman_extrapac.wav HTTP/2.0" 206 21543 "https://rg.ruthprudence.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" 
+67.168.60.195 - - [19/Feb/2024:21:06:00 -0800] "GET /rg/test HTTP/2.0" 404 433 "-" "curl/8.1.2" 
+67.168.60.195 - - [19/Feb/2024:21:07:15 -0800] "GET /api/test HTTP/2.0" 404 433 "-" "curl/8.1.2" 
+67.168.60.195 - - [19/Feb/2024:21:09:23 -0800] "GET /api/test HTTP/2.0" 404 433 "-" "curl/8.1.2" 

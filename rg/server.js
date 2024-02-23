@@ -1,49 +1,53 @@
-const path = require('path');
 const express = require('express');
-const cors = require('cors');
+const { createDatabaseConnection, closeDatabaseConnection } = require('./database');
 const app = express();
-const routes = require('./routes'); // Ensure routes.js is correctly set up
+const cors = require('cors');
+const path = require('path');
 
-// Middleware to Redirect HTTP to HTTPS
+// CORS configuration
+const corsOptions = {
+  origin: 'https://rg.ruthprudence.com', // Updated origin
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
+// JSON parser middleware
+app.use(express.json());
+
+// HTTPS redirection middleware
 app.use((req, res, next) => {
   if (!req.secure && req.get('X-Forwarded-Proto') !== 'https') {
     const host = req.get('Host');
-    return res.redirect(`https://${host}${req.url}`);
+    res.redirect(`https://${host}${req.url}`);
+  } else {
+    next();
   }
-  next();
 });
 
-// CORS Configuration
-// Uncomment and customize this if you need to restrict the API to specific domains
-// app.use(cors({
-//   origin: 'https://ruthprudence.com/rg'
-// }));
-app.use(cors());
-
-// Parse JSON payloads
-app.use(express.json());
-
-// Serve static files from the React app's build directory
+// Static file serving
 app.use(express.static(path.join(__dirname, 'build')));
-
-// Serve assets from the public directory
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
-// Use defined routes for the application
+// Database error handling
+const handleDatabaseError = (error, res) => {
+  console.error('Database error:', error);
+  res.status(500).send('Internal Server Error');
+};
+
+// Include the router file for bug report and test endpoints
+const routes = require('./routes'); // Ensure this points to the correct routes file
 app.use(routes);
 
-// Route to serve the React application
+// Catch-all route for serving React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Start the server on the specified PORT
-const PORT = process.env.PORT || 8011;
+const PORT = process.env.PORT || 443; // Standard HTTPS port
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Trust proxy for secure cookies and session handling
 app.set('trust proxy', true);
 
 module.exports = app;

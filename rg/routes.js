@@ -4,7 +4,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 // POST endpoint to handle bug report submissions
-router.post('/api/bug-report', 
+router.post('/bug-report', 
   [
     body('description').trim().escape(),
     body('stepsToReproduce').trim().escape(),

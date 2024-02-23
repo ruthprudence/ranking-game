@@ -95,10 +95,10 @@
 
 
   .animate-border {
-    animation: borderAnimation 0.4s linear;
+    animation: borderAnimation 1s linear;
   }
   
-  @keyframes borderAnimation {
+  /* @keyframes borderAnimation {
     0% {
       border-top: 2px solid black;
     }
@@ -111,4 +111,82 @@
     100% {
       border-left: 2px solid black;
     }
+  } */
+
+  @keyframes borderAnimation {
+    0% {
+      border-left: 2px solid black;
+    }
+    25% {
+      border-bottom: 2px solid black;
+    }
+    50% {
+      border-right: 2px solid black;
+    }
+    100% {
+      border-top: 2px solid black;
+    }
   }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(130%);
+    }
+    to {
+      transform: translateX(-130%);
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateY(-10px);
+    }
+    25% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    70% {
+      transform: translate((-10px));
+    }
+  }
+  
+  @keyframes pulsate {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.7);
+    }
+}
+
+.pulsate-animation {
+  animation: 
+    pulsate 1.5s ease-in-out infinite,
+    pulsateColor 2s ease-in-out infinite,
+    textColorChange 1.2s ease-in-out infinite;
+    
+}
+
+
+@keyframes pulsateColor {
+  0%, 100% {
+      background-color: initial;
+  }
+  50% {
+      background-color: #007BFF; /* Your desired pulsating color */
+  }
+}
+
+@keyframes textColorChange {
+  0%, 100% {
+    color: initial; /* or specify your original color if 'initial' doesn't work */
+  }
+  50% {
+    color: white;
+  }
+}

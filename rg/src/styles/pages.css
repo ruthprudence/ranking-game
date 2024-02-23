@@ -1,3 +1,38 @@
+/* Global Button Style */
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  padding: 1em;
+  border-radius: 2em;
+}
+
+.button {
+  padding: .2em 1em;
+  margin: .05em 1em;
+  font-size: 1rem;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+
+
+  button.submit {
+    border-radius: 2em;
+  }
+
+  /* Round Button Styles */
+.round-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
 /* Base Styles */
 .App {
     text-align: center;
@@ -19,6 +54,11 @@
 
 
 /* Specific Page Styles */
+
+
+
+
+
 .page-view {
     display: flex;
     flex-direction: column;
@@ -27,6 +67,21 @@
     padding: .5em;
     height: auto; 
     /* width: auto; */
+  }
+
+  /* Splash Page Styles  */
+  
+  #submitTopicButton {
+    font-size: 1.2em;
+    padding: .2em 1em;
+    margin: .05em 1em;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+  
+  .submitTopicButtonDisabled {
+    border: 2px dashed gray;
+    animation: borderAnimation 1s linear;
   }
 
   #topicInput {
@@ -38,6 +93,8 @@
     font-family: 'Courier New', monospace;
     size: 3.2em;
   }
+
+  /* Input Page Styles  */
 
 #inputPrompt {
   max-width: 100%;
@@ -74,6 +131,8 @@ td.remove-button-cell {
 td.index-column {
   max-width: 20px;
 }
+
+/* Matchup Page Styles  */
 
 .matchup-page-view {
   display: flex;
@@ -122,4 +181,91 @@ td.index-column {
 
 .smaller-text {
   font-size: 0.8em;
+}
+
+#splashPrompt {
+  font-family: 'Courier New', monospace;
+  size: 3.2em;
+  /* animation: marquee 7s linear infinite; */
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+
+.marquee-animation {
+  animation: marquee 7s linear infinite;
+}
+
+.shake-animation {
+  animation: shake 2s linear infinite;
+}
+
+/* Results Page Styles  */
+
+
+
+
+  
+.round-button.add {
+  background-color: green;
+}
+
+.round-button.remove {
+  background-color: red; 
+}
+
+
+
+.round-button.add,   .round-button.remove {
+  width: 40px;
+  height: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0 0 0 0;
+}
+
+.matchup-buttons-container {
+display: flex;
+justify-content: center;
+align-items: center; 
+border-radius: 1em; 
+hyphens: auto;
+overflow-wrap: break-word;
+word-break: break-all;
+cursor: pointer;
+width: 100%;
+height: 300px;
+margin: 0 0 0 0;
+padding: 0 0 0 0;
+}
+
+#leftMatchupBtn, #rightMatchupBtn {
+padding: 1em 1em;
+margin: 1em 1em;
+border-radius: 1em;
+font-size: 1.4em; 
+width: 220px;
+height: 220px;
+overflow-wrap: break-word;
+hyphens: auto;
+word-break: break-word;
+}
+
+.button-enabled {
+animation: borderAnimation 0.4s linear;
+}
+
+.button-disabled {
+border: 2px dashed gray;
+}
+
+#RankBtn {
+margin: 1em 1em;
+padding: 1em 1em;
+}
+
+#submitBug, #resetBug {
+margin: .5em .5em;
+border-radius: 2em;
+padding: .5em .5em;
+font-size: 1.2em;
 }
