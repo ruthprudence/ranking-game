@@ -5,32 +5,37 @@ import Footer from '../UI/Footer';
 import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 import SoundButton from '../UI/SoundButton';
 
-export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled }) => {
+export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow }) => {
     return (
         <div className="page-view">
             <h1 id="headingInput">the Ranking Game</h1>
+            <div className="inputPromptContainer">
             <p id="inputTopicDescription">Your Topic:</p>
-            <h2 id="inputPageTopic">{topic}</h2>
+            <h2 id="inputPageTopic" className="shake-animation">{topic}</h2></div>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <table className="inputTable">
                 <tbody>
                     {rows.map((row, index) => (
                         <tr className="inputRow" key={index}>
-                            <td className="index-colum">{index + 1}</td>
-                            <td name={index + 1}>
+                            <td className="index-column">{index + 1}</td>
+                            <td className="input-field-cell">
                                 <InputField 
                                     value={row} 
                                     onChange={(e) => handleItemChange(index, e.target.value)} 
                                     placeholder={index < 3 ? `e.g. ${PLACEHOLDERS.INPUT_DEFAULT[index]}` : PLACEHOLDERS.INPUT_ROWS} 
                                 />
                             </td>
-                            {index >= 3 && (
-                                <td className="remove-button-cell rowButtons">
-                                    <SoundButton  className="button round-button remove" soundName="eatFruit"  onClick={() => handleRemoveRow(index)}>-</SoundButton>
-                                </td>
-                            )}
-                            {index < 3 && <td className="remove-button-cell"></td>}
+                            <td className="button-cell">
+                                {index < 3 ? (
+                                    <SoundButton className="button round-button clear" soundName="eatFruit" onClick={() => handleClearRow(index)}>-
+                                    </SoundButton>
+                                ) : (
+                                    <SoundButton className="button round-button remove" soundName="eatFruit" onClick={() => handleRemoveRow(index)}>
+                                        -
+                                    </SoundButton>
+                                )}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

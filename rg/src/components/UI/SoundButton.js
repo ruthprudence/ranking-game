@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const SoundButton = ({ onClick, children, soundName, isDisabled, ...props }) => {
     const [isClicked, setIsClicked] = useState(false);
     const muted = useSelector((state) => state.audio.muted);
-    // const buttonClass = `${isClicked ? 'button-clicked' : ''} ${isDisabled ? 'button-disabled' : 'button-enabled'}`;
+
     const buttonClass = isDisabled ? 'button-disabled' : 'button-enabled';
 
     const handleClick = (e) => {
@@ -22,7 +22,7 @@ const SoundButton = ({ onClick, children, soundName, isDisabled, ...props }) => 
         }
 
         setIsClicked(true); // Set the button as clicked
-        setTimeout(() => setIsClicked(false), 550); // Remove the class after 400ms
+        setTimeout(() => setIsClicked(false), 550); // 
     };
 
     return (

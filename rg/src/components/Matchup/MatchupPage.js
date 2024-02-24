@@ -58,7 +58,7 @@ const MatchupPage = () => {
       
       setTimeout(() => {
         buttons[buttonIndex].classList.remove('button-clicked');
-      }, 220); 
+      }, 300); 
 
       dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
       dispatch({ type: 'ADD_SLICE' });

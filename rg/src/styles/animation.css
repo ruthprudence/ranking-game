@@ -58,14 +58,13 @@
       opacity: 0;
       border: none;}
   }
-
   
   .button-clicked {
     animation:
-      depress 0.22s forwards,
-      flashBorder 0.22s infinite,
-      enlarge .22s forwards,
-      fadeOut .22s forwards;
+      depress .3s forwards,
+      flashBorder .3s infinite,
+      enlarge .3s forwards,
+      fadeOut .3s forwards;
     background-color: royalblue;
     color: #ffffff;
     font-weight: bold;
@@ -75,7 +74,6 @@
   
 
   .burst-button {
-    
     /* animation: depress 0.2s forwards, explode 0.5s 0.2s forwards; */
     animation: 
     depress 0.3s forwards;
@@ -130,10 +128,10 @@
 
   @keyframes marquee {
     from {
-      transform: translateX(130%);
+      transform: translateX(100%);
     }
     to {
-      transform: translateX(-130%);
+      transform: translateX(-100%);
     }
   }
   
@@ -189,4 +187,12 @@
   50% {
     color: white;
   }
+}
+
+.marquee-animation {
+  animation: marquee 7s linear infinite;
+}
+
+.shake-animation {
+  animation: shake .8s linear infinite;
 }

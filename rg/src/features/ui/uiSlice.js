@@ -63,6 +63,12 @@ export const uiSlice = createSlice({
           state.rows.push('');
         }
     },
+    clearRow: (state, action) => {
+      const rowIndex = action.payload;
+      if (rowIndex >= 0 && rowIndex < state.rows.length) {
+        state.rows[rowIndex] = '';
+      }
+    },
     removeRow: (state, action) => {
         if (state.rows.length > MINCHOICES && action.payload >= 0 && action.payload < state.rows.length) {
           state.rows.splice(action.payload, 1);
@@ -155,6 +161,6 @@ export const { resetState } = uiSlice.actions;
 
 export const selectItems = (state) => state.ui.items;
 
-export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect, completeMatchup } = uiSlice.actions;
+export const { addItem, updateItem, removeItem, setItems, addRow, removeRow, updateRow, setValue, setTopic, submitInputPage, submitTopic, handleValidation, handleTopicSubmit, selectChoice, incrementVote, startMatchup, nextPair, handleChoiceSelect, completeMatchup, clearRow } = uiSlice.actions;
   
   export default uiSlice.reducer;

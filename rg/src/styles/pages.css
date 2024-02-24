@@ -86,12 +86,34 @@
 
   #topicInput {
     font-size: 1.5em;
-    margin: 0 0 1em 0;
+    margin: 1em 0 1em 0;
   }
 
   #splash-prompt {
     font-family: 'Courier New', monospace;
     size: 3.2em;
+  }
+
+  .splashPromptContainer, .inputPromptContainer {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 1em 1em;
+  }
+
+  .splashClearTopicButton {
+    margin: 0 0 0 10px;
+    padding: 0 0 10px 0;
+    cursor: pointer;
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .input-field {
+    flex-grow: 1;
   }
 
   /* Input Page Styles  */
@@ -192,13 +214,7 @@ td.index-column {
   display: block;
 }
 
-.marquee-animation {
-  animation: marquee 7s linear infinite;
-}
 
-.shake-animation {
-  animation: shake 2s linear infinite;
-}
 
 /* Results Page Styles  */
 
@@ -214,9 +230,15 @@ td.index-column {
   background-color: red; 
 }
 
+.round-button.clear {
+  background-color: yellow;
+  color: black;
+  border: .1px solid black;
+}
 
 
-.round-button.add,   .round-button.remove {
+
+.round-button.add,   .round-button.remove, .round-button.clear {
   width: 40px;
   height: 40px;
   font-family: 'Courier New', Courier, monospace;

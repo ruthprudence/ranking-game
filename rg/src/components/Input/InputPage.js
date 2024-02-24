@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addRow, removeRow, updateRow, submitInputPage } from '../../features/ui/uiSlice';
+import { addRow, removeRow, updateRow, submitInputPage, clearRow } from '../../features/ui/uiSlice';
 import { validateRowsState } from '../../features/validate/validateSlice'; // Import the action
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { InputView } from './InputView';
@@ -33,6 +33,10 @@ const InputPage = () => {
     const handleAddRow = () => {
         dispatch(addRow());
     };
+
+    const handleClearRow = (index) => {
+        dispatch(clearRow(index));
+    }
 
     const handleItemChange = (index, value) => {
         dispatch(updateRow({ index, updatedValue: value }));
@@ -67,6 +71,7 @@ const InputPage = () => {
             handleItemChange={handleItemChange}
             handleSubmit={handleSubmit}
             isSubmitEnabled={isSubmitEnabled}
+            handleClearRow={handleClearRow}
         />
     );
 };

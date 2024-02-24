@@ -9,20 +9,29 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
 
     const submitTopicButtonClass = isSubmitEnabled ? 'pulsate-animation ' : 'submitTopicButtonDisabled';
 
+    const clearInput = () => {
+        setLocalTopic('');
+    };
+
     return (
         <div className="page-view">
             <h1 id="headingSplash">the Ranking Game</h1>
+            <div className="splashPromptContainer">
             <p id="splashPrompt" class={splashPromptClass}><i>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</i></p>
+            </div>
             <div className="input-container">
                 <InputField className="input-field" id=
                 "topicInput" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
+                <SoundButton
+                    className="splashClearTopicButton round-button remove" 
+                    soundName="eatFruit"onClick={clearInput}>-</SoundButton>
             </div>
             <div className="button-container submit">
                 <SoundButton  
                     className={submitTopicButtonClass} 
                     isDisabled={!isSubmitEnabled}
                     id="submitTopicButton"
-                    soundName="eatFruit"
+                    soundName="eatGhost"
                     onClick={handleTopicSubmit}
                     disabled={!isSubmitEnabled}
                     >
