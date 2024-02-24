@@ -159,9 +159,12 @@ td.index-column {
 .matchup-page-view {
   display: flex;
   text-align: center;
+  align-items: center;
   flex-direction: column;
   justify-content: space-between; /* This will push the footer and prompt to the bottom */
   min-height: 65vh; /* Ensure the container takes up at least the full viewport height */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .volume-control {
@@ -258,6 +261,7 @@ width: 100%;
 height: 300px;
 margin: 0 0 0 0;
 padding: 0 0 0 0;
+height: 250px;
 }
 
 #leftMatchupBtn, #rightMatchupBtn {
@@ -281,8 +285,12 @@ border: 2px dashed gray;
 }
 
 #RankBtn {
-margin: 1em 1em;
-padding: 1em 1em;
+  font-size: 1.5em;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
 }
 
 #submitBug, #resetBug {

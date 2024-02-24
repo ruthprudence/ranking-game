@@ -54,14 +54,20 @@ const MatchupPage = () => {
   const onButtonClick = (buttonIndex) => {
     if (currentPair && currentPair.length === 2) {
       const buttons = document.querySelectorAll('.matchupBtn');
+      const container = document.querySelector('.matchup-buttons-container');
+
       buttons[buttonIndex].classList.add('button-clicked');
+
+      container.classList.add('slide-out');
+
       
       setTimeout(() => {
         buttons[buttonIndex].classList.remove('button-clicked');
-      }, 300); 
-
+        container.classList.remove('slide-out');
       dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
       dispatch({ type: 'ADD_SLICE' });
+      }, 600); 
+
     }
   };
   

@@ -29,7 +29,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
             <div className="button-container submit">
                 <SoundButton  
                     className={submitTopicButtonClass} 
-                    isDisabled={!isSubmitEnabled}
+                    // isDisabled={!isSubmitEnabled}
                     id="submitTopicButton"
                     soundName="eatGhost"
                     onClick={handleTopicSubmit}

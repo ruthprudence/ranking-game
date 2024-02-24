@@ -17,6 +17,15 @@ const SplashPage = () => {
     dispatch(validateTopicState(localTopic));
   }, [localTopic, dispatch]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const element = document.getElementById('headingSplash');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
+  }, []);
+
   const onTopicSubmit = () => {
     if (topicValidationResult?.isValid) {
       dispatch(submitTopic(localTopic));

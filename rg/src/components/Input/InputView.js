@@ -6,12 +6,14 @@ import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/consta
 import SoundButton from '../UI/SoundButton';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow }) => {
+    const rankButtonClass = isSubmitEnabled ? 'pulsate-animation ' : 'submitTopicButtonDisabled';
+
     return (
         <div className="page-view">
             <h1 id="headingInput">the Ranking Game</h1>
             <div className="inputPromptContainer">
             <p id="inputTopicDescription">Your Topic:</p>
-            <h2 id="inputPageTopic" className="shake-animation">{topic}</h2></div>
+            <h2 id="inputPageTopic" className="shake-animation-input">{topic}</h2></div>
             {isSubmissionFailed && <p className="error-message">Please ensure all inputs are valid before submitting.</p>}
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <table className="inputTable">
@@ -46,7 +48,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             )}
             
 
-            <SoundButton  className="button submit" id="RankBtn"  soundName="eatGhost" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
+            <SoundButton  className={rankButtonClass} id="RankBtn"  soundName="eatGhost" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
             {/* <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p> */}
             <div className="footer-container inputFooter"><Footer /> </div>
         </div>

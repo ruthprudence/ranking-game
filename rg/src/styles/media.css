@@ -7,10 +7,6 @@
     width: 150px;
   }
 
-  .matchup-buttons-container {
-    height: 250px;
-  }
-
     #headingSplash, #headingInput {
       font-size: 3em;
       margin: 1em 0 1.5em 0;
@@ -91,11 +87,9 @@
             display: none;
         }
 
-      #RankBtn {
-        font-size: 1.5em;
-        padding: 1em 1em 1em 1em;
-        margin: 1em 1em 1em 1em;
-      }
+        #RankBtn{
+          font-size: 1.5em;
+        }
 
       .footer p{
         font-size: 1.1em;
@@ -114,11 +108,7 @@
 
     
 
-    .matchup-buttons-container {
-        /* margin: 1em 1em;
-        padding: 1em 1em; */
-        display: flex; justify-content: center; align-items: center;
-    }
+
 
     #versus {
         font-size: 2em;
@@ -193,5 +183,12 @@
   }
 
 
+
+  }
+
+  @media (min-width: 851px) and (max-width: 7250px) {
+    #RankBtn{
+      font-size: 1em;
+    }
 
   }
