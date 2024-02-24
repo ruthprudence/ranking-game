@@ -23,9 +23,9 @@
 
   @keyframes depress {
     0% { transform: scale(1); }
-    50% { transform: scale(.97); }
-    70% { transform: scale(.98);}
-    75% { transform: scale(.99); }
+    50% { transform: scale(.6); }
+    70% { transform: scale(.7);}
+    75% { transform: scale(.75); }
     100% { transform: scale(1); }
   }
 
@@ -35,6 +35,8 @@
     70% {font-size: 110%;}
     100% {font-size: 100%;}
   }
+
+
 
  
 
@@ -221,13 +223,17 @@
 
 @keyframes slideOut {
   from {
+    transform: scale(1);
     transform: translateX(0);
   }
   to {
+    transform: scale(.5);
     transform: translateX(-200%);
   }
 }
 
 .slide-out {
-  animation: slideOut .8s forwards;
+  animation:
+    slideOut .8s forwards;
+  
 }
