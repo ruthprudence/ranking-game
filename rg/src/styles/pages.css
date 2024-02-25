@@ -210,11 +210,12 @@ td.index-column {
 
 #splashPrompt {
   font-family: 'Courier New', monospace;
-  size: 3.2em;
+  font-size: 1.5em;
   /* animation: marquee 7s linear infinite; */
   white-space: nowrap;
   overflow: hidden;
   display: block;
+  font-style: italic;
 }
 
 
@@ -286,12 +287,12 @@ border: 2px dashed gray;
 }
 
 #RankBtn {
-  font-size: 1.5em;
-  padding: 1em 1em 1em 1em;
-  margin: 1em 1em 1em 1em;
+  font-size: 1.2em;
+  padding: 1em;
+  margin: 1em;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
 }
 
 #submitBug, #resetBug {

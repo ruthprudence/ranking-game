@@ -7,26 +7,9 @@
     width: 150px;
   }
 
-    #headingSplash, #headingInput {
-      font-size: 3em;
-      margin: 1em 0 1.5em 0;
-      /* overflow-wrap: break-word;
-      word-break: break-all; */
-      width: 100%;
 
-    }
 
-    #inputPageTopic{
-        font-size: 2em;
-        overflow-wrap: break-word;
-        margin: 0 1em 1em 1em;
-        padding: 0 1em 0 1em;
-        flex-wrap: wrap;
-        position: relative;
-        text-align: center;
-        max-width: 90%;
-        
-    }
+
 
     #headingMatchup {
       font-size: 2em;
@@ -59,11 +42,11 @@
         font-size: 1.5em;
         margin: 0 0 1em 0;
       }
-
+/* 
       #splashPrompt {
         font-size: 2em;
         margin: 0 0 1em 0;
-      }
+      } */
 
 /* Input */
 
@@ -85,10 +68,6 @@
 
         .index-column {
             display: none;
-        }
-
-        #RankBtn{
-          font-size: 1.5em;
         }
 
       .footer p{
@@ -130,7 +109,7 @@
 
   }
   
-  @media (min-width: 726px) and (max-width: 850px) {
+  /* @media (min-width: 726px) and (max-width: 850px) {
     table { 
       width: 80%;
     }
@@ -151,11 +130,6 @@
     tr.inputRow input {
       font-size: 1.5em;
     }
-/* 
-    .matchup-buttons-container {
-      max-width: 80%;
-      margin: 1em 1em;
-    } */
 
 
 
@@ -169,12 +143,6 @@
       word-break: break-all;
       margin: 0 1em;
       padding: 0 1em;
-      /* max-width: 50%; */
-  }
-
-  #RankBtn {
-    margin: 1em 1em;
-    font-size: 2em;
   }
 
   #submitTopicButton {
@@ -184,7 +152,7 @@
 
 
 
-  }
+  } */
 
   @media (min-width: 851px) and (max-width: 7250px) {
     #RankBtn{

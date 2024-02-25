@@ -17,7 +17,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
         <div className="page-view">
             <h1 id="headingSplash">the Ranking Game</h1>
             <div className="splashPromptContainer">
-            <p id="splashPrompt" class={splashPromptClass}><i>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</i></p>
+            <p id="splashPrompt" className={splashPromptClass}>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</p>
             </div>
             <div className="input-container">
                 <InputField className="input-field" id=
