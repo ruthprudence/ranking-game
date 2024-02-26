@@ -24,7 +24,7 @@ const PieSlice = ({ index, totalSlices, radius }) => {
             d={borderPath} 
             fill="none" 
             stroke="black" 
-            strokeWidth=".5"
+            strokeWidth="1"
         />
     </>
 );
