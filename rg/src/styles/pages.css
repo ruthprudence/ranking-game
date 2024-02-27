@@ -276,6 +276,7 @@ justify-content: center;
 display: flex;
 box-sizing: border-box;
 white-space: normal;
+background-color: white;
 }
 
 .button-enabled {

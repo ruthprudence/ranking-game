@@ -61,7 +61,7 @@
       border: none;}
   }
   
-  .button-clicked {
+  #leftMatchupBtn.button-clicked, #rightMatchupBtn.button-clicked {
     animation:
       depress .3s forwards,
       flashBorder .3s infinite,

@@ -70,24 +70,10 @@ const MatchupPage = () => {
 
     }
   };
-  
-
-  // const onChoiceSelect = (choiceIndex) => {
-  //   if (currentPair && currentPair.length === 2) {
-  //     const selectedItem = items[currentPair[choiceIndex]];
-    
-  //     if (selectedItem) {
-  //       dispatch(incrementVote({ id: selectedItem.id })); 
-  //       dispatch(handleChoiceSelect({ choiceIndex, items }));
-
-  //     }
-  //   }
-  // };
 
   return (
     <MatchupView 
       topic={topic}
-      // handleChoiceSelect={onChoiceSelect}
       currentPair={currentPair}
       items={items}
       onButtonClick={onButtonClick}
