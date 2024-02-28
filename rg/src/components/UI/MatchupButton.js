@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...props }) => {
+const MatchupButton = ({ onClick, children, soundName, isDisabled, className, ...props }) => {
     const [isClicked, setIsClicked] = useState(false);
     const muted = useSelector((state) => state.audio.muted);
 
@@ -30,7 +30,7 @@ const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...p
     };
 
  // Combine passed classes with dynamic classes
- const buttonClass = `${className} ${isClicked ? 'depress' : ''}`;
+ const buttonClass = `${className} ${isDisabled ? 'button-disabled' : 'button-enabled'}`;
 
     console.log('buttonClass:', buttonClass);
 
@@ -46,4 +46,4 @@ const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...p
     );
 };
 
-export default SoundButton;
+export default MatchupButton;
