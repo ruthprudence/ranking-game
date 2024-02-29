@@ -22,12 +22,12 @@
   
 
   @keyframes depress {
-    0% { transform: scale(1); }
-    25% { transform: scale(.85)}
-    50% { transform: scale(.86); }
-    70% { transform: scale(.87);}
-    75% { transform: scale(.9); }
-    100% { transform: scale(1); }
+    0% { transform: scale(.75); }
+    /* 25% { transform: scale(.8)}
+    50% { transform: scale(.86); } */
+    70% { transform: scale(.75);}
+    75% { transform: scale(.75); } 
+    100% { transform: scale(initial); }
   }
 
   /* @keyframes depress {
@@ -36,15 +36,27 @@
     100% { transform: scale(1); }
 } */
 
-  .depress {
-    animation: depress 0.25s ease;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+@keyframes colorFade {
+  0% {
+    background-color: grey; /* Starting color when button is pressed */
   }
+  50% {
+    background-color: initial; /* Fades back to the original color */
+  }
+}
+
+.depress {
+  animation:
+    depress 0.25s ease,
+    colorFade 0.25s ease;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
 
   @keyframes enlarge {
-    0% { font-size: 100%; }
-    50% {font-size: 120%; }
-    70% {font-size: 110%;}
+    0% { font-size: 200%; }
+    /* 50% {font-size: 200%; }
+    70% {font-size: 150%;} */
     100% {font-size: 100%;}
   }
 

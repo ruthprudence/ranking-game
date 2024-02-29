@@ -66,7 +66,7 @@ const MatchupPage = () => {
         container.classList.remove('slide-out');
       dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
       dispatch({ type: 'ADD_SLICE' });
-      }, 600); 
+      }, 300); 
 
     }
   };
