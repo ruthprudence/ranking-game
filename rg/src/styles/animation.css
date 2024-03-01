@@ -25,25 +25,25 @@
     0% { transform: scale(.75); }
     /* 25% { transform: scale(.8)}
     50% { transform: scale(.86); } */
-    70% { transform: scale(.75);}
-    75% { transform: scale(.75); } 
+    /* 70% { transform: scale(.75);} */
+    99% { transform: scale(.75); } 
     100% { transform: scale(initial); }
   }
 
-  /* @keyframes depress {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.9); } 
-    100% { transform: scale(1); }
-} */
 
 @keyframes colorFade {
-  0% {
-    background-color: grey; /* Starting color when button is pressed */
+  0%, 100% {
+    filter: brightness(100%); /* Normal brightness */
   }
   50% {
-    background-color: initial; /* Fades back to the original color */
+    filter: brightness(75%); /* Darkens the button */
   }
 }
+
+.color-fade {
+  animation: colorFade 0.25s ease;
+}
+
 
 .depress {
   animation:
