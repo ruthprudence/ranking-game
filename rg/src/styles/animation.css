@@ -22,13 +22,14 @@
   
 
   @keyframes depress {
-    0% { transform: scale(.75); }
-    /* 25% { transform: scale(.8)}
-    50% { transform: scale(.86); } */
-    /* 70% { transform: scale(.75);} */
-    99% { transform: scale(.75); } 
+    0%, 90% { transform: scale(.75); }
     100% { transform: scale(initial); }
   }
+
+  /* @keyframes depress {
+    0%, 100% { transform: scale(initial); }
+    50% { transform: scale(.75); } 
+  } */
 
 
 @keyframes colorFade {
