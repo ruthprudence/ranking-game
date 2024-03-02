@@ -23,7 +23,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
                 <InputField className="input-field" id=
                 "topicInput" value={localTopic} onChange={(e) => setLocalTopic(e.target.value)} placeholder={PLACEHOLDERS.SPLASH} />
                 <SoundButton
-                    className="splashClearTopicButton round-button remove" 
+                    className="splashClearTopicButton round-button clear" 
                     soundName="eatFruit"onClick={clearInput}>-</SoundButton>
             </div>
             <div className="button-container submit">
