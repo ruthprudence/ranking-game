@@ -53,7 +53,7 @@ const InputPage = () => {
                     window.scrollBy({ top: -105, behavior: 'smooth' });
                 }, 100); 
             }
-        }, 500);
+        }, 10);
 
 
     };

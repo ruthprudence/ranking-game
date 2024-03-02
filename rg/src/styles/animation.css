@@ -19,25 +19,13 @@
     50% { transform: scale(1.1); } /* Adjust the scale value for the 'burst' effect */
     100% { transform: scale(.7); }
   }
-  
-
-  @keyframes depress {
-    0%, 90% { transform: scale(.75); }
-    100% { transform: scale(initial); }
-  }
-
-  /* @keyframes depress {
-    0%, 100% { transform: scale(initial); }
-    50% { transform: scale(.75); } 
-  } */
-
 
 @keyframes colorFade {
   0%, 100% {
     filter: brightness(100%); /* Normal brightness */
   }
   50% {
-    filter: brightness(75%); /* Darkens the button */
+    filter: brightness(85%); /* Darkens the button */
   }
 }
 
@@ -45,10 +33,14 @@
   animation: colorFade 0.25s ease;
 }
 
+@keyframes depress {
+  0%, 80% { transform: scale(.8); }
+  100% { transform: scale(initial); }
+}
 
 .depress {
   animation:
-    depress 0.25s ease,
+    depress 0.25s step-end,
     colorFade 0.25s ease;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
 }

@@ -30,15 +30,15 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                     />
                 ))}
                 </tbody>
-                            </table>
-
+            </table>
+            <div className="addButtonContainer">
             {rows.length < MAXCHOICES && (
                 <SoundButton className="button addItem rowButtons round-button add"  soundName="eatFruit" onClick={handleAddRow}>+</SoundButton>
             )}
+            </div>
             
 
             <SoundButton  className={rankButtonClass} id="RankBtn"  soundName="eatGhost" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
-            {/* <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p> */}
             <div className="footer-container inputFooter"><Footer /> </div>
         </div>
     );
