@@ -31,7 +31,7 @@ const InputPage = () => {
     
 
     const handleAddRow = () => {
-        dispatch(addRow());
+        dispatch(addRow({animate: 'in'}));
     };
 
     const handleClearRow = (index) => {
@@ -43,13 +43,19 @@ const InputPage = () => {
     };
 
     const handleRemoveRow = (index) => {
-        dispatch(removeRow(index));
-        if (rows.length > 3) {
-            // Scroll up slightly when a row is removed
-            setTimeout(() => {
-                window.scrollBy({ top: -105, behavior: 'smooth' });
-            }, 100); // Adjust the delay as needed
-        }
+        dispatch(updateRow({ index, updateValue: { animate: 'out' }}));
+
+        setTimeout(() => {
+            dispatch(removeRow(index));
+            if (rows.length > 3) {
+                // Scroll up slightly when a row is removed
+                setTimeout(() => {
+                    window.scrollBy({ top: -105, behavior: 'smooth' });
+                }, 100); 
+            }
+        }, 500);
+
+
     };
 
     const handleSubmit = () => {

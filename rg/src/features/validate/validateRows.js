@@ -4,7 +4,7 @@ import { sanitizeAndTruncate } from '../ui/inputUtils'; // Import the utility fu
 export const validateRows = (rows) => {
     const processedRows = rows.map(row => sanitizeAndTruncate(row));
 
-    if (processedRows.some(row => !row.trim())) {
+    if (processedRows.some(row => !row.value.trim())) {
         return { isValid: false, message: 'All items must be filled in.' };
     }
     if (processedRows.length < MINCHOICES || processedRows.length > MAXCHOICES) {

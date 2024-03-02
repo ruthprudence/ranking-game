@@ -20,8 +20,8 @@ export const validateSlice = createSlice({
     },
     validateRowsState: (state, action) => {
       const rows = action.payload;
-      const isValid = rows.every(row => row.trim() !== '');
-      state.areInputsValid = isValid; // Update the areInputsValid state directly
+      const isValid = rows.every(row => row.value && row.value.trim() !== ''); // Updated line
+      state.areInputsValid = isValid;
       state.rowsValidationResult = {
         isValid,
         message: isValid ? 'Items are valid' : 'All items must be filled in.'

@@ -4,6 +4,7 @@ import InputField from '../UI/InputField';
 import Footer from '../UI/Footer';
 import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/constants';
 import SoundButton from '../UI/SoundButton';
+import Row from '../UI/Row';
 
 export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow }) => {
     const rankButtonClass = isSubmitEnabled ? 'pulsate-animation ' : 'submitTopicButtonDisabled';
@@ -18,30 +19,18 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             <p id="inputPrompt">{isSubmitEnabled ? PROMPTS.INPUT : ERRORS.INPUT}</p>
             <table className="inputTable">
                 <tbody>
-                    {rows.map((row, index) => (
-                        <tr className="inputRow" key={index}>
-                            <td className="index-column">{index + 1}</td>
-                            <td className="input-field-cell">
-                                <InputField 
-                                    value={row} 
-                                    onChange={(e) => handleItemChange(index, e.target.value)} 
-                                    placeholder={index < 3 ? `e.g. ${PLACEHOLDERS.INPUT_DEFAULT[index]}` : PLACEHOLDERS.INPUT_ROWS} 
-                                />
-                            </td>
-                            <td className="button-cell">
-                                {index < 3 ? (
-                                    <SoundButton className="button round-button clear" soundName="eatFruit" onClick={() => handleClearRow(index)}>-
-                                    </SoundButton>
-                                ) : (
-                                    <SoundButton className="button round-button remove" soundName="eatFruit" onClick={() => handleRemoveRow(index)}>
-                                        -
-                                    </SoundButton>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
+                {rows.map((row, index) => (
+                    <Row
+                        key={index}
+                        row={row}
+                        index={index}
+                        handleClearRow={handleClearRow}
+                        handleItemChange={handleItemChange}
+                        handleRemoveRow={handleRemoveRow}
+                    />
+                ))}
                 </tbody>
-            </table>
+                            </table>
 
             {rows.length < MAXCHOICES && (
                 <SoundButton className="button addItem rowButtons round-button add"  soundName="eatFruit" onClick={handleAddRow}>+</SoundButton>

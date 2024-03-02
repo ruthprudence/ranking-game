@@ -13,7 +13,7 @@ export const transitionToMatchup = createAction('ui/transitionToMatchup');
 
 const initialState = {
   topic: '',
-  rows: ['', '', ''],
+  rows: [{ value: '', animate: '' }, { value: '', animate: '' }, { value: '', animate: '' }],
   items: [],
   scores: {},
   pairs: [],
@@ -58,28 +58,46 @@ export const uiSlice = createSlice({
     setItems: (state, action) => {
         state.items = action.payload;
     },
-    addRow: (state) => {
-        if (state.rows.length < MAXCHOICES) {
-          state.rows.push('');
-        }
-    },
     clearRow: (state, action) => {
       const rowIndex = action.payload;
       if (rowIndex >= 0 && rowIndex < state.rows.length) {
         state.rows[rowIndex] = '';
       }
     },
+    addRow: (state) => {
+      if (state.rows.length < MAXCHOICES) {
+        state.rows.push({ value: '', animate: 'in' });
+      }
+    },
     removeRow: (state, action) => {
-        if (state.rows.length > MINCHOICES && action.payload >= 0 && action.payload < state.rows.length) {
-          state.rows.splice(action.payload, 1);
+      if (state.rows.length > MINCHOICES) {
+        const rowIndex = action.payload;
+        if (rowIndex >= 0 && rowIndex < state.rows.length) {
+          state.rows.splice(rowIndex, 1); // Remove the row immediately for now
         }
+      }
     },
     updateRow: (state, action) => {
-        const { index, updatedValue } = action.payload;
-        if (index >= 0 && index < state.rows.length) {
-            state.rows[index] = updatedValue;
+      const { index, updatedValue } = action.payload;
+      if (index >= 0 && index < state.rows.length) {
+        // Ensure that updatedValue is an object with a 'value' property
+        if (typeof updatedValue === 'string') {
+          if (typeof state.rows[index] === 'object' && state.rows[index] !== null) {
+            state.rows[index].value = updatedValue;
+          } else {
+            // Handle the case where state.rows[index] is not an object
+            state.rows[index] = { value: updatedValue };
+          }
+        } else if (updatedValue && typeof updatedValue === 'object') {
+          state.rows[index] = { 
+            ...state.rows[index],
+            ...updatedValue 
+          };
         }
+      }
     },
+    
+    
     setValue: (state, action) => {
         state.value = action.payload;
     },  
