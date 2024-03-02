@@ -31,8 +31,10 @@ const InputPage = () => {
     
 
     const handleAddRow = () => {
-        dispatch(addRow({animate: 'in'}));
-    };
+        setTimeout (() => {
+           dispatch(addRow({animate: 'in'}));
+        }, 200);
+    }
 
     const handleClearRow = (index) => {
         dispatch(clearRow(index));
@@ -53,7 +55,7 @@ const InputPage = () => {
                     window.scrollBy({ top: -105, behavior: 'smooth' });
                 }, 100); 
             }
-        }, 10);
+        }, 100);
 
 
     };

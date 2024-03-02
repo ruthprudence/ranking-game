@@ -5,7 +5,7 @@ import SoundButton from './SoundButton';
 import { PLACEHOLDERS } from '../../features/constants';
 
 const Row = ({ row, index, handleClearRow, handleItemChange, handleRemoveRow }) => {
-  const rowAnimationClass = row.animate === 'in' ? 'row-slide-in' : row.animate === 'out' ? 'row-slide-out' : '';
+  const rowAnimationClass = row.animate === 'in' ? 'row-slide-in' : (row.animate === 'out' ? 'row-slide-out' : '');
 
   return (
     <tr className={`inputRow ${rowAnimationClass}`}>
