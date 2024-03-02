@@ -61,9 +61,10 @@ export const uiSlice = createSlice({
     clearRow: (state, action) => {
       const rowIndex = action.payload;
       if (rowIndex >= 0 && rowIndex < state.rows.length) {
-        state.rows[rowIndex] = '';
+        state.rows[rowIndex].value = '';
       }
     },
+    
     addRow: (state) => {
       if (state.rows.length < MAXCHOICES) {
         state.rows.push({ value: '', animate: 'in' });
