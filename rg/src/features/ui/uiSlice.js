@@ -81,12 +81,10 @@ export const uiSlice = createSlice({
     updateRow: (state, action) => {
       const { index, updatedValue } = action.payload;
       if (index >= 0 && index < state.rows.length) {
-        // Ensure that updatedValue is an object with a 'value' property
         if (typeof updatedValue === 'string') {
           if (typeof state.rows[index] === 'object' && state.rows[index] !== null) {
             state.rows[index].value = updatedValue;
           } else {
-            // Handle the case where state.rows[index] is not an object
             state.rows[index] = { value: updatedValue };
           }
         } else if (updatedValue && typeof updatedValue === 'object') {

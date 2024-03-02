@@ -25,6 +25,7 @@ const PieSlice = ({ index, totalSlices, radius }) => {
             fill="none" 
             stroke="black" 
             strokeWidth="1"
+            className="pie-slice"
         />
     </>
 );

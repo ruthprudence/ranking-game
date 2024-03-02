@@ -33,5 +33,5 @@
 }
 
 .pie-slice {
-    animation: sliceAnimation .4s line; /* Apply animation to each slice */
+    animation: sliceAnimation .4s ease-in-out; /* Apply animation to each slice */
 }
