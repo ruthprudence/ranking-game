@@ -2,7 +2,7 @@
 export const createItemsWithVotes = (rows) => {
     return rows.map((row, index) => ({
         id: index, 
-        name: row,
+        name: row.value,
         votes: 0
     }));
 };
