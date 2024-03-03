@@ -1,4 +1,9 @@
-@import './styles//pages/pages.css';
+@import './styles/pages/pages.css';
+@import './styles/pages/splash.css';
+@import './styles/pages/input.css';
+@import './styles/pages/matchup.css';
+@import './styles/pages/results.css';
+
 @import './styles/components/footer.css';
 @import './styles/animation.css';
 @import './styles/media.css';

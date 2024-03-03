@@ -1,0 +1,42 @@
+/* Input Page Styles  */
+
+#inputPrompt {
+    max-width: 100%;
+    font-size: 1.2em;
+    margin: 0 .5em 0 .5em;
+    font-style: italic;
+  }
+  
+  table {
+    width: 100%;
+    text-align: left;
+    margin-top: 1em; /* Reduced margin */
+    table-layout: auto;
+  }
+  
+  td, th {
+    padding: 1em 0 1em 1em;
+    margin: 1em 0 1em 1em;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  td.remove-button-cell {
+    margin: 1em 0 1em 1em;
+    padding: 1em 0 1em 1em;
+    word-wrap: normal;
+  }
+  
+  td.index-column {
+    max-width: 20px;
+  }
+
+  #RankBtn {
+    font-size: 1.2em;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+  }

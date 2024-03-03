@@ -33,6 +33,62 @@
     cursor: pointer;
   }
 
+  .round-button.add {
+    background-color: green;
+  }
+  
+  .round-button.remove {
+    background-color: red; 
+  }
+  
+  .round-button.clear {
+    background-color: yellow;
+    color: black;
+    border: .1px solid black;
+  }
+  
+  
+  
+  .round-button.add,   .round-button.remove, .round-button.clear {
+    width: 40px;
+    height: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 0 0 0;
+  }
+  
+  .round-button-add {
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .addButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add-button-center {
+    animation: slideToCenter 0.5s ease forwards;
+  
+  }
+  
+  .add-button-right {
+    justify-content: flex-end;
+    margin: .5em 0;
+    padding: .5em 0;
+  }
+
+  .button-enabled {
+    animation: borderAnimation 0.4s linear;
+    }
+    
+    .button-disabled {
+    border: 2px dashed gray;
+    }
+  
+
 /* Base Styles */
 .App {
     text-align: center;
@@ -47,17 +103,6 @@
     background-color: blanchedalmond;
   }
   
-  /* Global Header Style */
-  /* .App h1, h2, h3 {
-    margin: 1m 20px; 
-  } */
-
-
-/* Specific Page Styles */
-
-
-
-
 
 .page-view {
     display: flex;
@@ -69,103 +114,7 @@
     /* width: auto; */
   }
 
-  /* Splash Page Styles  */
-  
-  #submitTopicButton {
-    font-size: 1.2em;
-    padding: .2em 1em;
-    margin: .05em 1em;
-    border-radius: 2em;
-    cursor: pointer;
-  }
-  
-  .submitTopicButtonDisabled {
-    border: 2px dashed gray;
-    animation: borderAnimation 1s linear;
-  }
 
-  #topicInput {
-    font-size: 1.5em;
-    margin: 1em 0 1em 0;
-  }
-
-  #splash-prompt {
-    font-family: 'Courier New', monospace;
-    size: 3.2em;
-  }
-
-  .splashPromptContainer, .inputPromptContainer {
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 1em 1em;
-  }
-
-  .splashClearTopicButton {
-    margin: 0 0 0 10px;
-    padding: 0 0 10px 0;
-    cursor: pointer;
-  }
-
-  .input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .input-field {
-    flex-grow: 1;
-  }
-
-  /* Input Page Styles  */
-
-#inputPrompt {
-  max-width: 100%;
-  font-size: 1.2em;
-  margin: 0 .5em 0 .5em;
-  font-style: italic;
-}
-
-table {
-  width: 100%;
-  text-align: left;
-  margin-top: 1em; /* Reduced margin */
-  table-layout: auto;
-}
-
-td, th {
-  padding: 1em 0 1em 1em;
-  margin: 1em 0 1em 1em;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-  word-wrap: break-word;
-}
-
-.inputRow td {
-  
-}
-
-td.remove-button-cell {
-  margin: 1em 0 1em 1em;
-  padding: 1em 0 1em 1em;
-  word-wrap: normal;
-}
-
-td.index-column {
-  max-width: 20px;
-}
-
-/* Matchup Page Styles  */
-
-.matchup-page-view {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between; /* This will push the footer and prompt to the bottom */
-  min-height: 65vh; /* Ensure the container takes up at least the full viewport height */
-  overflow: hidden;
-  white-space: nowrap;
-}
 
 .volume-control {
   /* position: flex;
@@ -196,10 +145,6 @@ td.index-column {
 
 
 
-#versus {
-  margin: 1em 2em 1em 2em;
-}
-
 #inputPageTopic {
   font-size: 1.2em;
 }
@@ -208,160 +153,9 @@ td.index-column {
   font-size: 0.8em;
 }
 
-#splashPrompt {
-  font-family: 'Courier New', monospace;
-  font-size: 1.5em;
-  /* animation: marquee 7s linear infinite; */
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  font-style: italic;
-}
-
-
-
-/* Results Page Styles  */
-
-
-
-
-  
-.round-button.add {
-  background-color: green;
-}
-
-.round-button.remove {
-  background-color: red; 
-}
-
-.round-button.clear {
-  background-color: yellow;
-  color: black;
-  border: .1px solid black;
-}
-
-
-
-.round-button.add,   .round-button.remove, .round-button.clear {
-  width: 40px;
-  height: 40px;
-  font-family: 'Courier New', Courier, monospace;
-  padding: 0 0 0 0;
-}
-
-.round-button-add {
-  justify-content: center;
-  align-items: center;
-
-}
-
-.matchup-buttons-container {
-display: flex;
-cursor: pointer;
-width: 100%;
-height: 300px;
-margin: 0 0 0 0;
-padding: 0 0 0 0;
-height: 250px;
-}
-
-#leftMatchupBtn, #rightMatchupBtn {
-padding: 1em 1em;
-margin: 1em 1em;
-border-radius: 1em;
-font-size: 1.4em; 
-width: 220px;
-height: 220px;
-overflow-wrap: break-word;
-hyphens: auto;
-word-break: break-word;
-overflow: clip;
-align-items: center;
-text-align: center;
-justify-content: center;
-display: flex;
-box-sizing: border-box;
-white-space: normal;
-background-color: white;
-}
-
-.button-enabled {
-animation: borderAnimation 0.4s linear;
-}
-
-.button-disabled {
-border: 2px dashed gray;
-}
-
-#RankBtn {
-  font-size: 1.2em;
-  padding: 1em;
-  margin: 1em;
-  border-radius: 50%;
-  height: 120px;
-  width: 120px;
-}
-
 #submitBug, #resetBug {
 margin: .5em .5em;
 border-radius: 2em;
 padding: .5em .5em;
 font-size: 1.2em;
 }
-
-.addButtonContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-button-center {
-  animation: slideToCenter 0.5s ease forwards;
-
-}
-
-.add-button-right {
-  justify-content: flex-end;
-  margin: .5em 0;
-  padding: .5em 0;
-}
-
-@keyframes slideOut {
-  from {
-    transform: scale(1);
-    transform: translateX(0);
-  }
-  to {
-    transform: scale(.5);
-    transform: translateX(-200%);
-  }
-}
-
-.slide-out {
-  animation:
-    slideOut .8s forwards;
-  
-}
-
-
-/* CSS */
-.row.in {
-  animation: slideInFromLeft 0.5s ease forwards;
-}
-
-.row.out {
-  animation: slideOutToLeft 0.5s ease forwards;
-}
-
-@keyframes slideInFromLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideOutToLeft {
-  from { transform: translateX(0); opacity: 1; }
-  to { transform: translateX(-100%); opacity: 0; }
-}
-
-
