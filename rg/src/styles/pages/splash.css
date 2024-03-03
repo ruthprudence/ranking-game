@@ -19,7 +19,7 @@
   
   .submitTopicButtonDisabled {
     border: 2px dashed gray;
-    animation: borderAnimation 1s linear;
+    /* animation: borderAnimation 1s linear; */
   }
 
   #topicInput {

@@ -15,11 +15,17 @@ import InputPage from './components/Input/InputPage';
 import MatchupPage from './components/Matchup/MatchupPage';
 import ResultsPage from './components/Results/ResultsPage';
 import BugPage from './components/Bug/BugPage';
+import usePageTransition from './features/game/usePageTransition';
+
 
 const RankingGame = () => {
     const currentPage = useSelector((state) => state.game.currentPage);
     const dispatch = useDispatch();
+    const animationClass = usePageTransition();
 
+    return (
+        <div className={animationClass}> 
+            {(() => {
     switch (currentPage) {
         case PAGES.SPLASH:
             return <SplashPage onAdvance={() => dispatch(advancePage())} />;
@@ -35,6 +41,10 @@ const RankingGame = () => {
             console.error('Error: Unknown currentPage', currentPage);
             return <div>Error: Unknown page</div>;
     }
+
+})()}
+</div>
+);
     };
 
 export default RankingGame;
