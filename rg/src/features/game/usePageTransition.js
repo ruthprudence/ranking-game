@@ -6,13 +6,13 @@ const usePageTransition = () => {
 
   switch (currentPage) {
     case 'SPLASH_PAGE':
-      return 'slideTopToBottom';
+        return 'slideLeftToRight';
     case 'INPUT_PAGE':
-      return 'slideRightToLeft';
+        return 'slideBottomToTop';
     case 'MATCHUP_PAGE':
-      return 'slideLeftToRight';
+      return 'slideRightToLeft';
     case 'RESULTS_PAGE':
-      return 'slideBottomToTop';
+        return 'slideRightToLeft';
     case 'BUG_REPORT_PAGE':
       return 'slideTopToBottom';
     default:

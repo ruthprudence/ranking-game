@@ -37,12 +37,13 @@ const ResultsPage = ({ animationClass }) => {
         }
     }, [dispatch, items, muted]);
 
-    return
+    return (
         <div className={ animationClass} >
             <ResultsView 
                 rankings={rankings}
                 topic={topic} />;
         </div>
+    );
 };
 
 
