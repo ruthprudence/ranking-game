@@ -70,6 +70,8 @@ const InputPage = () => {
         }
     };
 
+    const addButtonClass = rows.length === 3 ? 'add-button-center' : 'add-button-right'; 
+
     return (
         <InputView 
             topic={topic}
@@ -80,6 +82,7 @@ const InputPage = () => {
             handleSubmit={handleSubmit}
             isSubmitEnabled={isSubmitEnabled}
             handleClearRow={handleClearRow}
+            addButtonClass={addButtonClass}
         />
     );
 };

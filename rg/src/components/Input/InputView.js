@@ -6,7 +6,7 @@ import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/consta
 import SoundButton from '../UI/SoundButton';
 import Row from '../UI/Row';
 
-export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow }) => {
+export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow, addButtonClass }) => {
     const rankButtonClass = isSubmitEnabled ? 'pulsate-animation ' : 'submitTopicButtonDisabled';
 
     return (
@@ -31,7 +31,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
                 ))}
                 </tbody>
             </table>
-            <div className="addButtonContainer">
+            <div className={`addButtonContainer ${addButtonClass}`}>
             {rows.length < MAXCHOICES && (
                 <SoundButton className="button addItem rowButtons round-button add"  soundName="eatFruit" onClick={handleAddRow}>+</SoundButton>
             )}

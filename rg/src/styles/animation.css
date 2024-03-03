@@ -274,3 +274,27 @@
   from { transform: translateX(0); opacity: 1; }
   to { transform: translateX(-100%); opacity: 0; }
 }
+
+.add-button-center {
+  position: center;
+  animation: slideToCenter 0.5s ease forwards;
+  padding: .5em;
+  margin: .5em;
+}
+
+.add-button-right {
+  position: right;
+  animation: slideToRight 0.5s ease forwards;
+  padding: .5em;
+  margin: .5em;
+}
+
+@keyframes slideToCenter {
+  from { transform: translateX(0); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideToRight {
+  from { transform: translateX(0%); }
+  to { transform: translateX(0%); }
+}

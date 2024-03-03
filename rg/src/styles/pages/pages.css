@@ -249,6 +249,12 @@ td.index-column {
   padding: 0 0 0 0;
 }
 
+.round-button-add {
+  justify-content: center;
+  align-items: center;
+
+}
+
 .matchup-buttons-container {
 display: flex;
 cursor: pointer;
@@ -302,3 +308,60 @@ border-radius: 2em;
 padding: .5em .5em;
 font-size: 1.2em;
 }
+
+.addButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button-center {
+  animation: slideToCenter 0.5s ease forwards;
+
+}
+
+.add-button-right {
+  justify-content: flex-end;
+  margin: .5em 0;
+  padding: .5em 0;
+}
+
+@keyframes slideOut {
+  from {
+    transform: scale(1);
+    transform: translateX(0);
+  }
+  to {
+    transform: scale(.5);
+    transform: translateX(-200%);
+  }
+}
+
+.slide-out {
+  animation:
+    slideOut .8s forwards;
+  
+}
+
+
+/* CSS */
+.row.in {
+  animation: slideInFromLeft 0.5s ease forwards;
+}
+
+.row.out {
+  animation: slideOutToLeft 0.5s ease forwards;
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutToLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+

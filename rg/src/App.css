@@ -1,6 +1,6 @@
-@import './styles/pages.css';
-@import './styles/footer.css';
+@import './styles//pages/pages.css';
+@import './styles/components/footer.css';
 @import './styles/animation.css';
 @import './styles/media.css';
-@import './styles/input.css';
-@import './styles/pie.css';
+@import './styles/components/input.css';
+@import './styles/components/pie.css';
