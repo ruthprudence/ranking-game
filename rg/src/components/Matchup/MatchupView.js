@@ -25,7 +25,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
         )}
        
       </div>
-     <div> <p id="matchupPrompt">Choose the Winner!</p></div> 
+     <div> <p id="matchupPrompt"><span class="matchupPrompt">Choose</span> the Winner!</p></div> 
       <div className="pie-wrapper">
         <Pie totalSlices={totalPairs} />
       </div>

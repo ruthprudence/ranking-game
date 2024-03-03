@@ -44,3 +44,7 @@
     #versus {
         margin: 1em 2em 1em 2em;
       }
+
+      .matchupPrompt {
+        font-weight: bold;
+      }
