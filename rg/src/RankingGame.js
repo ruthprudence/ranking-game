@@ -28,15 +28,23 @@ const RankingGame = () => {
             {(() => {
     switch (currentPage) {
         case PAGES.SPLASH:
-            return <SplashPage onAdvance={() => dispatch(advancePage())} />;
+            return <SplashPage
+                    animationClass={animationClass}
+                    onAdvance={() => dispatch(advancePage())} />;
         case PAGES.INPUT:
-            return <InputPage onAdvance={() => dispatch(advancePage())} />;
+            return <InputPage
+                    animationClass={animationClass}
+                    onAdvance={() => dispatch(advancePage())} />;
         case PAGES.MATCHUP:
-            return  <MatchupPage onAdvance={() => dispatch(advancePage())} />;         
+            return <MatchupPage
+                    animationClass={animationClass}
+                    onAdvance={() => dispatch(advancePage())} />;         
         case PAGES.RESULTS:
-            return <ResultsPage />;
+            return <ResultsPage
+                    animationClass={animationClass}/>;
         case PAGES.BUG:
-            return <BugPage />;
+            return <BugPage 
+                    animationClass={animationClass}/>;
         default:
             console.error('Error: Unknown currentPage', currentPage);
             return <div>Error: Unknown page</div>;

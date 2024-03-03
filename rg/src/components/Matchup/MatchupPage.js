@@ -12,7 +12,7 @@ import { playSound } from '../../features/audio/audioSlice';
 
 import { MatchupView } from './MatchupView';
 
-const MatchupPage = () => {
+const MatchupPage = ({ animationClass }) => {
   const dispatch = useDispatch();
   const isComparisonComplete = useSelector((state) => state.ui.isComparisonComplete);
   const currentPair = useSelector(selectCurrentPair);
@@ -72,6 +72,7 @@ const MatchupPage = () => {
   };
 
   return (
+    <div className={animationClass}>
     <MatchupView 
       topic={topic}
       currentPair={currentPair}
@@ -80,6 +81,7 @@ const MatchupPage = () => {
       currentPairIndex={currentPairIndex}
       totalPairs={totalPairs}
     />
+    </div>
   );
 };
 

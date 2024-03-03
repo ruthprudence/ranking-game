@@ -6,7 +6,7 @@ import { setCurrentPage } from '../../features/game/gameSlice';
 import { InputView } from './InputView';
 import { PAGES } from '../../features/constants';
 
-const InputPage = () => {
+const InputPage = ({ animationClass }) => {
     const topic = useSelector((state) => state.ui.topic);
     const rows = useSelector((state) => state.ui.rows);
     const dispatch = useDispatch();
@@ -73,6 +73,7 @@ const InputPage = () => {
     const addButtonClass = rows.length === 3 ? 'add-button-center' : 'add-button-right'; 
 
     return (
+        <div className={ animationClass }>
         <InputView 
             topic={topic}
             rows={rows}
@@ -84,6 +85,7 @@ const InputPage = () => {
             handleClearRow={handleClearRow}
             addButtonClass={addButtonClass}
         />
+        </div>
     );
 };
 

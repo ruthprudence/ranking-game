@@ -6,7 +6,7 @@ import { submitTopic } from '../../features/ui/uiSlice';
 import { setCurrentPage } from '../../features/game/gameSlice'; 
 import { PAGES } from '../../features/constants';
 
-const SplashPage = () => {
+const SplashPage = ({ animationClass }) => {
   const [localTopic, setLocalTopic] = useState('');
   
   const topicValidationResult = useSelector((state) => state.validate.topicValidationResult);
@@ -34,12 +34,14 @@ const SplashPage = () => {
   };
 
   return (
-    <SplashView 
-      localTopic={localTopic} 
-      setLocalTopic={setLocalTopic} 
-      handleTopicSubmit={onTopicSubmit}
-      isSubmitEnabled={topicValidationResult?.isValid}
-    />
+    <div className={animationClass}>
+      <SplashView 
+        localTopic={localTopic} 
+        setLocalTopic={setLocalTopic} 
+        handleTopicSubmit={onTopicSubmit}
+        isSubmitEnabled={topicValidationResult?.isValid}
+      />
+    </div>
   );
 };
 

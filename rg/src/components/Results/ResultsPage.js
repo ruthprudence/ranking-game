@@ -5,7 +5,7 @@ import { completeMatchup } from '../../features/ui/uiSlice';
 import { SOUND_NAME} from '../../features/constants';
 
 
-const ResultsPage = () => {
+const ResultsPage = ({ animationClass }) => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.ui.items);
     const rankings = useSelector((state) => state.ui.rankings);
@@ -37,9 +37,12 @@ const ResultsPage = () => {
         }
     }, [dispatch, items, muted]);
 
-    return <ResultsView 
-    rankings={rankings}
-    topic={topic} />;
+    return
+        <div className={ animationClass} >
+            <ResultsView 
+                rankings={rankings}
+                topic={topic} />;
+        </div>
 };
 
 
