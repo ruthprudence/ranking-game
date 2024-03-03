@@ -6,7 +6,6 @@ const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...p
     const muted = useSelector((state) => state.audio.muted);
 
     const handleClick = (e) => {
-        console.log('Button clicked');
 
         if (!muted) {
             const audioElement = document.getElementById(soundName);
@@ -21,18 +20,13 @@ const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...p
         }
 
         setIsClicked(true);
-        console.log('isClicked set to true');
         
         setTimeout(() => {
             setIsClicked(false);
-            console.log('isClicked reset to false');
-        }, 250); // Reset after animation duration
+        }, 250); 
     };
 
- // Combine passed classes with dynamic classes
  const buttonClass = `${className} ${isClicked ? 'depress' : ''}`;
-
-    console.log('buttonClass:', buttonClass);
 
     return (
         <button

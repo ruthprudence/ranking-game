@@ -56,29 +56,7 @@
     padding: 0 0 0 0;
   }
   
-  .round-button-add {
-    justify-content: center;
-    align-items: center;
-  
-  }
 
-  .addButtonContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .add-button-center {
-    animation: slideToCenter 0.5s ease forwards;
-  
-  }
-  
-  .add-button-right {
-    justify-content: flex-end;
-    margin: .5em 0;
-    padding: .5em 0;
-  }
 
   .button-enabled {
     animation: borderAnimation 0.4s linear;
@@ -158,4 +136,19 @@ margin: .5em .5em;
 border-radius: 2em;
 padding: .5em .5em;
 font-size: 1.2em;
+}
+
+.page-view {
+  animation: slideRightToLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

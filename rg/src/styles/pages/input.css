@@ -40,3 +40,28 @@
     height: 120px;
     width: 120px;
   }
+
+  .round-button-add {
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .addButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add-button-center {
+    /* animation: slideToCenter 0.5s ease forwards; */
+  
+  }
+  
+  .add-button-right {
+     /* justify-content: flex-end; */
+    margin: .5em 0;
+    padding: .5em 0;
+    /* animation: slideToRight 0.5s ease forwards; */
+  }

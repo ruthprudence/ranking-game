@@ -250,5 +250,5 @@
 }
 @keyframes slideToRight {
   from { transform: translateX(0); } /* Start from center */
-  to { transform: translateX(100%); } /* Slide to right */
+  to { transform: translateX(25%); } /* Slide to right */
 }
