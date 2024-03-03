@@ -10,7 +10,7 @@ function App() {
             <div className="App">
                 <Audio />
                 <Routes>
-                    <Route path="/rg" element={<RankingGame />} />
+                    <Route path="/" element={<RankingGame />} />
                     {/* Other routes can be defined here */}
                 </Routes>
             </div>

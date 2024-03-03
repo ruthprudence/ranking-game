@@ -10,11 +10,11 @@ const usePageTransition = () => {
     case 'INPUT_PAGE':
         return 'slideBottomToTop';
     case 'MATCHUP_PAGE':
-      return 'slideRightToLeft';
+      return 'slideBottomToTop';
     case 'RESULTS_PAGE':
         return 'slideRightToLeft';
     case 'BUG_REPORT_PAGE':
-      return 'slideTopToBottom';
+      return 'slideRightToLeft';
     default:
       return '';
   }

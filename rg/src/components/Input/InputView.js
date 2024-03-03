@@ -6,12 +6,13 @@ import { MAXCHOICES, PLACEHOLDERS, PROMPTS, ERRORS } from '../../features/consta
 import SoundButton from '../UI/SoundButton';
 import Row from '../UI/Row';
 
-export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow, addButtonClass }) => {
+export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handleRemoveRow, handleItemChange, handleSubmit, isSubmitEnabled, handleClearRow, addButtonClass, animationClass }) => {
     const rankButtonClass = isSubmitEnabled ? 'pulsate-animation ' : 'submitTopicButtonDisabled';
 
     return (
         <div className="page-view">
             <h1 id="headingInput">the Ranking Game</h1>
+            <div className={animationClass}>
             <div className="inputPromptContainer">
             <p id="inputTopicDescription">Your Topic:</p>
             <h2 id="inputPageTopic" className="shake-animation-input">{topic}</h2></div>
@@ -39,6 +40,7 @@ export const InputView = ({ topic, rows, isSubmissionFailed, handleAddRow, handl
             
 
             <SoundButton  className={rankButtonClass} id="RankBtn"  soundName="eatGhost" onClick={handleSubmit} disabled={!isSubmitEnabled}>Rank!</SoundButton>
+            </div>
             <div className="footer-container inputFooter"><Footer /> </div>
         </div>
     );

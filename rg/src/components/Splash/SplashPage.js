@@ -34,14 +34,13 @@ const SplashPage = ({ animationClass }) => {
   };
 
   return (
-    <div className={animationClass}>
       <SplashView 
+        animationClass={animationClass}
         localTopic={localTopic} 
         setLocalTopic={setLocalTopic} 
         handleTopicSubmit={onTopicSubmit}
         isSubmitEnabled={topicValidationResult?.isValid}
       />
-    </div>
   );
 };
 

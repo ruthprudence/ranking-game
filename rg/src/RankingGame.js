@@ -24,7 +24,7 @@ const RankingGame = () => {
     const animationClass = usePageTransition();
 
     return (
-        <div className={animationClass}> 
+        <div className=''> 
             {(() => {
     switch (currentPage) {
         case PAGES.SPLASH:

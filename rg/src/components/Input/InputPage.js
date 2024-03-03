@@ -73,8 +73,8 @@ const InputPage = ({ animationClass }) => {
     const addButtonClass = rows.length === 3 ? 'add-button-center' : 'add-button-right'; 
 
     return (
-        <div className={ animationClass }>
         <InputView 
+            animationClass={animationClass}
             topic={topic}
             rows={rows}
             handleAddRow={handleAddRow} 
@@ -85,7 +85,6 @@ const InputPage = ({ animationClass }) => {
             handleClearRow={handleClearRow}
             addButtonClass={addButtonClass}
         />
-        </div>
     );
 };
 

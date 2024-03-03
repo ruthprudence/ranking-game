@@ -22,12 +22,11 @@ const ResultsPage = ({ animationClass }) => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-          const element = document.getElementById('headingResults');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 0);
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
       }, []);
 
     useEffect(() => {
@@ -38,11 +37,10 @@ const ResultsPage = ({ animationClass }) => {
     }, [dispatch, items, muted]);
 
     return (
-        <div className={ animationClass} >
             <ResultsView 
+                animationClass={animationClass}
                 rankings={rankings}
-                topic={topic} />;
-        </div>
+                topic={topic} />
     );
 };
 

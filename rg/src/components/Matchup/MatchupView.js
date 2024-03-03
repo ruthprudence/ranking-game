@@ -3,10 +3,11 @@ import Footer from '../UI/Footer';
 import Pie from '../UI/Pie/Pie.js';
 import MatchupButton from '../UI/MatchupButton';
 
-export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick, currentPairIndex, totalPairs }) => {
+export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onButtonClick, currentPairIndex, totalPairs, animationClass }) => {
   
   return (
     <div className="page-view">
+      <div className={animationClass}>
       <p id="inputTopicDescription">Your Topic:</p>
       <h2 id="headingMatchup">{topic}</h2>
       <div className="matchup-page-view">
@@ -28,7 +29,7 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
       <div className="pie-wrapper">
         <Pie totalSlices={totalPairs} />
       </div>
-      
+      </div>
       <div className="footer-container matchupFooter">
 <Footer /> </div> 
       </div>

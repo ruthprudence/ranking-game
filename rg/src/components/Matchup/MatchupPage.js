@@ -3,13 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrentPage } from '../../features/game/gameSlice';
-import { incrementVote, startMatchup, handleChoiceSelect} from '../../features/ui/uiSlice';
+import { startMatchup, handleChoiceSelect} from '../../features/ui/uiSlice';
 
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { PAGES } from '../../features/constants';
-import { playSound } from '../../features/audio/audioSlice';
-
-
 import { MatchupView } from './MatchupView';
 
 const MatchupPage = ({ animationClass }) => {
@@ -23,15 +20,14 @@ const MatchupPage = ({ animationClass }) => {
   const totalPairs = useSelector((state) => state.ui.pairs.length);
   const currentPairIndex = useSelector((state) => state.ui.currentPairIndex);
 
-
   useEffect(() => {
-    setTimeout(() => {
-      const element = document.getElementById('inputTopicDescription');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }, []);
+  
 
   useEffect(() => {
     // Dispatch SET_TOTAL_SLICES action with the length of pairs
@@ -72,8 +68,8 @@ const MatchupPage = ({ animationClass }) => {
   };
 
   return (
-    <div className={animationClass}>
-    <MatchupView 
+    <MatchupView
+      animationClass={animationClass} 
       topic={topic}
       currentPair={currentPair}
       items={items}
@@ -81,7 +77,6 @@ const MatchupPage = ({ animationClass }) => {
       currentPairIndex={currentPairIndex}
       totalPairs={totalPairs}
     />
-    </div>
   );
 };
 
