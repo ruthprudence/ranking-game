@@ -21,7 +21,7 @@ const InputPage = ({ animationClass }) => {
     const isSubmitEnabled = rowsValidationResult?.isValid && rows.length > 0;
 
     useEffect(() => {
-        if (rows.length >= 6) {
+        if (rows.length >= 4) {
             // Delay the scroll to allow the DOM to update
             setTimeout(() => {
                 window.scrollBy({ top: 105, behavior: 'smooth' });

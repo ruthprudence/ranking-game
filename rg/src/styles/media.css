@@ -9,31 +9,6 @@
 
 
 
-
-
-    #headingMatchup {
-      font-size: 2em;
-      overflow-wrap: break-word;
-      margin: 0 1em;
-      padding: 0 1em;
-      flex-wrap: wrap;
-      width: 50%;
-      text-align: center;
-      position: relative;
-      
-  }
-
-
-  
-
-    #headingResults {
-      font-size: 2em;
-      margin: 1em 0 0 0;
-      overflow-wrap: break-word;
-      width: 75%;
-      
-  }
-
   /* Splash */
 
    
@@ -42,11 +17,6 @@
         font-size: 1.5em;
         margin: 0 0 1em 0;
       }
-/* 
-      #splashPrompt {
-        font-size: 2em;
-        margin: 0 0 1em 0;
-      } */
 
 /* Input */
 
@@ -54,8 +24,6 @@
             font-size: 3em;
             margin: 1em 0 .5em 0;
         }
-
-  
 
         .inputTable td input {
             font-size: 1.5em;
@@ -75,20 +43,6 @@
         margin: 0 1em 1em 1em;
       }
       
-      /* Matchup */
-
-      #matchupPrompt {
-        position: flex;
-        text-align: center;
-        font-size: 2.5em;
-        margin-top: auto;
-        min-height: 5vh;
-    }
-
-    
-
-
-
     #versus {
         font-size: 2em;
         padding: 0 1em 0 1em;
