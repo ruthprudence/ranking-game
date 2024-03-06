@@ -7,8 +7,8 @@ export const ResultsView = ({ topic, rankings, animationClass}) => {
     return (
         <div className="page-view">
             <div className={animationClass}>
-<h2 id="headingResults">{topic} <span className="smaller-text">..ranked!</span></h2>
-        {rankings.length > 0 ? (
+                <h2 id="headingResults">{topic} <span className="smaller-text">..ranked!</span></h2>
+                {rankings.length > 0 ? (
             <table id="resultsTable">
                 <thead>
                     <tr>
@@ -30,9 +30,12 @@ export const ResultsView = ({ topic, rankings, animationClass}) => {
         ) : (
             <p>No results available.</p>
         )}
-        <div className="playAgain"><RenderFooterButton/> </div>
-        </div>
+         
+            <div className="playAgain"><RenderFooterButton/> </div>
+            <div className="slideBottomToTop">
         <div className="footer-container resultsFooter"><Footer /> </div>
+        </div>
+    </div>
     </div>
     );
 };

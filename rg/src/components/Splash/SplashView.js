@@ -16,8 +16,9 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
     return (
         <div className="page-view">
             
-            <h1 id="headingSplash">the Ranking Game</h1>
+         
             <div className={ animationClass}>
+            <h1 id="headingSplash">the Ranking Game</h1>
             <div className="splashPromptContainer">
             <p id="splashPrompt" className={splashPromptClass}>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</p>
             </div>
@@ -40,7 +41,9 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
                 </SoundButton>
             </div>
             </div>
+            <div className="slideBottomToTop">
             <div className="footer-container" ><Footer /> </div>
+            </div>
         </div>
     );
 };

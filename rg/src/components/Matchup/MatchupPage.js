@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from '../../features/game/gameSlice';
 import { startMatchup, handleChoiceSelect} from '../../features/ui/uiSlice';
 
+import KeyboardEventHandler from '../UI/KeyboardEventHandler';
+
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { PAGES } from '../../features/constants';
 import { MatchupView } from './MatchupView';
@@ -67,7 +69,17 @@ const MatchupPage = ({ animationClass }) => {
     }
   };
 
+    // Define the keyMap for the KeyboardEventHandler
+  const keyMap = {
+    's': () => onButtonClick(0),
+    'arrowleft': () => onButtonClick(0),
+    'k': () => onButtonClick(1),
+    'arrowright': () => onButtonClick(1)
+  };
+
   return (
+    <>
+    <KeyboardEventHandler keyMap={keyMap} />
     <MatchupView
       animationClass={animationClass} 
       topic={topic}
@@ -77,6 +89,7 @@ const MatchupPage = ({ animationClass }) => {
       currentPairIndex={currentPairIndex}
       totalPairs={totalPairs}
     />
+    </>
   );
 };
 
