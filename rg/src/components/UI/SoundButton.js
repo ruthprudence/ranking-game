@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { playSound } from '../../features/audio/soundPlayer'; 
 
 const SoundButton = ({ onClick, children, soundName, isDisabled, className, ...props }) => {
     const [isClicked, setIsClicked] = useState(false);
     const muted = useSelector((state) => state.audio.muted);
 
     const handleClick = (e) => {
-
-        if (!muted) {
-            const audioElement = document.getElementById(soundName);
-            if (audioElement) {
-                const newAudio = new Audio(audioElement.src);
-                newAudio.play().catch(error => console.error(`Error playing sound: ${soundName}`, error));
-            }
-        }
+        playSound(soundName, muted);
 
         if (onClick) {
             onClick(e);

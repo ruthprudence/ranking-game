@@ -10,9 +10,15 @@ import KeyboardEventHandler from '../UI/KeyboardEventHandler';
 import { selectCurrentPair } from '../../features/matchup/matchupSelectors';
 import { PAGES } from '../../features/constants';
 import { MatchupView } from './MatchupView';
+import { playSound } from '../../features/audio/soundPlayer';
+import { SOUND_NAME } from '../../features/constants';
 
 const MatchupPage = ({ animationClass }) => {
   const dispatch = useDispatch();
+  const muted = useSelector((state) => state.audio.muted);
+  const [triggeredByKeyboard, setTriggeredByKeyboard] = useState(false);
+
+
   const isComparisonComplete = useSelector((state) => state.ui.isComparisonComplete);
   const currentPair = useSelector(selectCurrentPair);
   const topic = useSelector((state) => state.ui.topic);
@@ -47,45 +53,72 @@ const MatchupPage = ({ animationClass }) => {
     }
   }, [isComparisonComplete, dispatch]);
 
+
+
   const [clickedButtonIndex, setClickedButtonIndex] = useState(null);
 
-  const onButtonClick = (buttonIndex) => {
-    if (currentPair && currentPair.length === 2) {
-      const buttons = document.querySelectorAll('.matchupBtn');
-      const container = document.querySelector('.matchup-buttons-container');
+  const handleChoice = (buttonIndex) => {
+    // Play sound
+    if (!muted) {
+        playSound(SOUND_NAME.EATGHOST); // Replace EATGHOST with actual sound name
+    }
 
-      buttons[buttonIndex].classList.add('button-clicked');
+    // Logic after choice is made
+    const buttons = document.querySelectorAll('.matchupBtn');
+    const container = document.querySelector('.matchup-buttons-container');
 
-      container.classList.add('slide-out');
+    buttons[buttonIndex].classList.add('button-clicked');
+    container.classList.add('slide-out');
 
-      
-      setTimeout(() => {
+    setTimeout(() => {
         buttons[buttonIndex].classList.remove('button-clicked');
         container.classList.remove('slide-out');
-      dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
-      dispatch({ type: 'ADD_SLICE' });
-      }, 300); 
+        dispatch(handleChoiceSelect({ choiceIndex: buttonIndex, items }));
+        dispatch({ type: 'ADD_SLICE' });
+    }, 300); 
+};
 
+const playSoundForKeyboardEvent = () => {
+  if (!muted) {
+    playSound(SOUND_NAME.EATGHOST); 
+  }
+};
+
+const keyMap = {
+  's': () => handleChoice(0),
+  'ArrowLeft': () => handleChoice(0),
+  'k': () => handleChoice(1),
+  'ArrowRight': () => handleChoice(1)
+};
+
+useEffect(() => {
+  const handleGlobalKeyPress = (event) => {
+    console.log(`Global Key pressed: ${event.key}`); // Debugging log
+    if (event.key === 's' || event.key === 'ArrowLeft') {
+      handleChoice(0);
+    } else if (event.key === 'k' || event.key === 'ArrowRight') {
+      handleChoice(1);
     }
   };
 
-    // Define the keyMap for the KeyboardEventHandler
-  const keyMap = {
-    's': () => onButtonClick(0),
-    'arrowleft': () => onButtonClick(0),
-    'k': () => onButtonClick(1),
-    'arrowright': () => onButtonClick(1)
+  // Adding a global event listener
+  window.addEventListener('keydown', handleGlobalKeyPress);
+
+  return () => {
+    window.removeEventListener('keydown', handleGlobalKeyPress);
   };
+}, []);
+
 
   return (
     <>
-    <KeyboardEventHandler keyMap={keyMap} />
+    <KeyboardEventHandler keyMap={keyMap} muted={muted} />
     <MatchupView
       animationClass={animationClass} 
       topic={topic}
       currentPair={currentPair}
       items={items}
-      onButtonClick={onButtonClick}
+      onButtonClick={handleChoice}
       currentPairIndex={currentPairIndex}
       totalPairs={totalPairs}
     />
