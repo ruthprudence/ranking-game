@@ -78,11 +78,6 @@ const MatchupPage = ({ animationClass }) => {
     }, 300); 
 };
 
-const playSoundForKeyboardEvent = () => {
-  if (!muted) {
-    playSound(SOUND_NAME.EATGHOST); 
-  }
-};
 
 const keyMap = {
   's': () => handleChoice(0),
@@ -90,25 +85,6 @@ const keyMap = {
   'k': () => handleChoice(1),
   'ArrowRight': () => handleChoice(1)
 };
-
-useEffect(() => {
-  const handleGlobalKeyPress = (event) => {
-    console.log(`Global Key pressed: ${event.key}`); // Debugging log
-    if (event.key === 's' || event.key === 'ArrowLeft') {
-      handleChoice(0);
-    } else if (event.key === 'k' || event.key === 'ArrowRight') {
-      handleChoice(1);
-    }
-  };
-
-  // Adding a global event listener
-  window.addEventListener('keydown', handleGlobalKeyPress);
-
-  return () => {
-    window.removeEventListener('keydown', handleGlobalKeyPress);
-  };
-}, []);
-
 
   return (
     <>

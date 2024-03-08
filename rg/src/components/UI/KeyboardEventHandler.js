@@ -6,10 +6,13 @@ import { SOUND_NAME } from '../../features/constants';
 const KeyboardEventHandler = ({ keyMap, muted }) => {
   const handleKeyPress = (event) => {
     console.log(`Key pressed: ${event.key}`); // Debugging log
-    if (!muted) playSound(SOUND_NAME.EATGHOST); // Play sound for testing
 
     const keyAction = keyMap[event.key.toLowerCase()] || keyMap[event.key];
     if (keyAction) {
+      if (!muted) {
+        // Play sound only if the key action is defined in keyMap
+        playSound(SOUND_NAME.EATGHOST);
+      }
       keyAction();
     }
   };
