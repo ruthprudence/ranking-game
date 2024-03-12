@@ -7,7 +7,9 @@ export const MatchupView = ({ topic, handleChoiceSelect, currentPair, items, onB
   
   return (
     <div className="page-view">
+      <h1 id="headingInput" className="largetosmallh1">the Ranking Game</h1>
       <div className={animationClass}>
+      
       <p id="inputTopicDescription">Your Topic:</p>
       <h2 id="headingMatchup">{topic}</h2>
       <div className="matchup-page-view">

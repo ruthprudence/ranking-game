@@ -6,6 +6,7 @@ import { RenderFooterButton } from '../../features/ui/RenderFooterButton';
 export const ResultsView = ({ topic, rankings, animationClass}) => {
     return (
         <div className="page-view">
+            <h1 id="headingInput" className="smallh1">the Ranking Game</h1>
             <div className={animationClass}>
                 <h2 id="headingResults">{topic} <span className="smaller-text">..ranked!</span></h2>
                 {rankings.length > 0 ? (

@@ -18,7 +18,7 @@ export const SplashView = ({ localTopic, setLocalTopic, handleTopicSubmit, isSub
             
          
             <div className={ animationClass}>
-            <h1 id="headingSplash">the Ranking Game</h1>
+            <h1 id="headingInput">the Ranking Game</h1>
             <div className="splashPromptContainer">
             <p id="splashPrompt" className={splashPromptClass}>{isSubmitEnabled ? PROMPTS.SPLASH : ERRORS.SPLASH}</p>
             </div>

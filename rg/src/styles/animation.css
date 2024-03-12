@@ -305,3 +305,22 @@
 .slideBottomToTop {
   animation: slideBottomToTop 0.5s ease forwards;
 }
+
+@keyframes shrinkHeader {
+  from {
+      font-size: 200%;  /* Starting font size, adjust as needed */
+  }
+  to {
+      font-size: 100%;  /* Ending font size, adjust as needed */
+  }
+}
+
+.largetosmallh1 {
+  animation-name: shrinkHeader;
+  animation-duration: 2s;  /* Animation duration, adjust as needed */
+  animation-fill-mode: forwards; /* This ensures the element stays in the final state */
+}
+
+.smallh1 {
+  font-size: 100%;
+}
