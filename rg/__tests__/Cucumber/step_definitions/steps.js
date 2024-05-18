@@ -1,8 +1,8 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const splashPage = require('../../pages/SplashPage');
-const inputPage = require('../../pages/InputPage');
-const matchupPage = require('../../pages/MatchupPage');
-const resultsPage = require('../../pages/ResultsPage');
+const splashPage = require('../pages/SplashPage');
+const inputPage = require('../pages/InputPage');
+const matchupPage = require('../pages/MatchupPage');
+const resultsPage = require('../pages/ResultsPage');
 
 Given('I am on the splash page', async function() {
   await browser.get('http://localhost:3000');

@@ -1,4 +1,10 @@
 module.exports = {
-    default: `--format html:reports/cucumber-report.html --format json:reports/cucumber-report.json --format-options '{"snippetInterface": "async-await"}'`
+    "default": {
+        "require": [
+          "./step_definitions/*.js",
+          "./features/support/*.js"
+        ],
+        "format": ["pretty"]
+      }
   };
   
