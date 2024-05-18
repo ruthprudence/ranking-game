@@ -1,17 +1,17 @@
 exports.config = {
     runner: 'local',
     specs: [
-        './features/*.feature'
+      './rg/__tests__/Cucumber/features/**/*.feature'
     ],
     exclude: [],
-    maxInstances: 10,
+    maxInstances: 1,
     capabilities: [{
-        maxInstances: 5,
-        browserName: 'chrome',
+      maxInstances: 1,
+      browserName: 'chrome',
     }],
     logLevel: 'info',
     bail: 0,
-    baseUrl: 'http://localhost', // replace with your site's URL
+    baseUrl: 'http://localhost:3000',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
@@ -19,19 +19,22 @@ exports.config = {
     framework: 'cucumber',
     reporters: ['spec'],
     cucumberOpts: {
-        require: ['./step_definitions/*.js'], // import step definitions
-        backtrace: false,
-        requireModule: ['@babel/register'],
-        dryRun: false,
-        failFast: false,
-        format: ['pretty'],
-        colors: true,
-        snippets: true,
-        source: true,
-        profile: [],
-        strict: false,
-        timeout: 60000,
-        ignoreUndefinedDefinitions: false,
-        tags: 'not @Pending',
-    },
-};
+      require: [
+        './rg/__tests__/Cucumber/step_definitions/**/*.js'
+      ],
+      backtrace: false,
+      requireModule: [],
+      dryRun: false,
+      failFast: false,
+      format: ['pretty'],
+      colors: true,
+      snippets: true,
+      source: true,
+      profile: [],
+      strict: false,
+      tagExpression: '',
+      timeout: 60000,
+      ignoreUndefinedDefinitions: false
+    }
+  };
+  
