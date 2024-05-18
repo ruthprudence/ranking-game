@@ -1,13 +1,10 @@
 class InputPage {
-    constructor() {
-      this.rows = element.all(by.css('.input-row'));
-      this.addRowButton = element(by.id('add-row-button'));
-      this.submitButton = element(by.id('input-submit-button'));
-    }
+    get rows() { return $$('.input-row input'); }
+    get addRowButton() { return $('#add-row-button'); }
+    get submitButton() { return $('#input-submit-button'); }
   
     async enterRow(index, text) {
-      const row = this.rows.get(index).element(by.css('input'));
-      await row.sendKeys(text);
+      await this.rows[index].setValue(text);
     }
   
     async addRow() {

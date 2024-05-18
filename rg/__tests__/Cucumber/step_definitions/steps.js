@@ -5,7 +5,7 @@ const matchupPage = require('../pages/MatchupPage');
 const resultsPage = require('../pages/ResultsPage');
 
 Given('I am on the splash page', async function() {
-  await browser.get('http://localhost:3000');
+  await browser.url('http://localhost:3000');
 });
 
 When('I enter a topic', async function() {

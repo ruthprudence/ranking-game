@@ -1,8 +1,6 @@
 class MatchupPage {
-    constructor() {
-      this.leftButton = element(by.id('left-button'));
-      this.rightButton = element(by.id('right-button'));
-    }
+    get leftButton() { return $('#left-button'); }
+    get rightButton() { return $('#right-button'); }
   
     async chooseLeft() {
       await this.leftButton.click();

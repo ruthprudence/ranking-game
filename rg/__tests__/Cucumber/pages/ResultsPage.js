@@ -1,10 +1,8 @@
 class ResultsPage {
-    constructor() {
-      this.results = element.all(by.css('.result-item'));
-    }
+    get results() { return $$('.result-item'); }
   
     async getResults() {
-      return this.results.getText();
+      return await Promise.all(this.results.map(async result => await result.getText()));
     }
   }
   

@@ -1,11 +1,9 @@
 class SplashPage {
-    constructor() {
-      this.topicInput = element(by.id('topic-input'));
-      this.submitButton = element(by.id('submit-button'));
-    }
+    get topicInput() { return $('#topic-input'); }
+    get submitButton() { return $('#submit-button'); }
   
     async enterTopic(topic) {
-      await this.topicInput.sendKeys(topic);
+      await this.topicInput.setValue(topic);
     }
   
     async submit() {
