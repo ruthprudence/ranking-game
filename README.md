@@ -2,12 +2,16 @@
 
 ## Introduction
 
-[https://rg.ruthprudence.com](https://rg.ruthprudence.com)
+As a veteran full-stack developer with QA experience I wanted to demonstrate my abilities to take a project from start-to-finish:
+
+[![Ranking Game--Landing Page](/rg/assets/img/rg1.jpg)](https://rg.ruthprudence.com)
 
 
-This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating full-stack development, testing, and project management skills.
+This web app is built with JavaScript (**React/Redux**, **Express**, **Jest**)--demonstrating front-end, back-end, testing, and project management skills.
 
-Built using VS Code, Postman, MySQL, dev tools (Redux, Node) and Git.
+(Built using VS Code; Postman; MySQL; Node and Redux dev tools; Git; Vim)
+
+The Ranking Game can help users determine their priorities, with plans to grow as well (adding further Db integration and functionality).
 
 See live demo: [https://rg.ruthprudence.com](https://rg.ruthprudence.com)
 
@@ -16,6 +20,27 @@ See live demo: [https://rg.ruthprudence.com](https://rg.ruthprudence.com)
 ## Project Overview
 
 The Ranking Game is a React application that features dynamic input fields, real-time updates, and an intuitive interface, making decision-making seamless.
+
+Users enter a topic at a landing page, and then are given the option to add three or more items to compare.
+
+[![Ranking Game--Enter Topic](/rg/assets/img/rg2.jpg)](https://rg.ruthprudence.com)
+
+
+[![Ranking Game--Add Items](/rg/assets/img/rg3.jpg)](https://rg.ruthprudence.com)
+
+As users enter topics, on both mobile/desktop browsers, the page will automatically scroll down for user to enter new information.
+
+[![Ranking Game--Add More Items](/rg/assets/img/rg4.jpg)](https://rg.ruthprudence.com)
+
+The app uses game elements and design to be fun and intuitive--for example, the yellow buttons clear the item entered, while the red buttons remove the entire row (signifying a difference and fundamental minimum required for the user)
+
+After proceeding the user is presented with a series of match-ups, isolating their choices into a series of head-to-head match-ups. The goal is an "Arcade-feel," something fun to progress with. Also added are visual displays to convey the overall progress through the choice selections, in the form of a pie gradually filling.
+
+[![Ranking Game--Matchups](/rg/assets/img/rg5.jpg)](https://rg.ruthprudence.com)
+
+User is finally presented with a ranked list of their votes, and an option to play the game again.
+
+[![Ranking Game--Results](/rg/assets/img/rg6.jpg)](https://rg.ruthprudence.com)
 
 I used React because of the app's single-page nature; I went with Redux for managing state properties throughout. I'm using a component/feature model (upgraded from an MVC pattern) utilizing slices and reducers to handle logic/flow. The latter especially allows the app to scale, and eventually migrate to React Native.
 
